@@ -91,33 +91,40 @@ SELECT * FROM Book;
 
 
 
-select * from book;
+select * from book; -- 1번
 
-select bookname, price from book;
+select bookname, price from book;  -- 2번
 
-select name, address from customer;
+select name, address from customer; -- 3번
 
-select * from orders where saleprice > 15000;
+select orderid, bookid, saleprice -- 4번
+from Orders;
 
-select * from book where publisher = 굿스포츠;
+select * from book where price > 2000; -- 5번
 
-select * from book where price < 10000;
+select * from customer where address = '대한민국 서울'; -- 6번
 
-select * from Orders where  saleprice > 20000; 
+select * from orders where saleprice > 15000; -- 7번
 
+select * from book where publisher = '굿스포츠'; -- 8번
 
+select * from book where price < 10000; -- 9번
 
-select * from book where bookname like '%축구%' and price >= 20000;
+select * from Orders where  saleprice >= 20000; -- 10번
+
+select * from book where price < 30000; -- 11번
+
+ 
 
 -- 12번 ~ 16번
 
-select * from book where price between 10000 and 20000; -- 10000 20000포함함 
+select * from book where price between 10000 and 20000; -- 12번  10000 20000포함함   
 
-select * from Orders where saleprice between 15000 and 25000;
+select * from Orders where saleprice between 15000 and 25000; -- 13번
 
-select * from book where publisher in ('굿스포츠', '대한미디어');
+select * from book where publisher in ('굿스포츠', '대한미디어'); -- 14번
 
-select  * from customer where address in ('서울', '경기');
+select  * from customer where address in ('서울', '경기'); -- 15번
 
 select * from book where publisher not in('굿스포츠'); -- 16
 
@@ -145,5 +152,27 @@ where address like '%서울%' or phone is null;
  select  distinct orderid
  from Orders;
 
+-- order by 순서라는 뜻도 있음, 정렬 낮은 가격순 높은 가격순 이름으로 하면 가나다가 순 1,2,3,4 오름차순 반대 내림차순
 
+-- 23
+select * 
+from book order by price;
 
+-- 24번
+select * 
+from book order by price desc;
+
+-- 25번
+select * 
+from Orders order by saleprice desc;
+
+-- 26번
+select * 
+from customer order by name asc;
+
+select * from book;
+
+-- 20 
+select *
+from book
+order by price desc limit 1;
