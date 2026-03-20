@@ -1,0 +1,7 @@
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\bin\Debug\Friday_Project.exe.config
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\bin\Debug\Friday_Project.exe
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\bin\Debug\Friday_Project.pdb
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\obj\Debug\Friday_Project.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\obj\Debug\Friday_Project.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\obj\Debug\Friday_Project.exe
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Friday_Project\Friday_Project\obj\Debug\Friday_Project.pdb

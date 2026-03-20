@@ -63,8 +63,11 @@ print(nums)
 
 nums = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 nums.sort(reverse=True)
-print(nums)
+print(nums) # 내림차순
 
+nums = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+nums.sort()
+print(nums)   #오름 차순
 
 
 
