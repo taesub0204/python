@@ -1,13 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <locale.h>
 
 int main()
 {
+
 	const int c = 1;
 	//ci = 1; 값이 변하였다. 그래서 동일 선상에서 변수 초기값 설정
 
 
 	printf("홍길동");
+
+	return 0;
 }
 
 /*
