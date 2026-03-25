@@ -1,193 +1,239 @@
-
-DROP DATABASE IF EXISTS library; -- 1. 기존에 잘못 만들었을지 모를 DB 삭제 (선택사항)
-create database library;  -- library라는 데이터베이스 생성
-show databases;
-
-use library;
+CREATE DATABASE library;
 
 
 create table books(
-id int auto_increment primary key, -- 고유번호
-title varchar(100) not null, -- 책 제목
-author varchar(50), -- 저자
-published_year int, -- 출판년도
-available boolean default true
+    id int auto_increment  primary key,
+    title varchar(30) not null,
+    author varchar(20) not null,
+    published_year int,
+    available boolean default true
+    );
+
+show tables;
+desc books;
+
+insert into books(title, author, published_year, available) values('데미안', '헤르만헤세', 1919, true);
+insert into books(title, author, published_year, available) values('어린왕자', '생택쥐베리', 1943, true);
+insert into books(title, author, published_year, available) values('데이터베이스입문', '홍길동', 2026, true);
+insert into books(title, author, published_year, available) values('백설공주', '이솝', 2020, true);
+insert into books(title, author, published_year, available) values('빅데이터처리', '김길동', 2026, true);
+
+
+select count(*) as total_books, sum(available) as 대출가능권수, avg(published_year) as 최근책 from books ;
+select * from books;
+select available, count(*) as 책수 from books group by available; 
+select * from books order by published_year desc; -- 정렬 order by, ASC(오름차순, 디폴트값), DESC(내림차순)
+select * from books order by available desc; 
+select title, author from books; 
+select * from books where published_year > 2000;
+select * from books where  title like '데%';
+delete from books where id=9;
+delete from books where  author = '홍길동';
+update books set available=false where author ='헤르만헤세';
+update books set title='빅데이터활용' where id = 6;
+update books set title='데미안1' where id =1;
+update books set title='데미안2' where id =2;
+
+
+
+create table students(
+    id int auto_increment primary key, 
+    name varchar(20) not null, 
+    age int,
+    major varchar(20)
 );
+
+create table borrow(
+    id int auto_increment, 
+   student_id int not null,
+    book_id int not null,
+    borrow_date Date not null default (CURRENT_DATE),
+    return_date Date, 
+    primary key(id),
+    foreign key(student_id) references students(id),
+   foreign key(book_id) references books(id)
+);
+
+select * from students;
+select * from books;
+desc borrow;
+
+update students set major = '컴퓨터공학' where id = 1;
+update students set major = '반도체공학' where id = 2;
+update books set available = true;
+
+
+select * from students;
+select * from students order by age asc limit 2 offset 5;
+select * from students where major is not null;
+select * from students where name like '%이%';
+select * from students where age between 20 and 25;
+select * from students where major in ('컴퓨터공학', '전자공학', '전기공학');
+insert into students(name, age, major) values('김철수', 20, '컴퓨터공학');
+insert into students(name, age, major) values('이영희', 21, '반도체공학');
+insert into students(name, age, major) values('박정훈', 22, '전자공학');
+insert into students(name, age, major) values('아이유', 25, '대중음악'); 
+insert into students(name, age, major) values('성시경', 30, '수학');
+insert into students(name, age, major) values('박신혜', 35, '연극영화');
+update students set major='컴퓨터공학' where id = 9;
+
+select major, count(*) as  학생수, avg(age) as 평균나이, max(age) as old, min(age) as young  from students group by major ;   
+select major, count(*) as  학생수, avg(age) as 평균나이 from students group by major having count(*) >= 2;
+select major, count(*) as  학생수, avg(age) as 평균나이 from students group by major order by 학생수 desc ;
+select major, count(*) as  학생수, avg(age) as 평균나이 from students group by major order by 평균나이 desc ;
+
+select * from students;
+select * from borrow;
+select * from books;
+select * from students where major like '%!%%' escape '!' ; -- escape 문자 설정 !%, #% ==> % 원래의 기능을 제거
+ 
+update students set major = '컴퓨&공학' where id =1;
+update students set major = '반도&공학' where id =2;
+
+use library;
+desc books;
+desc students;
+
+
+
+SELECT s.name, b.title 
+FROM students as s
+JOIN borrow AS br ON s.id = br.student_id
+JOIN books AS b ON br.book_id = b.id;
+
+select s.name, b.title 
+from students as s
+cross join books as b;
+
+SELECT s.name, b.title
+FROM students AS s
+LEFT JOIN borrow AS br ON s.id = br.student_id
+LEFT JOIN books AS b ON br.book_id = b.id;
+
+SELECT s.name, b.title
+FROM students AS s
+right JOIN borrow AS br ON s.id = br.student_id
+right JOIN books AS b ON br.book_id = b.id;
+
+
+SELECT s.name, b.title
+FROM students AS s
+INNER JOIN borrow AS br ON s.id = br.student_id
+INNER JOIN books AS b ON br.book_id = b.id;
+
+-- INNER JOIN: 교집합 (양쪽에 모두 있는 데이터)
+-- LEFT JOIN: 왼쪽 기준 전체 + 오른쪽 매칭
+-- RIGHT JOIN: 오른쪽 기준 전체 + 왼쪽 매칭
+-- FULL OUTER JOIN: 합집합 (MySQL에서는 직접 구현)
+-- CROSS JOIN: 모든 조합
+
+SELECT s.name, b.title, b.published_year, br.borrow_date
+FROM students AS s
+INNER JOIN borrow AS br ON s.id = br.student_id -- 두테이블 조인 할 떄 
+INNER JOIN books AS b ON br.book_id = b.id
+where s.name like '김%';
+
+
+SELECT *
+FROM students
+WHERE age = (SELECT MAX(age) FROM students); -- 서브쿼리 예제
+
+SELECT MAX(age) FROM students;
+
+
+
+SELECT s.name, b.title, br.borrow_date
+FROM students AS s
+LEFT JOIN borrow AS br ON s.id = br.student_id
+LEFT JOIN books AS b ON br.book_id = b.id
+where b.published_year > 2020;
+
+SELECT name
+FROM students
+WHERE id IN (
+    SELECT student_id
+    FROM borrow
+    WHERE book_id IN (
+        SELECT id
+        FROM books
+        WHERE published_year >= 2020
+    )
+);
+
+ SELECT id
+        FROM books
+        WHERE published_year >= 2020;
+
+select major, avg(age)
+from students 
+group by major
+having avg(age) >= 22; 
+
+
+SELECT sub.major, sub.avg_age
+FROM (
+    SELECT major, AVG(age) AS avg_age
+    FROM students
+    GROUP BY major
+) AS sub
+WHERE sub.avg_age >= 22;
+
+SELECT major, AVG(age) AS avg_age
+    FROM students
+    GROUP BY major;
+
+create view avgage as
+SELECT major, AVG(age) AS avg_age
+    FROM students
+    GROUP BY major;
+    
+select * from avgage;
+
+select major, avgage
+from  avgage
+where avg_age >= 22;
 
 show tables;
 
-DESCRIBE books;
-
-INSERT INTO books (title, author, published_year, available)
-VALUES ('데미안', '헤르만 헤세', 1919, TRUE);
-
-INSERT INTO books (title, author, published_year, available)
-VALUES ('어린왕자', '생텍쥐페리', 1943, TRUE);
-
-INSERT INTO books (title, author, published_year, available)
-VALUES ('데이터베이스 입문', '홍길동', 2025, FALSE);
-
-INSERT INTO books (title, author, published_year, available)
-VALUES ('C언어', '장문수', 2000, FALSE);
-
-INSERT INTO books (title, author, published_year, available)
-VALUES ('개념원리', '조태섭', 1800, FALSE);
-
-INSERT INTO books (title, author, published_year, available) 
-VALUES ('미래의 반도체', '미상', NULL, TRUE);
+show full tables where table_type = 'VIEW';
+show full tables;
+drop view avgager;
 
 
-select * from books;
-
--- CREATE DATABASE → 새로운 데이터베이스 만들기
--- CREATE TABLE → 데이터를 담을 표 구조 정의
--- INSERT INTO → 실제 데이터 저장
--- SELECT → 데이터 확인
-
-SET SQL_SAFE_UPDATES = 0; -- 안전모드 해제 실수로 모든데이터 수정 삭제 해버리는 사고 방지 title은 기본키가 아님
-
-update books
-set published_year = 2024
-where title = '데이터베이스 입문';
-
-delete from books 
-where title = '어린왕자'; -- 안지워짐 아래와 같이 id로 날려줌
-
--- select * from books;
--- DELETE FROM books WHERE id = 2;
-
-select *  from books
-where published_year >=2000;
-
-select * from books
-where author = '홍길동' AND available = FALSE;
-
-select * from books
-where author = '홍길동' or published_year < 1900;
-
-select * from books
-order by published_year asc; -- 정렬 하기 오름차순 1, 2, 3,...
-
-select * from books
-order by published_year desc; -- 내림차순 100 99 98
-
-select * from books 
-order by published_year desc LIMIT 2; -- 많은 데이터 중 일부 확인하기
-
-select * from books;
-
-select * from books
-where author = '홍길동' AND published_year >= 2020; -- 저자가 홍길동이고 출판연도가 2020년 이후인 책
-
-select * from books
-where author = '홍길동' or published_year < 1950;
-
-select * from books
-where author in ('홍길동','호르만헤세',"조태섭");
-
-select * from books
-where title like '%데이터%';
-
-select * from books
-where title like '어린%';
-
-select * from books
-where title like '___';
-
-select * from books   -- 저자가 입력되지 않은 책
-where author is null;
-
-select * from books   -- 저자가 입력되지 않은 책
-where published_year is null;
-
-select * from books   -- 저자가 입력된 책
-where author is not null;
-
--- 집계 함수란 
--- 집계 함수 (Aggregate Function)은 여러 행의 값을 모아 하나의 결과로 보여주는 함수 입니다.
--- 자주 쓰이는 집계 함수는 다음과 같습니다.
-
--- books 테이블에 등록된 책의 수 
--- as 쓰면 별칭 붙여줌
-select count(*) as total_books from books;
 
 
-CREATE TABLE students (
-    student_id INT PRIMARY KEY,       -- 학번 (중복 안됨, 고유 번호)
-    name VARCHAR(50) NOT NULL,        -- 이름 (비어있으면 안됨)
-    age INT,                          -- 나이 (NULL 허용 가능)
-    major VARCHAR(100),               -- 학과 (반도체장비소프트웨어과 등)
-    enrollment_date DATE              -- 입학일
-);
-INSERT INTO students (student_id, name, age, major, enrollment_date) VALUES 
-(2026001, '김철수', 20, '반도체장비소프트웨어과', '2026-03-02'),
-(2026002, '이영희', 21, '시각디자인과', '2025-03-02'),
-(2026003, '박민준', 23, '컴퓨터공학과', '2023-03-02'),
-(2026004, '최수지', NULL, '반도체장비소프트웨어과', '2026-03-02'), -- 나이 모름(NULL)
-(2026005, '정태양', 22, NULL, '2024-03-02'); -- 학과 미정(NULL)
-
-commit;
-
-select sum(age) as total_age, 
-		avg(age) as avg_age from students;
-        
-select min(age) as youngest, max(age) as oldman from students;
-
-select major, count(*) as students_count from students group by major; -- 그룹별로 요약 해줌
-
-select major, count(*) as student_count from students group by major having count(*) >= 3;
-select major, count(*) as student_count from students group by major having count(*) >= 2; -- 그룹화된  통계치에 조건을 거는 거 having은 조건을 줄 수 있음
-
-select major, count(*) as student_count from students group by major order by student_count desc;
+create	view borrowed_books as
+select s.name, b.title, br.borrow_date
+from students as s
+inner join borrow as br on s.id = br.student_id
+inner join books as b on br.book_id = b.id;
 
 
-select major, count(*) as studnet_count,
-avg(age) as avg_age,
-max(age) as oldest
-from students
-group by major having major = '반도체장비소프트웨어과';
 
-/* 
-SELECT 컬럼들
-FROM 테이블1
-JOIN 테이블2
-  ON 테이블1.컬럼 = 테이블2.컬럼;
-*/
-use library;
+CREATE INDEX idx_title -- 인덱스 생성
+ON books(title);
 
-DROP TABLE IF EXISTS borrow;
-CREATE TABLE borrow (
-    borrow_id INT PRIMARY KEY AUTO_INCREMENT, -- 대출 번호 (자동 증가)
-    student_id INT,                           -- 빌린 학생 (students 테이블의 학번)
-    book_id INT,                              -- 빌린 책 (books 테이블의 ID)
-    borrow_date DATE,                         -- 빌린 날짜
-    return_date DATE                          -- 반납 예정일 (혹은 반납일)
-);
+show index from books; -- 북테이블 인덱스 보기 
 
-INSERT INTO borrow (student_id, book_id, borrow_date, return_date) VALUES 
-(2026001, 1, '2026-03-10', '2026-03-24'), -- 김철수가 1번 책 대출
-(2026001, 6, '2026-03-12', '2026-03-26'), -- 김철수가 2번 책 또 대출   2번 delete해서 날린거는 복구가 안됨 6으로 수정
-(2026002, 3, '2026-03-15', '2026-03-29'), -- 이영희가 3번 책 대출
-(2026003, 1, '2026-02-01', '2026-02-15'), -- 박민준이 예전에 1번 빌렸던 기록
-(2026004, 5, '2026-03-18', '2026-04-01'); -- 최수지가 5번 책 대출
+explain select * from books where title = '데미안';
+explain select * from books where author = '헤르만헤세';
 
-COMMIT; -- 번개 잊지 마세요!
-
--- 학생이 빌린 책 정보 확인하기
-select title from books;
-
-select s.name, b.title from students as s 
-inner join borrow as br on s.student_id = br.student_id -- 같은 student_id가 있다면 합쳐
-inner join books as b on br.book_id = b.id; -- book id가 있다면 합쳐 그리고 교집합을 조인해 
+-- WHERE 조건으로 자주 검색하는 컬럼
+-- JOIN 조건으로 자주 쓰이는 컬럼
+-- ORDER BY, GROUP BY에 자주 쓰이는 컬럼
+    
+--     CREATE TABLE students (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     name VARCHAR(50),
+--     email VARCHAR(100) UNIQUE
+-- );
+-- 👉 email은 중복 저장 불가 + 인덱스 자동 생성 성능최적화를 위해 알고 있어야 함 
 
 
---  모든 학생과 그들이 빌린 책 보기
-select s.name, b.title from students as s     -- 먼저 쓴놈이 대장 기준 그제 왼쪽이라네 studens로 이름 다 붙여 
-left join borrow as br on s.student_id = br.student_id
-left join books as b on br.book_id = b.id;
+    
+    
+    
+    
+    
 
-SELECT id, title FROM books;
 
-select s.name, b.title from students as s     -- 먼저 쓴놈이 대장 기준 그제 왼쪽이라네 studens로 이름 다 붙여 
-right join borrow as br on s.student_id = br.student_id
-right join books as b on br.book_id = b.id; -- 좀 어렵네  책이 있는데 아무도 대출하지 않은 책 null로 노출됨
