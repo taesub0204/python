@@ -170,8 +170,3 @@ use semicon_equipdb;
     where use_date between '2024-03-01' and '2024-03-12'
     group by user_id
     having max(use_date) >= '2024-03-10';
-    having max(use_date) >= '2024-03-10';
-    having max(use_date) >= '2024-03-10';
-    having max(use_date) >= '2024-03-10';
-    having max(use_date) >= '2024-03-10';
-    having max(use_date) >= '2024-03-10';
