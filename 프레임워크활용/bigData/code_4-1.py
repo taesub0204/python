@@ -1,8 +1,14 @@
 import pandas as pd  
 
 df = pd.read_csv('iris.csv', header=None)  # csv 파일 읽기
+df
+df.head(10)
+df['Species'].unique()
+
+
 # df = pd.read_csv('iris.csv', header=None) 
 df # 내용 확인
+
 
 # df1 = df.drop('Species',axis=1)
 # df1
