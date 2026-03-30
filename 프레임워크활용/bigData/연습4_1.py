@@ -1,6 +1,7 @@
 import pandas as pd  
-df = pd.read_csv('iris.csv')
+#df = pd.read_csv('iris.csv')
 #df = pd.read_csv('C:\Users\user\Desktop\taesub\python\프레임워크활용\bigData) 슬러시 반대로 해서 결로 넣어줘야함
+df = pd.read_csv('C:/Users/user/Desktop/taesub/python/프레임워크활용/bigData/data/iris.csv')
 
 
 df.describe()
