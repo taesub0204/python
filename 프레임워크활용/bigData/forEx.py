@@ -1,3 +1,6 @@
+# 소프트웨어공학（개발） 입문
+
+
 # number = int(input("숫자를 입력하세요: "))
 # sum = 0
 # for i in  range(1, number+1):

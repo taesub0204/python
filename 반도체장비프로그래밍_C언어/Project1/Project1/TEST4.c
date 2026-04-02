@@ -5,13 +5,28 @@
 int main()
 {
 
-	const int c = 1;
-	//ci = 1; 값이 변하였다. 그래서 동일 선상에서 변수 초기값 설정
+	int a = 4;
+	
+	switch (a) {
+	case 5:
+		printf("A");
+	case 3:
+		printf("B");
+	case 1: 
+		printf("C");
+	default:
+			printf("D");
 
-
-	printf("홍길동");
-
+	
+	
+	
+	
+	
+	
+	}
 	return 0;
+
+
 }
 
 /*

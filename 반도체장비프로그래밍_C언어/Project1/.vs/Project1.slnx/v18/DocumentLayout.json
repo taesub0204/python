@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Project1\\TEST4.c",
               "ToolTip": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uBC18\uB3C4\uCCB4\uC7A5\uBE44\uD504\uB85C\uADF8\uB798\uBC0D_C\uC5B8\uC5B4\\Project1\\Project1\\TEST4.c",
               "RelativeToolTip": "Project1\\TEST4.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-17T07:51:10.314Z",
               "IsPinned": true,
@@ -53,8 +53,7 @@
               "ViewState": "AgIAADkAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-17T06:44:29.382Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -66,8 +65,7 @@
               "RelativeToolTip": "Project1\\TEST3.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-03-17T07:47:41.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T07:47:41.018Z"
             },
             {
               "$type": "Document",

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\friday_project\\friday_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|c:\\users\\smart\\desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\friday_project\\friday_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|solutionrelative:friday_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\friday_project\\program1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\friday_project\\program1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33ECFAB9-E64B-4896-9C2A-2A763F1223C9}|Friday_Project\\Friday_Project.csproj|solutionrelative:friday_project\\program1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,9 +27,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Friday_Project",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Friday_Project.csproj",
+              "DocumentMoniker": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Friday_Project.csproj",
               "RelativeDocumentMoniker": "Friday_Project\\Friday_Project.csproj",
-              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Friday_Project.csproj",
+              "ToolTip": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Friday_Project.csproj",
               "RelativeToolTip": "Friday_Project\\Friday_Project.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-03-20T01:44:23.888Z"
@@ -38,11 +38,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program.cs",
               "RelativeDocumentMoniker": "Friday_Project\\Program.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program.cs",
+              "ToolTip": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program.cs",
               "RelativeToolTip": "Friday_Project\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T01:46:55.759Z",
               "EditorCaption": ""
@@ -51,9 +51,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program1.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program1.cs",
+              "DocumentMoniker": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program1.cs",
               "RelativeDocumentMoniker": "Friday_Project\\Program1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program1.cs",
+              "ToolTip": "C:\\Users\\SMART\\Desktop\\\uD3F4\uB9AC\uD14D\uC2E4\uC2B5\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Friday_Project\\Friday_Project\\Program1.cs",
               "RelativeToolTip": "Friday_Project\\Program1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
