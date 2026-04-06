@@ -23,10 +23,12 @@ CREATE TABLE  Customer (
 
 CREATE TABLE Orders (
   orderid INTEGER PRIMARY KEY,
-  custid  INTEGER REFERENCES Customer(custid),
-  bookid  INTEGER REFERENCES Book(bookid),
+  custid  INTEGER,
+  bookid  INTEGER,
   saleprice INTEGER,
-  orderdate DATE
+  orderdate DATE,
+  FOREIGN KEY (custid) REFERENCES Customer(custid),
+  FOREIGN KEY (bookid) REFERENCES Book(bookid)
 );
 
 -- Book, Customer, Orders 데이터 생성
@@ -57,5 +59,31 @@ INSERT INTO Orders VALUES (7, 4, 8, 13000, STR_TO_DATE( '2024-07-07','%Y-%m-%d')
 INSERT INTO Orders VALUES (8, 3, 10, 12000, STR_TO_DATE('2024-07-08','%Y-%m-%d')); 
 INSERT INTO Orders VALUES (9, 2, 10, 7000, STR_TO_DATE('2024-07-09','%Y-%m-%d')); 
 INSERT INTO Orders VALUES (10, 3, 8, 13000, STR_TO_DATE('2024-07-10','%Y-%m-%d'));
+
+-- =========================================
+
+INSERT INTO Book(bookid, bookname, publisher, price) VALUES 
+(12,'스포츠 의학','한솔의학서적',90000),
+(13,'스포츠 의학','한솔의학서적',90000),
+(11,'스포츠 의학','한솔의학서적',90000),
+(14,'스포츠 의학','한솔의학서적',NULL);
+
+
+INSERT INTO Customer(custid, name, address, phone)
+VALUES (6, '김하늘', '서울 서초구', '010-1111-2222');
+
+
+INSERT INTO Book(bookid, bookname, publisher, price)
+VALUES (16, '데이터 분석 입문', '한빛아카데미', 22000);
+
+INSERT INTO Orders(orderid, custid, bookid, saleprice, orderdate)
+VALUES (16, 6, 11, 21000, '2024-04-01');
+
+INSERT INTO Customer(custid, name, address, phone)
+VALUES (7, '이수민', '경기 성남시', '010-3333-4444');
+
+INSERT INTO Book(bookid, bookname, publisher, price)
+VALUES (17, 'SQL 연습문제집', '이지스퍼블리싱', 18000);
+
 
 COMMIT;
