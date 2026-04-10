@@ -1,3 +1,6 @@
+# pylint: disable=missing-module-docstring
+# pylint: disable=unused-import
+
 import seaborn as sns
 import pandas as pd
 

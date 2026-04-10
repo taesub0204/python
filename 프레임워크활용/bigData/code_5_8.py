@@ -1,4 +1,5 @@
 # pylint: disable=missing-module-docstring
+# pylint: disable=unused-import
 import pandas as pd   
 import matplotlib.pyplot as plt
 
@@ -46,3 +47,4 @@ plt.show()
 df1.describe()
 
 #5-11 s눈으로
+

@@ -1,6 +1,9 @@
 # 1.6.3. 언제 예외 처리(try-except)를 사용할까?
 # 좋은 예 - 네트워크 오류는 예측할 수 없는 예외 상황
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=unused-import
+
 import requests
 
 def fetch_user_data(user_id):
