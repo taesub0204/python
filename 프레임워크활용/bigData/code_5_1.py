@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 import pandas as pd
 import matplotlib.pyplot as plt
 favorite = pd.Series(['WINTER', 'SUMMER', 'SPRING', 'SUMMER', 'SUMMER', 'FALL','FALL','SUMMER', 'SPRING', 'SPRING'])

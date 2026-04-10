@@ -1,0 +1,7 @@
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\bin\Debug\ConsoleApp2_6_1.exe.config
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\bin\Debug\ConsoleApp2_6_1.exe
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\bin\Debug\ConsoleApp2_6_1.pdb
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\obj\Debug\ConsoleApp2_6_1.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\obj\Debug\ConsoleApp2_6_1.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\obj\Debug\ConsoleApp2_6_1.exe
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\ConsoleApp2_6_1\ConsoleApp2_6_1\obj\Debug\ConsoleApp2_6_1.pdb
