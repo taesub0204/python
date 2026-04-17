@@ -26,8 +26,8 @@ class Worker(Person):
         self.job = job  # 추가된 속성
 
     def introduce(self):
-        super().introduce()  # 부모 클래스의 introduce 메서드 호출
-        print(f"저는 {self.job}로 일하고 있습니다.")
+        # super().introduce()  # 부모 클래스의 introduce 메서드 호출
+        print(f"저는 {self.job}로 일하고 있습니다.") # 오버라이딩  부모꺼 안써도 됨... 위에 주석처리
     
 
     def change_job(self, new_job):
