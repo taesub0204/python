@@ -42,3 +42,5 @@ if content:
     print("파일 내용:", content)
 else:
     print("파일을 읽을 수 없습니다.")
+
+
