@@ -33,5 +33,12 @@ def main():
     person.set_age(28)
     print("변경된 나이:", person.get_age())
 
+
+
+    # person.age = -5  # 유효성 검사 실패, 예외 발생
+    # person.set_age(-10)  # 유효성 검사 실패, 예외 발생
+    person.set_age(35)  # 유효성 검사 통과, 나이 변경
+    print("최종 나이:", person.get_age())
+
 if __name__ == "__main__":
     main()
