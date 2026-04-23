@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\uD0DC\uC12D\\Project1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|D:\\\uD0DC\uC12D\\Project1\\Project1\\switch42.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|solutionrelative:Project1\\switch42.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|D:\\\uD0DC\uC12D\\Project1\\Project1\\for41.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|solutionrelative:Project1\\for41.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|D:\\\uD0DC\uC12D\\Project1\\Project1\\coffee40.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|solutionrelative:Project1\\coffee40.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|D:\\\uD0DC\uC12D\\Project1\\Project1\\for39.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B6D7DD34-FFC3-4851-AAFF-82327E0D6DBC}|Project1\\Project1.vcxproj|solutionrelative:Project1\\for39.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 42,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "switch42.c",
+              "DocumentMoniker": "D:\\\uD0DC\uC12D\\Project1\\Project1\\switch42.c",
+              "RelativeDocumentMoniker": "Project1\\switch42.c",
+              "ToolTip": "D:\\\uD0DC\uC12D\\Project1\\Project1\\switch42.c",
+              "RelativeToolTip": "Project1\\switch42.c",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-04-21T06:42:32.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "for41.c",
+              "DocumentMoniker": "D:\\\uD0DC\uC12D\\Project1\\Project1\\for41.c",
+              "RelativeDocumentMoniker": "Project1\\for41.c",
+              "ToolTip": "D:\\\uD0DC\uC12D\\Project1\\Project1\\for41.c",
+              "RelativeToolTip": "Project1\\for41.c",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-04-21T05:26:22.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "coffee40.c",
+              "DocumentMoniker": "D:\\\uD0DC\uC12D\\Project1\\Project1\\coffee40.c",
+              "RelativeDocumentMoniker": "Project1\\coffee40.c",
+              "ToolTip": "D:\\\uD0DC\uC12D\\Project1\\Project1\\coffee40.c",
+              "RelativeToolTip": "Project1\\coffee40.c",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-04-21T04:12:51.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "for39.c",
+              "DocumentMoniker": "D:\\\uD0DC\uC12D\\Project1\\Project1\\for39.c",
+              "RelativeDocumentMoniker": "Project1\\for39.c",
+              "ToolTip": "D:\\\uD0DC\uC12D\\Project1\\Project1\\for39.c",
+              "RelativeToolTip": "Project1\\for39.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-04-14T07:15:44.14Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 42,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

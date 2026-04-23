@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\coffee_order_for\bin\Debug\coffee_order_for.exe.config
+D:\2604340040_조태섭_하이테크\coffee_order_for\bin\Debug\coffee_order_for.exe
+D:\2604340040_조태섭_하이테크\coffee_order_for\bin\Debug\coffee_order_for.pdb
+D:\2604340040_조태섭_하이테크\coffee_order_for\obj\Debug\coffee_order_for.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\coffee_order_for\obj\Debug\coffee_order_for.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\coffee_order_for\obj\Debug\coffee_order_for.exe
+D:\2604340040_조태섭_하이테크\coffee_order_for\obj\Debug\coffee_order_for.pdb
+D:\2604340040_조태섭_하이테크\coffee_order_for\obj\Debug\coffee_order_for.exe.config

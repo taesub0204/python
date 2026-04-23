@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\bin\Debug\ConsoleApp_menu_coffee_order.exe.config
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\bin\Debug\ConsoleApp_menu_coffee_order.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\bin\Debug\ConsoleApp_menu_coffee_order.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\obj\Debug\ConsoleApp_menu_coffee_order.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\obj\Debug\ConsoleApp_menu_coffee_order.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\obj\Debug\ConsoleApp_menu_coffee_order.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\obj\Debug\ConsoleApp_menu_coffee_order.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp_menu_coffee_order\obj\Debug\ConsoleApp_menu_coffee_order.exe.config

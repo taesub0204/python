@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\bin\Debug\CoffeeMGMT.exe.config
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\bin\Debug\CoffeeMGMT.exe
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\bin\Debug\CoffeeMGMT.pdb
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\obj\Debug\CoffeeMGMT.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\obj\Debug\CoffeeMGMT.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\obj\Debug\CoffeeMGMT.exe
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\obj\Debug\CoffeeMGMT.pdb
+D:\2604340040_조태섭_하이테크\CoffeeMGMT\obj\Debug\CoffeeMGMT.exe.config

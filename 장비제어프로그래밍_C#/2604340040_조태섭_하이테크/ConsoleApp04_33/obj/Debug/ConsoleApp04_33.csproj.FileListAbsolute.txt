@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\bin\Debug\ConsoleApp04_33.exe.config
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\bin\Debug\ConsoleApp04_33.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\bin\Debug\ConsoleApp04_33.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\obj\Debug\ConsoleApp04_33.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\obj\Debug\ConsoleApp04_33.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\obj\Debug\ConsoleApp04_33.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\obj\Debug\ConsoleApp04_33.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp04_33\obj\Debug\ConsoleApp04_33.exe.config

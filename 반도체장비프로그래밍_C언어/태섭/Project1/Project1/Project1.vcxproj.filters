@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TEST5.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST6.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST7.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST8.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST9.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST10.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST11.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST12.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST13.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST14.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST15.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST16.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST17.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST18.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST19.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST20.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test21.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test22.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test23.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test24.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test25.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test26.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for27.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for28.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for29.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for30.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for31.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for32.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for33.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="forsum34.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for35.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for36.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for37.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for38.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for39.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="coffee40.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for41.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="switch42.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS // 데이터를 입력 받을 떄 보안에 문제가 있을 때, 해당문제를 해결하기 위해서 define 해줌
+#include <stdio.h> // 입력과 출력을 받는 함수들이 필요한 데 코딩함수 만들어주는 번거러우니까 <stino.h> 저장했어 꺼내서 쓰는 거임
+/*
+
+5개의 정수 data를 입력 받아서 짝수 개수 홀수 개수를 구하는 코드를 작성하시오.
+
+
+*/
+
+int main()
+{
+	
+	int i;
+	int data;
+	int even_count = 0;
+	int odd_count = 0;
+	for (i = 1; i <= 5; i++)
+	{
+
+		scanf("%d", &data);
+
+			if (data % 2 == 0) { // 나눈 몫이 0과 같다면 
+				even_count++; // print 문 내려 가면서 1증가하여 카운트됨
+			}
+			else 
+			{
+				odd_count++; // print 문 내려 가면서 1증가하여 카운트됨
+			}
+		
+
+
+
+	}
+
+	printf("짝수 = %d 홀수 = %d", even_count, odd_count);
+
+
+
+}
+
+
+
