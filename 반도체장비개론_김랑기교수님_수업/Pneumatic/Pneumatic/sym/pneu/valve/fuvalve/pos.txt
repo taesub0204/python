@@ -1,5 +1,0 @@
-DESCR Häufig verwendete Wegeventile
-1 -3 606 918 0.500000 0 1
-2 1 mvalve
-3 1 pvalve
-4 1 evalve
