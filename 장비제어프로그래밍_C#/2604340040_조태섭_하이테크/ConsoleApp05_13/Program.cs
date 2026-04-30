@@ -23,6 +23,7 @@ namespace ConsoleApp05_13
 
             Product product = new Product() { name = "감자", price = 2000 }; // 인스턴트 하나만 만들었어 product
             Product product1 = new Product() { name= "고구마", price = 3000}; // 인스턴트 하나만 만들었어 product1
+            Product product2 = new Product() { name = "옥수수", price = 4000 }; // 인스턴트 하나만 만들었어 product2
 
             //product.name = "감자";
             //product.price = 2000;
@@ -35,6 +36,7 @@ namespace ConsoleApp05_13
 
             Console.WriteLine(product.name+" : " + product.price + "원"); // 배열이 아니여서 하나만 들어감...
             Console.WriteLine(product1.name + " : " + product1.price + "원");
+            Console.WriteLine(product2.name + " : " + product2.price + "원");    
 
             product.price = 5000;
             Console.WriteLine(product.name + " : " + product.price + "원"); 

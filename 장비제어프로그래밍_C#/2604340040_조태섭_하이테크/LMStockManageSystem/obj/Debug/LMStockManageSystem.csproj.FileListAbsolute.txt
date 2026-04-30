@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\obj\Debug\LMStockManageSystem.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\obj\Debug\LMStockManageSystem.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\bin\Debug\LMStockManageSystem.exe.config
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\bin\Debug\LMStockManageSystem.exe
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\bin\Debug\LMStockManageSystem.pdb
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\obj\Debug\LMStockManageSystem.exe
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\obj\Debug\LMStockManageSystem.pdb
+D:\2604340040_조태섭_하이테크\LMStockManageSystem\obj\Debug\LMStockManageSystem.exe.config
