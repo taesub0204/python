@@ -94,3 +94,19 @@ print(sales2)
 
 sales
 sales2
+
+import seaborn as sns
+
+
+df = sns.load_dataset('titanic')
+
+#데이터 셋에대한 정보
+df.info()
+df
+
+#데이터셋 컬럼이름을 출력하시오
+print(df.columns)
+
+df.head(10)
+
+df.iloc[2,4]
