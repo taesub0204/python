@@ -183,5 +183,17 @@
     <ClCompile Include="array60.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="array61.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array62.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="function1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="function2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

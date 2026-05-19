@@ -69,7 +69,7 @@ int main()
 		for (int i = 0;i < 5; i++)
 
 		{
-			if (r == rank_array[i] ) 
+			if (r == rank_array[i] )  // 검색
 			//printf("%d\n", rank_array[i]);
 			printf("이름 : %s, score=[%d]=%d 석차는 %d\n", name[i], i, score[i], rank_array[i]);
 		}
