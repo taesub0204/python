@@ -129,5 +129,59 @@
     <ClCompile Include="switch42.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="for43.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for44.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="while45.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="for_while46.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array47.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array48.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array49.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array50.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array51.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="arraystring52.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array53.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array54.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array55.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array56.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array57.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array58.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array59.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array60.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
