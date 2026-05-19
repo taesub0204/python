@@ -43,6 +43,7 @@
             display.TabIndex = 0;
             display.Text = "게임을 시작하려면 게임시작 버튼을 누르세요.";
             display.TextAlign = ContentAlignment.MiddleCenter;
+            display.Click += display_Click;
             // 
             // textBox1
             // 
@@ -52,6 +53,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(328, 33);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyDown += textBox1_KeyDown;
             // 
             // btnStart

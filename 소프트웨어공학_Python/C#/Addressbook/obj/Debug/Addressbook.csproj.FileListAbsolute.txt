@@ -36,6 +36,7 @@ C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\
 C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.Properties.Resources.resources
 C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.csproj.GenerateResource.cache
 C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressb.F2C80804.Up2Date
 C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.exe
 C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.pdb
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\AddressB.06280804.Up2Date
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.FindNumber.resources

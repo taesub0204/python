@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\hello\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{039638F3-A6D7-FB67-E733-27BD896EFDC4}|Hello.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FABD5B63-D6D7-4533-9DD2-C12C946B0F05}|Hello.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,18 +41,18 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 540,
+          "DockedWidth": 623,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T00:16:17.774Z",
               "IsPinned": true,
@@ -53,12 +61,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form2.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form2.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Form2.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T01:49:14.523Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T01:48:57.028Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T01:41:45.283Z",
               "EditorCaption": ""
@@ -76,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -84,11 +124,12 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T01:20:29.086Z"
+              "WhenOpened": "2026-05-08T01:20:29.086Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
@@ -96,11 +137,12 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAIwIIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T00:16:18.666Z"
+              "WhenOpened": "2026-05-08T00:16:18.666Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Hello\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -112,34 +154,16 @@
           ]
         },
         {
-          "DockedWidth": 147,
+          "DockedWidth": 64,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 113,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

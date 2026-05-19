@@ -95,6 +95,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cal.Designer.cs">
+      <DependentUpon>Cal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FindNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindNumber.Designer.cs">
+      <DependentUpon>FindNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Cal.resx">
+      <DependentUpon>Cal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindNumber.resx">
+      <DependentUpon>FindNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -41,7 +41,17 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.테이블조작ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.유틸ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.추가ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.수정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.삭제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.불러오기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.계산기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.숫자맞추기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -150,7 +160,7 @@
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnDelete.FlatAppearance.BorderSize = 3;
-            this.btnDelete.Location = new System.Drawing.Point(317, 370);
+            this.btnDelete.Location = new System.Drawing.Point(50, 468);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(109, 53);
             this.btnDelete.TabIndex = 10;
@@ -163,7 +173,7 @@
             this.btnLoad.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnLoad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnLoad.FlatAppearance.BorderSize = 3;
-            this.btnLoad.Location = new System.Drawing.Point(450, 370);
+            this.btnLoad.Location = new System.Drawing.Point(182, 468);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(109, 53);
             this.btnLoad.TabIndex = 11;
@@ -174,20 +184,96 @@
             // dataView
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.Location = new System.Drawing.Point(50, 456);
+            this.dataView.Location = new System.Drawing.Point(650, 57);
             this.dataView.Name = "dataView";
             this.dataView.RowTemplate.Height = 23;
-            this.dataView.Size = new System.Drawing.Size(666, 306);
+            this.dataView.Size = new System.Drawing.Size(869, 718);
             this.dataView.TabIndex = 12;
             this.dataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellClick);
-           
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.테이블조작ToolStripMenuItem,
+            this.유틸ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1547, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 테이블조작ToolStripMenuItem
+            // 
+            this.테이블조작ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.추가ToolStripMenuItem,
+            this.수정ToolStripMenuItem,
+            this.삭제ToolStripMenuItem,
+            this.불러오기ToolStripMenuItem});
+            this.테이블조작ToolStripMenuItem.Name = "테이블조작ToolStripMenuItem";
+            this.테이블조작ToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.테이블조작ToolStripMenuItem.Text = "테이블조작";
+            // 
+            // 유틸ToolStripMenuItem
+            // 
+            this.유틸ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.계산기ToolStripMenuItem,
+            this.숫자맞추기ToolStripMenuItem});
+            this.유틸ToolStripMenuItem.Name = "유틸ToolStripMenuItem";
+            this.유틸ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.유틸ToolStripMenuItem.Text = "유틸";
+            // 
+            // 추가ToolStripMenuItem
+            // 
+            this.추가ToolStripMenuItem.Name = "추가ToolStripMenuItem";
+            this.추가ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.추가ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.추가ToolStripMenuItem.Text = "추가";
+            this.추가ToolStripMenuItem.Click += new System.EventHandler(this.추가ToolStripMenuItem_Click);
+            // 
+            // 수정ToolStripMenuItem
+            // 
+            this.수정ToolStripMenuItem.Name = "수정ToolStripMenuItem";
+            this.수정ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.수정ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.수정ToolStripMenuItem.Text = "수정";
+            this.수정ToolStripMenuItem.Click += new System.EventHandler(this.수정ToolStripMenuItem_Click);
+            // 
+            // 삭제ToolStripMenuItem
+            // 
+            this.삭제ToolStripMenuItem.Name = "삭제ToolStripMenuItem";
+            this.삭제ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.삭제ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.삭제ToolStripMenuItem.Text = "삭제";
+            this.삭제ToolStripMenuItem.Click += new System.EventHandler(this.삭제ToolStripMenuItem_Click);
+            // 
+            // 불러오기ToolStripMenuItem
+            // 
+            this.불러오기ToolStripMenuItem.Name = "불러오기ToolStripMenuItem";
+            this.불러오기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.불러오기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.불러오기ToolStripMenuItem.Text = "불러오기";
+            this.불러오기ToolStripMenuItem.Click += new System.EventHandler(this.불러오기ToolStripMenuItem_Click);
+            // 
+            // 계산기ToolStripMenuItem
+            // 
+            this.계산기ToolStripMenuItem.Name = "계산기ToolStripMenuItem";
+            this.계산기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.계산기ToolStripMenuItem.Text = "계산기";
+            this.계산기ToolStripMenuItem.Click += new System.EventHandler(this.계산기ToolStripMenuItem_Click);
+            // 
+            // 숫자맞추기ToolStripMenuItem
+            // 
+            this.숫자맞추기ToolStripMenuItem.Name = "숫자맞추기ToolStripMenuItem";
+            this.숫자맞추기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.숫자맞추기ToolStripMenuItem.Text = "숫자맞추기";
+            this.숫자맞추기ToolStripMenuItem.Click += new System.EventHandler(this.숫자맞추기ToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(851, 787);
+            this.ClientSize = new System.Drawing.Size(1547, 787);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnDelete);
@@ -201,10 +287,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +315,15 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 테이블조작ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 추가ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 수정ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 삭제ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 불러오기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 유틸ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 계산기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 숫자맞추기ToolStripMenuItem;
     }
 }
 

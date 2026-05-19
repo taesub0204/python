@@ -3,33 +3,42 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hello
+namespace Addressbook
 {
-    public partial class Form2 : Form  // form을 상속 받아서 만들도록 지원이 되어 있음 . form2는 form의 자식 클래스가 된다. form2는 form의 기능을 모두 사용할 수 있다.
+    public partial class FindNumber : Form
     {
         private int findNum = 0;
         private int chance = 10;
 
-        public Form2()
+        public FindNumber()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void FindNumber_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            //바는 초기화해야되고 전역변수로 쓸 수 없어
-            var rand = new Random();
-            findNum = rand.Next(1, 101); // 1~100사이의 랜덤한 숫자를 만들어주는 메서드
-            //label1.Text = findNum.ToString();
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var rand = new Random();
+            findNum = rand.Next(1, 101 );
 
             chance = 10;
             display.Text = "숫자를 입력하세요.";
@@ -42,10 +51,9 @@ namespace Hello
 
 
 
-
         }
 
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        private void btnStart_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -83,21 +91,14 @@ namespace Hello
 
             }
 
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void display_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+
 
         }
     }
 }
+
