@@ -1,0 +1,8 @@
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\bin\Debug\ConsoleAppStatic.exe.config
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\bin\Debug\ConsoleAppStatic.exe
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\bin\Debug\ConsoleAppStatic.pdb
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\obj\Debug\ConsoleAppStatic.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\obj\Debug\ConsoleAppStatic.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\obj\Debug\ConsoleAppStatic.exe
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\obj\Debug\ConsoleAppStatic.pdb
+D:\2604340040_조태섭_하이테크\ConsoleAppStatic\obj\Debug\ConsoleAppStatic.exe.config
