@@ -1,6 +1,34 @@
-public class Main {
+interface Op{
+    int calc(int a, int b);
+}
+class Add implements Op{
+    public int calc(int a, int b) {
+        return a + b;
+    }
+}
+
+class Subtract implements Op{
+    public int calc(int a, int b) {
+        return a - b;
+    }
+}
+class Multiply implements Op{
+    public int calc(int a, int b) {
+        return a * b;
+    }
+}
+public class Main{
     public static void main(String[] args) {
-        System.out.println("드디어 Java 첫 실행 성공!");
-        System.out.println("2026년형 JDK 25 버전이 아주 잘 돌아가네요.");
+        int a = 10, b = 5;
+        Op add = new Add();
+        Op sub = new Subtract();
+        Op mul = new Multiply();
+
+        
+
+        System.out.print(add.calc(a, b) + ",");
+        System.out.print(sub.calc(a, b) + ",");
+        System.out.print(mul.calc(a, b));
+        
     }
 }
