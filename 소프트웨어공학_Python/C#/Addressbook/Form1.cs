@@ -25,7 +25,7 @@ namespace Addressbook
         public Form1()
         {
             InitializeComponent();
-            LoadData();
+            //LoadData();
         }
 
 
@@ -90,6 +90,8 @@ namespace Addressbook
         private void btnInsert_Click(object sender, EventArgs e)
 
         {
+            return; // 추가 선택 했을 때 빈셀 인데 추가됨
+
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
             {
                 MessageBox.Show("모든 필드를 입력하세요!!");
