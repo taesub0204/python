@@ -56,9 +56,9 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.MistyRose;
-            this.btnStart.Location = new System.Drawing.Point(0, 415);
+            this.btnStart.Location = new System.Drawing.Point(0, 308);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(803, 35);
+            this.btnStart.Size = new System.Drawing.Size(803, 142);
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "게임시작";
             this.btnStart.UseVisualStyleBackColor = false;

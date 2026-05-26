@@ -25,7 +25,7 @@ namespace Addressbook
         public Form1()
         {
             InitializeComponent();
-            //LoadData();
+            LoadData();
         }
 
 
@@ -90,7 +90,7 @@ namespace Addressbook
         private void btnInsert_Click(object sender, EventArgs e)
 
         {
-            return; // 추가 선택 했을 때 빈셀 인데 추가됨
+           // return; // 추가 선택 했을 때 빈셀 인데 추가됨
 
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
             {
@@ -197,8 +197,10 @@ namespace Addressbook
                 cmd.Parameters.AddWithValue("@address", textBox4.Text);
                 cmd.Parameters.AddWithValue("@id", selected); 
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("삭제완료!!");
                 LoadData(); 
                 clear();
+                selected = -1;
 
 
             } 
@@ -263,7 +265,7 @@ namespace Addressbook
 
         private void 불러오기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnLoad_Click(sender, e);
+            LoadData();
         }
 
         private void 계산기ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,6 +279,68 @@ namespace Addressbook
         {
             FindNumber fn = new FindNumber();
             fn.Show(); // 모달 창이 아님
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchName = textBox5.Text.Trim(); // 검색어 가져오기
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) // using 블럭의 역활 : using 블럭은 IDisposable 인터페이스를 구현하는 객체를 자동으로 해제하는 데 사용됩니다.
+                                                                        // MySqlConnection 객체는 데이터베이스 연결을 나타내며, using 블럭 내에서 생성되고 사용된 후 자동으로 Dispose() 메서드가 호출되어 리소스가 해제됩니다.
+                                                                        // 이렇게 하면 데이터베이스 연결이 적절하게 닫히고 리소스 누수가 방지됩니다.
+            {
+                // MySQL 객체 생성 및 연결 
+                conn.Open(); // 연결
+                string sql = @"select * from contacts where name like @searchName"; // SQL 명령어 작성
+                MySqlDataAdapter result = new MySqlDataAdapter(sql, conn); // 인스턴스화 result라는 붕어빵 담을자리
+                result.SelectCommand.Parameters.AddWithValue("@searchName", "%" + searchName + "%"); // 검색어를 매개변수로 추가
+                // searchName + "__" : 검색어로 시작하는 이름 검색
+                DataTable dt = new DataTable();
+                result.Fill(dt); // DataTable에 데이터 채우기
+                dataView.DataSource = dt;
+
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string search = textBox5.Text.Trim(); // 검색어 가져오기
+
+            using (MySqlConnection conn = new MySqlConnection(connStr)) // using 블럭의 역활 : using 블럭은 IDisposable 인터페이스를 구현하는 객체를 자동으로 해제하는 데 사용됩니다.
+                                                                        // MySqlConnection 객체는 데이터베이스 연결을 나타내며, using 블럭 내에서 생성되고 사용된 후 자동으로 Dispose() 메서드가 호출되어 리소스가 해제됩니다.
+                                                                        // 이렇게 하면 데이터베이스 연결이 적절하게 닫히고 리소스 누수가 방지됩니다.
+            {
+                // MySQL 객체 생성 및 연결 
+                conn.Open(); // 연결
+                string sql = "";
+
+
+                if (comboSearch.Text == "이름")
+                    sql = @"select * from contacts where name like @search"; // SQL 명령어 작성
+                else if (comboSearch.Text == "주소")
+                    sql = @"select * from contacts where address like @search";
+                else 
+                    sql = @"select * from contacts where email like @search";
+
+
+
+                MySqlDataAdapter result = new MySqlDataAdapter(sql, conn); // 인스턴스화 result라는 붕어빵 담을자리
+                result.SelectCommand.Parameters.AddWithValue("@search", "%" + search + "%"); // 검색어를 매개변수로 추가
+                // searchName + "__" : 검색어로 시작하는 이름 검색
+                DataTable dt = new DataTable();
+                result.Fill(dt); // DataTable에 데이터 채우기
+                dataView.DataSource = dt;
+
+            }
+
+
+
+
+        }
+
+        private void 검색ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            comboBox1_SelectedIndexChanged(sender, e);
         }
     }
 }

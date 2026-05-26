@@ -83,3 +83,4 @@ C:\Users\cho\Desktop\폴리텍_장비소프트웨어과_과정\python\소프트�
 C:\Users\cho\Desktop\폴리텍_장비소프트웨어과_과정\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\AddressB.06280804.Up2Date
 C:\Users\cho\Desktop\폴리텍_장비소프트웨어과_과정\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.exe
 C:\Users\cho\Desktop\폴리텍_장비소프트웨어과_과정\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.pdb
+C:\Users\user\Desktop\taesub\python\소프트웨어공학_Python\C#\Addressbook\obj\Debug\Addressbook.Cal.resources

@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|c:\\users\\cho\\desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\addressbook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,18 +33,18 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 544,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 589,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADoBAAAAAAAAAAAqwFYBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T00:35:53.272Z",
               "IsPinned": true,
@@ -55,25 +55,29 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Cal.cs",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
               "RelativeDocumentMoniker": "Cal.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
               "RelativeToolTip": "Cal.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAUwNsAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T02:35:32.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Cal.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs",
               "RelativeDocumentMoniker": "Cal.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs [\uB514\uC790\uC778]",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Cal.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T01:39:42.336Z",
@@ -81,24 +85,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "FindNumber.cs",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
               "RelativeDocumentMoniker": "FindNumber.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
               "RelativeToolTip": "FindNumber.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAowE0AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwDwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T01:50:00.159Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs [\uB514\uC790\uC778]",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T00:30:49.932Z",
@@ -106,11 +110,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FindNumber.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
               "RelativeDocumentMoniker": "FindNumber.cs",
-              "ToolTip": "C:\\Users\\cho\\Desktop\\\uD3F4\uB9AC\uD14D_\uC7A5\uBE44\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACFC_\uACFC\uC815\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs [\uB514\uC790\uC778]",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "FindNumber.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T01:40:22.95Z",
@@ -119,9 +123,13 @@
           ]
         },
         {
-          "DockedWidth": 177,
+          "DockedWidth": 98,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
