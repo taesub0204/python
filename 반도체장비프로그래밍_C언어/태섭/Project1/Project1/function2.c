@@ -33,8 +33,12 @@ menu()
 
 
 
+
+
+
 int main() // 
 {
+
 
 	int select = menu();
 	while (select != 5)
@@ -42,18 +46,22 @@ int main() //
 		switch (select) //
 		{
 		case 1:
+			add();
 			printf("\nµ¡¼À·çÆ¾\n");
 			break;
 
 		case 2:
+			minus();
 			printf("\n»¬¼À·çÆ¾\n");
 			break;
 
 		case 3:
+			multi();
 			printf("\n°ö¼À·çÆ¾\n");
 			break;
 
 		case 4:
+			share();
 			printf("\n³ª´°¼À·çÆ¾\n");
 			break;
 

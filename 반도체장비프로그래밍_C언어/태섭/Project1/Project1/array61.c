@@ -38,7 +38,7 @@ int main()
 		for (int j = 1; j < 6;j++)
 			while (score[j][1] == i)
 			{
-				printf("")
+				printf("");
 
 			}
 

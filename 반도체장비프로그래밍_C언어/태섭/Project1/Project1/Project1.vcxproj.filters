@@ -195,5 +195,23 @@
     <ClCompile Include="function2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="A.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="function3.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_sort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_sort2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_sort3.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_sort4.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
