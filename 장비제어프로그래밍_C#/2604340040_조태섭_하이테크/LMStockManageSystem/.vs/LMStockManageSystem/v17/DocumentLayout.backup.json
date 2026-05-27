@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
-      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\lmstockmanagesystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\lmstockmanagesystem\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
+      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC6D6E74-A720-4876-812B-08C84CABBD81}|LMStockManageSystem.csproj|solutionrelative:customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ClassDiagram1.cd",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\ClassDiagram1.cd",
               "RelativeDocumentMoniker": "ClassDiagram1.cd",
@@ -50,20 +50,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Employee.cs",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Employee.cs",
               "RelativeDocumentMoniker": "Employee.cs",
               "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Employee.cs",
               "RelativeToolTip": "Employee.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAA8wGMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T05:00:16.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Partner.cs",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Partner.cs",
               "RelativeDocumentMoniker": "Partner.cs",
@@ -71,25 +71,24 @@
               "RelativeToolTip": "Partner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T04:59:34.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T04:59:34.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Customer.cs",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Customer.cs",
               "RelativeDocumentMoniker": "Customer.cs",
               "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Customer.cs",
               "RelativeToolTip": "Customer.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAUwEoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T04:58:12.81Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Product.cs",
               "RelativeDocumentMoniker": "Product.cs",
@@ -97,8 +96,7 @@
               "RelativeToolTip": "Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T04:56:33.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T04:56:33.08Z"
             },
             {
               "$type": "Document",
@@ -108,7 +106,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\LMStockManageSystem\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwJEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T04:54:10.162Z",
               "EditorCaption": ""
