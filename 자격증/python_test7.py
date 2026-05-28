@@ -5,4 +5,3 @@ str01 = ''
 for i in myVar.a:
     str01 = str01 + i[0]
 print(str01) # 출력 # sKIDDGPP
-print(myVar.a[0]) # 출력 # [0, 10, 20, 30, 40]
