@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\addressbook\\findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:findnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_python\\c#\\addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B2A2D8B-F131-417D-8DFB-78D8F0A55FD7}|AddressBook.csproj|solutionrelative:cal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -47,8 +47,7 @@
               "ViewState": "AgIAADoBAAAAAAAAAAAqwFYBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T00:35:53.272Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Cal.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAMwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T02:35:32.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T02:35:32.446Z"
             },
             {
               "$type": "Document",
@@ -80,8 +78,7 @@
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Cal.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Cal.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T01:39:42.336Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2026-05-19T01:39:42.336Z"
             },
             {
               "$type": "Document",
@@ -91,7 +88,7 @@
               "RelativeDocumentMoniker": "FindNumber.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs",
               "RelativeToolTip": "FindNumber.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAIwDIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwDUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T01:50:00.159Z",
               "EditorCaption": ""
@@ -105,8 +102,7 @@
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\Form1.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T00:30:49.932Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2026-05-15T00:30:49.932Z"
             },
             {
               "$type": "Document",
@@ -117,8 +113,7 @@
               "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC18C\uD504\uD2B8\uC6E8\uC5B4\uACF5\uD559_Python\\C#\\Addressbook\\FindNumber.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "FindNumber.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T01:40:22.95Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2026-05-19T01:40:22.95Z"
             }
           ]
         },
