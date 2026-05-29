@@ -1,0 +1,208 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Addressbook
+{
+    public partial class Adder : Form
+    {
+        // 갤럭시 계산기 - 완전히 새로운 접근
+        string inputBuffer = "";        // 현재 입력 중인 숫자
+        double resultValue = 0;         // 누적 계산 결과
+        string currentOp = "";          // 현재 연산자
+        string fullExpression = "";     // 전체 수식
+        bool justPressedOperator = false;  // 연산자 직후인지
+
+
+
+
+        public Adder()
+        {
+            InitializeComponent();
+            ResetCalculator();
+        }
+
+        private void ResetCalculator()
+        {
+            inputBuffer = "0";
+            resultValue = 0;
+            currentOp = "";
+            fullExpression = "";
+            justPressedOperator = false;
+            UpdateDisplay();
+        }
+
+        // 화면 업데이트
+        private void UpdateDisplay()
+        {
+            string topLine = "";    // 위쪽: 수식
+            string bottomLine = ""; // 아래쪽: 결과
+
+            if (currentOp != "" && inputBuffer != "")
+            {
+                // 연산자 있고 숫자 입력 중 → 실시간 계산
+                double inputNum = Convert.ToDouble(inputBuffer);
+                double preview = DoCalculate(resultValue, currentOp, inputNum);
+
+                topLine = fullExpression + inputBuffer;
+                bottomLine = preview.ToString();
+            }
+            else if (currentOp != "")
+            {
+                // 연산자만 입력됨
+                topLine = fullExpression;
+                bottomLine = resultValue.ToString();
+            }
+            else
+            {
+                // 처음 상태
+                topLine = inputBuffer;
+                bottomLine = inputBuffer;
+            }
+
+            txtAnswer.Text = topLine + Environment.NewLine + bottomLine;
+            System.Diagnostics.Debug.WriteLine($"[Display] 위: '{topLine}' | 아래: '{bottomLine}'");
+        }
+
+
+        // 숫자 버튼 클릭
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string digit = btn.Text;
+
+            System.Diagnostics.Debug.WriteLine($"[숫자 {digit}] justPressedOperator: {justPressedOperator}, inputBuffer: '{inputBuffer}'");
+
+            if (justPressedOperator)
+            {
+                // 연산자 직후 → 새 숫자 시작
+                inputBuffer = digit;
+                justPressedOperator = false;
+            }
+            else
+            {
+                // 숫자 이어붙이기
+                if (inputBuffer == "0")
+                    inputBuffer = digit;
+                else
+                    inputBuffer += digit;
+            }
+
+            UpdateDisplay();
+        }
+
+        // 계산 수행
+        private double DoCalculate(double val1, string op, double val2)
+        {
+            switch (op)
+            {
+                case "+": return val1 + val2;
+                case "-": return val1 - val2;
+                case "×": return val1 * val2;
+                case "÷":
+                    if (val2 == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없습니다.");
+                        return 0;
+                    }
+                    return val1 / val2;
+                default:
+                    return val2;
+            }
+        }
+
+
+
+
+        // 연산자 버튼 클릭
+        private void Operator_click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string newOp = btn.Text;
+
+            System.Diagnostics.Debug.WriteLine($"[연산자 {newOp}] currentOp: '{currentOp}', justPressedOperator: {justPressedOperator}");
+
+            // 연산자 연속 입력 → 교체
+            if (justPressedOperator)
+            {
+                currentOp = newOp;
+                fullExpression = fullExpression.Substring(0, fullExpression.Length - 1) + newOp;
+                UpdateDisplay();
+                return;
+            }
+
+            double inputNum = Convert.ToDouble(inputBuffer);
+
+            if (currentOp != "")
+            {
+                // 중간 계산
+                resultValue = DoCalculate(resultValue, currentOp, inputNum);
+                System.Diagnostics.Debug.WriteLine($"  → 중간 계산: {currentOp} 결과 = {resultValue}");
+            }
+            else
+            {
+                // 첫 연산자
+                resultValue = inputNum;
+            }
+
+            // 수식 누적
+            fullExpression += inputBuffer + newOp;
+            currentOp = newOp;
+            justPressedOperator = true;
+
+            UpdateDisplay();
+        }
+
+        // = 버튼 클릭
+        private void equals_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"[=] currentOp: '{currentOp}'");
+
+            if (currentOp != "")
+            {
+                double inputNum = Convert.ToDouble(inputBuffer);
+                resultValue = DoCalculate(resultValue, currentOp, inputNum);
+
+                System.Diagnostics.Debug.WriteLine($"  → 최종 계산: {resultValue}");
+
+                fullExpression += inputBuffer + "=";
+                inputBuffer = resultValue.ToString();
+                currentOp = "";
+                justPressedOperator = true;
+            }
+            else
+            {
+                fullExpression = inputBuffer + "=";
+            }
+
+            UpdateDisplay();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // AC 버튼
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            ResetCalculator();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

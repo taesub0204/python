@@ -1,0 +1,165 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Addressbook
+{
+    public partial class Adder : Form
+    {
+        double currentNum = 0; //입력 받은 수를 저장
+        double resultNum = 0;// 현재까지 계산된 결과
+        string operation = ""; // 눌린 연산자 저장
+        bool isOperationClicked = false; // 연산자가 선택 되었는지 여부
+        string expressionText = ""; // 디스플레이 내용
+        string resultText = ""; // 결과 텍스트
+  
+        double beforeResult = 0; // 계산 직전의 결과 임시저장
+
+
+
+
+        public Adder()
+        {
+            InitializeComponent();
+            updateDisplay();
+        }
+
+        private void updateDisplay()
+        {
+            txtAnswer.Text = expressionText + Environment.NewLine + resultText;
+        }
+
+
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            // 연산자를 방금 눌렀으면 새로운 숫자 입력 시작
+            if (isOperationClicked)
+            {
+                currentNum = Convert.ToDouble(btn.Text);
+                isOperationClicked = false;
+            }
+            else
+            {
+                // 기존 숫자에 이어서 입력
+                if (currentNum == 0)
+                    currentNum = Convert.ToDouble(btn.Text);
+                else
+                    currentNum = Convert.ToDouble(currentNum.ToString() + btn.Text);
+            }
+
+            expressionText += btn.Text;
+            resultText = currentNum.ToString(); // 현재 입력 중인 숫자 표시
+            updateDisplay();
+        }
+
+        private void Calculate(double num)
+        {
+            switch (operation)
+            {
+                case "+":
+                    resultNum += num; 
+                    break;
+                case "-":
+                    resultNum -= num; 
+                    break;
+                case "×":
+                    resultNum *= num; 
+                    break;
+                case "÷":
+                    if (num == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없습니다.");
+                        resultNum = 0;
+                        return;
+                    }
+                    resultNum /= num; 
+                    break;
+            }
+        }
+
+
+
+
+        private void Operator_click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            // 첫 번째 연산자인 경우
+            if (operation == "")
+            {
+                resultNum = currentNum; // 첫 숫자를 결과에 저장
+            }
+            else
+            {
+                // 이전 연산 실행
+                Calculate(currentNum);
+            }
+
+            // 새 연산자 저장
+            operation = btn.Text;
+            expressionText += btn.Text;
+
+            isOperationClicked = true;
+
+            // 현재까지 계산된 결과 표시 (중간 결과)
+            resultText = resultNum.ToString();
+            updateDisplay();
+        }
+
+        private void equals_Click(object sender, EventArgs e)
+        {
+            // 디버깅: 현재 상태 확인
+            System.Diagnostics.Debug.WriteLine($"equals_Click - currentNum: {currentNum}, resultNum: {resultNum}, operation: {operation}");
+
+            // 최종 계산 실행
+            if (operation != "")
+            {
+                Calculate(currentNum);
+                System.Diagnostics.Debug.WriteLine($"After Calculate - resultNum: {resultNum}");
+            }
+
+            expressionText += " = ";
+            resultText = resultNum.ToString();
+            updateDisplay();
+
+            // 초기화 (다음 계산을 위해)
+            operation = "";
+            currentNum = 0;
+            isOperationClicked = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            currentNum = 0;
+            resultNum = 0;
+            operation = "";
+            expressionText = "";
+            resultText = "0";
+            isOperationClicked = false;
+            updateDisplay();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

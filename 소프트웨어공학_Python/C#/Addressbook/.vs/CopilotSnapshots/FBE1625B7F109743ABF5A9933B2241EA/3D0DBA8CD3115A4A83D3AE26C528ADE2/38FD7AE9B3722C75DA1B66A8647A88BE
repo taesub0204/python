@@ -1,0 +1,166 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Addressbook
+{
+    public partial class Adder : Form
+    {
+        // 갤럭시 계산기 스타일 변수
+        string currentInput = "0";      // 현재 입력 중인 숫자 문자열
+        double storedValue = 0;         // 저장된 값 (이전 계산 결과)
+        string currentOperator = "";    // 현재 연산자
+        bool startNewInput = true;      // 새로운 숫자 입력 시작 여부
+        string expressionDisplay = "";  // 위쪽 수식 표시
+
+
+
+
+        public Adder()
+        {
+            InitializeComponent();
+            UpdateDisplay();
+        }
+
+        // 디스플레이 업데이트 (위: 수식, 아래: 현재 입력/결과)
+        private void UpdateDisplay()
+        {
+            txtAnswer.Text = expressionDisplay + Environment.NewLine + currentInput;
+        }
+
+
+        // 숫자 버튼 클릭 (0~9)
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string number = btn.Text;
+
+            // 새로운 입력 시작이면 기존 값을 지우고 새로 시작
+            if (startNewInput)
+            {
+                currentInput = number;
+                startNewInput = false;
+            }
+            else
+            {
+                // 0만 있으면 덮어쓰기, 아니면 이어붙이기
+                if (currentInput == "0")
+                    currentInput = number;
+                else
+                    currentInput += number;
+            }
+
+            UpdateDisplay();
+        }
+
+        // 실제 계산 수행
+        private double PerformCalculation(double value1, string op, double value2)
+        {
+            switch (op)
+            {
+                case "+": return value1 + value2;
+                case "-": return value1 - value2;
+                case "×": return value1 * value2;
+                case "÷":
+                    if (value2 == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없습니다.");
+                        return 0;
+                    }
+                    return value1 / value2;
+                default:
+                    return value2;
+            }
+        }
+
+
+
+
+        private void Operator_click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            // 디버깅
+            System.Diagnostics.Debug.WriteLine($"Operator_click BEFORE - currentNum: {currentNum}, resultNum: {resultNum}, operation: '{operation}'");
+
+            // 첫 번째 연산자인 경우
+            if (operation == "")
+            {
+                resultNum = currentNum; // 첫 숫자를 결과에 저장
+                System.Diagnostics.Debug.WriteLine($"첫 연산자 - resultNum 설정: {resultNum}");
+            }
+            else
+            {
+                // 이전 연산 실행
+                System.Diagnostics.Debug.WriteLine($"Calculate 호출 전 - resultNum: {resultNum}, currentNum: {currentNum}, operation: '{operation}'");
+                Calculate(currentNum);
+                System.Diagnostics.Debug.WriteLine($"Calculate 호출 후 - resultNum: {resultNum}");
+            }
+
+            // 새 연산자 저장
+            operation = btn.Text;
+            expressionText += btn.Text;
+
+            isOperationClicked = true;
+
+            // 현재까지 계산된 결과 표시 (중간 결과)
+            resultText = resultNum.ToString();
+            System.Diagnostics.Debug.WriteLine($"Operator_click AFTER - resultNum: {resultNum}, resultText: {resultText}");
+            updateDisplay();
+        }
+
+        private void equals_Click(object sender, EventArgs e)
+        {
+            // 디버깅: 현재 상태 확인
+            System.Diagnostics.Debug.WriteLine($"equals_Click - currentNum: {currentNum}, resultNum: {resultNum}, operation: {operation}");
+
+            // 최종 계산 실행
+            if (operation != "")
+            {
+                Calculate(currentNum);
+                System.Diagnostics.Debug.WriteLine($"After Calculate - resultNum: {resultNum}");
+            }
+
+            expressionText += " = ";
+            resultText = resultNum.ToString();
+            updateDisplay();
+
+            // 초기화 (다음 계산을 위해)
+            operation = "";
+            currentNum = 0;
+            isOperationClicked = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            currentNum = 0;
+            resultNum = 0;
+            operation = "";
+            expressionText = "";
+            resultText = "0";
+            isOperationClicked = false;
+            updateDisplay();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

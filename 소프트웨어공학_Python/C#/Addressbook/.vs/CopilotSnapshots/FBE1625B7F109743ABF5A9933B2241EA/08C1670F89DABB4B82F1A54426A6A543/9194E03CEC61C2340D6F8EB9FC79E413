@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Addressbook
+{
+    public partial class Adder : Form
+    {
+        double currentNum = 0; //입력 받은 수를 저장
+        double resultNum = 0;// 현재까지 계산된 결과
+        string operation = ""; // 눌린 연산자 저장
+        bool isOperationClicked = false; // 연산자가 선택 되었는지 여부
+        string expressionText = ""; // 디스플레이 내용
+        string resultText = "0"; // 결과 텍스트
+
+
+
+
+        public Adder()
+        {
+            InitializeComponent();
+            txtAnswer.Text = "0"; // 초기값 설정
+        }
+
+        private void updateDisplay()
+        {
+            txtAnswer.Text = expressionText + Environment.NewLine + resultNum.ToString();
+        }
+
+
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            // 연산자를 눌렀으면 새로운 숫자 입력 시작
+            if (expressionText == ""|| currentNum == 0)
+            {
+                currentNum = Convert.ToDouble(btn.Text);
+            }
+
+            if (txtAnswer.Text == "0")
+                txtAnswer.Text = "";
+
+            txtAnswer.Text += btn.Text;
+            expressionText += btn.Text;
+
+            updateDisplay();
+        }
+
+        private void Calculate(double num)
+        {
+            switch (operation)
+            {
+                case "+":
+                    resultNum += num; break;
+                case "-":
+                    resultNum -= num; break;
+                case "×":
+                    resultNum *= num; break;
+                case "÷":
+                    if (num == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없습니다.");
+                        return;
+                    }
+                    resultNum /= num; 
+                    break;
+
+
+
+            }
+        }
+
+
+
+
+        private void Operator_click(object sender, EventArgs e)
+        {
+
+            Button btn = (Button)sender;
+
+            // 현재 입력된 숫자가 있으면 저장
+            if (!string.IsNullOrEmpty(txtAnswer.Text) && txtAnswer.Text != "0")
+            {
+                currentNumber = double.Parse(txtAnswer.Text);
+            }
+
+            // 첫 연산이면 resultNum에 현재 숫자 저장
+            if (operation == "")
+            {
+                resultNum = currentNumber;
+            }
+            else
+            {
+                // 이전 연산 실행
+                Calculate(currentNumber);
+            }
+
+            operation = btn.Text;
+            expressionText += btn.Text;
+
+            updateDisplay();
+
+            isOperationClicked = true;
+        }
+        private void equals_Click(object sender, EventArgs e)
+        {
+            // 현재 입력된 숫자로 최종 계산
+            if (!string.IsNullOrEmpty(txtAnswer.Text) && txtAnswer.Text != "0")
+            {
+                currentNumber = double.Parse(txtAnswer.Text);
+            }
+
+            Calculate(currentNumber);
+
+            expressionText += " = ";
+            resultText = resultNum.ToString();
+            updateDisplay();
+
+            // 초기화 (다음 계산을 위해)
+            operation = "";
+            isOperationClicked = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            txtAnswer.Text = "0";
+            currentNumber = 0;
+            resultNum = 0;
+            operation = "";
+            expressionText = "";
+            resultText = "0";
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

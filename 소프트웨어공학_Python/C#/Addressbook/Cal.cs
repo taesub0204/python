@@ -198,6 +198,9 @@ namespace Addressbook
             textBox1.Text += "-"; // 끝에 - 추가
             textBox1.Focus();
             textBox1.SelectionStart = textBox1.Text.Length;
+
+            // 부호
+
         }
 
         private void button11_Click(object sender, EventArgs e)
