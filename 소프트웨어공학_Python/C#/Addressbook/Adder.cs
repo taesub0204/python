@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace AddressBook
+namespace Addressbook
 {
     public partial class Adder : Form
     {
@@ -13,9 +14,11 @@ namespace AddressBook
         string expressText = "";            // 디스플레이 내용
         string resultText = "";
         double beforeResult = 0;          // 계산 직전의 결과 임시저장
+ 
         public Adder()
         {
             InitializeComponent();
+            this.Location = new Point (1200, 100);
             updateDisplay();
         }
 
@@ -29,16 +32,28 @@ namespace AddressBook
             Button btn = (Button)sender;
 
             if (currentNum == 0)
-                currentNum = Convert.ToDouble(btn.Text);
+            {
+                if (expressText.EndsWith("."))
+                {
+                    currentNum = Convert.ToDouble(btn.Text) * 0.1;
+                    resultNum = beforeResult;
+                }
+                else
+                    currentNum = Convert.ToDouble(btn.Text);
+            }
 
             else
             {
-                currentNum = Convert.ToDouble(currentNum.ToString() + btn.Text);
-                resultNum = beforeResult;
+                if (expressText.EndsWith("."))
+                    currentNum = Convert.ToDouble(currentNum.ToString() + "." + btn.Text);
+                else
+                    currentNum = Convert.ToDouble(currentNum.ToString() + btn.Text);
+                    resultNum = beforeResult;
+
+
             }
 
             expressText += btn.Text;
-
             if (isOperationClicked)
             {
                 Calculate(currentNum);
@@ -52,8 +67,8 @@ namespace AddressBook
 
             switch (operation)
             {
-                case "+": resultNum += num; break;
-                case "-": resultNum -= num; break;
+                case "＋": resultNum += num; break;
+                case "－": resultNum -= num; break;
                 case "×": resultNum *= num; break;
                 case "÷":
                     if (num == 0)
@@ -71,6 +86,15 @@ namespace AddressBook
         {
             Button btn = (Button)sender;
             operation = btn.Text;
+
+            if (expressText.Length == 0) return;
+
+            char lastChar = expressText[expressText.Length - 1];
+            if ("+-×÷".Contains(lastChar))
+                expressText = expressText.Substring(0, expressText.Length - 1) + btn.Text;
+            else
+                expressText += btn.Text;
+
             if (resultNum == 0 && currentNum != 0)
             {
                 resultNum = currentNum;
@@ -78,7 +102,6 @@ namespace AddressBook
             }
             currentNum = 0;
             isOperationClicked = true;
-            expressText += btn.Text;
             resultText = "";
             updateDisplay();
         }
@@ -102,7 +125,9 @@ namespace AddressBook
             operation = "";
             expressText = "";
             resultText = "";
+            beforeResult = 0;
             isOperationClicked = false;
+            
         }
 
         private void btnPM_Click(object sender, EventArgs e)
@@ -128,6 +153,71 @@ namespace AddressBook
             }
 
             updateDisplay();
+        }
+
+
+
+        private void btnDot_Click_1(object sender, EventArgs e)
+        {
+            string currentStr = currentNum.ToString();
+         
+           
+            if (expressText.EndsWith(".")|| currentStr.Contains("."))  // 이미 소수점이 있으면 무시
+                return;
+
+            expressText += ".";
+            updateDisplay();
+
+        }
+
+        private void btnSQ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if(expressText.Length == 0) return;
+
+            char del = expressText[expressText.Length - 1];
+
+
+            expressText = expressText.Substring(0, expressText.Length - 1);
+
+            if (char.IsDigit(del))
+            {
+                resultNum = beforeResult;
+                string currentNumStr = currentNum.ToString();
+                if (currentNumStr.Length > 1)
+                {
+                    currentNumStr = currentNumStr.Substring(0, currentNumStr.Length - 1);
+                    currentNum = Convert.ToDouble(currentNumStr);
+                }
+                else
+                {
+                    currentNum = 0;
+                }
+                if (isOperationClicked)
+                {
+                    Calculate(currentNum);
+                }
+
+
+
+            }
+            else if ("+-×÷".Contains(del))
+            {
+
+                currentNum = 0;
+                isOperationClicked = false;
+                resultText = "";
+
+            }
+            
+            updateDisplay() ;
+
+
+
         }
     }
 }

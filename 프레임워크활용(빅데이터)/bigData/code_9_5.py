@@ -2,11 +2,13 @@ import folium
 import geokakao as gk
 
 import os
-os.chdir('C:/Users/user/Desktop/taesub/python/프레임워크활용(빅데이터)/bigData/Map')    # displayMap.py 가 있는 폴더지정
+
+#C:\Users\user\Desktop\taesub\python\프레임워크활용(빅데이터)\bigData\Map
+os.chdir('C:/Users/user/Desktop/taesub/python/프레임워크활용(빅데이터)/bigData/Map/')    # displayMap.py 가 있는 폴더지정
 import displayMap as dm
 import pandas as pd
 
-# 관광지 정보를 데이터프레임으로 저장
+# 관광지 정보를 데이터프레임으로 저장ins
 names = ['용두암', '성산일출봉', '정방폭포',
          '중문관광단지', '한라산1100고지', '차귀도']
 addr = ['제주시 용두암길 15',
