@@ -102,7 +102,7 @@ public class ListPlay {
 		else if(signal.equals("id")) {
 			int val = sin.nextInt();
 			int n = list.indexOf(val);
-			if(n == -1)
+			if(n == 1)
 				list.add(val);
 			else
 				list.remove(n);
