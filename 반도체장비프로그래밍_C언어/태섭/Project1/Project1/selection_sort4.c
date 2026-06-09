@@ -67,5 +67,3 @@ void Print(int* arr, int length)
 	{
 		printf("%2d", arr[i]);
 	}
-
-}
