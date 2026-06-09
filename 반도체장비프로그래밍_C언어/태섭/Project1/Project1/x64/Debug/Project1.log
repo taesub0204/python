@@ -1,2 +1,3 @@
-﻿  selection_sort4.c
+﻿  구조체6.c
+D:\태섭\Project1\Project1\구조체6.c(18,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'student' 왼쪽은 무시됩니다.
   Project1.vcxproj -> D:\태섭\Project1\x64\Debug\Project1.exe
