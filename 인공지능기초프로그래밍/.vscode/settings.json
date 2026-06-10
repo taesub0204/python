@@ -1,0 +1,6 @@
+{
+    "code-runner.respectShebang": false,
+    "code-runner.executorMap": {
+        "python": ".\\랭체인\\.venv\\Scripts\\python.exe -u"
+    }
+}

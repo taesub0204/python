@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """LangChain 문서 기반 챗봇 예제 스크립트
 
 설치:
@@ -24,7 +23,7 @@ from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Google API 키 설정
-os.environ["GOOGLE_API_KEY"] = "AIzaSyA8L3sx_veOsg2-V7w-VHuXa_Pvz9J1YDA"
+os.environ["GOOGLE_API_KEY"] = "AQ.Ab8RN6LeeUKI9-UMOkQyl2wv436B5WmmlDdiZo8YhNNxv8-37w"
 
 
 def load_pdf(pdf_path: str) -> List[Document]:
