@@ -23,7 +23,7 @@ from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Google API 키 설정
-os.environ["GOOGLE_API_KEY"] = "AQ.Ab8RN6LeeUKI9-UMOkQyl2wv436B5WmmlDdiZo8YhNNxv8-37w"
+os.environ["GOOGLE_API_KEY"] = ""
 
 
 def load_pdf(pdf_path: str) -> List[Document]:
