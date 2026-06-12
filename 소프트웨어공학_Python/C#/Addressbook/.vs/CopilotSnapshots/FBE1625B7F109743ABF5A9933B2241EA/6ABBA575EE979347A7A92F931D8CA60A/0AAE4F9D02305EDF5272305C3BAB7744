@@ -1,4 +1,4 @@
-﻿namespace Addressbook
+﻿namespace AddressBook
 {
     partial class Adder
     {
@@ -64,6 +64,7 @@
             this.txtAnswer.Size = new System.Drawing.Size(866, 184);
             this.txtAnswer.TabIndex = 0;
             this.txtAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            //this.txtAnswer.TextChanged += new System.EventHandler(this.txtAnswer_TextChanged);
             // 
             // tlpButtons
             // 
@@ -445,7 +446,6 @@
             this.btnSQ.TabIndex = 1;
             this.btnSQ.Text = "x²";
             this.btnSQ.UseVisualStyleBackColor = false;
-            this.btnSQ.Click += new System.EventHandler(this.btnSQ_Click);
             // 
             // btnAC
             // 

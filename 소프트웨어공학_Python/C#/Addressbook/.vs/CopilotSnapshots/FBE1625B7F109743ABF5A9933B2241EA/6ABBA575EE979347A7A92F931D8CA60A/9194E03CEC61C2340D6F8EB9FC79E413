@@ -3,7 +3,7 @@ using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Addressbook
+namespace AddressBook
 {
     public partial class Adder : Form
     {
@@ -27,7 +27,7 @@ namespace Addressbook
         private void updateDisplay()
         {
             txtAnswer.Text = expressText + Environment.NewLine + resultText;
-            state = "출력중";
+            state = "출력즁";
         }
 
         private void Number_Click(object sender, EventArgs e)
@@ -71,8 +71,8 @@ namespace Addressbook
             double num = Convert.ToDouble(currentStr);
             switch (operation)
             {
-                case "＋": resultNum += num; break;
-                case "－": resultNum -= num; break;
+                case "+": resultNum += num; break;
+                case "-": resultNum -= num; break;
                 case "×": resultNum *= num; break;
                 case "÷":
                     if (num == 0)
@@ -236,11 +236,6 @@ namespace Addressbook
                 expressText += ".";
 
             updateDisplay();
-        }
-
-        private void btnSQ_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
