@@ -71,12 +71,17 @@ basket = pd.DataFrame(trans_matrix, columns = te.columns_)
 print(basket.head(20), '\n')
 
 # 연관규칙 탐색
-freq_item = apriori(df = basket, min_support = 0.5, use_colnames = True)
+freq_item = apriori(df = basket, min_support = 0.01, use_colnames = True) # 최소 지지도 1%로 설정
 print(freq_item , '\n')
 
 
 rules = association_rules(df = freq_item, metric = 'lift', min_threshold = 1,
                           num_itemsets = len(basket))
 rules.sort_values('confidence', ascending = False, inplace = True)
+rules
+#rules 저장
+rules.to_csv('C:/Users/user/Desktop/taesub/python/프레임워크활용(빅데이터)/data/rules.csv', index = False)
+
+
 print(rules.head(10), '\n')
 print(rules.iloc[0, :].transpose())
