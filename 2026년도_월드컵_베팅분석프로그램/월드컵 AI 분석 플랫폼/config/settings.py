@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 
 class LLMConfig(BaseModel):
     # 이 부분에 사용자가 발급받을 API 키를 입력하게 됩니다.
-    api_key: str = "AQ.Ab8RN6KpGDNNbwO_BqYM76Kh72WqYgk1TxyCm_gYtHB-47lCPA"
+    api_key: str = ""
     model_name: str = "gemini-2.0-flash"
 
 class AppConfig(BaseModel):
