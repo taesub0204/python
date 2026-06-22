@@ -1,0 +1,63 @@
+목표 : 언제 자전거를 타는가???
+
+
+
+1번 담당자: 시간 데이터 분석 (Time Series)
+목표: '언제' 자전거를 타는가?
+
+사용 컬럼: Date, Hour, Seasons, Holiday
+
+주요 작업:
+
+Date 컬럼을 pd.to_datetime으로 변환 후 요일(dayofweek) 추출.
+
+시간대별 대여량 라인 차트 (출퇴근 피크 확인).
+
+평일 vs 주말/공휴일 이용 패턴 비교 (Boxplot 활용).
+
+계절별 평균 대여량 비교 (Bar chart).
+
+
+
+
+2번 담당자: 기온 및 태양 복사 분석 (Thermal)
+목표: '기온과 햇빛'이 얼마나 중요한가?
+
+사용 컬럼: Temperature, Dew point temp, Solar Radiation
+
+주요 작업:
+
+기온과 대여량의 상관관계(Scatter plot) 분석.
+
+기온을 5도 단위로 구간화(pd.cut)하여 구간별 대여량 분석 (가장 선호하는 온도 찾기).
+
+일사량(Solar Radiation)이 높은 낮 시간에 대여량이 변하는지 분석.
+
+
+3번 담당자: 대기 환경 및 쾌적성 분석 (Atmospheric)
+목표: '바람과 습도'가 이용을 방해하는가?
+
+사용 컬럼: Humidity, Wind speed, Visibility
+
+주요 작업:
+
+습도와 대여량의 관계 분석 (불쾌지수 파생변수 생성 가능).
+
+강풍(Wind speed)이 부는 날 대여량 급감 지점(Threshold) 찾기.
+
+시정(Visibility, 가시거리)이 낮은 날(안개 등) 위험성으로 인한 수요 감소 확인.
+
+
+
+4번 담당자: 강수/운영 환경 및 종합 상관분석 (Infrastructure & Correlation)
+목표: '눈/비'의 영향력 측정 및 전체 변수 결합
+
+사용 컬럼: Rainfall, Snowfall, Functioning Day
+
+주요 작업:
+
+비/눈이 오는 날(Rainfall > 0)과 안 오는 날의 대여량 수치 비교.
+
+비가 몇 mm 이상 올 때 대여량이 0에 수렴하는지 분석.
+
+종합: 모든 수치형 변수의 상관계수 히트맵(sns.heatmap)을 그려서 대여량에 가장 큰 영향을 주는 'Top 3 요인' 선정.
