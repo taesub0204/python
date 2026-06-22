@@ -264,5 +264,8 @@
     <ClCompile Include="구조체9.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="liked1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
