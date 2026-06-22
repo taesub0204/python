@@ -28,7 +28,7 @@ import glob, pandas as pd
 
 files = glob.glob('data/log_2026-03-*.csv')
 # 각 파일을 읽어 리스트 담고 한번에 합치기 
-df_list=[]
+df_list=[] 
 for f in files:
     temp = pd.read_csv(f)
     temp['source'] = f # 오느 파일에서 왔는지 기록
