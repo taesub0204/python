@@ -5,3 +5,4 @@ D:\2604340040_조태섭_하이테크\ConsoleApp06_17\obj\Debug\ConsoleApp06_17.c
 D:\2604340040_조태섭_하이테크\ConsoleApp06_17\obj\Debug\ConsoleApp06_17.csproj.CoreCompileInputs.cache
 D:\2604340040_조태섭_하이테크\ConsoleApp06_17\obj\Debug\ConsoleApp06_17.exe
 D:\2604340040_조태섭_하이테크\ConsoleApp06_17\obj\Debug\ConsoleApp06_17.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp06_17\obj\Debug\ConsoleApp06_17.exe.config

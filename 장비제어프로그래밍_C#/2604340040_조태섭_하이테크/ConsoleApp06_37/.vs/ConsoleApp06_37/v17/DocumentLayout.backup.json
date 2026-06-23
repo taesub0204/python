@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp06_37\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C7347AE7-82F0-4828-85A2-E7E7DD2F189A}|ConsoleApp06_37.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp06_37\\fibonacci.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7347AE7-82F0-4828-85A2-E7E7DD2F189A}|ConsoleApp06_37.csproj|solutionrelative:fibonacci.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7347AE7-82F0-4828-85A2-E7E7DD2F189A}|ConsoleApp06_37.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp06_37\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7347AE7-82F0-4828-85A2-E7E7DD2F189A}|ConsoleApp06_37.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fibonacci.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp06_37\\Fibonacci.cs",
+              "RelativeDocumentMoniker": "Fibonacci.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp06_37\\Fibonacci.cs",
+              "RelativeToolTip": "Fibonacci.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T05:47:10.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp06_37\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp06_37\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T05:46:39.075Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
