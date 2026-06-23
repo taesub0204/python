@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adder.Designer.cs">
+      <DependentUpon>Adder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Adder.resx">
+      <DependentUpon>Adder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cal.resx">
       <DependentUpon>Cal.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,0 +1,215 @@
+"""LangChain 문서 기반 챗봇 예제 스크립트
+
+설치:
+    pip install -r requirements.txt
+
+사용 방법:
+    python langchain.py
+
+파일 경로 및 질문은 스크립트 내부 또는 커맨드라인 인자를 통해 수정하세요.
+"""
+
+import os
+from pathlib import Path
+from typing import List
+
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_community.document_loaders import PyPDFLoader, TextLoader, UnstructuredWordDocumentLoader
+from langchain_community.vectorstores import FAISS
+from langchain_core.documents import Document
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Google API 키 설정
+os.environ["GOOGLE_API_KEY"] = ""
+
+
+def load_pdf(pdf_path: str) -> List[Document]:
+    loader = PyPDFLoader(pdf_path)
+    return loader.load()
+
+
+def load_text(txt_path: str, encoding: str = "utf-8") -> List[Document]:
+    loader = TextLoader(txt_path, encoding=encoding)
+    return loader.load()
+
+
+def load_docx(docx_path: str) -> List[Document]:
+    loader = UnstructuredWordDocumentLoader(docx_path)
+    return loader.load()
+
+
+def load_documents_from_data_dir(data_dir: Path) -> List[Document]:
+    supported_ext = {".pdf", ".txt", ".docx"}
+    docs: List[Document] = []
+
+    if not data_dir.exists():
+        print(f"[WARN] data 디렉토리가 없습니다: {data_dir}. 생성합니다.")
+        data_dir.mkdir(parents=True, exist_ok=True)
+        return docs
+
+    for path in sorted(data_dir.iterdir()):
+        if not path.is_file():
+            continue
+
+        ext = path.suffix.lower()
+        if ext not in supported_ext:
+            print(f"[WARN] 지원되지 않는 파일 형식입니다: {path.name}")
+            continue
+
+        try:
+            if ext == ".pdf":
+                loaded = load_pdf(str(path))
+            elif ext == ".txt":
+                for enc in ("utf-8", "cp949", "euc-kr"):
+                    try:
+                        loaded = load_text(str(path), encoding=enc)
+                        break
+                    except Exception:
+                        loaded = []
+            elif ext == ".docx":
+                loaded = load_docx(str(path))
+            else:
+                loaded = []
+
+            print(f"[INFO] 로드 완료: {path.name} ({len(loaded)} 문서)")
+            docs.extend(loaded)
+        except Exception as exc:
+            print(f"[ERROR] {path.name} 로드 실패: {exc}")
+
+    return docs
+
+
+def split_documents(docs: List[Document], chunk_size: int = 1000, chunk_overlap: int = 100) -> List[Document]:
+    splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+    return splitter.split_documents(docs)
+
+
+def build_faiss_index(documents: List[Document]) -> FAISS:
+    return FAISS.from_documents(
+        documents=documents,
+        embedding=GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001"),
+    )
+
+
+def build_rag_chain(retriever, model_name: str = "gemini-1.5-flash", temperature: float = 0.0):
+    prompt = PromptTemplate.from_template(
+        """당신은 질문-답변(Question-Answering)을 수행하는 친절한 AI 어시스턴트입니다.
+검색된 다음 문맥(context)을 사용하여 질문(question)에 답하세요.
+만약, 주어진 문맥(context)에서 답을 찾을 수 없다면, `주어진 정보에서 질문에 대한 정보를 찾을 수 없습니다`라고 답하세요.
+한글로 답변해 주세요. 단, 기술적인 용어나 이름은 번역하지 않고 그대로 사용해 주세요.
+
+#Question:
+{question}
+
+#Context:
+{context}
+
+#Answer:"""
+    )
+    # 여기 구조가 중요
+    llm = ChatGoogleGenerativeAI(model=model_name, temperature=temperature)
+    rag_chain = (
+        {"context": retriever, "question": RunnablePassthrough()}
+        | prompt
+        | llm
+        | StrOutputParser()
+    )
+    return rag_chain
+
+
+def build_rag_chain_with_sources(retriever, model_name: str = "gemini-1.5-flash", temperature: float = 0.0):
+    prompt = PromptTemplate.from_template(
+        """당신은 질문-답변(Question-Answering)을 수행하는 친절한 AI 어시스턴트입니다.
+검색된 다음 문맥(context)을 사용하여 질문(question)에 답하세요.
+만약, 주어진 문맥(context)에서 답을 찾을 수 없다면, `주어진 정보에서 질문에 대한 정보를 찾을 수 없습니다`라고 답하세요.
+한글로 답변해 주세요. 단, 기술적인 용어나 이름은 번역하지 않고 그대로 사용해 주세요.
+반드시 출처도 제공해주세요.
+
+#Question:
+{question}
+
+#Context:
+{context}
+
+#사용된 문서 유형:
+{sources}
+
+#Answer:"""
+    )
+
+    llm = ChatGoogleGenerativeAI(model=model_name, temperature=temperature)
+
+    def process_retrieval(question: str):
+        docs = retriever.invoke(question)
+        sources = ", ".join(sorted({doc.metadata.get("source", "Unknown") for doc in docs}))
+        context_text = "\n".join(doc.page_content for doc in docs)
+        return {"context": context_text, "question": question, "sources": sources}
+
+    return (
+        RunnableLambda(process_retrieval)
+        | prompt
+        | llm
+        | StrOutputParser()
+    )
+
+
+def add_document_to_vectorstore(vectorstore: FAISS, text: str, splitter: RecursiveCharacterTextSplitter):
+    new_doc = Document(page_content=text)
+    split_docs = splitter.split_documents([new_doc])
+    vectorstore.add_documents(split_docs)
+    return len(split_docs)
+
+
+def main():
+    base_dir = Path(__file__).resolve().parent
+    data_dir = base_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    print("[INFO] LangChain 문서 기반 챗봇 스크립트 실행")
+    print("[INFO] Google API 키가 설정되었습니다.")
+    print(f"[INFO] data 폴더 경로: {data_dir}")
+
+    loaded_docs = load_documents_from_data_dir(data_dir)
+    if not loaded_docs:
+        print("[WARN] data 폴더에 로드할 문서가 없습니다. PDF, TXT, DOCX 파일을 추가하세요.")
+        print("[INFO] 스크립트 실행 종료")
+        return
+
+    split_docs = split_documents(loaded_docs, chunk_size=1000, chunk_overlap=100)
+    print(f"[INFO] 총 문서 청크 생성 완료: {len(split_docs)}개")
+
+    vectorstore = build_faiss_index(split_docs)
+    retriever = vectorstore.as_retriever()
+
+    rag_chain = build_rag_chain(retriever)
+
+    print("\n[질문 예시]: 금융기관에 대해서 분류해줘.")
+    print("[질문 예시]: 주택 임대시 주의점은 무엇인가요?")
+
+    # 대화형 QA 루프
+    print("\n" + "=" * 50)
+    print("[INFO] 직접 질문해보세요. 종료하려면 'q' 또는 '종료'를 입력하세요.")
+    print("=" * 50)
+
+    while True:
+        try:
+            user_input = input("\n질문: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n[INFO] 종료합니다.")
+            break
+
+        if not user_input:
+            continue
+        if user_input.lower() in ("q", "quit", "exit", "종료"):
+            print("[INFO] 종료합니다.")
+            break
+
+        response = rag_chain.invoke(user_input)
+        print(f"응답: {response}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,216 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Addressbook
+{
+    public partial class Adder : Form
+    {
+        // 갤럭시 계산기 스타일 - 단순화된 변수
+        string displayExpression = "";  // 위쪽: 전체 수식 표시
+        string displayResult = "0";     // 아래쪽: 현재 결과
+
+        double firstValue = 0;          // 첫 번째 피연산자
+        double secondValue = 0;         // 두 번째 피연산자  
+        string operation = "";          // 현재 연산자
+
+        bool isNewNumber = true;        // 새 숫자 입력 시작 플래그
+        bool hasOperator = false;       // 연산자 입력 여부
+
+
+
+
+        public Adder()
+        {
+            InitializeComponent();
+            UpdateDisplay();
+        }
+
+        // 화면 업데이트
+        private void UpdateDisplay()
+        {
+            txtAnswer.Text = displayExpression + Environment.NewLine + displayResult;
+            System.Diagnostics.Debug.WriteLine($"[Display] 수식: '{displayExpression}' | 결과: '{displayResult}'");
+        }
+
+
+        // 숫자 버튼 클릭 (0~9)
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string digit = btn.Text;
+
+            System.Diagnostics.Debug.WriteLine($"[숫자 {digit}] isNewNumber: {isNewNumber}, displayResult: '{displayResult}'");
+
+            if (isNewNumber)
+            {
+                // 새 숫자 시작
+                displayResult = digit;
+                isNewNumber = false;
+            }
+            else
+            {
+                // 숫자 이어붙이기
+                if (displayResult == "0")
+                    displayResult = digit;
+                else
+                    displayResult += digit;
+            }
+
+            // 연산자가 있으면 실시간 계산해서 보여주기
+            if (hasOperator)
+            {
+                secondValue = Convert.ToDouble(displayResult);
+                double preview = Calculate(firstValue, operation, secondValue);
+
+                // 수식 업데이트
+                displayExpression = firstValue + operation + displayResult;
+
+                System.Diagnostics.Debug.WriteLine($"  → 실시간 계산: {firstValue} {operation} {secondValue} = {preview}");
+
+                // 결과는 미리 계산된 값으로 (아래쪽에 표시)
+                displayResult = preview.ToString();
+            }
+            else
+            {
+                // 연산자 없으면 수식도 현재 숫자
+                displayExpression = displayResult;
+            }
+
+            UpdateDisplay();
+        }
+
+        // 계산 수행
+        private double Calculate(double val1, string op, double val2)
+        {
+            switch (op)
+            {
+                case "+": return val1 + val2;
+                case "-": return val1 - val2;
+                case "×": return val1 * val2;
+                case "÷":
+                    if (val2 == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없습니다.");
+                        return 0;
+                    }
+                    return val1 / val2;
+                default:
+                    return val2;
+            }
+        }
+
+
+
+
+        // 연산자 버튼 클릭 (+, -, ×, ÷)
+        private void Operator_click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string newOp = btn.Text;
+
+            System.Diagnostics.Debug.WriteLine($"[연산자 {newOp}] hasOperator: {hasOperator}, isNewNumber: {isNewNumber}");
+
+            // 연산자만 연속으로 누른 경우 (숫자 입력 없음) → 연산자 교체
+            if (hasOperator && isNewNumber)
+            {
+                operation = newOp;
+                displayExpression = firstValue + newOp;
+                System.Diagnostics.Debug.WriteLine($"  → 연산자 교체");
+                UpdateDisplay();
+                return;
+            }
+
+            // 현재 결과값
+            double currentValue = Convert.ToDouble(displayResult);
+
+            if (hasOperator)
+            {
+                // 이미 연산자가 있으면 중간 계산
+                secondValue = currentValue;
+                firstValue = Calculate(firstValue, operation, secondValue);
+
+                System.Diagnostics.Debug.WriteLine($"  → 중간 계산: {operation} 결과 = {firstValue}");
+
+                displayExpression = firstValue + newOp;
+                displayResult = firstValue.ToString();
+            }
+            else
+            {
+                // 첫 연산자
+                firstValue = currentValue;
+                displayExpression = firstValue + newOp;
+
+                System.Diagnostics.Debug.WriteLine($"  → 첫 연산자: firstValue = {firstValue}");
+            }
+
+            operation = newOp;
+            hasOperator = true;
+            isNewNumber = true;
+
+            UpdateDisplay();
+        }
+
+        // = 버튼 클릭
+        private void equals_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"[=] hasOperator: {hasOperator}");
+
+            if (hasOperator)
+            {
+                secondValue = Convert.ToDouble(displayResult);
+                double result = Calculate(firstValue, operation, secondValue);
+
+                displayExpression = firstValue + operation + secondValue + "=";
+                displayResult = result.ToString();
+
+                System.Diagnostics.Debug.WriteLine($"  → 최종: {firstValue} {operation} {secondValue} = {result}");
+
+                // 초기화
+                firstValue = result;
+                operation = "";
+                hasOperator = false;
+                isNewNumber = true;
+            }
+            else
+            {
+                // 연산자 없이 = 누른 경우
+                displayExpression = displayResult + "=";
+            }
+
+            UpdateDisplay();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // AC 버튼 (전체 초기화)
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            currentInput = "0";
+            storedValue = 0;
+            currentOperator = "";
+            startNewInput = true;
+            fullExpression = "";
+            UpdateDisplay();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

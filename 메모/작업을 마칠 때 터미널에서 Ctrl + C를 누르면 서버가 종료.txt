@@ -1,0 +1,13 @@
+작업을 마칠 때: 터미널에서 Ctrl + C를 누르면 서버가 종료됩니다.
+
+다시 시작할 때: 나중에 다시 작업하려면 블로그 폴더에서 bundle exec jekyll serve --force_polling만 입력하면 됩니다.
+
+내 블로그에 올리기: 로컬에서 수정한 내용이 마음에 든다면, git add ., git commit -m "update", git push를 통해 실제 본인의 .github.io 주소에 반영할 수 있습니다.
+
+이제 예쁘게 블로그를 꾸미고 글을 쓰실 일만 남았습니다! 또 궁금한 게 생기면 언제든 물어봐 주세요. :)
+
+
+
+
+
+jupyter nbconvert --to markdown "20260430_교육내용정리_python_과제.ipynb"
