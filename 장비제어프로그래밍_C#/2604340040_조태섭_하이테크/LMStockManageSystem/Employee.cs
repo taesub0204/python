@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace LMStockManageSystem
 {
-    internal class Employee
+    internal class Employee : Person
     {
         // 사원번호 
         public string employeeID { get; set; }
 
         // 사원 이름
-        public string employeeName { get; set; }
+       // public string name { get; set; }
 
         // 주민번호
-        public string ssn { get; set; }
+       // public string ssn { get; set; }
 
         // 성별
-        public string gender { get; set; }
+       // public string gender { get; set; }
 
         //주소
-        public string address { get; set; }
+       // public string address { get; set; }
 
         //전화번호
-        public string phoneNumber { get; set; }
+       // public string phoneNumber { get; set; }
 
         // 직급
         public string position { get; set; }
@@ -33,7 +33,7 @@ namespace LMStockManageSystem
         public string birthDate { get; set; }
 
         //계좌번호
-        public string accountNumber { get; set; }
+        //public string accountNumber { get; set; }
 
         // 직무
         public string jobTitle { get; set; }

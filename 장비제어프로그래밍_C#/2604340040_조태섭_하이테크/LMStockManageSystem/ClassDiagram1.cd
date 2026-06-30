@@ -1,35 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="LMStockManageSystem.Customer">
-    <Position X="5.5" Y="1.25" Width="1.5" />
+  <Class Name="LMStockManageSystem.Person" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BABAAACCAAAAAAAAAAAAiAAAAEIAAEIQAAgAAAAAEgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAiAAAAEIEAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LMStockManageSystem.Customer" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAACCAAAAAAAAAAAAAAAAAAAAAAIAAAgAAAAAEgA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LMStockManageSystem.Employee">
-    <Position X="8" Y="1.25" Width="1.5" />
+  <Class Name="LMStockManageSystem.Employee" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQACAAACAAABABA6KCAAEIACgAQAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAACAAABABAYKCAAAAACgAAAAAAEAAAAAA=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LMStockManageSystem.Partner">
-    <Position X="10.25" Y="1.25" Width="1.5" />
+  <Class Name="LMStockManageSystem.Partner" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAQAAAKQAAAAAAAAGAAAAACAAAAAAAgAAAQAAEA=</HashCode>
       <FileName>Partner.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LMStockManageSystem.Product">
-    <Position X="12.5" Y="1.25" Width="1.5" />
+  <Class Name="LMStockManageSystem.Product" Collapsed="true">
+    <Position X="8.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABABAAAAAAAAAAgAAAAAAAAAAAAAAAAAgIAAAAAgA=</HashCode>
       <FileName>Product.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LMStockManageSystem.Program">
-    <Position X="3.25" Y="1.25" Width="1.5" />
+  <Class Name="LMStockManageSystem.Program" Collapsed="true">
+    <Position X="2" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>

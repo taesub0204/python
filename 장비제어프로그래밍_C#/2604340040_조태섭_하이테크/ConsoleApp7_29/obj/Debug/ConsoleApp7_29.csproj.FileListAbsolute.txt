@@ -1,0 +1,7 @@
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\bin\Debug\ConsoleApp7_29.exe.config
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\bin\Debug\ConsoleApp7_29.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\bin\Debug\ConsoleApp7_29.pdb
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\obj\Debug\ConsoleApp7_29.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\obj\Debug\ConsoleApp7_29.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\obj\Debug\ConsoleApp7_29.exe
+D:\2604340040_조태섭_하이테크\ConsoleApp7_29\obj\Debug\ConsoleApp7_29.pdb

@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsapp07_36\\customform1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|solutionrelative:customform1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsapp07_36\\customform1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|solutionrelative:customform1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsapp07_36\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsapp07_36\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsapp07_36\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED93B9F1-B07A-4C51-98A0-753FF650BACD}|WindowsFormsApp07_36.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomForm1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\CustomForm1.cs",
+              "RelativeDocumentMoniker": "CustomForm1.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\CustomForm1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "CustomForm1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T06:01:27.079Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T05:56:43.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomForm1.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\CustomForm1.cs",
+              "RelativeDocumentMoniker": "CustomForm1.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\CustomForm1.cs",
+              "RelativeToolTip": "CustomForm1.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAuwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T05:55:33.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAABCwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T05:42:51.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsApp07_36\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T05:42:07.515Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

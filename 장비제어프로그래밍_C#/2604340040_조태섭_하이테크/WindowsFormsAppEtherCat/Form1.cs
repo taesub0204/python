@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +19,26 @@ namespace WindowsFormsAppEtherCat
         public Form1()
         {
             InitializeComponent();
+
+            // 위치 초기 세팅 (값 입력 시 에러 방지)
+            numericUpDown1.Maximum = decimal.MaxValue;
+            numericUpDown1.Minimum = decimal.MinValue;
+
+            // 가속도 초기값 세팅
+            numericUpDown2.Maximum = decimal.MaxValue;
+            numericUpDown2.Value = 1000000;
+
+            // 감속도 초기값 세팅
+            numericUpDown3.Maximum = decimal.MaxValue;
+            numericUpDown3.Value = 1000000;
+
+            // 최대속도 초기값 세팅
+            numericUpDown4.Maximum = decimal.MaxValue;
+            numericUpDown4.Value = 100000000;
+
+            // 속도 초기값 세팅
+            numericUpDown5.Maximum = decimal.MaxValue;
+            numericUpDown5.Value = 1000000;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -330,6 +350,138 @@ namespace WindowsFormsAppEtherCat
             EtherCAT_M.Digital_Output(0, false);
             EtherCAT_M.Digital_Output(1, false);
             EtherCAT_M.Digital_Output(2, false);
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            // Servo ON
+            EtherCAT_M.Axis1_ON(); // UP
+            EtherCAT_M.Axis2_ON();
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            // Servo OFF
+            EtherCAT_M.Axis1_OFF(); 
+            EtherCAT_M.Axis2_OFF();
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+         
+                EtherCAT_M.Axis1_UD_Homming();
+   
+
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+  
+                EtherCAT_M.Axis2_LR_Homming();
+
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            // 웨이퍼 이송 로봇 로드레스 실린더 전진
+            EtherCAT_M.Digital_Output(12,true);
+            EtherCAT_M.Digital_Output(13,false);
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            // 웨이퍼 이송 로봇 로드레스 실린더 후퇴
+            EtherCAT_M.Digital_Output(13,true);
+            EtherCAT_M.Digital_Output(12,false);
+
+        }
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            // 흡기 시작
+            EtherCAT_M.Digital_Output(14,true);
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            // 흡기 정지
+            EtherCAT_M.Digital_Output(14,false);
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            //배기 시작
+             EtherCAT_M.Digital_Output(15,true);
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            //배기 정지
+            EtherCAT_M.Digital_Output(15,false);
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            // 상하 타켓 위치 이동
+            EtherCAT_M .Axis1_UD_POS_Update((Int64)numericUpDown1.Value);
+            EtherCAT_M.Axis1_UD_Move_Send();
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            //  좌우 타겟 위치 이동
+            EtherCAT_M.Axis2_LR_POS_Update((Int64)numericUpDown1.Value);
+            EtherCAT_M.Axis2_LR_Move_Send();
+            
+            // 상태 진단을 위해 현재 위치를 팝업으로 출력합니다.
+            string currentPos = EtherCAT_M.Axis2_is_PosData();
+            
+            MessageBox.Show("좌우 이동 명령 전송됨!\n목표 값: " + numericUpDown1.Value + "\n현재 위치(Pos): " + currentPos);
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            // 가속도
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            //감속도
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            // 최대속도
+        }
+
+        private void numericUpDown5_ValueChanged(object sender, EventArgs e)
+        {
+            //속도
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            //이송로봇 파라미터 적용
+            EtherCAT_M.Axis1_UD_Config_Update((Int64)numericUpDown2.Value, (Int64)numericUpDown3.Value, (Int64)numericUpDown4.Value, (Int64)numericUpDown5.Value);
+            EtherCAT_M.Axis2_LR_Config_Update((Int64)numericUpDown2.Value, (Int64)numericUpDown3.Value, (Int64)numericUpDown4.Value, (Int64)numericUpDown5.Value);
+            
+            // 전송이 성공적으로 수행되었음을 사용자에게 팝업으로 알립니다.
+            MessageBox.Show("이송로봇 파라메타 전송 완료!\n" +
+                            "- 가속도 (Acc): " + numericUpDown2.Value + "\n" +
+                            "- 감속도 (Dec): " + numericUpDown3.Value + "\n" +
+                            "- 최대속도 (Max Vel): " + numericUpDown4.Value + "\n" +
+                            "- 속도 (Vel): " + numericUpDown5.Value);
         }
     }
 
