@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|c:\\users\\user\\desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_c#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsappethercat\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T04:20:19.753Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAM0BAAAAAAAAAAAAAOUBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T04:20:19.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\taesub\\python\\\uC7A5\uBE44\uC81C\uC5B4\uD504\uB85C\uADF8\uB798\uBC0D_C#\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T04:20:19.908Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 36,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
