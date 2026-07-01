@@ -32,7 +32,7 @@ namespace LMStockManageSystem
             Employee employee = new Employee
             {
                 employeeID = "E001",
-                employeeName = "홍길동",
+                name = "홍길동",
                 ssn = "900101-1234567",
                 gender = "남성",
                 address = "서울시 강남구",
@@ -72,7 +72,7 @@ namespace LMStockManageSystem
             Customer customer = new Customer
             {
                 customerID = "C001",
-                customerName = "김영희",
+                name = "김영희",
                 gender = "여성",
                 ssn = "920202-2345678",
                 address = "서울시 서초구",

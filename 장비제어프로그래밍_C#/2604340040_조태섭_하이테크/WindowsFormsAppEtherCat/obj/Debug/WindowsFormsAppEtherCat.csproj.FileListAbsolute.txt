@@ -2,12 +2,12 @@ D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFo
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.exe
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.pdb
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\IEG3268_Dll.dll
-D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.AssemblyReference.cache
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Form1.resources
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Properties.Resources.resources
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.GenerateResource.cache
-D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.CoreCompileInputs.cache
-D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsF.3B73344F.Up2Date
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.pdb
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.AssemblyReference.cache
 D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe.config
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsF.3B73344F.Up2Date

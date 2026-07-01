@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp6\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|solutionrelative:animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp6\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
+      "RelativeMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|solutionrelative:classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp6\\cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|solutionrelative:cat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp6\\dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|solutionrelative:dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\consoleapp6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{380BEB15-B31C-44ED-8958-E7A6A76FEAF3}|ConsoleApp6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Animal.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Animal.cs",
+              "RelativeDocumentMoniker": "Animal.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Animal.cs",
+              "RelativeToolTip": "Animal.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T00:33:29.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClassDiagram1.cd",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\ClassDiagram1.cd",
+              "RelativeDocumentMoniker": "ClassDiagram1.cd",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\ClassDiagram1.cd",
+              "RelativeToolTip": "ClassDiagram1.cd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000463|",
+              "WhenOpened": "2026-06-24T00:29:11.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cat.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Cat.cs",
+              "RelativeDocumentMoniker": "Cat.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Cat.cs",
+              "RelativeToolTip": "Cat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T00:20:56.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dog.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Dog.cs",
+              "RelativeDocumentMoniker": "Dog.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Dog.cs",
+              "RelativeToolTip": "Dog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T00:20:42.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\ConsoleApp6\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T00:20:02.773Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\bin\Debug\WindowsFormsApp07_36.exe.config
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\bin\Debug\WindowsFormsApp07_36.exe
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\bin\Debug\WindowsFormsApp07_36.pdb
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.Form1.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.Properties.Resources.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.csproj.GenerateResource.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.exe
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.pdb
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.exe.config
+D:\2604340040_조태섭_하이테크\WindowsFormsApp07_36\obj\Debug\WindowsFormsApp07_36.CustomForm1.resources
