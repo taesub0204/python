@@ -1,0 +1,59 @@
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.exe.config
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.exe
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.pdb
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\IEG3268_Dll.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Form1.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Properties.Resources.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.GenerateResource.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.pdb
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.HomeView.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.AssemblyReference.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe.config
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.CoreCompileInputs.cache
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsF.3B73344F.Up2Date
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.UserControl1.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.SemiE95View.resources
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\ClosedXML.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\DocumentFormat.OpenXml.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\ExcelNumberFormat.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\Irony.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\log4net.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\SixLabors.Fonts.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.Buffers.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.IO.Packaging.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.Memory.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.Numerics.Vectors.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\System.ValueTuple.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\bin\Debug\XLParser.dll
+D:\2604340040_조태섭_하이테크\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.exe.config
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.exe
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\WindowsFormsAppEtherCat.pdb
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\ClosedXML.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\ExcelNumberFormat.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\Irony.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\log4net.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\SixLabors.Fonts.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.Buffers.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.IO.Packaging.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.Memory.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\System.ValueTuple.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\bin\Debug\XLParser.dll
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe.config
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Form1.resources
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.HomeView.resources
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.Properties.Resources.resources
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.SemiE95View.resources
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.UserControl1.resources
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.GenerateResource.cache
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsF.3B73344F.Up2Date
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.exe
+C:\Users\User\Desktop\2604340040_조태섭_하이테크_장비제어 및 PPT\WindowsFormsAppEtherCat\obj\Debug\WindowsFormsAppEtherCat.pdb

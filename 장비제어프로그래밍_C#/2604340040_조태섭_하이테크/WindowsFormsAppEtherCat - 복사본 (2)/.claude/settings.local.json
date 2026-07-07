@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"/d/2604340040_조태섭_하이테크\" -maxdepth 2 -iname \"*WindowsFormsApp*\" -o -maxdepth 3 -iname \"SemiE95View.cs\" 2>/dev/null)",
+      "Bash(extract-text \"C:\\\\Users\\\\User\\\\Downloads\\\\최종정리.pptx\")",
+      "Bash(find \"C:/Users/User/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin\" -iname \"extract-text*\" 2>/dev/null)",
+      "Bash(which extract-text *)",
+      "Bash(cd \"/d/2604340040_조태섭_하이테크/WindowsFormsAppEtherCat\" && find /c/Windows/Microsoft.NET -iname \"csc.exe\" 2>/dev/null | tail -1)",
+      "Bash(\"/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe\" WindowsFormsAppEtherCat.csproj /p:Configuration=Debug /t:Build /nologo /v:minimal)",
+      "Bash(\"/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe\" WindowsFormsAppEtherCat.csproj -p:Configuration=Debug -t:Build -nologo -v:minimal)",
+      "Bash(curl -s -m 5 -o /dev/null -w \"%{http_code}\\\\n\" https://api.nuget.org/v3/index.json)",
+      "Bash(dotnet --version)",
+      "Read(//d//**)",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" --version)",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" add package log4net --version 2.0.15)",
+      "Bash(\"/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe\" WindowsFormsAppEtherCat.csproj -t:restore -nologo -v:minimal)",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" msbuild WindowsFormsAppEtherCat.csproj -t:restore -nologo -v:minimal)",
+      "Bash(curl -s \"https://api.nuget.org/v3-flatcontainer/log4net/index.json\")",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" msbuild WindowsFormsAppEtherCat.csproj -p:Configuration=Debug -t:Build -nologo -v:minimal)",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" build WindowsFormsAppEtherCat.csproj -p:Configuration=Debug -nologo -v:minimal)",
+      "Bash(\"/c/Program Files/dotnet/dotnet\" build WindowsFormsAppEtherCat.csproj -p:Configuration=Debug -p:GenerateResourceMSBuildRuntime=CurrentRuntime -p:GenerateResourceMSBuildArchitecture=CurrentArchitecture -nologo -v:minimal)",
+      "Bash(python3 -c ' *)",
+      "Bash(ls -la /tmp/logcheck/Test.dll)",
+      "Bash(rm -rf /tmp/logcheck)",
+      "Bash(ls \"D:/2604340040_조태섭_하이테크/WindowsFormsAppEtherCat\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\MSBuild\\\\Current\\\\Bin\\\\MSBuild.exe\" \"D:\\\\2604340040_���¼�_������ũ\\\\WindowsFormsAppEtherCat\\\\WindowsFormsAppEtherCat.sln\" /p:Configuration=Debug /v:minimal /nologo)",
+      "PowerShell(& \"C:\\\\Program Files \\(x86\\)\\\\Microsoft SDKs\\\\Windows\\\\v10.0A\\\\bin\\\\NETFX 4.8 Tools\\\\x64\\\\ildasm.exe\" /text /item:IEG3268_Dll.IEG3268::Axis1_Status \"D:\\\\2604340040_���¼�_������ũ\\\\WindowsFormsAppEtherCat\\\\bin\\\\Debug\\\\IEG3268_Dll.dll\" 2>&1)",
+      "Bash(grep -n \"// gbPortStatus\" SemiE95View.Designer.cs)"
+    ]
+  }
+}
