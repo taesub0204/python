@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsappethercat\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\semie95view.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:semie95view.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsappethercat\\semie95view.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:semie95view.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|d:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\windowsformsappethercat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\scheduler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:scheduler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\tr_robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:tr_robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\chamber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4290A7F-67E7-449E-B821-979B5DB3F6F5}|WindowsFormsAppEtherCat.csproj|solutionrelative:chamber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,16 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -42,33 +50,85 @@
               "RelativeToolTip": "Form1.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T08:17:27.699Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SemiE95View.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\SemiE95View.cs",
+              "RelativeDocumentMoniker": "SemiE95View.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\SemiE95View.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "SemiE95View.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T10:35:37.95Z",
+              "IsPinned": true,
               "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SemiE95View.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\SemiE95View.cs",
+              "RelativeDocumentMoniker": "SemiE95View.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\SemiE95View.cs",
+              "RelativeToolTip": "SemiE95View.cs",
+              "ViewState": "AgIAAMoBAAAAAAAAAAAIwDwBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-02T10:44:23.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAM0BAAAAAAAAAAAAAOUBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAcwCkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T08:23:07.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T11:13:04.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Form1.Designer.cs",
-              "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAKcDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Chamber.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Chamber.cs",
+              "RelativeDocumentMoniker": "Chamber.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Chamber.cs",
+              "RelativeToolTip": "Chamber.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-30T03:13:47.761Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-06T04:32:25.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TR_Robot.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\TR_Robot.cs",
+              "RelativeDocumentMoniker": "TR_Robot.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\TR_Robot.cs",
+              "RelativeToolTip": "TR_Robot.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T04:31:38.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Scheduler.cs",
+              "DocumentMoniker": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Scheduler.cs",
+              "RelativeDocumentMoniker": "Scheduler.cs",
+              "ToolTip": "D:\\2604340040_\uC870\uD0DC\uC12D_\uD558\uC774\uD14C\uD06C\\WindowsFormsAppEtherCat\\Scheduler.cs",
+              "RelativeToolTip": "Scheduler.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T03:51:02.328Z"
             }
           ]
         }

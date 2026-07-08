@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\User\\Desktop\\2604340040_조태섭_하이테크_장비제어 및 PPT\\WindowsFormsAppEtherCat\\WindowsFormsAppEtherCat.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\User\\Desktop\\2604340040_조태섭_하이테크_장비제어 및 PPT\\WindowsFormsAppEtherCat\\WindowsFormsAppEtherCat.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\2604340040_조태섭_하이테크_장비제어 및 PPT\\WindowsFormsAppEtherCat\\WindowsFormsAppEtherCat.csproj",
+        "projectName": "WindowsFormsAppEtherCat",
+        "projectPath": "C:\\Users\\User\\Desktop\\2604340040_조태섭_하이테크_장비제어 및 PPT\\WindowsFormsAppEtherCat\\WindowsFormsAppEtherCat.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\2604340040_조태섭_하이테크_장비제어 및 PPT\\WindowsFormsAppEtherCat\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.97.0, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.17, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
