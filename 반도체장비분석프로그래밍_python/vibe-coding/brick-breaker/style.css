@@ -1,0 +1,270 @@
+/* ==========================================
+   Brick Breaker Game - 스타일시트 (style.css)
+   ========================================== */
+
+/* 
+  CSS 변수 정의 (:root)
+  - 자주 쓰는 색상값이나 그림자 값을 변수에 담아두고 편리하게 가져다 씁니다.
+  - 고등학교 수학의 변수(x, y)처럼 스타일에서도 이름을 지정해 값을 재사용하는 것입니다.
+*/
+:root {
+    --bg-gradient-start: #0a051b; /* 배경 그라데이션 시작 색상 (진한 남색) */
+    --bg-gradient-end: #020108;   /* 배경 그라데이션 끝 색상 (검은색에 가까운 색) */
+    --canvas-border: rgba(255, 255, 255, 0.1); /* 캔버스 테두리선 색 (아주 불투명한 흰색) */
+    --canvas-shadow: rgba(123, 97, 255, 0.2);  /* 캔버스 주변의 보라색 네온 광채 색상 */
+    --text-glow: rgba(255, 255, 255, 0.8);     /* 흰색 글자 뒤에 생기는 광채 효과 색상 */
+}
+
+/* 기본 마진과 패딩 초기화 */
+* {
+    box-sizing: border-box; /* 패딩과 테두리를 포함해서 요소 크기를 계산하도록 설정 */
+    margin: 0;  /* 바깥 여백 초기화 */
+    padding: 0; /* 안쪽 여백 초기화 */
+}
+
+/* 전체 화면 배경 스타일 */
+body {
+    font-family: 'Outfit', sans-serif; /* 현대적이고 둥근 스타일의 Outfit 구글 폰트 적용 */
+    /* 대각선 방향(135도)으로 흘러가는 그라데이션 배경을 지정합니다. */
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    min-height: 100vh; /* 화면 높이를 브라우저 창 높이의 100%로 설정 */
+    
+    /* Flexbox 레이아웃: 자식 요소들을 화면 정중앙에 정렬하는 기술 */
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;    /* 가로축 기준 정중앙 정렬 */
+    justify-content: center; /* 세로축 기준 정중앙 정렬 */
+    
+    overflow: hidden; /* 스크롤바가 생기지 않도록 방지 */
+    color: #ffffff;   /* 기본 글씨 색상을 흰색으로 지정 */
+}
+
+/* 
+  화면 배경 위에 은은한 격자(Grid) 패턴을 그리는 효과 
+  - ::before는 가짜 요소를 하나 더 만들어 디자인적 장식을 더할 때 유용합니다.
+*/
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 가로/세로 40px 크기로 가느다란 줄(아주 연한 흰색)을 바둑판 모양으로 그립니다. */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none; /* 마우스 클릭 등이 배경 격자 때문에 방해받지 않도록 설정 */
+    z-index: 0; /* 게임 화면보다 뒤쪽 레이어에 배치 */
+}
+
+/* 게임을 감싸고 있는 메인 컨테이너 */
+.game-container {
+    position: relative;
+    z-index: 1; /* 격자 배경보다 앞쪽에 배치 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* 제목, 게임판, 푸터 사이의 세로 간격 20px */
+}
+
+/* 상단 텍스트 헤더 구역 */
+header {
+    text-align: center;
+}
+
+/* 게임 메인 타이틀 */
+h1 {
+    font-family: 'Orbitron', sans-serif; /* 사이버네틱하고 미래지향적인 느낌의 폰트 */
+    font-size: 2.5rem; /* 글씨 크기 설정 */
+    font-weight: 900;  /* 굵은 글씨 */
+    letter-spacing: 4px; /* 글자 간격 넓힘 */
+    /* 글자 안에 흰색에서 은청색으로 변하는 그라데이션을 채워 넣는 세련된 기법 */
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text; /* 그라데이션 배경을 글씨 영역에만 잘라 붙임 */
+    -webkit-text-fill-color: transparent; /* 글씨 기본색을 투명하게 만들어 그라데이션이 보이게 함 */
+    margin-bottom: 5px;
+    text-transform: uppercase; /* 영어 알파벳을 대문자로 강제 변환 */
+}
+
+/* 서브타이틀 */
+p.subtitle {
+    font-size: 0.95rem;
+    color: #818cf8; /* 연보라빛 네온 색상 */
+    opacity: 0.8;   /* 80% 밝기로 살짝 은은하게 */
+    letter-spacing: 2px;
+}
+
+/* 
+  캔버스를 감싸는 컨테이너 박스
+  - 캔버스와 스타트 버튼을 입체적으로 감싸고 띄워주는 역할을 합니다.
+*/
+.canvas-container {
+    position: relative; /* 자식 요소인 스타트 버튼이 이 박스를 기준으로 배치되도록 설정 */
+    width: 800px;
+    max-width: 95vw;
+    height: 600px;
+    max-height: calc(95vw * 0.75); /* 800:600 비율 유지 */
+    border-radius: 12px; /* 모서리를 부드럽게 깎음 */
+    overflow: hidden;    /* 캔버스 테두리를 벗어나는 자식 요소들을 숨김 */
+    /* 이중 그림자 효과: 전체적인 입체감 그림자 + 보라색 네온 빛이 사방으로 퍼지는 광채 */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 30px var(--canvas-shadow);
+    transition: box-shadow 0.3s ease; /* 마우스 호버 시 부드러운 전환 속도 지정 */
+}
+
+/* 마우스를 캔버스 박스에 올렸을 때 (Hover 효과) */
+.canvas-container:hover {
+    /* 네온 불빛이 더 밝아지고 크게 퍼지게 만들어 반응형 디자인을 완성합니다. */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(123, 97, 255, 0.4);
+}
+
+/* 실제 게임 화면이 그려질 HTML 캔버스 */
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* 캔버스 기본 배경은 새까만 검은색 */
+    border: 1px solid var(--canvas-border); /* 얇은 테두리 */
+    border-radius: 12px;
+}
+
+/* 
+  게임 시작 버튼 오버레이 
+  - (현재 기능상 숨김 처리되어 있으며, 게임 대기화면은 Canvas와 스페이스바로 시작합니다)
+*/
+#startButton {
+    display: none;
+}
+
+/* 요소를 화면에서 투명하고 조작 불가능하게 숨기는 유틸리티 클래스 */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* 서서히 사라지는 애니메이션 */
+}
+
+/* 최하단 가이드 텍스트 */
+footer {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4); /* 연한 회색 글씨 */
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+/* ==========================================
+   수평 레이아웃 및 사이드바 버튼 추가 스타일
+   ========================================== */
+
+/* 메인 수평 레이아웃 (게임판과 사이드바 가로 배치) */
+.main-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* 게임판과 사이드바 사이의 넉넉한 간격 */
+    width: 100%;
+}
+
+/* 모바일 화면을 위한 미디어 쿼리 */
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .game-container {
+        gap: 10px;
+    }
+    
+    .side-btn {
+        width: auto;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 우측 사이드바 구역 */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* 사이드바 전용 프리미엄 네온 버튼 스타일 */
+.side-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 170px; /* 고정 가로 넓이 */
+    text-align: center;
+    border: 2px solid transparent;
+    outline: none;
+}
+
+/* 일반 스테이지 버튼 스타일 (푸른 네온 테마) */
+.normal-btn {
+    background: rgba(78, 168, 224, 0.12);
+    color: #4EA8E0;
+    border-color: #4EA8E0;
+    box-shadow: 
+        0 0 15px rgba(78, 168, 224, 0.25),
+        inset 0 0 10px rgba(78, 168, 224, 0.15);
+    text-shadow: 0 0 8px rgba(78, 168, 224, 0.5);
+}
+
+.normal-btn:hover,
+.normal-btn.active {
+    background: #4EA8E0;
+    color: #ffffff;
+    box-shadow: 
+        0 0 25px rgba(78, 168, 224, 0.7),
+        0 0 45px rgba(78, 168, 224, 0.4);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+.normal-btn:active {
+    transform: translateY(1px);
+}
+
+/* 헬 스테이지 버튼 스타일 (타오르는 붉은 네온 조명 테마) */
+.hell-btn {
+    background: rgba(224, 90, 78, 0.12); /* 투명감이 도는 붉은 필터 */
+    color: #FF5E5B; /* 밝은 네온 스칼렛 */
+    border-color: #E05A4E;
+    box-shadow: 
+        0 0 15px rgba(224, 90, 78, 0.25),
+        inset 0 0 10px rgba(224, 90, 78, 0.15);
+    text-shadow: 0 0 8px rgba(255, 94, 91, 0.5);
+}
+
+.hell-btn:hover,
+.hell-btn.active {
+    background: #E05A4E; /* 완전한 스칼렛 레드 충전 */
+    color: #ffffff;
+    box-shadow: 
+        0 0 25px rgba(224, 90, 78, 0.7),
+        0 0 45px rgba(224, 90, 78, 0.4);
+    text-shadow: none;
+    transform: translateY(-2px); /* 부드럽게 떠오르는 효과 */
+}
+
+.hell-btn:active {
+    transform: translateY(1px);
+}

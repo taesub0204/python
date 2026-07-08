@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tae sub Games - 벽돌깨기 게임</title>
+    
+    <!-- 구글 폰트(Google Fonts) 연동 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- 외부 스타일시트(CSS) 연동 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- 상단 헤더 구역 -->
+        <header>
+            <h1>Tae sub Games</h1>
+            <p class="subtitle">RETRO ARCADE REIMAGINED</p>
+        </header>
+
+        <!-- 메인 수평 레이아웃 (게임판 + 우측 사이드바) -->
+        <div class="main-layout">
+            <!-- 게임 캔버스 박스 -->
+            <div class="canvas-container">
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+                <button id="startButton" class="hidden">START GAME</button>
+            </div>
+
+            <!-- 우측 사이드바 구역 -->
+            <div class="sidebar">
+                <button id="normalStageButton" class="side-btn normal-btn active">NORMAL STAGE</button>
+                <button id="hellStageButton" class="side-btn hell-btn">HELL STAGE</button>
+            </div>
+        </div>
+
+        <!-- 하단 조작 가이드 -->
+        <footer id="gameFooter">
+            Press SPACEBAR to start
+        </footer>
+    </div>
+
+    <!-- 자바스크립트(JS) 게임 소스코드 연동 -->
+    <script src="game.js"></script>
+</body>
+</html>
