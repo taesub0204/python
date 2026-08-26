@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="반도체 8대 공정 중 증착 단계를 시뮬레이션하는 교육용 PECVD 장비 데이터 분석 시뮬레이터입니다. 실시간 플라즈마 반응 및 박막 증착 데이터 시각화를 제공합니다.">
+    <title>PECVD 반도체 증착장비 시뮬레이터</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js and OrbitControls for 3D Chamber Visualizer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Header Area -->
+    <header>
+        <div class="header-title-area">
+            <h1>PECVD System Monitor (장비 모니터)</h1>
+            <span class="system-badge">SIMULATOR V1.0</span>
+        </div>
+        <div class="header-status-area">
+            <button id="themeToggleBtn" class="theme-toggle-btn">🌓 GUI Theme (테마): Normal</button>
+            <div style="color: #64748b;">|</div>
+            <div class="status-indicator">
+                <span>SYSTEM STATE (시스템 상태):</span>
+                <div class="status-dot pulse" id="sysStatusDot"></div>
+                <span id="sysStatusText" style="color: var(--color-green);">ONLINE (가동중)</span>
+            </div>
+            <div style="color: #64748b;">|</div>
+            <div>EQID (장비 ID): <span style="color: var(--color-cyan);" id="displayEqId">PECVD-01</span></div>
+            <div style="color: #64748b;">|</div>
+            <div>Wafer (웨이퍼): <span style="color: var(--color-purple); font-weight: bold;" id="displayWaferId">W-01</span></div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-container">
+        <!-- Sidebar Control Panel -->
+        <aside class="glass-panel control-sidebar">
+            <h2 class="panel-title">Recipe & Parameter Control (레시피/파라미터 제어)</h2>
+            
+            <!-- Preset Recipes Selection -->
+            <div class="control-group">
+                <span class="slider-label" style="font-size: 12px; font-weight: 600; text-transform: uppercase;">Preset Recipes (프리셋 레시피)</span>
+                <div class="recipe-grid">
+                    <button class="recipe-btn active" id="recipeSiN">Standard SiN (표준 SiN)</button>
+                    <button class="recipe-btn" id="recipeLowStressSiN">Low-Stress SiN (저응력 SiN)</button>
+                    <button class="recipe-btn" id="recipeSiO2">Silicon Dioxide (SiO₂)</button>
+                    <button class="recipe-btn" id="recipeaSi">Amorphous Si (비정질 Si)</button>
+                </div>
+            </div>
+
+            <!-- Parameters Sliders -->
+            <div class="control-group" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px;">
+                <span class="slider-label" style="font-size: 12px; font-weight: 600; text-transform: uppercase;">Process Parameters (공정 조건 설정)</span>
+                
+                <!-- Pressure Slider -->
+                <div class="slider-box" id="boxPressure">
+                    <div class="slider-label">
+                        <span class="slider-name">Chamber Pressure (Torr) (챔버 압력)</span>
+                        <span class="slider-value-display" id="valPressure">1.00</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputPressure" min="0.5" max="2.0" step="0.05" value="1.0">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 0.5</span>
+                        <span style="color: var(--color-green);">Normal (정상): 0.8 ~ 1.2</span>
+                        <span>Max (최대): 2.0</span>
+                    </div>
+                </div>
+
+                <!-- Temperature Slider -->
+                <div class="slider-box" id="boxTemp">
+                    <div class="slider-label">
+                        <span class="slider-name">Heater Temp (℃) (히터 온도)</span>
+                        <span class="slider-value-display" id="valTemp">400</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputTemp" min="300" max="500" step="5" value="400">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 300</span>
+                        <span style="color: var(--color-green);">Normal (정상): 380 ~ 420</span>
+                        <span>Max (최대): 500</span>
+                    </div>
+                </div>
+
+                <!-- RF Power Slider -->
+                <div class="slider-box" id="boxRF">
+                    <div class="slider-label">
+                        <span class="slider-name">RF Power (W) (플라즈마 출력)</span>
+                        <span class="slider-value-display" id="valRF">300</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputRF" min="100" max="500" step="10" value="300">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 100</span>
+                        <span style="color: var(--color-green);">Normal (정상): 250 ~ 350</span>
+                        <span>Max (최대): 500</span>
+                    </div>
+                </div>
+
+                <!-- Gas Flow SiH4 Slider -->
+                <div class="slider-box" id="boxGasFlow">
+                    <div class="slider-label">
+                        <span class="slider-name">SiH₄ Gas Flow (sccm) (실란 유량)</span>
+                        <span class="slider-value-display" id="valGasFlow">100</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputGasFlow" min="50" max="200" step="5" value="100">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 50</span>
+                        <span style="color: var(--color-green);">Normal (정상): 80 ~ 120</span>
+                        <span>Max (최대): 200</span>
+                    </div>
+                </div>
+
+                <!-- Extended parameter: NH3 Flow -->
+                <div class="slider-box" id="boxNH3Flow">
+                    <div class="slider-label">
+                        <span class="slider-name">NH₃ Gas Flow (sccm) (암모니아 유량)</span>
+                        <span class="slider-value-display" id="valNH3Flow">150</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputNH3Flow" min="0" max="500" step="10" value="150">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 0</span>
+                        <span style="color: var(--color-green);">Normal (정상): 50 ~ 300</span>
+                        <span>Max (최대): 500</span>
+                    </div>
+                </div>
+
+                <!-- Extended parameter: N2 Flow -->
+                <div class="slider-box" id="boxN2Flow">
+                    <div class="slider-label">
+                        <span class="slider-name">N₂ Gas Flow (sccm) (질소 유량)</span>
+                        <span class="slider-value-display" id="valN2Flow">500</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputN2Flow" min="0" max="1500" step="50" value="500">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 0</span>
+                        <span style="color: var(--color-green);">Normal (정상): 100 ~ 1000</span>
+                        <span>Max (최대): 1500</span>
+                    </div>
+                </div>
+
+                <!-- Process Time Slider -->
+                <div class="slider-box" id="boxProcessTime">
+                    <div class="slider-label">
+                        <span class="slider-name">Process Time (sec) (공정 시간)</span>
+                        <span class="slider-value-display" id="valProcessTime">120</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="inputProcessTime" min="10" max="300" step="5" value="120">
+                    </div>
+                    <div class="slider-limits">
+                        <span>Min (최소): 10</span>
+                        <span style="color: var(--color-green);">Normal (정상): 30 ~ 300</span>
+                        <span>Max (최대): 300</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wafer Process Mode -->
+            <div class="control-group" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px;">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-color);">
+                    <input type="checkbox" id="chkAutoRun" style="width: 15px; height: 15px; cursor: pointer;">
+                    Auto-Run Next Wafer (자동 연속 공정)
+                </label>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px; font-size: 13px; font-weight: 600;">
+                    <span>Simulation Speed (시뮬레이션 배속):</span>
+                    <select id="selectSpeed" style="background: var(--bg-color); border: 1px solid var(--panel-border); color: var(--text-color); font-family: var(--font-tech); font-weight: 600; padding: 2px 6px; border-radius: 4px; cursor: pointer;">
+                        <option value="1">1x (실시간)</option>
+                        <option value="2">2x (2배속)</option>
+                        <option value="5">5x (5배속)</option>
+                        <option value="10" selected>10x (10배속)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="system-actions" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px;">
+                <div class="btn-row">
+                    <button class="action-btn btn-start" id="btnStart">Start (시작)</button>
+                    <button class="action-btn btn-stop" id="btnStop" disabled>Stop (정지)</button>
+                </div>
+                <div class="btn-row">
+                    <button class="action-btn btn-fault" id="btnFault" disabled>Fault Inject (이상 주입)</button>
+                    <button class="action-btn btn-save" id="btnSave" disabled>Save CSV (로그 저장)</button>
+                </div>
+                <button class="action-btn btn-reset" id="btnReset">Reset System (시스템 리셋)</button>
+            </div>
+        </aside>
+
+        <!-- Right Side Dashboard Panels -->
+        <section class="main-dashboard">
+            <!-- 1. Real-time Metrics Header -->
+            <div class="metrics-grid">
+                <!-- Thickness -->
+                <div class="metric-card highlight">
+                    <span class="metric-label">Thickness (박막 두께)</span>
+                    <div class="metric-value"><span id="metricThickness">0.0</span><span>nm</span></div>
+                </div>
+                <!-- Uniformity -->
+                <div class="metric-card highlight">
+                    <span class="metric-label">Uniformity (막 균일도)</span>
+                    <div class="metric-value"><span id="metricUniformity">0.0</span><span>%</span></div>
+                </div>
+                <!-- Deposition Rate -->
+                <div class="metric-card">
+                    <span class="metric-label">Dep. Rate (증착 속도)</span>
+                    <div class="metric-value"><span id="metricDepRate">0.0</span><span>nm/min</span></div>
+                </div>
+                <!-- Status -->
+                <div class="metric-card status-card" data-status="IDLE" id="cardStatus">
+                    <span class="metric-label">Status (장비 상태)</span>
+                    <div class="metric-value" id="metricStatus">IDLE</div>
+                </div>
+                <!-- Result -->
+                <div class="metric-card result-card" data-result="-" id="cardResult">
+                    <span class="metric-label">Result (최종 판정)</span>
+                    <div class="metric-value" id="metricResult">-</div>
+                </div>
+            </div>
+
+            <!-- 2. Visualizer and Console Console -->
+            <div class="upper-main-row">
+                <!-- Reactor Chamber Viewport -->
+                <div class="glass-panel chamber-viewport">
+                    <h3 class="panel-title">
+                        Process Chamber Visualizer (반도체 반응 챔버 시각화)
+                        <span id="chamberStateLabel" style="font-size: 11px; color: var(--color-cyan);">[VACUUM INTEGRITY (진공도): OK]</span>
+                    </h3>
+                    <canvas id="chamberCanvas"></canvas>
+                    <div class="chamber-overlay">
+                        <div class="chamber-overlay-item">SiH₄ (실란): <span id="overlaySiH4">100</span> sccm</div>
+                        <div class="chamber-overlay-item">NH₃ (암모니아): <span id="overlayNH3">150</span> sccm</div>
+                        <div class="chamber-overlay-item">Plasma (플라즈마): <span id="overlayPlasma">OFF</span></div>
+                    </div>
+                </div>
+
+                <!-- Logs console -->
+                <div class="glass-panel log-console-panel">
+                    <h3 class="panel-title">System Diagnostic Log (시스템 진단 로그)</h3>
+                    <div class="log-terminal" id="logTerminal">
+                        <div class="log-entry"><span class="log-time">[13:14:56]</span><span class="log-tag-sys">[SYS]</span> System loaded. Simulator ready. (시스템이 로드되었습니다. 가동 대기 중.)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Dynamic Charts Viewport -->
+            <div class="lower-main-row">
+                <div class="glass-panel chart-viewport">
+                    <h3 class="panel-title">Thin-film thickness trend (박막 두께 실시간 트렌드)</h3>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color thickness"></div>
+                            <span>Current Thickness (nm) (현재 두께)</span>
+                        </div>
+                    </div>
+                    <canvas id="thicknessChart"></canvas>
+                </div>
+                <div class="glass-panel chart-viewport">
+                    <h3 class="panel-title">Deposition uniformity trend (막 균일도 실시간 트렌드)</h3>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color uniformity"></div>
+                            <span>Uniformity (%) (막 균일도)</span>
+                        </div>
+                    </div>
+                    <canvas id="uniformityChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
