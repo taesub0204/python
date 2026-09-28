@@ -8,3 +8,10 @@
 반도체장비개론_김랑기교수님_수업\무단배포금지자료
 
 llm_setup_environment/
+
+# md 파일 제외
+*.md
+
+# 이미지 png, jpg  파일 제외
+*.png
+*.jpg
