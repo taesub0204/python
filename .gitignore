@@ -15,3 +15,6 @@ llm_setup_environment/
 # 이미지 png, jpg  파일 제외
 *.png
 *.jpg
+
+# zip 팡리 제외
+*.zip
