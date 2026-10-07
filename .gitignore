@@ -18,3 +18,6 @@ llm_setup_environment/
 
 # zip 팡리 제외
 *.zip
+
+# pkl
+*.pkl
