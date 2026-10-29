@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>ADsP 노베이스 전체 정답노트 (1~100번 전 문항 완벽 정리)</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 11mm;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+    color: #0f172a;
+    background-color: #ffffff;
+    line-height: 1.42;
+    font-size: 9.3pt;
+    margin: 0;
+    padding: 12px;
+  }
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .no-print {
+    background-color: #eff6ff;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .print-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 9px 16px;
+    font-size: 10.5pt;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  @media print {
+    body { padding: 0; }
+    .no-print { display: none !important; }
+  }
+  h1 {
+    font-size: 16.5pt;
+    color: #1e3a8a;
+    border-bottom: 3px solid #1e3a8a;
+    padding-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 12.5pt;
+    color: #ffffff;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+  h2.green-header {
+    background: linear-gradient(90deg, #065f46, #059669);
+  }
+  h2.purple-header {
+    background: linear-gradient(90deg, #4c1d95, #7c3aed);
+  }
+  h3 {
+    font-size: 10.5pt;
+    color: #1e3a8a;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    border-left: 4px solid #2563eb;
+    padding-left: 8px;
+    background-color: #f8fafc;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    page-break-after: avoid;
+  }
+  h3.green-sub {
+    color: #065f46;
+    border-left-color: #059669;
+    background-color: #f0fdf4;
+  }
+  .summary-box {
+    background-color: #f8fafc;
+    border: 1.5px solid #94a3b8;
+    border-radius: 6px;
+    padding: 9px 13px;
+    margin-bottom: 12px;
+    font-size: 9.2pt;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .card {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 10px;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .card-title {
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #1e3a8a;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 3px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 8.9pt;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 4.2px 6.5px;
+    vertical-align: middle;
+  }
+  th {
+    background-color: #e2e8f0;
+    color: #0f172a;
+    font-weight: bold;
+    text-align: center;
+  }
+  .th-green th {
+    background-color: #d1fae5;
+    color: #064e3b;
+  }
+  .th-blue th {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+  }
+  td.center {
+    text-align: center;
+  }
+  .wrong-ans {
+    color: #dc2626;
+    font-weight: bold;
+  }
+  .right-ans {
+    color: #1d4ed8;
+    font-weight: bold;
+  }
+  .green-ans {
+    color: #047857;
+    font-weight: bold;
+  }
+  .badge-wrong {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 8pt;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+  }
+  .badge-blank {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 8pt;
+    background-color: #ffedd5;
+    color: #c2410c;
+    border: 1px solid #fdba74;
+  }
+  .badge-correct {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 8pt;
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+  }
+  .tip-pill {
+    display: inline-block;
+    background-color: #fef3c7;
+    color: #92400e;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 8.2pt;
+    margin-right: 4px;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="no-print">
+    <div>
+      <strong>📄 ADsP 노베이스 전체 정답노트 (1~100번 전 문항 + 찍어서 맞힌 문제 완벽 대비)</strong><br>
+      <span>우측 버튼을 눌러 인쇄 또는 PDF로 저장할 수 있습니다.</span>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+  </div>
+
+  <h1>📚 ADsP 노베이스 전체 정답노트 (1~100번 전 문항 핵심 요약)</h1>
+  <div class="summary-box">
+    <b>💡 제작 목적:</b> <b>맞힌 41문항 중 찍어서 맞았거나 헷갈렸던 선지</b>까지 완벽하게 내 것으로 만들고, <b>오답 59문항</b>과 함께 <b>1번~100번 전체 개념</b>을 한 권으로 끝내는 시험 직전 최종 바이블입니다.<br>
+    <b>📊 구성:</b> PART 0 (전 범위 필수 그래프·도형 12선) + PART 1~3 (1과목 20문항 · 2과목 20문항 · 3과목 60문항 전체 정답 및 함정 해설)
+  </div>
+
+  
+  <h2>📊 PART 0. 노베이스 시험 직전 필수 도형 · 그래프 · 핵심 도식</h2>
+  <div class="grid-2">
+
+    <!-- 1. DIKW 피라미드 (4번) & NoSQL/DW (7,8번) -->
+    <div class="card">
+      <div class="card-title">① DIKW 피라미드 (4번) &amp; DW vs DM / OLTP vs OLAP (8번)</div>
+      <svg viewBox="0 0 380 120" width="100%" height="112">
+        <!-- Pyramid -->
+        <polygon points="85,8 155,112 15,112" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+        <line x1="68" y1="34" x2="102" y2="34" stroke="#1d4ed8" stroke-width="1.2"/>
+        <line x1="50" y1="60" x2="120" y2="60" stroke="#1d4ed8" stroke-width="1.2"/>
+        <line x1="33" y1="86" x2="137" y2="86" stroke="#1d4ed8" stroke-width="1.2"/>
+        <text x="85" y="28" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">W(지혜)</text>
+        <text x="85" y="51" font-size="9" text-anchor="middle" font-weight="bold" fill="#dc2626">K(지식)★</text>
+        <text x="85" y="77" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">I(정보)</text>
+        <text x="85" y="103" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">D(데이터)</text>
+        <!-- Labels -->
+        <text x="162" y="26" font-size="8.5" fill="#334155">• <tspan font-weight="bold">지혜:</tspan> "다른 물건도 쌀 것이다"(응용)</text>
+        <text x="162" y="49" font-size="8.8" fill="#dc2626" font-weight="bold">• 지식(4번): "A마트서 사야겠다"(결정)</text>
+        <text x="162" y="74" font-size="8.5" fill="#334155">• <tspan font-weight="bold">정보:</tspan> "A마트가 더 싸다"(비교·의미)</text>
+        <text x="162" y="100" font-size="8.5" fill="#334155">• <tspan font-weight="bold">데이터:</tspan> "A 100원, B 200원"(사실)</text>
+      </svg>
+      <div style="font-size:8.3pt; background:#f8fafc; padding:4px 6px; border-top:1px solid #e2e8f0;">
+        <b>[7번 NoSQL]</b> <b>Redis</b>=인메모리 키-값 | <b>MongoDB</b>=문서(Document) | <b>HBase</b>=컬럼(Column)<br>
+        <b>[8번 DW/DM]</b> <b>DW</b>=전사 통합(대규모) vs <b>DM</b>=부서별(소규모) | <b>OLTP</b>=실시간 거래 vs <b>OLAP</b>=다차원 분석
+      </div>
+    </div>
+
+    <!-- 2. 분석 기획 4유형 (21번) & 하향식 vs 상향식 (29번) -->
+    <div class="card">
+      <div class="card-title">② 분석 기획 4유형 매트릭스 (21번) &amp; 과제 발굴 (29번)</div>
+      <table style="margin-bottom:5px; font-size:8.4pt;">
+        <tr>
+          <th style="width:32%;">구분 (21번)</th>
+          <th>분석 방법(How) 앎(O)</th>
+          <th>분석 방법(How) 모름(X)</th>
+        </tr>
+        <tr>
+          <td class="center"><b>분석 대상(What) 앎(O)</b></td>
+          <td class="center"><b>최적화 (Optimization)</b></td>
+          <td class="center"><b>솔루션 (Solution)</b></td>
+        </tr>
+        <tr>
+          <td class="center"><b>분석 대상(What) 모름(X)</b></td>
+          <td class="center" style="background:#fef2f2;"><b style="color:#dc2626;">★ 통찰 (Insight) [정답]</b></td>
+          <td class="center"><b>발견 (Discovery)</b></td>
+        </tr>
+      </table>
+      <div style="font-size:8.3pt; background:#f8fafc; padding:5px 6px; border:1px solid #cbd5e1; border-radius:4px;">
+        <b>• 하향식(Top-Down):</b> 문제 주어짐 → <b>수렴(Converge)</b> · <b>Why</b> 관점 · 5영역 단순화 캔버스(31번)<br>
+        <b>• 상향식(Bottom-Up, 29번):</b> 데이터 기반 → <b>발산(Diverge)</b> · <b>What</b> 관점 · 프로토타이핑 · <b style="color:#dc2626;">비지도학습(군집·연관)</b>
+      </div>
+    </div>
+
+    <!-- 3. ROI 사분면 (34·35번) & 조직 구조 (39번) -->
+    <div class="card">
+      <div class="card-title">③ ROI 우선순위 사분면 (34·35번) &amp; 분석 조직 3유형 (39번)</div>
+      <svg viewBox="0 0 380 120" width="100%" height="112">
+        <rect x="45" y="10" width="145" height="46" fill="#fef3c7" stroke="#94a3b8"/>
+        <rect x="190" y="10" width="145" height="46" fill="#f1f5f9" stroke="#94a3b8"/>
+        <rect x="45" y="56" width="145" height="46" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+        <rect x="190" y="56" width="145" height="46" fill="#e0f2fe" stroke="#94a3b8"/>
+        <text x="22" y="36" font-size="8.5" text-anchor="middle" font-weight="bold">어려움</text>
+        <text x="22" y="82" font-size="8.5" text-anchor="middle" font-weight="bold">쉬움</text>
+        <text x="117" y="114" font-size="8.5" text-anchor="middle" font-weight="bold">현재 (시급함↑)</text>
+        <text x="262" y="114" font-size="8.5" text-anchor="middle" font-weight="bold">미래 (시급함↓)</text>
+        <text x="117" y="30" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#b45309">현재·어려움 (시급성 2순위)</text>
+        <text x="262" y="30" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#334155">미래·어려움 (3순위)</text>
+        <text x="117" y="76" font-size="9" text-anchor="middle" font-weight="bold" fill="#15803d">★ 현재·쉬움 (1순위 Quick-Win)</text>
+        <text x="262" y="76" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#0369a1">미래·쉬움 (난이도 2순위)</text>
+        <!-- Arrow for Urgency (35번) -->
+        <path d="M 117 65 L 117 38 L 220 33" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="3"/>
+      </svg>
+      <div style="font-size:8.2pt; background:#f8fafc; padding:4px 6px; border-top:1px solid #e2e8f0;">
+        <b>[34·35번]</b> 난이도=<b>3V(비용)</b>, 시급성=<b>Value(효과)</b> | <b>시급성 기준:</b> 현재·쉬움 → <b>현재·어려움</b> → 미래·어려움<br>
+        <b>[39번 조직]</b> <b>집중형</b>(전담부서) vs <b style="color:#dc2626;">기능형(별도 조직 없이 현업 직접·과거실적 국한)</b> vs <b>분산형</b>(현업 파견)
+      </div>
+    </div>
+
+    <!-- 4. R 행렬 열 우선 & apply (44번) + 표본추출 (51번) -->
+    <div class="card">
+      <div class="card-title">④ R matrix 열 우선 &amp; apply (44번) · 층화 vs 집락추출 (51번)</div>
+      <svg viewBox="0 0 380 115" width="100%" height="108">
+        <!-- Matrix 2x3 -->
+        <rect x="15" y="18" width="135" height="58" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+        <line x1="15" y1="47" x2="150" y2="47" stroke="#94a3b8"/>
+        <line x1="60" y1="18" x2="60" y2="76" stroke="#94a3b8"/>
+        <line x1="105" y1="18" x2="105" y2="76" stroke="#94a3b8"/>
+        <text x="82" y="12" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">matrix(1:6, nrow=2) [열 우선↓]</text>
+        <text x="37" y="37" font-size="10" text-anchor="middle" font-weight="bold">1</text>
+        <text x="37" y="66" font-size="10" text-anchor="middle" font-weight="bold">2</text>
+        <text x="82" y="37" font-size="10" text-anchor="middle" font-weight="bold">3</text>
+        <text x="82" y="66" font-size="10" text-anchor="middle" font-weight="bold">4</text>
+        <text x="127" y="37" font-size="10" text-anchor="middle" font-weight="bold">5</text>
+        <text x="127" y="66" font-size="10" text-anchor="middle" font-weight="bold">6</text>
+        <text x="37" y="92" font-size="9" text-anchor="middle" fill="#dc2626" font-weight="bold">↓합 3</text>
+        <text x="82" y="92" font-size="9" text-anchor="middle" fill="#dc2626" font-weight="bold">↓합 7</text>
+        <text x="127" y="92" font-size="9" text-anchor="middle" fill="#dc2626" font-weight="bold">↓합 11</text>
+        <text x="82" y="107" font-size="8.5" text-anchor="middle" fill="#1d4ed8" font-weight="bold">apply(m, 2, sum) ⇒ 3, 7, 11</text>
+        <!-- Sampling -->
+        <rect x="168" y="12" width="202" height="46" rx="4" fill="#eff6ff" stroke="#60a5fa"/>
+        <text x="175" y="27" font-size="8.5" font-weight="bold" fill="#1e3a8a">• 층화추출 (층내 동질 · 층간 이질)</text>
+        <text x="175" y="42" font-size="8" fill="#334155">[1학년: A,A,A] [2학년: B,B,B] → 각 층에서 조금씩</text>
+        <rect x="168" y="64" width="202" height="46" rx="4" fill="#fef2f2" stroke="#f87171"/>
+        <text x="175" y="79" font-size="8.5" font-weight="bold" fill="#dc2626">• 집락추출 (집락내 이질 · 집락간 동질) ★51번</text>
+        <text x="175" y="94" font-size="8" fill="#334155">[1반: A,B,C] [2반: A,B,C] → 일부 반만 뽑아 전수조사</text>
+      </svg>
+    </div>
+
+    <!-- 5. 베이즈 정리 & 중심극한정리/신뢰구간 & 가설검정 (53~58번) -->
+    <div class="card">
+      <div class="card-title">⑤ 확률·표준오차·신뢰구간 (53~56번) &amp; 제1·2종 오류 (57·58번)</div>
+      <svg viewBox="0 0 380 82" width="100%" height="76">
+        <line x1="20" y1="66" x2="180" y2="66" stroke="#334155" stroke-width="1.2"/>
+        <path d="M 25 66 C 48 64, 68 10, 100 10 C 132 10, 152 64, 175 66" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+        <line x1="100" y1="10" x2="100" y2="66" stroke="#1e3a8a" stroke-dasharray="3"/>
+        <text x="100" y="78" font-size="8.5" text-anchor="middle" font-weight="bold">x̄=100</text>
+        <text x="48" y="78" font-size="8" text-anchor="middle" fill="#dc2626">96.08</text>
+        <text x="152" y="78" font-size="8" text-anchor="middle" fill="#dc2626">103.92</text>
+        <text x="100" y="38" font-size="8.2" text-anchor="middle" fill="#1e3a8a" font-weight="bold">95% 신뢰구간 (56번)</text>
+        <text x="100" y="52" font-size="8.5" text-anchor="middle" fill="#dc2626" font-weight="bold">100 ± 1.96×(20/√100) = 100±3.92</text>
+        <rect x="192" y="6" width="178" height="68" rx="4" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="200" y="22" font-size="8.2" fill="#0f172a">• <tspan font-weight="bold">베이즈(53번):</tspan> A불량(0.012) / 전체(0.032)</text>
+        <text x="208" y="36" font-size="8.5" fill="#dc2626" font-weight="bold">⇒ P(A|불량) = 0.012 / 0.032 = 0.375</text>
+        <text x="200" y="51" font-size="8.2" fill="#0f172a">• <tspan font-weight="bold">분산(54번):</tspan> V(3X+2) = <tspan font-weight="bold" fill="#1d4ed8">3²×V(X) = 36</tspan></text>
+        <text x="200" y="66" font-size="8.2" fill="#0f172a">• <tspan font-weight="bold">표준오차(55번):</tspan> SE = σ/√n = 12/√36 = <tspan font-weight="bold" fill="#1d4ed8">2</tspan></text>
+      </svg>
+      <div style="font-size:8.1pt; background:#f8fafc; padding:4px 6px; border-top:1px solid #e2e8f0;">
+        <b>[57번 p-value]</b> <b>귀무가설(H₀)이 참일 때</b> 극단값 나올 확률 (p &lt; α 이면 H₀ 기각)<br>
+        <b>[58번 오류]</b> 표본 크기 고정 시 <b>제1종 오류(α)를 줄이면 제2종 오류(β)는 커짐</b> (상충·반비례 관계)
+      </div>
+    </div>
+
+    <!-- 6. 시계열 ACF/PACF (69번) & 주성분분석 PCA (71번) -->
+    <div class="card">
+      <div class="card-title">⑥ 시계열 AR vs MA 절단 도식 (69번) &amp; 주성분 누적기여율 (71번)</div>
+      <svg viewBox="0 0 380 120" width="100%" height="112">
+        <!-- ACF plot for MA(2) -->
+        <rect x="12" y="10" width="170" height="98" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="97" y="24" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">69번: 시차 2 이후 ACF 절단 ⇒ MA(2)</text>
+        <line x1="25" y1="80" x2="170" y2="80" stroke="#334155"/>
+        <line x1="25" y1="62" x2="170" y2="62" stroke="#94a3b8" stroke-dasharray="2"/>
+        <!-- Lag bars -->
+        <line x1="45" y1="80" x2="45" y2="35" stroke="#2563eb" stroke-width="4"/>
+        <line x1="75" y1="80" x2="75" y2="42" stroke="#2563eb" stroke-width="4"/>
+        <line x1="105" y1="80" x2="105" y2="73" stroke="#dc2626" stroke-width="4"/>
+        <line x1="135" y1="80" x2="135" y2="76" stroke="#dc2626" stroke-width="4"/>
+        <text x="45" y="92" font-size="8" text-anchor="middle">시차1</text>
+        <text x="75" y="92" font-size="8" text-anchor="middle">시차2</text>
+        <text x="120" y="55" font-size="8.5" text-anchor="middle" fill="#dc2626" font-weight="bold">시차2 후 뚝 끊김!</text>
+        <text x="97" y="104" font-size="8" text-anchor="middle" fill="#1d4ed8" font-weight="bold">• PACF 절단=AR(p) / • ACF 절단=MA(q)</text>
+        <!-- PCA (71번) -->
+        <rect x="192" y="10" width="178" height="98" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="281" y="24" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">71번: PCA 누적 기여율 85% 이상</text>
+        <rect x="215" y="52" width="28" height="32" fill="#60a5fa"/>
+        <rect x="260" y="34" width="28" height="50" fill="#dc2626"/>
+        <rect x="305" y="28" width="28" height="56" fill="#94a3b8"/>
+        <text x="229" y="48" font-size="8" text-anchor="middle">60%</text>
+        <text x="274" y="30" font-size="8.5" text-anchor="middle" fill="#dc2626" font-weight="bold">85%★</text>
+        <text x="319" y="25" font-size="8" text-anchor="middle">95%</text>
+        <text x="229" y="95" font-size="8" text-anchor="middle">PC1</text>
+        <text x="274" y="95" font-size="8.5" text-anchor="middle" fill="#dc2626" font-weight="bold">PC2(2개)</text>
+        <text x="319" y="95" font-size="8" text-anchor="middle">PC3</text>
+      </svg>
+    </div>
+
+    <!-- 7. 과적합 곡선 (76·80번) & 부트스트랩/로지스틱 (77~79번) -->
+    <div class="card">
+      <div class="card-title">⑦ 데이터 분할·과적합 곡선 (76·80번) &amp; 오즈비·부트스트랩 (77~79번)</div>
+      <svg viewBox="0 0 380 78" width="100%" height="72">
+        <line x1="30" y1="62" x2="200" y2="62" stroke="#334155" stroke-width="1.4"/>
+        <line x1="30" y1="62" x2="30" y2="8" stroke="#334155" stroke-width="1.4"/>
+        <path d="M 38 20 Q 110 52, 190 57" fill="none" stroke="#2563eb" stroke-width="2"/>
+        <text x="160" y="52" font-size="8" fill="#2563eb" font-weight="bold">훈련오차↓</text>
+        <path d="M 38 12 Q 115 58, 188 10" fill="none" stroke="#dc2626" stroke-width="2"/>
+        <text x="150" y="18" font-size="8" fill="#dc2626" font-weight="bold">검증·시험오차↑</text>
+        <line x1="115" y1="8" x2="115" y2="62" stroke="#64748b" stroke-dasharray="3"/>
+        <text x="72" y="74" font-size="8" fill="#475569" text-anchor="middle">←과소적합</text>
+        <text x="158" y="74" font-size="8" fill="#dc2626" text-anchor="middle" font-weight="bold">과대적합(가지치기)→</text>
+        <rect x="210" y="6" width="162" height="64" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
+        <text x="218" y="22" font-size="8" fill="#0f172a">• <tspan font-weight="bold">검증용:</tspan> 매개변수 조정·튜닝</text>
+        <text x="218" y="36" font-size="8" fill="#dc2626" font-weight="bold">• 시험용: 최종 평가만! (튜닝X)</text>
+        <text x="218" y="50" font-size="8" fill="#0f172a">• <tspan font-weight="bold">부트스트랩:</tspan> 복원추출(36.8% 미포함)</text>
+        <text x="218" y="64" font-size="8" fill="#0f172a">• <tspan font-weight="bold">가지치기:</tspan> 나무 축소(과적합 방지)</text>
+      </svg>
+      <div style="font-size:8.1pt; background:#f8fafc; padding:4px 6px; border-top:1px solid #e2e8f0;">
+        <b>[78번 로지스틱]</b> 계수 추정은 최소제곱법이 아닌 <b>최대우도추정법(MLE)</b> 사용<br>
+        <b>[79번 오즈비]</b> x가 1 증가 시 <b>'오즈(승산)'가 exp(β)=2배</b> 증가 ('발생 확률이 2배'는 오답!)
+      </div>
+    </div>
+
+    <!-- 8. 의사결정나무 지니지수 & 배깅 vs 부스팅 (82~84번) -->
+    <div class="card">
+      <div class="card-title">⑧ 의사결정나무 지니지수·알고리즘 (82·83번) &amp; 배깅 vs 부스팅 (84번)</div>
+      <svg viewBox="0 0 380 120" width="100%" height="112">
+        <!-- Gini Node -->
+        <rect x="12" y="10" width="168" height="50" rx="5" fill="#eff6ff" stroke="#2563eb"/>
+        <text x="96" y="25" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">82번 마디: A=8개(0.8), B=2개(0.2)</text>
+        <text x="96" y="40" font-size="8.5" text-anchor="middle" fill="#dc2626" font-weight="bold">지니 = 1 − (0.8² + 0.2²)</text>
+        <text x="96" y="54" font-size="9" text-anchor="middle" fill="#1d4ed8" font-weight="bold">= 1 − (0.64 + 0.04) = 0.32</text>
+        <!-- Split criteria -->
+        <rect x="12" y="65" width="168" height="46" rx="5" fill="#f8fafc" stroke="#94a3b8"/>
+        <text x="20" y="79" font-size="8.2" font-weight="bold">• CART = <tspan fill="#dc2626">지니 지수</tspan> (분류) / 분산감소량</text>
+        <text x="20" y="92" font-size="8.2">• <tspan font-weight="bold">C4.5 / C5.0</tspan> = 엔트로피(정보이득비)</text>
+        <text x="20" y="105" font-size="8.2">• <tspan font-weight="bold">CHAID</tspan> = 카이제곱 통계량 / F-통계량</text>
+        <!-- Bagging vs Boosting -->
+        <rect x="190" y="10" width="180" height="48" rx="5" fill="#f0fdf4" stroke="#16a34a"/>
+        <text x="280" y="25" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#15803d">배깅 (Bagging · 랜덤포레스트)</text>
+        <text x="280" y="40" font-size="8" text-anchor="middle">독립적 <tspan font-weight="bold">병렬 학습</tspan> (속도 빠름 · 분산 감소)</text>
+        <rect x="190" y="63" width="180" height="48" rx="5" fill="#fef2f2" stroke="#dc2626"/>
+        <text x="280" y="78" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#dc2626">부스팅 (Boosting · 84번 정답)</text>
+        <text x="280" y="93" font-size="8" text-anchor="middle">오분류에 가중치 부여 → <tspan font-weight="bold">순차 학습</tspan> (병렬X)</text>
+      </svg>
+    </div>
+
+    <!-- 9. 신경망 가중치·편향 (87번) & 혼동행렬 민감도 (89번) -->
+    <div class="card">
+      <div class="card-title">⑨ 인공신경망(3-4-1) 파라미터 21개 (87번) &amp; 혼동행렬 민감도 (89번)</div>
+      <svg viewBox="0 0 380 120" width="100%" height="112">
+        <!-- Neural Net -->
+        <circle cx="30" cy="28" r="8" fill="#dbeafe" stroke="#2563eb"/>
+        <circle cx="30" cy="58" r="8" fill="#dbeafe" stroke="#2563eb"/>
+        <circle cx="30" cy="88" r="8" fill="#dbeafe" stroke="#2563eb"/>
+        <circle cx="95" cy="18" r="8" fill="#fef3c7" stroke="#d97706"/>
+        <circle cx="95" cy="44" r="8" fill="#fef3c7" stroke="#d97706"/>
+        <circle cx="95" cy="70" r="8" fill="#fef3c7" stroke="#d97706"/>
+        <circle cx="95" cy="96" r="8" fill="#fef3c7" stroke="#d97706"/>
+        <circle cx="155" cy="58" r="9" fill="#dcfce7" stroke="#16a34a"/>
+        <line x1="38" y1="28" x2="87" y2="18" stroke="#94a3b8"/>
+        <line x1="38" y1="58" x2="87" y2="44" stroke="#94a3b8"/>
+        <line x1="38" y1="88" x2="87" y2="96" stroke="#94a3b8"/>
+        <line x1="103" y1="18" x2="146" y2="58" stroke="#94a3b8"/>
+        <line x1="103" y1="96" x2="146" y2="58" stroke="#94a3b8"/>
+        <text x="95" y="114" font-size="8" text-anchor="middle" font-weight="bold" fill="#1e3a8a">가중치(3×4+4×1=16) + 편향(4+1=5) = 21개</text>
+        <!-- Confusion Matrix (89번) -->
+        <rect x="185" y="10" width="185" height="100" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="277" y="24" font-size="8.5" text-anchor="middle" font-weight="bold" fill="#1e3a8a">89번 혼동행렬 &amp; 민감도(재현율)</text>
+        <text x="200" y="42" font-size="8.2" fill="#dc2626" font-weight="bold">• 실제 양성(50명): TP=40, FN=10</text>
+        <text x="200" y="56" font-size="8.2" fill="#334155">• 실제 음성(50명): FP=20, TN=30</text>
+        <text x="200" y="75" font-size="8.8" fill="#1d4ed8" font-weight="bold">★ 민감도(재현율) = TP/(TP+FN)</text>
+        <text x="200" y="90" font-size="9" fill="#dc2626" font-weight="bold">   = 40 / (40 + 10) = 40/50 = 0.80</text>
+        <text x="200" y="104" font-size="7.8" fill="#475569">(정확도=70/100=0.70, 특이도=30/50=0.60)</text>
+      </svg>
+    </div>
+
+    <!-- 10. 거리 계산 (93번) & 군집/연관분석 (92,95~100번) -->
+    <div class="card">
+      <div class="card-title">⑩ 유클리드 vs 맨하탄 거리 (93번) &amp; 연관규칙 3대 지표 (97·98번)</div>
+      <svg viewBox="0 0 380 78" width="100%" height="72">
+        <line x1="25" y1="62" x2="135" y2="62" stroke="#dc2626" stroke-width="2.5"/>
+        <line x1="135" y1="62" x2="135" y2="14" stroke="#dc2626" stroke-width="2.5"/>
+        <line x1="25" y1="62" x2="135" y2="14" stroke="#2563eb" stroke-width="2.5"/>
+        <circle cx="25" cy="62" r="3.5" fill="#0f172a"/>
+        <circle cx="135" cy="14" r="3.5" fill="#0f172a"/>
+        <text x="22" y="74" font-size="8" font-weight="bold">A(0,0)</text>
+        <text x="135" y="10" font-size="8" text-anchor="middle" font-weight="bold">B(6,8)</text>
+        <text x="65" y="34" font-size="8.2" fill="#1d4ed8" font-weight="bold">유클리드=10</text>
+        <text x="95" y="74" font-size="8" fill="#dc2626" font-weight="bold">맨하탄: 6+8=14</text>
+        <rect x="165" y="6" width="207" height="64" rx="4" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="173" y="21" font-size="8.2" font-weight="bold" fill="#1e3a8a">• 연관분석 3대 지표 공식 (A → B)</text>
+        <text x="173" y="36" font-size="8">① <tspan font-weight="bold">지지도:</tspan> P(A∩B) = 동시구매 / 전체</text>
+        <text x="173" y="50" font-size="8.2" fill="#dc2626" font-weight="bold">② 신뢰도(97번): P(A∩B)/P(A) = 20/40 = 0.5</text>
+        <text x="173" y="64" font-size="8.2" fill="#1d4ed8" font-weight="bold">③ 향상도(98번): 신뢰도/P(B) = 0.8/0.4 = 2.0</text>
+      </svg>
+      <div style="font-size:8.1pt; background:#f8fafc; padding:4px 6px; border-top:1px solid #e2e8f0;">
+        <b>[92번 실루엣]</b> -1~1 범위(1에 가까울수록 우수) | <b>[95번 k-medoids]</b> 실제 관측치 중심(이상값 보완)<br>
+        <b>[96번 SOM]</b> 2층 경쟁학습(역전파X·빠름) | <b>[100번 FP-Growth]</b> DB <b>2회만 스캔</b>(Apriori는 반복 스캔)
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="grid-2">
+    <!-- 11. 상자그림 IQR 이상값 (50번) & 왜도 분포 (72번) -->
+    <div class="card">
+      <div class="card-title">⑪ 상자그림(Boxplot) IQR 이상값 (50번) &amp; 우측 꼬리 왜도&gt;0 (72번)</div>
+      <svg viewBox="0 0 380 86" width="100%" height="80">
+        <!-- Boxplot -->
+        <line x1="20" y1="35" x2="124" y2="35" stroke="#334155" stroke-width="1.5"/>
+        <line x1="20" y1="26" x2="20" y2="44" stroke="#1e3a8a" stroke-width="2"/>
+        <rect x="48" y="23" width="44" height="24" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="70" y1="23" x2="70" y2="47" stroke="#1e3a8a" stroke-width="2"/>
+        <line x1="124" y1="26" x2="124" y2="44" stroke="#1e3a8a" stroke-width="2"/>
+        <circle cx="164" cy="35" r="4" fill="#dc2626"/>
+        <text x="20" y="56" font-size="7.5" text-anchor="middle">하한(0)</text>
+        <text x="48" y="18" font-size="7.5" text-anchor="middle">Q1(30)</text>
+        <text x="92" y="18" font-size="7.5" text-anchor="middle">Q3(50)</text>
+        <text x="124" y="56" font-size="7.5" text-anchor="middle" font-weight="bold">상한(80)</text>
+        <text x="164" y="56" font-size="7.8" text-anchor="middle" fill="#dc2626" font-weight="bold">85★</text>
+        <text x="90" y="75" font-size="8" text-anchor="middle" fill="#1e3a8a" font-weight="bold">IQR=20 ⇒ 상한 Q3+1.5×IQR = 80 (85=이상값)</text>
+        <!-- Skewness > 0 (72번) -->
+        <line x1="195" y1="62" x2="368" y2="62" stroke="#334155" stroke-width="1.2"/>
+        <path d="M 198 62 C 215 62, 228 12, 248 12 C 268 12, 300 58, 365 61" fill="none" stroke="#2563eb" stroke-width="2"/>
+        <line x1="248" y1="12" x2="248" y2="62" stroke="#1d4ed8" stroke-dasharray="3"/>
+        <line x1="274" y1="34" x2="274" y2="62" stroke="#15803d" stroke-dasharray="3"/>
+        <line x1="302" y1="50" x2="302" y2="62" stroke="#dc2626" stroke-dasharray="3"/>
+        <text x="242" y="74" font-size="7.5" fill="#1d4ed8" font-weight="bold">최빈</text>
+        <text x="274" y="74" font-size="7.5" fill="#15803d" font-weight="bold">중앙</text>
+        <text x="308" y="74" font-size="7.5" fill="#dc2626" font-weight="bold">평균</text>
+        <text x="315" y="25" font-size="8" text-anchor="middle" fill="#dc2626" font-weight="bold">72번(왜도&gt;0): 평균&gt;중앙&gt;최빈</text>
+      </svg>
+      <div style="font-size:8pt; color:#334155; background:#f8fafc; padding:3px 6px; border-radius:4px; margin-top:2px; line-height:1.35;">
+        • <b>[66번 규제회귀]</b> <b>라쏘(L1)</b>=계수를 0으로(변수선택) / <b>릿지(L2)</b>=크기만 축소(0 안됨)<br>
+        • <b>[68번 정상성]</b> 평균 비정상=<b>차분(Differencing)</b> / 분산 비정상=<b>로그·지수 변환</b>
+      </div>
+    </div>
+
+    <!-- 12. SVM 마진·서포트벡터 (88번) & ROC 곡선·AUC (91번) -->
+    <div class="card">
+      <div class="card-title">⑫ SVM 최대 마진 초평면 (88번) &amp; ROC 곡선 · AUC (91번)</div>
+      <svg viewBox="0 0 380 86" width="100%" height="80">
+        <!-- SVM -->
+        <rect x="8" y="6" width="174" height="75" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <line x1="28" y1="70" x2="148" y2="14" stroke="#1e3a8a" stroke-width="2"/>
+        <line x1="18" y1="60" x2="133" y2="8" stroke="#94a3b8" stroke-dasharray="3"/>
+        <line x1="38" y1="78" x2="158" y2="22" stroke="#94a3b8" stroke-dasharray="3"/>
+        <circle cx="55" cy="38" r="3.5" fill="#2563eb"/>
+        <circle cx="38" cy="27" r="3.5" fill="#2563eb"/>
+        <circle cx="115" cy="45" r="3.5" fill="#dc2626"/>
+        <circle cx="135" cy="56" r="3.5" fill="#dc2626"/>
+        <text x="95" y="75" font-size="7.8" text-anchor="middle" font-weight="bold" fill="#1e3a8a">88번 SVM: 마진 최대화·서포트벡터</text>
+        <!-- ROC Curve -->
+        <rect x="190" y="6" width="182" height="75" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <line x1="212" y1="64" x2="352" y2="64" stroke="#334155"/>
+        <line x1="212" y1="64" x2="212" y2="14" stroke="#334155"/>
+        <line x1="212" y1="64" x2="352" y2="14" stroke="#94a3b8" stroke-dasharray="3"/>
+        <path d="M 212 64 Q 218 16, 352 14" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+        <text x="262" y="28" font-size="7.8" fill="#dc2626" font-weight="bold">좋은 모형(좌상단↑, AUC→1)</text>
+        <text x="308" y="52" font-size="7.5" fill="#64748b">무작위(0.5)</text>
+        <text x="282" y="76" font-size="7.8" text-anchor="middle" font-weight="bold" fill="#1e3a8a">x축: 1-특이도(FPR) / y축: 민감도(TPR)</text>
+      </svg>
+      <div style="font-size:8pt; color:#334155; background:#f8fafc; padding:3px 6px; border-radius:4px; margin-top:2px; line-height:1.35;">
+        • <b>[70번 다중공선성]</b> <b>VIF &gt; 10</b> 이면 의심 ⇒ 높은 변수 제거 또는 <b>PCA(주성분분석)</b><br>
+        • <b>[74번 상관분석]</b> <b>피어슨</b>=등간·비율(선형) / <b>스피어만</b>=서열척도(순위·비선형 단조)
+      </div>
+    </div>
+  </div>
+
+
+  <div class="page-break"></div>
+  <h2 class="green-header">✅ PART 1. 1~100번 전 문항 핵심 정답노트 (찍어서 맞은 문제 완벽 복습)</h2>
+  <h3 class="green-sub">1과목 데이터 이해 (1번 ~ 20번) (전체 20문항 — 맞힌 문항 10개 · 오답 10개 모두 수록)</h3>
+
+    <table class="th-green">
+      <thead>
+        <tr>
+          <th style="width:7.5%;">번호</th>
+          <th style="width:10.5%;">내 상태</th>
+          <th style="width:15%;">출제 주제</th>
+          <th style="width:10%;">정답</th>
+          <th>노베이스 전 문항 핵심 요약 &amp; 찍어서 맞힌 문제 완벽 복습 포인트</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+
+        <tr>
+          <td class="center"><b>1번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>데이터의 특성</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>존재적 특성</b> = 있는 그대로의 <b>객관적 사실(Fact)</b> (예: 매장 온도 21℃) / <b>당위적 특성</b> = 추론·예측·전망·추정의 근거<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">데이터는 독자적으로 존재하기보다 다른 객체와의 <b>상호관계</b> 속에서 가치를 가짐</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>2번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>정형·반정형·비정형</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>반정형 데이터</b> = 데이터 내부에 스키마(메타데이터)를 포함 (<b>웹 로그, 센서 데이터, XML, JSON, HTML</b>)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;"><b>정형</b> = RDB 테이블, 스프레드시트 / <b>비정형</b> = 소셜 자유 텍스트, 영상, 음성, 이미지</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>3번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>SECI 지식변환</b></td>
+          <td class="center"><span class="green-ans">② 표출화</span></td>
+          <td>
+            개인 머릿속의 <b>암묵지</b>를 매뉴얼·문서 등 <b>형식지로 변환</b>하는 단계 = <b>표출화(Externalization)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;"><b>공통화</b>(암→암) → <b>표출화</b>(암→형) → <b>연결화</b>(형→형) → <b>내면화</b>(형→암) 4단계 순환</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>4번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>DIKW 피라미드</b></td>
+          <td class="center"><span class="green-ans">③ 지식</span></td>
+          <td>
+            "A마트 연필이 더 싸므로 <b>A마트에서 사야겠다(의사결정·행동)</b>" = <b>지식(Knowledge)</b> 단계<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 데이터(100원/200원) → 정보(A가 더 싸다) → <b>지식(A에서 사야겠다)</b> → 지혜(A의 다른 상품도 쌀 것이다)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>5번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>DB 특징과 설계</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>통합된 데이터(Integrated Data)</b>는 데이터 <b>중복을 최소화</b>한 상태입니다 ('여러 곳에 중복 저장'이 오답!)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">DB 설계 순서: 요구사항 분석 → <b>개념적(ERD)</b> → <b>논리적(정규화)</b> → <b>물리적(인덱스·성능)</b> 설계</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>6번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>SQL 명령어 분류</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>TRUNCATE</b>는 테이블 구조는 남기고 데이터를 전부 비우는 <b>DDL(데이터 정의어)</b>입니다 (DML 아님!)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>DDL(정의):</b> CREATE, ALTER, DROP, RENAME, <b>TRUNCATE</b> / • <b>DML(조작):</b> SELECT, INSERT, UPDATE, <b>DELETE</b> / • <b>DCL(제어):</b> GRANT, REVOKE</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>7번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>NoSQL 저장 구조</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>Redis</b> = 인메모리 <b>키-값(Key-Value)</b> 저장소 (정답 ①)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>키-값:</b> Redis, DynamoDB / • <b>문서(Document):</b> MongoDB / • <b>컬럼(Column):</b> HBase, Cassandra / • <b>그래프:</b> Neo4j</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>8번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>DW / DM / OLAP</b></td>
+          <td class="center"><span class="green-ans">④ (ㄱ,ㄷ,ㅁ)</span></td>
+          <td>
+            <b>DW</b> 4대 특징 = 주제지향·통합·시계열·<b>비휘발성(조회 위주)</b> / <b>ETL</b> = 추출(Extract)→변환(Transform)→적재(Load)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>DW</b>(전사 대규모) vs <b>DM</b>(부서 소규모) [ㄴ반대] / • <b>OLTP</b>(실시간 거래) vs <b>OLAP</b>(다차원 분석) [ㄹ반대]</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>9번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>빅데이터의 정의</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>맥킨지(McKinsey)</b>는 기존 DB 관리·분석 역량을 넘어서는 데이터 <b>'규모(Volume)'</b> 관점에서 정의했습니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>IDC</b> = 차세대 기술·아키텍처 관점 / • 정의 범위는 <b>[규모 → 기술 → 인재·조직]</b> 순으로 점점 넓어짐</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>10번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>빅데이터 3V·가치</b></td>
+          <td class="center"><span class="green-ans">④ (ㄱ,ㄷ,ㅁ)</span></td>
+          <td>
+            더그 래니의 기본 <b>3V = Volume(규모), Variety(다양성), Velocity(속도)</b> / 출현 배경 = 산업계·학계·기술 발전<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• Veracity(정확성)·Value(가치)는 4V·5V 확장 요소 / • 가치 산정 난해 이유 = 활용 방식 변화, 새로운 가치 창출, 분석 기술 발전</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>11번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>빅데이터 비유</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>렌즈(Lens)</b> = 현미경이 생물학 발전에 기여했듯 산업 발전에 기여 (대표 예시: <b>구글 Ngram Viewer</b>)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>플랫폼</b> = 공동 활용 구조물(카카오톡·페이스북) / • <b>21세기 원유</b> = 신산업 창출 / • <b>석탄·철</b> = 사회·경제 혁명적 변화</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>12번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>빅데이터 4대 변화</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            빅데이터의 본질적 변화는 '양보다 질'이 아니라 <b>'질보다 양'</b>(데이터가 많으면 일부 오류는 상쇄됨)입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;"><b>[4대 변화 암기]</b> ① 사전→<b>사후처리</b>, ② 표본→<b>전수조사</b>, ③ <b>질보다 양</b>, ④ 인과→<b>상관관계</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>13번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>빅데이터 활용 테크닉</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            "새로운 환불 정책에 대한 고객의 평가·반응은?" → 유형분석이 아니라 <b>감정분석(Sentiment Analysis)</b>입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>유형분석:</b> "이 고객은 어떤 특성 그룹에 속하는가?" / • <b>유전 알고리즘:</b> "최대 시청률 프로그램 시간대 편성(최적화)"</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>14번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>위기 요인과 통제 방안</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>데이터 오용</b>의 통제 방안 = <b>알고리즘 접근권 허용 및 알고리즈미스트(Algorithmist) 양성</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>사생활 침해</b> → 동의제에서 <b>책임제</b>로 / • <b>책임 원칙 훼손</b> → 예측이 아닌 <b>결과 기반 책임 원칙</b> 고수</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>15번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>마이데이터·개인정보</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>마이데이터(MyData)</b>는 정보 주체(개인)의 <b>전송요구권(적극적 의사)</b>에 기반한 제도입니다 ('동의 없이 제공' X)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>옵트인</b> = 사전 동의 후 수집 / • <b>옵트아웃</b> = 일단 수집 후 사후 거부 허용 / • <b>가명정보</b> = 통계·연구 목적 동의 없이 활용 가능</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>16번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>사이언티스트 역량</b></td>
+          <td class="center"><span class="green-ans">② (ㄴ,ㄷ,ㅁ)</span></td>
+          <td>
+            <b>소프트 스킬 3가지</b> = <b>통찰력 있는 분석(창의적 사고), 설득력 있는 전달(스토리텔링), 다분야 간 협력(소통)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>하드 스킬</b> = 빅데이터 이론적 지식, 분석 기술에 대한 숙련</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>17번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>가치 패러다임 변화</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            가치 패러다임 순서 = <b>디지털화(Digitalization) → 연결(Connection) → 에이전시(Agency)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 디지털화(아날로그→디지털, OS) → 연결(인터넷·검색엔진) → 에이전시(IoT·복잡한 연결을 대신 관리)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>18번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>개인정보 비식별화</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            식별 가능한 속성 자체를 지우는 것은 <b>'데이터 삭제'</b>입니다. <b>총계처리</b>는 합계·평균 등 통계값으로 대체하는 기법!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>가명처리</b>(홍길동→임꺽정) / • <b>데이터 마스킹</b>(홍길동→홍○○) / • <b>데이터 범주화</b>(35세→30~40세)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>19번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>빅데이터 회의론 원인</b></td>
+          <td class="center"><span class="green-ans">② (ㄱ,ㄴ)</span></td>
+          <td>
+            빅데이터 회의론 2대 원인 = ① 과거 <b>CRM 공포(투자 실패 부정적 학습효과)</b>, ② 성공 사례의 <b>과대 포장</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">알고리즘 부재나 저장 비용 상승 때문에 회의론이 생긴 것이 아님(저장 비용은 오히려 하락함)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>20번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>하둡 · 스파크 · 클라우드</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>HDFS</b>는 블록 분할·복제 저장, <b>맵리듀스(MapReduce)</b>는 Map(키-값 생성) → Reduce(집계) 병렬 처리<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>스파크(Spark)</b> = 인메모리 방식(반복 분석 빠름) vs <b>맵리듀스</b> = 디스크 기반 / • <b>NoSQL</b> = 유연한 스키마·수평 확장</span>
+          </td>
+        </tr>
+        
+</tbody></table>
+  <h3 class="green-sub">2과목 데이터 분석 기획 (21번 ~ 40번) (전체 20문항 — 맞힌 문항 8개 · 오답 12개 모두 수록)</h3>
+
+    <table class="th-green">
+      <thead>
+        <tr>
+          <th style="width:7.5%;">번호</th>
+          <th style="width:10.5%;">내 상태</th>
+          <th style="width:15%;">출제 주제</th>
+          <th style="width:10%;">정답</th>
+          <th>노베이스 전 문항 핵심 요약 &amp; 찍어서 맞힌 문제 완벽 복습 포인트</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>21번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>분석 주제 4유형</b></td>
+          <td class="center"><span class="green-ans">③ 통찰</span></td>
+          <td>
+            분석 대상(What)은 <b>모르지만(X)</b> 분석 방법(How)은 <b>알고 있는(O)</b> 경우 = <b>통찰(Insight)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 대상O·방법O = <b>최적화</b> / • 대상O·방법X = <b>솔루션</b> / • 대상X·방법O = <b>통찰</b> / • 대상X·방법X = <b>발견</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>22번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>목표 시점별 기획</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>과제 중심적 접근(단기)</b> = <b>Speed & Test, Quick-Win, Problem Solving</b> (당면 과제 빠르게 해결)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>장기적 마스터플랜</b> = Accuracy & Deploy, Long Term View, Problem Definition (두 방식을 융합해 활용)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>23번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>분석 기획 고려사항</b></td>
+          <td class="center"><span class="green-ans">② (ㄱ,ㄴ,ㄷ,ㄹ)</span></td>
+          <td>
+            분석 기획 3대 고려사항 = ① 가용 데이터 파악, ② 적절한 유스케이스 탐색, ③ <b>장애 요소 사전 계획(고정관념·편향·프레이밍 효과)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 텍스트·이미지·영상은 '정형'이 아니라 <b>'비정형 데이터'</b>이므로 RDB에 그대로 적재 불가 (ㅁ 오답)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffaf5;">
+          <td class="center"><b>24번</b></td>
+          <td class="center"><span class="badge-blank">미응답</span></td>
+          <td class="center"><b>개발 모델 (미응답)</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>나선형(Spiral) 모델</b>은 반복 개발과 위험 분석을 수행하므로 관리가 복잡하며 <b>대규모·고위험 프로젝트</b>에 적합합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>폭포수 모델</b> = 순차 진행 / • <b>프로토타입 모델</b> = 요구사항이 불명확할 때 시제품으로 점진적 개선</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>25번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>KDD 분석 방법론</b></td>
+          <td class="center"><span class="green-ans">③ 변환</span></td>
+          <td>
+            변수 선택·생성, <b>차원 축소(PCA 등), 학습용/시험용 데이터 분리</b>를 수행하는 단계 = <b>데이터 변환(Transformation)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• KDD 5단계: 데이터셋 선택 → <b>전처리(결측값·이상값·잡음 처리)</b> → <b>변환(변수생성·차원축소·분할)</b> → 마이닝 → 해석/평가</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>26번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>CRISP-DM 방법론</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            모델 자체의 기술적 평가는 <b>[모델링]</b> 단계에서도 수행하며, <b>[평가]</b> 단계에서는 비즈니스 목적 부합성을 평가합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• CRISP-DM 6단계: 업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>27번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>방법론 계층 구조</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>빅데이터 분석 방법론</b>은 <b>3계층(단계→태스크→스텝)</b>이지만, <b>CRISP-DM</b>은 <b>4레벨(단계→일반화→세분화→실행)</b>입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 스텝(Step)은 WBS의 워크패키지 단위이며 입력(Input)-처리 및 도구-출력(Output)으로 구성됨</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>28번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>빅데이터 분석 방법론</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>모델 발전 계획 수립</b>은 시스템 구현 단계가 아니라 마지막 5단계인 <b>[평가 및 전개]</b> 단계의 태스크입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 빅데이터 방법론 5단계: 분석 기획 → 데이터 준비 → 데이터 분석 → 시스템 구현 → <b>평가 및 전개(모델 발전 계획)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>29번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>하향식 vs 상향식</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>상향식(Bottom-Up)</b> 접근법에서는 군집분석·연관분석 등 <b>비지도학습 기법</b>이 주로 활용됩니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>하향식</b> = 수렴(Converge)·Why 관점·체계적 / • <b>상향식</b> = 발산(Diverge)·What 관점·프로토타이핑(시행착오)·비지도학습</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>30번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>분석 기회 발굴 확장</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            하향식 문제 탐색의 4대 확장 관점 중 <b>"고객, 채널, 영향자"</b>를 탐색하는 것 = <b>시장의 니즈 탐색 관점</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>거시적 관점</b> = STEEP(사회·기술·경제·환경·정치) / • <b>경쟁자 확대</b> = 대체재·경쟁자·신규진입자 / • <b>역량 재해석</b> = 내부역량·파트너</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>31번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>하향식 문제 탐색</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            비즈니스 모델 캔버스 9개 블록을 그대로 쓰지 않고 <b>5개 영역(업무·제품·고객 + 규제와 감사·지원 인프라)으로 단순화</b>합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 하향식 4단계: <b>문제 탐색</b>(5영역 캔버스) → <b>문제 정의</b>(분석 문제로 변환) → <b>해결방안 탐색</b> → <b>타당성 검토</b>(경제·기술)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>32번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>5대 프로젝트 관리 속성</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>정확도(Accuracy)</b>는 모델과 실제 값의 차이(<b>활용 측면</b>), <b>정밀도(Precision)</b>는 반복 시 일관성(<b>안정성 측면</b>)으로 상충 가능<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 5대 관리 속성: Data Size(양), Data Complexity(복잡도), Speed(속도), Analytic Complexity(분석 복잡도), Accuracy & Precision</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>33번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>마스터플랜 고려요소</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>전략적 중요도</b>는 '우선순위' 고려 요소입니다! <b>적용 범위·방식</b> 고려 요소는 <b>'~적용 수준' 3가지</b>입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>우선순위 3요소:</b> 전략적 중요도, 비즈니스 성과(ROI), 실행 용이성 / • <b>적용 범위·방식 3요소:</b> 업무 내재화·분석 데이터·기술 적용 <b>수준</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>34번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>ROI 관점 평가 기준</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            투자 비용 요소인 <b>3V(Volume·Variety·Velocity)는 '난이도'</b>를, 비즈니스 효과인 <b>Value(가치)는 '시급성'</b>을 판단합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>투자 비용(난이도)</b> = 3V(데이터 획득·저장·가공 비용) / • <b>비즈니스 효과(시급성)</b> = Value(전략적 중요도·성과)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>35번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>우선순위 사분면 순서</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>시급성 기준</b>(현재 과제 우선) 추진 순서 = <b>현재·쉬움(1순위) → 현재·어려움(2순위) → 미래·어려움</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>난이도 기준</b>(쉬운 과제 우선)일 때가 [현재·쉬움 → <b>미래·쉬움</b> → 미래·어려움](②번 보기)입니다. 시험 빈출 함정!</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>36번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>분석 거버넌스 5요소</b></td>
+          <td class="center"><span class="green-ans">① (ㄱ~ㅁ)</span></td>
+          <td>
+            분석 거버넌스 체계 5대 구성요소 = <b>조직(O), 프로세스(P), 시스템(S), 데이터(D), 인력·교육(H)</b> (<b>'예산'은 제외!</b>)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 암기팁: <b>조·프·시·데·인</b> (연간 분석 예산(ㅂ)은 거버넌스 체계 5대 구성요소에 포함되지 않음)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>37번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>분석 성숙도 4단계</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>활용 단계</b> = 분석 결과를 실제 업무에 적용하며 <b>미래 결과를 예측·시뮬레이션</b>하는 단계<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 성숙도 4단계: <b>도입</b>(실적분석·OLAP·일부부서) → <b>활용</b>(예측·전문담당) → <b>확산</b>(전사 표준·CoE) → <b>최적화</b>(혁신·사이언스그룹)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>38번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>분석 수준 진단 4유형</b></td>
+          <td class="center"><span class="green-ans">② 정착형</span></td>
+          <td>
+            준비도는 낮지만(↓) 내부에서 제한적으로 사용해 <b>성숙도가 높은(↑)</b> 기업 유형 = <b>정착형</b> (1차 정착 필요)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 준비도↓·성숙도↓ = <b>준비형</b> / • 준비도↓·성숙도↑ = <b>정착형</b> / • 준비도↑·성숙도↓ = <b>도입형</b> / • 준비도↑·성숙도↑ = <b>확산형</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>39번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>분석 조직 구조 3유형</b></td>
+          <td class="center"><span class="green-ans">② 기능형</span></td>
+          <td>
+            별도 분석 조직 없이 <b>각 현업 부서에서 직접 분석</b>하여 과거 실적 분석에 국한되기 쉬운 구조 = <b>기능형 구조</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>집중형</b> = 전사 전담 분석조직 별도 설치(현업과 이원화 가능성) / • <b>분산형</b> = 분석 전문인력을 현업 부서로 파견 배치</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>40번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>SAS SEMMA 방법론</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            SEMMA 5단계 순서 = <b>Sample(샘플링) → Explore(탐색) → Modify(수정/변환) → Model(모델링) → Assess(평가)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 영문 철자 <b>S-E-M-M-A</b>에서 첫 M이 <b>Modify(수정)</b>이고 두 번째 M이 <b>Model(모델링)</b>임을 주의!</span>
+          </td>
+        </tr>
+        
+</tbody></table>
+  <h3 class="green-sub">3과목 데이터 분석 (41번 ~ 100번) (전체 60문항 — 맞힌 문항 23개 · 오답 37개 모두 수록)</h3>
+
+    <table class="th-green">
+      <thead>
+        <tr>
+          <th style="width:7.5%;">번호</th>
+          <th style="width:10.5%;">내 상태</th>
+          <th style="width:15%;">출제 주제</th>
+          <th style="width:10%;">정답</th>
+          <th>노베이스 전 문항 핵심 요약 &amp; 찍어서 맞힌 문제 완벽 복습 포인트</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+
+        <tr>
+          <td class="center"><b>41번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>R 특수값 (Inf/NaN/NA)</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            R에서 <b>1/0의 결과는 Inf(무한대)</b>입니다! (NA가 아님)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>0/0 = NaN</b>(숫자 아님) / • <b>NA</b> = 결측값(벡터 자리 차지함) / • <b>NULL</b> = 정의되지 않음(자리 차지 안 함)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>42번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>R 산술 연산자</b></td>
+          <td class="center"><span class="green-ans">④ (1, 2)</span></td>
+          <td>
+            <b>7 %% 3 = 1</b> (나머지 연산) / <b>7 %/% 3 = 2</b> (정수 몫 연산)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>%%</b> = 나눗셈의 <b>나머지</b> / • <b>%/%</b> = 나눗셈의 <b>정수 몫</b> (가운데 슬래시 / 가 있으면 몫!)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>43번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>R rep() 반복 함수</b></td>
+          <td class="center"><span class="green-ans">③ (1 1 2 2)</span></td>
+          <td>
+            <b>rep(c(1, 2), each = 2)</b>는 각 원소를 2번씩 먼저 반복하므로 <b>1 1 2 2</b>가 출력됩니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>each = 2</b> → 원소별 각각 반복(1 1 2 2) / • <b>times = 2</b> → 벡터 통째로 반복(1 2 1 2)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>44번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>R matrix & apply</b></td>
+          <td class="center"><span class="green-ans">① (3 7 11)</span></td>
+          <td>
+            <b>matrix(1:6, nrow=2)</b>는 열 우선 채움([1,3,5 / 2,4,6]) → <b>apply(m, 2, sum)</b>은 열(2) 합계이므로 <b>3, 7, 11</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• apply 두 번째 인자: <b>1 = 행(Row) 단위</b> 합계(9, 12) / <b>2 = 열(Column) 단위</b> 합계(3, 7, 11)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>45번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>R 자료 구조 특징</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>행렬(matrix)</b>은 벡터·배열과 마찬가지로 <b>오직 한 가지(단일) 자료형</b>만 가질 수 있습니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>단일 자료형:</b> 벡터(1차원), 행렬(2차원), 배열(다차원) / • <b>다중 자료형 허용:</b> 데이터프레임(열별 다른 형), 리스트(길이도 자유)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>46번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>요약변수 vs 파생변수</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            "고객별 총 구매금액"처럼 단순 집계는 <b>요약변수</b>, "100만 원 이상 VIP 분류"처럼 조건·의미를 부여한 것은 <b>파생변수</b>!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>요약변수</b> = 기간별 합계·평균 등 종합(재활용성 높음) / • <b>파생변수</b> = 주관적 조건 부여(논리적 타당성 필수)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>47번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>reshape melt / cast</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>melt()</b> = 여러 열에 흩어진 넓은(Wide) 데이터를 <b>id-variable-value 형태의 긴(Long) 형식</b>으로 녹이는 함수<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>melt()</b> = Wide → Long (녹이기) / • <b>cast()</b> = Long → Wide (주조·재구성) / • <b>merge()</b> = 공통 키 병합</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>48번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>R 데이터 핸들링 패키지</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>reshape</b>는 melt/cast 구조 변환 패키지입니다. 결측값 <b>다중 대치(Multiple Imputation)</b>는 <b>Amelia, mice</b> 패키지!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>sqldf</b> = SQL 문장 조회 / • <b>plyr</b> = split-apply-combine (ddply는 df→df) / • <b>data.table</b> = 키 기반 초고속 처리</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>49번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>결측값 대치 방법</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>다중대치법(Multiple Imputation)</b>의 올바른 3단계 순서는 <b>[대치(Imputation) → 분석(Analysis) → 결합(Combination)]</b>입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 단순확률대치법(Hot-deck 등)은 단순평균대치법의 '표준오차 과소추정' 문제를 보완함</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>50번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>상자그림(IQR) 이상값</b></td>
+          <td class="center"><span class="green-ans">② 85</span></td>
+          <td>
+            Q1=30, Q3=50이면 <b>IQR = 50 − 30 = 20</b>. 정상 상한은 Q3 + 1.5×IQR = 50 + 30 = <b>80</b>이므로 <b>85는 이상값!</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 정상 범위 공식: <b>[Q1 − 1.5×IQR , Q3 + 1.5×IQR]</b> = [30 − 30, 50 + 30] = <b>[0, 80]</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>51번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>표본추출 4대 방법</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>집락(군집)추출</b>은 <b>집락 내부는 이질적, 집락 간은 동질적</b>이 되도록 묶은 뒤 일부 집락을 뽑아 전수조사합니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>층화추출</b> = 층 내 <b>동질</b>, 층 간 <b>이질</b> (각 층에서 모두 조금씩 추출) — 집락추출과 정반대!</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>52번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>측정 척도 4분류</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>섭씨온도(℃)</b>의 0℃는 '열이 전혀 없음(절대 0)'이 아니므로 비율척도가 아니라 <b>구간(등간)척도</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>명목</b>(성별·혈액형) → <b>순서/서열</b>(만족도·직급) → <b>구간/등간</b>(온도℃·지수, 절대0 없음) → <b>비율</b>(키·무게·소득, 절대0 있음)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>53번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>베이즈 정리(조건부확률)</b></td>
+          <td class="center"><span class="green-ans">④ 0.375</span></td>
+          <td>
+            전체 불량 확률 = A불량(0.6×0.02=<b>0.012</b>) + B불량(0.4×0.05=<b>0.020</b>) = <b>0.032</b> ⇒ P(A|불량) = 0.012 / 0.032 = <b>0.375</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 베이즈 공식: <b>내가 원하는 경로(A불량 0.012) ÷ 전체 불량 경로 합(0.012 + 0.020 = 0.032) = 3/8 = 0.375</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>54번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>확률변수의 분산 성질</b></td>
+          <td class="center"><span class="green-ans">③ 36</span></td>
+          <td>
+            <b>V(aX + b) = a² · V(X)</b> 공식에 따라 V(3X + 2) = <b>3² × 4 = 9 × 4 = 36</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 평균 E(aX+b) = aE(X)+b 이지만, <b>분산 V(aX+b)에서 더해진 상수(+2)는 퍼짐 정도에 영향을 주지 않아 사라지고 앞의 3은 제곱(9)</b>이 됨!</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>55번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>중심극한정리 & 표준오차</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            표본 크기 n=36이 충분히 크므로 표본평균은 근사적으로 <b>평균 50, 표준오차(SE) = σ/√n = 12/√36 = 2인 정규분포</b>를 따릅니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>표준오차(SE) 공식 = σ / √n</b> (표준편차 12를 그대로 쓰거나 n=36으로 그냥 나누면 오답! 반드시 <b>루트 n(√36=6)</b>으로 나눌 것)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>56번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>모평균 95% 신뢰구간</b></td>
+          <td class="center"><span class="green-ans">④ 100 ± 3.92</span></td>
+          <td>
+            95% 신뢰구간 = <b>x̄ ± 1.96 × (σ / √n)</b> = 100 ± 1.96 × (20 / √100) = 100 ± 1.96 × 2 = <b>100 ± 3.92</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• n=100이므로 √n = 10 → 표준오차(SE) = 20/10 = 2 → 오차한계 = 1.96 × 2 = <b>3.92</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>57번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>유의확률 (p-value)</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>p-값(p-value)</b> = <b>귀무가설(H₀)이 참이라는 가정 하에서</b> 관측된 통계량만큼 극단적인 값이 나올 확률<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• '귀무가설이 참일 확률'이나 '대립가설이 참일 확률'이 아님! / • <b>p-value &lt; 유의수준(α, 보통 0.05)이면 귀무가설 기각!</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>58번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>가설검정 제1·2종 오류</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            표본 크기가 고정된 상태에서 <b>제1종 오류(α)를 줄이면 제2종 오류(β)는 반대로 커집니다!</b> (상충 관계)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>1종 오류(α):</b> H₀가 참인데 기각 / • <b>2종 오류(β):</b> H₀가 거짓인데 채택 / • <b>검정력(Power) = 1 − β</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>59번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>독립 이표본 t-검정 절차</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            서로 다른 두 집단(A반·B반) 평균 비교는 먼저 <b>var.test()로 등분산 검정</b> 후 <b>독립 이표본 t-검정(t.test)</b>을 수행합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 같은 사람의 전·후 비교는 <b>대응표본 t-검정(paired=TRUE)</b> / • 3개 이상 집단 평균 비교는 <b>분산분석(ANOVA)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>60번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>카이제곱 검정 3종류</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>카이제곱(χ²) 검정</b>은 <b>범주형 변수(빈도·교차표)</b>에 쓰며, 두 연속형 변수의 선형 상관은 <b>상관분석(cor.test)</b>을 씁니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 카이제곱 검정 3종: <b>적합도 검정</b>(주사위 확률), <b>독립성 검정</b>(성별과 브랜드 연관성), <b>동질성 검정</b>(지역별 응답 분포 동일 여부)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>61번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>분산분석(ANOVA) 대립가설</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            ANOVA의 대립가설(H₁)은 '모든 평균이 다르다'가 아니라 <b>"적어도 한 집단의 평균은 다른 집단과 다르다"</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 귀무가설(H₀): μ₁ = μ₂ = … = μₖ (모든 집단 평균이 같다) / • F-통계량 = 집단 간 분산 ÷ 집단 내 분산</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>62번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>피어슨·스피어만 상관분석</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>상관계수가 0</b>이라는 것은 <b>'선형(직선) 관계'가 없다</b>는 뜻이지, 2차곡선 같은 비선형 관계가 있을 수 있어 <b>독립이라고 단정할 수 없습니다!</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 두 변수가 독립이면 상관계수는 0이지만, <b>상관계수가 0이라고 반드시 독립인 것은 아님(역은 불성립!)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>63번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>선형 회귀분석 4대 가정</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            회귀분석의 정규성 가정은 설명변수(X)가 아니라 <b>'오차항(잔차, ε)'이 정규분포를 따라야 한다</b>는 것입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 회귀 4대 가정: <b>선형성</b>(X·Y 선형), <b>등분산성</b>(잔차 분산 일정), <b>독립성</b>(자기상관 없음, 더빈-왓슨≈2), <b>정상성/정규성</b>(오차항 정규분포)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>64번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>R 회귀분석(lm) 결과 해석</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            x의 p-값(`Pr(>|t|)`)이 <b>0.00033</b>으로 유의수준 0.05보다 훨씬 작으므로 <b>x는 매우 유의한 변수</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 추정 회귀식: <b>ŷ = 3.2 + 1.5x</b> / • 결정계수(R²) = 0.82 (총 변동의 82% 설명) / • 모형 전체 유의성 = F-통계량 p-값(0.00033)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>65번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>다중공선성 & 더미변수</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            범주가 <b>k개</b>인 범주형 변수는 회귀분석 투입 시 기준 범주 1개를 뺀 <b>(k − 1)개의 더미변수</b>로 변환합니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>VIF(분산팽창요인) ≥ 10</b>이면 다중공선성 의심 / • 변수 선택 시 <b>AIC, BIC는 작을수록</b> 우수한 모형</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>66번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>릿지(L2) vs 라쏘(L1) 회귀</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>라쏘(Lasso) 회귀</b>는 <b>L1 규제(절댓값 합)</b>를 사용하여 중요하지 않은 <b>회귀계수를 정확히 0으로 만들어 변수 선택 효과</b>가 있습니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>릿지(Ridge) = L2 규제(제곱합)</b> → 계수를 0에 가깝게 줄이지만 0으로 만들지는 않음(변수 선택 X)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>67번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>단순 선형회귀 계수 계산</b></td>
+          <td class="center"><span class="green-ans">③ (2, 2, 16)</span></td>
+          <td>
+            기울기 <b>β₁ = Cov(X,Y)/V(X) = 8/4 = 2</b> | 절편 <b>β₀ = ȳ − β₁x̄ = 12 − 2×5 = 2</b> | x=7일 때 <b>ŷ = 2 + 2×7 = 16</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 필수 공식 2개: ① <b>기울기 β₁ = 공분산 ÷ X분산</b>, ② 회귀선은 반드시 평균점 <b>(x̄, ȳ)를 지난다 (ȳ = β₀ + β₁x̄)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>68번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>시계열 정상성 변환</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            <b>분산이 일정하지 않은 경우</b>에는 <b>로그 변환(Log)이나 지수 변환</b>을 쓰며, <b>차분(Differencing)은 평균(추세)이 일정하지 않을 때</b> 씁니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 정상 시계열 3조건: ① 평균 일정, ② 분산 일정, ③ 공분산은 시점(t)이 아닌 시차(lag)에만 의존</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>69번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>시계열 AR(p) vs MA(q)</b></td>
+          <td class="center"><span class="green-ans">④ MA(2)</span></td>
+          <td>
+            <b>자기상관함수(ACF)가 시차 2 이후 절단(0으로 끊김)</b>되고 PACF가 지수적으로 감소하면 <b>MA(2) 모형</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>1초 암기법:</b> <b>P</b>ACF가 시차 p 후 절단되면 <b>AR(p)</b> / <b>A</b>CF가 시차 q 후 절단되면 <b>MA(q)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>70번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>분해 시계열 & 지수평활법</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>지수평활법</b>은 <b>최근 자료일수록 더 큰 가중치</b>를 부여하고, 과거 자료일수록 가중치를 지수적으로 줄입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 분해 시계열 4요인: <b>추세</b>(장기 경향), <b>계절</b>(고정 주기 반복), <b>순환</b>(주기 미상 경기 변동), <b>불규칙</b>(우연 변동)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>71번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>주성분분석(PCA) 표 해석</b></td>
+          <td class="center"><span class="green-ans">② 2개</span></td>
+          <td>
+            표의 맨 아랫줄 <b>Cumulative Proportion(누적 기여율)</b>이 <b>PC2에서 0.850(85%)</b>에 도달하므로 <b>주성분 2개</b>를 선택합니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• Proportion of Variance = 개별 설명력(60%, 25%) / • <b>Cumulative Proportion = 누적 설명력(60% → 85% → 95%)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>72번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>왜도(Skewness)와 대푯값</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            오른쪽으로 꼬리가 긴 분포(<b>왜도 &gt; 0, 양의 왜도</b>)에서는 큰 이상값에 평균이 끌려가므로 <b>평균 &gt; 중앙값 &gt; 최빈값</b> 순입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 대칭 분포(왜도=0): 평균=중앙값=최빈값 / • 왼쪽 꼬리 분포(왜도&lt;0): <b>평균 &lt; 중앙값 &lt; 최빈값</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>73번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>데이터 마이닝 6대 기능</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            "유사한 특성의 고객끼리 묶어 시장을 세분화"하는 기능은 기술(Description)이 아니라 <b>군집(Clustering)</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>분류</b>(승인/거절 등 범주 판별) / • <b>추정</b>(연소득 등 연속형 값 산출) / • <b>예측</b>(미래 시점 값) / • <b>연관</b>(장바구니 규칙)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>74번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>데이터 마이닝 추진 5단계</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            추진 5단계 = <b>목적 설정 → 데이터 준비 → 데이터 가공 → 기법 적용 → 검증</b> (앞글자: <b>목·준·가·기·검</b>)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 3단계 <b>[데이터 가공]</b>에서 목적변수 정의 및 소프트웨어 적용 가능한 형태로 가공 수행</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>75번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>지도학습 vs 비지도학습</b></td>
+          <td class="center"><span class="green-ans">③ (ㄴ,ㄷ,ㅁ)</span></td>
+          <td>
+            목적변수(정답 Y)가 없는 <b>비지도학습</b> = <b>k-평균 군집(ㄴ), 자기조직화지도 SOM(ㄷ), 연관분석(ㅁ)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>지도학습(정답 Y 있음):</b> 의사결정나무(ㄱ), 로지스틱 회귀(ㄹ), 인공신경망, SVM, k-NN, 선형회귀</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>76번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>데이터 분할과 과적합</b></td>
+          <td class="center"><span class="green-ans">③ (ㄱ,ㄴ,ㄷ,ㄹ)</span></td>
+          <td>
+            <b>시험용(Test) 데이터</b>는 오직 <b>최종 성능 평가에만 1회 사용</b>해야 하며, 매개변수 조정에 쓰면 안 됩니다(ㅁ 오답)!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>훈련용(Train):</b> 모형 가중치 학습 / • <b>검증용(Validation):</b> 과적합 점검 및 <b>매개변수(하이퍼파라미터) 조정</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>77번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>교차검증 & 부트스트랩</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>부트스트랩(Bootstrap)</b>은 비복원추출이 아니라 <b>'복원추출'</b>로 원 데이터 크기만큼 반복 추출하는 기법입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 부트스트랩에서 특정 관측치가 한 번도 뽑히지 않을 확률(OOB 비율) = <b>e⁻¹ ≈ 36.8%</b> (뽑힐 확률 63.2%)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>78번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>로지스틱 회귀분석</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            로지스틱 회귀의 계수는 최소제곱법(OLS)이 아니라 <b>최대우도추정법(MLE, 최대가능도법)</b>으로 추정합니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 종속변수가 이진 범주형(0/1), 예측값은 0~1 확률, R에서는 <b>glm(..., family = binomial)</b> 사용</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>79번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>로지스틱 오즈비(Odds Ratio)</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            회귀계수가 0.693(ln 2)이면 x가 1 증가할 때 <b>'오즈(승산, P/(1−P))'가 2배</b>가 되는 것이지 <b>'발생 확률'이 2배가 되는 것이 아닙니다!</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 오즈비(OR) = <b>exp(β) = e^0.693 ≈ 2</b> / • x가 2 증가하면 오즈는 exp(2×0.693) = <b>2² = 4배</b> 증가</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>80번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>의사결정나무 가지치기</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>가지치기(Pruning)</b>는 나무를 더 깊게 키우는 것이 아니라, <b>과대적합을 막기 위해 불필요한 가지를 잘라내 단순화</b>하는 과정입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 의사결정나무 4단계: 의사결정나무 형성(성장) → <b>가지치기</b> → 타당성 평가 → 해석 및 예측</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>81번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>의사결정나무 장단점</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            의사결정나무는 구획 기준으로 나누므로 <b>이상값(Outlier)에 민감하지 않은 것이 장점</b>입니다 ('반드시 제거' 오답!)<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 장점: 해석 용이(화이트박스), 비모수적(정규성 가정 불필요), 이상값에 강함 / • 단점: 경계 부근 오류, 자료 변화에 불안정</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>82번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>지니 지수(Gini Index) 계산</b></td>
+          <td class="center"><span class="green-ans">④ 0.32</span></td>
+          <td>
+            전체 10개 중 A가 8개(0.8), B가 2개(0.2)일 때 <b>지니 지수 = 1 − (0.8² + 0.2²) = 1 − (0.64 + 0.04) = 0.32</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>지니 지수 공식 = 1 − Σ(각 범주 비율)²</b> (0.68은 제곱합 자체이므로 반드시 1에서 빼야 함!)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>83번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>의사결정나무 알고리즘</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            분류 문제에서 <b>CART 알고리즘은 '지니 지수(Gini Index)'</b>를 분리 기준으로 사용합니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>CART:</b> 지니지수(분류) / 분산감소량(회귀) | • <b>C4.5/C5.0:</b> 엔트로피(정보이득비) | • <b>CHAID:</b> 카이제곱(분류) / F-통계량(회귀)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>84번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>앙상블 (배깅 vs 부스팅)</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            독립적·병렬적으로 학습하는 것은 <b>배깅(Bagging)</b>입니다! <b>부스팅(Boosting)</b>은 오분류 가중치를 높이며 <b>순차적으로 학습</b>합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>배깅</b> = 부트스트랩 + 병렬 학습(분산 감소) / • <b>부스팅</b> = 오답 가중치 + 순차 학습(편향 감소, AdaBoost·GBM·XGBoost)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>85번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>단층 vs 다층 퍼셉트론</b></td>
+          <td class="center"><span class="green-ans">③ XOR 문제</span></td>
+          <td>
+            단층 퍼셉트론(직선 1개)으로는 비선형 문제인 <b>XOR(배타적 논리합) 문제</b>를 풀 수 없어 은닉층을 둔 <b>다층 퍼셉트론(MLP)</b>이 필요합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• AND, OR, NOT 문제는 직선 하나로 선형 분리가 가능하여 단층 퍼셉트론으로 해결 가능</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>86번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>인공신경망 활성화·은닉층</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            은닉 노드 수가 너무 적으면 <b>과소적합</b>, 너무 많으면 <b>과대적합</b>이 발생하므로 <b>적절한 수</b>를 설정해야 합니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 출력층 활성화 함수: <b>이진 분류 = 시그모이드(0~1)</b>, <b>다중 분류 = 소프트맥스(합이 1인 확률)</b>, 회귀 = 항등함수</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>87번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>신경망 파라미터 개수 계산</b></td>
+          <td class="center"><span class="green-ans">② 21</span></td>
+          <td>
+            입력(3)→은닉(4)→출력(1): <b>가중치 = (3×4) + (4×1) = 16개</b>, <b>편향(Bias) = 은닉 4 + 출력 1 = 5개</b> ⇒ 총 <b>21개</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>[공식]</b> 총 파라미터 = <b>(앞층×뒷층 가중치 합) + (은닉층·출력층 노드 수만큼 편향 추가)</b> (입력층에는 편향 없음!)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>88번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>서포트 벡터 머신 (SVM)</b></td>
+          <td class="center"><span class="green-ans">④ SVM</span></td>
+          <td>
+            <b>마진(Margin) 최대화</b> 초평면, <b>서포트 벡터</b>, 고차원 비선형 분류를 위한 <b>커널 트릭(Kernel Trick)</b> = <b>SVM</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• k-NN = 별도 모형 학습 없이 예측 시점에 거리를 재는 게으른 학습(Lazy Learning)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>89번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>혼동행렬 민감도(재현율)</b></td>
+          <td class="center"><span class="green-ans">③ 0.80</span></td>
+          <td>
+            <b>민감도(Sensitivity = 재현율 Recall)</b> = 실제 양성(50명) 중 예측 양성(40명) 비율 = <b>TP / (TP + FN) = 40 / 50 = 0.80</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>정밀도(Precision)</b> = 예측 양성 중 실제 양성 = 40/(40+20) ≈ 0.67 / • <b>특이도</b> = 30/50 = 0.60 / • <b>정확도</b> = 70/100 = 0.70</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>90번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>F1-Score (조화평균)</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            <b>F1 점수(F1-Score)</b>는 정밀도와 재현율의 산술평균이 아니라 <b>'조화평균'</b>입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 공식: <b>F1 = 2 × (정밀도 × 재현율) / (정밀도 + 재현율)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>91번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>ROC 곡선과 AUC</b></td>
+          <td class="center"><span class="green-ans">①</span></td>
+          <td>
+            ROC 곡선은 대각선(AUC=0.5, 무작위 찍기)에서 멀어져 <b>왼쪽 위 모서리(좌상단)에 가까울수록(AUC→1)</b> 좋은 모형입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>x축 = 1 − 특이도(FPR, 거짓양성률)</b> / • <b>y축 = 민감도(TPR, 참양성률)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>92번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>군집 타당성 (실루엣·Dunn)</b></td>
+          <td class="center"><span class="green-ans">④</span></td>
+          <td>
+            <b>실루엣(Silhouette) 계수</b>는 <b>−1 ~ +1 범위</b>를 가지며, <b>1에 가까울수록</b> 군집화가 잘 된 것입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>Dunn 지수</b> = (군집 간 최소거리) ÷ (군집 내 최대거리) → 역시 <b>값이 클수록</b> 우수한 군집!</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>93번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>유클리드 vs 맨하탄 거리</b></td>
+          <td class="center"><span class="green-ans">① (10, 14)</span></td>
+          <td>
+            A(0,0)와 B(6,8): <b>유클리드(직선) = √(6² + 8²) = √100 = 10</b> / <b>맨하탄(격자 합) = |6| + |8| = 14</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 피타고라스 3:4:5 삼각형의 2배인 <b>6:8:10 직각삼각형</b>! / • 크기 관계: 체비셰프(8) ≤ 유클리드(10) ≤ 맨하탄(14)</span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>94번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>계층적 군집분석</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            계층적 군집에서는 <b>한 번 병합(또는 분할)된 개체는 이후 단계에서 절대 다른 군집으로 재배치되지 않습니다!</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>와드(Ward) 연결법</b> = 군집 내 오차제곱합(ESS) 증가분이 최소가 되도록 병합 (크기가 비슷한 구형 군집 생성)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>95번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>k-평균 보완 (k-medoids)</b></td>
+          <td class="center"><span class="green-ans">④ k-medoids(PAM)</span></td>
+          <td>
+            k-평균(k-means)이 이상값에 민감한 단점을 보완하기 위해 중심점으로 평균 대신 <b>실제 관측치(Medoid)</b>를 쓰는 기법 = <b>k-medoids(PAM)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• DBSCAN = 밀도 기반 군집(군집 수 k 사전 지정 불필요, 기하학적 모양 군집 탐색 가능)</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>96번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>자기조직화지도 (SOM)</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>SOM(코호넨 맵)</b>은 은닉층이 없는 2층(입력층·경쟁층) 구조의 비지도 신경망으로, <b>역전파가 아닌 경쟁학습을 써서 속도가 매우 빠릅니다!</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 고차원 데이터의 <b>위상(Topology)을 2차원 격자 지도에 그대로 보존</b>하여 시각화·군집화에 활용</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>97번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>연관분석 신뢰도 계산</b></td>
+          <td class="center"><span class="green-ans">④ 0.5</span></td>
+          <td>
+            규칙 {빵} → {우유}의 <b>신뢰도(Confidence) = P(빵∩우유) / P(빵) = 빵·우유 동시구매(20건) ÷ 빵 구매(40건) = 0.5</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 지지도 = 20/100 = 0.2 / • <b>신뢰도 = 동시구매 ÷ 조건부(화살표 앞 '빵') 구매건수 = 20/40 = 0.5</b></span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>98번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>연관분석 향상도 계산</b></td>
+          <td class="center"><span class="green-ans">① (2.0, 양의 관계)</span></td>
+          <td>
+            신뢰도 = 40/50 = <b>0.8</b>, P(B) = 80/200 = <b>0.4</b> ⇒ <b>향상도(Lift) = 0.8 / 0.4 = 2.0 (&gt;1 이므로 양의 상관관계!)</b><br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>향상도 공식 = 신뢰도 ÷ P(B)</b> / • 판정 기준: <b>Lift &gt; 1 (양의 관계)</b>, <b>Lift = 1 (서로 독립)</b>, <b>Lift &lt; 1 (음의 관계)</b></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="center"><b>99번</b></td>
+          <td class="center"><span class="badge-correct">정답(점검)</span></td>
+          <td class="center"><b>연관분석 특징과 장단점</b></td>
+          <td class="center"><span class="green-ans">②</span></td>
+          <td>
+            연관분석(장바구니 분석)은 <b>목적변수(종속변수)가 없는 대표적인 비지도 학습</b> 기법입니다!<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• 단점: 품목 수가 늘면 계산량이 기하급수적 증가, 거래가 적은 희소 품목은 최소 지지도에 걸려 제외되기 쉬움</span>
+          </td>
+        </tr>
+        
+
+        <tr style="background-color:#fffcfc;">
+          <td class="center"><b>100번</b></td>
+          <td class="center"><span class="badge-wrong">오답 복습</span></td>
+          <td class="center"><b>Apriori vs FP-Growth</b></td>
+          <td class="center"><span class="green-ans">③</span></td>
+          <td>
+            <b>Apriori</b>는 후보 항목집합을 생성하며 <b>DB를 여러 번 반복 스캔</b>합니다! DB를 <b>단 2회만 스캔</b>하는 것은 <b>FP-Growth</b>입니다<br>
+            <span class="tip-pill">핵심요약</span><span style="color:#334155;">• <b>Apriori</b> = 빈발 항목집합(최소 지지도 이상)으로 후보 생성·반복 스캔 / • <b>FP-Growth</b> = FP-Tree 구조로 DB 2회 스캔(속도 빠름)</span>
+          </td>
+        </tr>
+        
+</tbody></table>
+</div>
+</body>
+</html>

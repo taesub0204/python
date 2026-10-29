@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADsP 중간고사 (50문항)</title>
+<style>
+:root{--blue:#1f4e78;--blue2:#2f6fa8;--light:#eaf2fb;--green:#2e7d32;--red:#c62828;--amber:#f9a825;--border:#d9dee5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#222;background:#f4f6f9;line-height:1.6}
+header{background:var(--blue);color:#fff;padding:18px 0}
+.wrap{max-width:900px;margin:0 auto;padding:0 14px}
+h1{margin:0;font-size:1.35rem}
+.sub{opacity:.9;font-size:.9rem;margin-top:4px}
+.panel{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin:14px 0}
+.name-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.name-row label{font-weight:bold}
+.name-row input{font-size:1.05rem;padding:8px 10px;border:1px solid #bbb;border-radius:6px;min-width:200px}
+.info{font-size:.92rem;color:#444;margin-top:8px}
+.notice{font-size:.9rem;background:#fff8e1;border:1px solid #ffe08a;padding:8px 10px;border-radius:6px;margin-top:10px;display:none}
+.section{margin:26px 0 8px;font-weight:bold;color:var(--blue);font-size:1.1rem;border-left:5px solid var(--blue);padding-left:10px}
+.q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0}
+.q.answered{border-color:#9fc5e8}
+.q-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.q-num{font-weight:bold;color:var(--blue);white-space:nowrap}
+.q-body{flex:1;min-width:0}
+.q-stem{white-space:pre-wrap;word-break:keep-all}
+pre.code{background:#f3f5f8;border:1px solid #e1e5ea;border-radius:6px;padding:8px 10px;font-family:Consolas,"D2Coding","Courier New",monospace;font-size:.92rem;overflow-x:auto;margin:8px 0;white-space:pre}
+.opts{list-style:none;margin:10px 0 0;padding:0}
+.opts label{display:flex;gap:8px;align-items:flex-start;padding:7px 8px;border-radius:6px;cursor:pointer;word-break:keep-all}
+.opts label:hover{background:var(--light)}
+.opts input{margin-top:5px;flex:none}
+.opts .mark{font-weight:bold;color:var(--blue);flex:none}
+.q.correct{border-color:#81c784;background:#f6fcf6}
+.q.wrong{border-color:#e57373;background:#fff7f7}
+.q.blank{border-color:#ffb74d;background:#fffaf2}
+.opts label.is-answer{background:#e3f4e4;font-weight:bold}
+.opts label.is-chosen-wrong{background:#fde2e2;text-decoration:line-through}
+.expl{margin-top:10px;padding:10px 12px;background:#fffbe6;border-left:4px solid var(--amber);font-size:.93rem;border-radius:4px;display:none}
+.badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.78rem;color:#fff;margin-left:6px;vertical-align:middle}
+.badge.ok{background:var(--green)}.badge.ng{background:var(--red)}.badge.bl{background:#ef6c00}
+.footer-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 -2px 8px rgba(0,0,0,.06);z-index:5}
+.footer-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.footer-left .cnt{white-space:nowrap;font-weight:bold}
+button{font-family:inherit;font-size:1rem;padding:10px 18px;border:none;border-radius:8px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.btn-primary{background:var(--blue);color:#fff;font-weight:bold}
+.btn-primary:hover:not(:disabled){background:var(--blue2)}
+.btn-ghost{background:#e9ecef;color:#333}
+.btn-sm{font-size:.9rem;padding:7px 12px}
+.progress{height:10px;background:#e5e9ef;border-radius:5px;overflow:hidden;flex:1;max-width:320px}
+.progress>div{height:100%;background:var(--blue);width:0;transition:width .2s}
+#result{display:none;border:2px solid var(--blue)}
+.res-top{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.score-big{font-size:3.2rem;font-weight:800;color:var(--blue);line-height:1}
+.score-big small{font-size:1.2rem;color:#666;font-weight:normal}
+.res-meta{font-size:.95rem;color:#333}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:14px}
+.subj{border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.subj .t{font-weight:bold}
+.subj .n{font-size:1.3rem;font-weight:bold;margin-top:2px}
+.bar{height:12px;background:#e5e9ef;border-radius:6px;overflow:hidden;margin-top:6px}
+.bar>div{height:100%}
+.advice{background:var(--light);border-left:5px solid var(--blue);padding:12px 14px;border-radius:6px;margin-top:14px}
+.advice h3{margin:0 0 6px;font-size:1.02rem}
+.advice ul{margin:6px 0 0 18px;padding:0}
+.advice li{margin:3px 0}
+.warn{color:var(--red);font-weight:bold}
+.res-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wrong-list{margin-top:10px;font-size:.93rem;word-break:break-all}
+.hidden{display:none !important}
+@media (max-width:600px){.score-big{font-size:2.5rem}.footer-bar{flex-wrap:wrap}.progress{max-width:none}}
+.modal{position:fixed;inset:0;background:rgba(10,25,45,.62);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal[hidden]{display:none}
+.modal-box{background:#fff;border-radius:16px;padding:26px 26px 20px;max-width:540px;width:100%;text-align:center;box-shadow:0 12px 44px rgba(0,0,0,.35);animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.m-title{font-size:1.05rem;color:#555;letter-spacing:.05em}
+.m-score{font-size:4.6rem;font-weight:800;color:var(--blue);line-height:1.1;margin:4px 0 2px}
+.m-score small{font-size:1.3rem;color:#666;font-weight:normal;margin-left:4px}
+.m-subj{margin:14px 0 10px;border-top:1px solid var(--border)}
+.m-row{display:flex;justify-content:space-between;gap:12px;padding:7px 8px;border-bottom:1px dashed var(--border);text-align:left;font-size:.95rem}
+.m-weak{background:var(--light);border-radius:8px;padding:10px 12px;text-align:left;font-size:.95rem;line-height:1.6}
+.m-actions{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+@media (max-width:600px){.m-score{font-size:3.6rem}}
+@media print{.footer-bar,.res-actions,.btn-ghost,.modal{display:none}.q{break-inside:avoid}}
+.tabs{position:sticky;top:0;z-index:6;display:flex;gap:6px;background:#f4f6f9;padding:10px 0 0;margin:14px 0 0;border-bottom:2px solid var(--blue);flex-wrap:wrap}
+.tab{flex:1;min-width:120px;background:#fff;color:#333;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 10px;font-size:.95rem;line-height:1.35;text-align:center}
+.tab:hover{background:var(--light)}
+.tab.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:bold}
+.tab .tl{display:block}
+.tab .tc{display:block;font-size:.8rem;font-weight:normal;opacity:.9}
+.tab.complete:not(.active) .tc{color:var(--green)}
+.tab.has-wrong:not(.active) .tc{color:var(--red);font-weight:bold}
+.tab-off{display:none !important}
+.tab-next{display:flex;justify-content:flex-end;margin:14px 0 4px}
+@media print{.tabs,.tab-next{display:none !important}.tab-off{display:block !important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>ADsP 중간고사 <span style="font-weight:normal">(50문항)</span></h1>
+  <div class="sub">1과목 10문항 · 2과목 10문항 · 3과목 30문항 · 문항당 2점 · 총 100점 · 제한 시간 90분 &nbsp;|&nbsp; <span id="timer-label">경과 시간</span> <span id="timer">00:00</span></div>
+</div></header>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="m-title" id="m-title">채점 결과</div>
+    <div class="m-score"><span id="m-score">0</span><small>/ 100점</small></div>
+    <div id="m-pass"></div>
+    <div class="m-subj" id="m-subj"></div>
+    <div class="m-weak" id="m-weak"></div>
+    <div class="m-actions">
+      <button class="btn-primary" id="m-detail">틀린 문제와 해설 보기</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="panel" id="result">
+    <h2 style="margin:0 0 10px;color:var(--blue)">채점 결과</h2>
+    <div class="res-top">
+      <div class="score-big"><span id="r-score">0</span><small> / 100점</small></div>
+      <div class="res-meta" id="r-meta"></div>
+    </div>
+    <div class="grid" id="r-subjects"></div>
+    <div class="advice" id="r-advice"></div>
+    <div class="wrong-list" id="r-wrong"></div>
+    <div class="res-actions">
+      <button class="btn-ghost btn-sm" id="btn-toggle-wrong">오답만 보기</button>
+      <button class="btn-ghost btn-sm" id="btn-save">결과 파일 저장</button>
+      <button class="btn-ghost btn-sm" id="btn-print">인쇄</button>
+      <button class="btn-ghost btn-sm" id="btn-retry">다시 풀기</button>
+    </div>
+  </section>
+
+  <section class="panel" id="intro">
+    <div class="name-row">
+      <label for="name">응시자 이름</label>
+      <input id="name" type="text" placeholder="이름을 입력하세요" autocomplete="off" maxlength="30">
+    </div>
+    <div class="info">※ 각 문항의 보기 중 하나를 선택하세요. 모두 풀고 아래 <b>제출</b> 버튼을 누르면 즉시 점수와 과목별 분석이 표시됩니다.<br>
+    ※ 합격 기준(실제 시험 참고): 총점 60점 이상이면서 과목별 40% 이상(1과목 8점 · 2과목 8점 · 3과목 24점). 제한 시간은 90분이며 상단에 남은 시간이 표시됩니다(시간이 끝나도 제출은 가능).<br>
+    ※ 작성 중인 답안은 이 브라우저에 자동 저장되므로 창을 닫았다가 다시 열어도 이어서 풀 수 있습니다.</div>
+    <div class="notice" id="restore-notice">이전에 작성하던 답안을 불러왔습니다. &nbsp;<button class="btn-ghost btn-sm" id="btn-clear">처음부터 다시</button></div>
+  </section>
+
+  <div id="questions"></div>
+</main>
+
+<div class="footer-bar">
+  <div class="footer-left">
+    <span class="cnt"><span id="cnt">0</span> / <span id="total">50</span> 작성</span>
+    <div class="progress"><div id="pbar"></div></div>
+  </div>
+  <button class="btn-primary" id="btn-submit">제출하기</button>
+</div>
+
+<script>
+const QUESTIONS = [{"n": 1, "s": 1, "t": "데이터의 이해", "q": "다음 자료 중 정성적(qualitative) 데이터에 해당하는 것을 모두 고른 것은?\nㄱ. 기상청이 발표한 태풍 특보 문구   ㄴ. 시간당 강수량 15mm   ㄷ. 고객 상담 전화 녹취록\nㄹ. 월별 매출액 합계   ㅁ. 온라인 쇼핑몰의 상품 후기 글", "o": ["ㄱ, ㄷ", "ㄴ, ㄹ", "ㄱ, ㄴ, ㄷ, ㅁ", "ㄱ, ㄷ, ㅁ"]}, {"n": 2, "s": 1, "t": "DIKW", "q": "DIKW 피라미드의 각 단계와 예시의 연결이 옳지 않은 것은?", "o": ["지식 – 방문객이 많은 매장 A에 직원을 더 배치해야겠다", "데이터 – 오늘 매장 A의 방문객은 320명, 매장 B의 방문객은 180명이다", "지혜 – 방문객이 적은 매장 B는 폐점해야겠다", "정보 – 매장 A의 방문객이 매장 B보다 많다"]}, {"n": 3, "s": 1, "t": "지식경영(SECI)", "q": "SECI 지식변환 모델의 단계와 사례의 연결이 옳지 않은 것은?", "o": ["연결화(Combination) – 여러 부서의 보고서를 취합·편집하여 전사 지식 데이터베이스 구축", "공통화(Socialization) – 선배 사원의 업무 요령을 어깨너머로 보고 배우는 도제식 전수", "표출화(Externalization) – 숙련자의 노하우를 인터뷰하여 업무 매뉴얼로 문서화", "내면화(Internalization) – 개인의 경험을 동료와의 대화로 공유하여 함께 체험하게 함"]}, {"n": 4, "s": 1, "t": "SQL", "q": "다음 SQL 문을 실행하면 오류가 발생한다. 그 이유로 가장 적절한 것은?\n```\nSELECT 부서, AVG(급여)\nFROM 사원\nWHERE AVG(급여) >= 300\nGROUP BY 부서;\n```", "o": ["WHERE 절에는 집계함수를 사용할 수 없으므로 집계 결과에 대한 조건은 HAVING 절에 써야 한다", "SELECT 절에 집계함수와 일반 열을 함께 쓸 수 없다", "AVG()는 DDL 명령어이므로 SELECT 문에서 사용할 수 없다", "GROUP BY 절은 반드시 SELECT 절보다 앞에 와야 한다"]}, {"n": 5, "s": 1, "t": "빅데이터의 특징", "q": "빅데이터의 특징(V)에 대한 설명으로 옳지 않은 것은?", "o": ["Variety(다양성) – 정형·반정형·비정형 등 다양한 형태의 데이터를 포함한다", "Velocity(속도) – 데이터가 빠르게 생성되어 실시간 처리가 요구된다", "Veracity(정확성) – 데이터 분석을 통해 얻을 수 있는 비즈니스 가치의 크기를 의미한다", "Volume(규모) – 저장·처리해야 할 데이터의 양이 매우 크다"]}, {"n": 6, "s": 1, "t": "빅데이터 활용 테크닉", "q": "다음은 빅데이터 활용 기본 테크닉으로 답할 수 있는 질문의 예이다. 테크닉과 질문의 연결이 적절하지 않은 것은?", "o": ["소셜네트워크분석 – 특정 사용자는 다른 사용자들에게 얼마나 영향력이 있는가?", "유형분석 – 이 사용자는 어떤 특성을 가진 집단에 속하는가?", "감정분석 – 커피를 구매하는 사람이 탄산음료를 더 많이 구매하는가?", "기계학습 – 기존 시청 기록을 바탕으로 시청자가 보유한 영화 중 어떤 것을 가장 보고 싶어할까?"]}, {"n": 7, "s": 1, "t": "빅데이터 위기 요인", "q": "범죄 예측 알고리즘이 어떤 사람이 범죄를 저지를 가능성이 높다고 판단하여, 실제 행위를 하기도 전에 그 사람을 체포·처벌하는 상황(영화 '마이너리티 리포트')은 빅데이터의 어떤 위기 요인에 해당하는가?", "o": ["사생활 침해", "책임 원칙 훼손", "데이터 오용", "데이터 독점"]}, {"n": 8, "s": 1, "t": "개인정보 비식별화", "q": "직원 개개인의 연봉 값을 그대로 공개하는 대신 '영업부 평균 연봉 4,800만 원'처럼 부서 단위의 합계·평균값으로 대체하여 제공하는 비식별화 기법은?", "o": ["가명처리", "총계처리", "데이터 범주화", "데이터 마스킹"]}, {"n": 9, "s": 1, "t": "데이터 사이언티스트 역량", "q": "가트너(Gartner)가 제시한 데이터 사이언티스트의 요구 역량을 모두 고른 것은?\nㄱ. 데이터 관리(Data Management)   ㄴ. 분석 모델링(Analytics Modeling)   ㄷ. 비즈니스 분석(Business Analysis)\nㄹ. 소프트 스킬(Soft Skill)   ㅁ. IT 시스템 구축(IT System Development)", "o": ["ㄱ, ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ", "ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ"]}, {"n": 10, "s": 1, "t": "빅데이터 가치 산정", "q": "빅데이터의 가치 산정이 어려운 이유로 옳은 것을 모두 고른 것은?\nㄱ. 데이터가 재사용·재조합·다목적으로 개발되어 누가 언제 어떻게 활용할지 알기 어렵다\nㄴ. 기존에 없던 새로운 가치를 창출하는 경우가 많다\nㄷ. 분석 기술이 발전하면서 가치 없던 데이터도 가치 있는 데이터가 될 수 있다\nㄹ. 데이터 저장 비용이 해마다 급격히 상승하고 있다\nㅁ. 빅데이터의 가치는 데이터의 양(Volume)에 비례하므로 용량만 알면 산정할 수 있다", "o": ["ㄱ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㅁ", "ㄱ, ㄴ", "ㄱ, ㄴ, ㄷ"]}, {"n": 11, "s": 2, "t": "분석 기획 4유형", "q": "한 유통회사는 '월별 수요 예측'이라는 분석 과제는 명확히 정하였으나, 어떤 분석 기법으로 풀어야 할지 몰라 외부 전문 솔루션 도입을 검토하고 있다. 이 상황은 분석 주제의 4가지 유형 중 무엇에 해당하는가?", "o": ["최적화(Optimization)", "솔루션(Solution)", "통찰(Insight)", "발견(Discovery)"]}, {"n": 12, "s": 2, "t": "분석 방법론의 생성", "q": "분석 방법론이 만들어지는 과정의 순서로 옳은 것은?", "o": ["형식지 → 형식화 → 암묵지 → 체계화 → 방법론 → 내재화", "암묵지 → 내재화 → 형식지 → 체계화 → 방법론 → 형식화", "암묵지 → 형식화 → 형식지 → 체계화 → 방법론 → 내재화", "암묵지 → 체계화 → 형식지 → 형식화 → 방법론 → 내재화"]}, {"n": 13, "s": 2, "t": "분석 방법론 구성요소", "q": "분석 방법론의 구성 요소를 모두 고른 것은?\nㄱ. 상세한 절차(Procedures)   ㄴ. 방법(Methods)   ㄷ. 도구와 기법(Tools & Techniques)\nㄹ. 템플릿과 산출물(Templates & Outputs)   ㅁ. 분석가의 경험과 직관", "o": ["ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ"]}, {"n": 14, "s": 2, "t": "KDD와 CRISP-DM", "q": "KDD와 CRISP-DM 방법론에 대한 설명으로 옳지 않은 것은?", "o": ["KDD의 결과 해석·평가 단계는 CRISP-DM의 모델링 단계에 대응된다", "KDD의 데이터셋 선택과 데이터 전처리 단계는 CRISP-DM의 데이터 이해 단계에 대응된다", "CRISP-DM에서 가장 많은 시간이 소요되는 단계는 데이터 준비 단계이다", "'프로젝트 계획 수립' 태스크는 CRISP-DM의 업무 이해 단계에 속한다"]}, {"n": 15, "s": 2, "t": "빅데이터 분석 방법론", "q": "빅데이터 분석 방법론의 흐름에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 데이터 분석 단계에서 추가 데이터가 필요하면 데이터 준비 단계로 되돌아가 반복할 수 있다\nㄴ. 평가 및 전개 단계의 모델 발전 계획은 차기 분석 기획으로 전달되어 프로세스가 순환한다\nㄷ. 분석 결과만을 목적으로 하는 경우 시스템 구현 단계를 생략하고 평가 및 전개 단계로 넘어갈 수 있다\nㄹ. 데이터 스토어는 정형과 비정형 데이터를 구분하지 않고 하나의 RDBMS에 통합하여 설계한다\nㅁ. 분석 기획 단계의 산출물에는 범위 정의서(SOW)와 WBS가 포함된다", "o": ["ㄱ, ㄴ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ", "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ, ㅁ"]}, {"n": 16, "s": 2, "t": "분석 과제 정의서", "q": "분석 과제 정의서에 포함되는 항목으로 가장 거리가 먼 것은?", "o": ["분석 결과에 대한 검증 책임자(오너십)와 상세 분석 과정", "분석 모형의 상세 알고리즘 소스 코드", "소스 데이터와 데이터 입수 및 분석 난이도", "분석 방법과 분석 수행 주기"]}, {"n": 17, "s": 2, "t": "분석 프로젝트 관리", "q": "분석 프로젝트의 관리 영역(10개 지식 영역)과 분석 프로젝트 특성의 연결이 옳지 않은 것은?", "o": ["품질 – 품질 통제(QC)와 품질 보증(QA)으로 구분하여 분석 품질을 관리한다", "범위 – 분석 결과에 따라 프로젝트 범위가 변경될 가능성을 관리한다", "조달 – PoC 성격의 프로젝트라도 분석 환경은 반드시 구매하여 자체 구축해야 한다", "시간 – 반복적 모델링 특성상 Time Boxing 기법으로 일정을 관리한다"]}, {"n": 18, "s": 2, "t": "우선순위 평가·이행 계획", "q": "분석 과제 우선순위 평가와 이행 계획에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 실행 용이성은 투자 용이성과 기술 용이성으로 세분된다\nㄴ. 난이도를 기준으로 우선순위를 정하면 Ⅲ → Ⅰ → Ⅱ 사분면 순이다\nㄷ. Ⅰ사분면(난이도 어려움·시급성 현재) 과제는 분석 데이터 범위 축소 등으로 난이도를 낮춰 Ⅲ사분면으로 이동시킬 수 있다\nㄹ. 이행 로드맵은 유효성 검증 → 데이터 분석 체계 도입 → 확산 및 고도화의 순서로 진행된다\nㅁ. 세부 이행 계획은 데이터 수집·확보는 순차적으로, 모델링은 반복적으로 수행하는 혼합 방식을 적용한다", "o": ["ㄱ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ", "ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㅁ"]}, {"n": 19, "s": 2, "t": "거버넌스·수준 진단", "q": "데이터 거버넌스와 분석 수준 진단에 대한 설명으로 옳지 않은 것은?", "o": ["분석 준비도는 도입 → 활용 → 확산 → 최적화의 4단계로 평가한다", "분석 준비도 진단에서 '사실에 근거한 의사결정' 항목은 분석 문화 영역, 'EAI·ETL 등 운영 시스템 데이터 통합' 항목은 IT 인프라 영역에 속한다", "데이터 거버넌스 체계는 데이터 표준화 → 데이터 관리 체계 → 데이터 저장소 관리 → 표준화 활동으로 구성된다", "데이터 거버넌스의 구성 요소는 원칙(Principle), 조직(Organization), 프로세스(Process)이다"]}, {"n": 20, "s": 2, "t": "분석 조직 구조", "q": "다음 설명에 해당하는 분석 조직 구조는?\n\"전사의 분석 업무를 별도의 전담 조직이 수행하며, 전략적 중요도에 따라 분석 사안의 우선순위를 정해 추진할 수 있다. 다만 현업 부서의 분석 업무와 이중화·이원화될 가능성이 있다.\"", "o": ["집중형 구조", "기능형 구조", "분산형 구조", "매트릭스 구조"]}, {"n": 21, "s": 3, "t": "R 기초", "q": "R과 Python에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. R은 객체를 메모리에 올려 처리하는 인메모리 방식이다\nㄴ. R은 CRAN을 통해 1만 개 이상의 패키지를 제공하며 윈도우·맥·리눅스에서 모두 동작한다\nㄷ. R은 인메모리 구조 덕분에 대용량 데이터 처리에 특히 유리하다\nㄹ. Python은 범용 프로그래밍 언어이고 R은 통계 분석·시각화에 특화된 언어이다\nㅁ. 패키지는 install.packages()로 한 번 설치한 뒤, 세션마다 library()로 불러와야 사용할 수 있다", "o": ["ㄱ, ㄴ, ㄹ, ㅁ", "ㄱ, ㄹ, ㅁ", "ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ, ㄹ"]}, {"n": 22, "s": 3, "t": "R 기초(코드)", "q": "다음 R 코드를 실행했을 때 f()의 반환값과 그 직후 전역 변수 x의 값을 순서대로 나열한 것은?\n```\nx <- 1\nf <- function() {\n  x <<- 5\n  x <- 10\n  x\n}\nf()\nx\n```", "o": ["5, 10", "10, 1", "10, 5", "10, 10"]}, {"n": 23, "s": 3, "t": "R 기초(코드)", "q": "다음 R 코드의 실행 결과는?\n```\nx <- 1:6\nx * c(1, 10)\n```", "o": ["1 10 2 20 3 30", "1 20 3 40 5 60", "1 20 3 40", "길이가 달라 오류가 발생한다"]}, {"n": 24, "s": 3, "t": "R 기초(코드)", "q": "다음 R 코드의 실행 결과는?\n```\nm <- matrix(1:4, nrow = 2)\n(m %*% m)[2, 1]\n```", "o": ["15", "4", "7", "10"]}, {"n": 25, "s": 3, "t": "R 기초(코드)", "q": "다음 R 코드의 실행 결과는?\n```\nx <- c(3, NA, 5, 8)\nc(sum(x), sum(x, na.rm = TRUE), length(x))\n```", "o": ["16 16 3", "NA 16 4", "16 16 4", "NA 16 3"]}, {"n": 26, "s": 3, "t": "이상값 처리", "q": "이상값(outlier) 처리에 대한 설명으로 옳지 않은 것은?", "o": ["ESD(Extreme Studentized Deviation) 방법은 평균으로부터 2 표준편차 이상 떨어진 값을 이상값으로 판정한다", "절단(trimming)은 이상값을 제거하는 방법이고, 조정(winsorizing)은 상·하한 경계값으로 대체하는 방법이다", "상자그림에서는 Q1 − 1.5×IQR 미만이거나 Q3 + 1.5×IQR 초과인 값을 이상값으로 본다", "사기 탐지처럼 이상값 자체가 분석 대상인 경우에는 이상값을 제거하지 않는다"]}, {"n": 27, "s": 3, "t": "표본추출", "q": "남학생 600명, 여학생 400명인 모집단에서 성별을 층으로 하는 비례층화추출로 50명의 표본을 뽑으려 한다. 남·여 표본 수와 층화추출에 대한 설명이 모두 옳은 것은?", "o": ["남 25명, 여 25명 – 층의 크기와 무관하게 동일하게 배분하는 것이 비례층화추출이다", "남 20명, 여 30명 – 소수 집단에 더 많은 표본을 배분하는 것이 비례층화추출이다", "남 30명, 여 20명 – 층 내부는 이질적, 층 사이는 동질적이 되도록 층을 나눈다", "남 30명, 여 20명 – 층 내부는 동질적, 층 사이는 이질적이 되도록 층을 나눈다"]}, {"n": 28, "s": 3, "t": "확률", "q": "두 사건 A, B에 대해 P(A)=0.3, P(B)=0.4이고 A와 B가 서로 배반(mutually exclusive)일 때, P(A∪B)와 P(A|B)를 순서대로 나열한 것은?", "o": ["0.58, 0.3", "0.12, 0", "0.7, 0", "0.7, 0.3"]}, {"n": 29, "s": 3, "t": "확률분포", "q": "확률분포에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. X ~ B(100, 0.2)이면 평균은 20, 분산은 16이다\nㄴ. 포아송분포는 평균과 분산이 모두 λ로 같다\nㄷ. 모분산을 모르는 소표본에서 모평균을 추론할 때는 t분포를 이용한다\nㄹ. 두 모집단의 분산이 같은지 비교할 때는 카이제곱분포를 이용한다\nㅁ. 다항분포는 결과 범주가 3개 이상인 시행에 사용한다", "o": ["ㄱ, ㄴ, ㄷ, ㄹ", "ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ", "ㄱ, ㄴ, ㄷ, ㅁ"]}, {"n": 30, "s": 3, "t": "추정", "q": "추정에 대한 설명으로 옳지 않은 것은?", "o": ["다른 조건이 같을 때 신뢰수준을 95%에서 99%로 높이면 신뢰구간의 폭은 좁아진다", "표본분산을 n이 아닌 n−1로 나누는 것은 불편성을 만족시키기 위해서이다", "다른 조건이 같을 때 표본 크기를 4배로 늘리면 신뢰구간의 폭은 절반으로 줄어든다", "불편성(unbiasedness)은 추정량의 기댓값이 모수와 같은 성질이다"]}, {"n": 31, "s": 3, "t": "정규성·비모수 검정", "q": "정규성 검정과 비모수 검정에 대한 설명으로 옳지 않은 것은?", "o": ["샤피로-윌크 검정의 p-값이 0.05보다 작으면 정규성 가정을 기각한다", "대응표본 t-검정의 비모수 대안은 크루스칼-왈리스 검정이다", "샤피로-윌크 검정의 귀무가설은 '자료가 정규분포를 따른다'이다", "독립 이표본 t-검정의 비모수 대안은 맨-휘트니 U 검정이다"]}, {"n": 32, "s": 3, "t": "상관·회귀(계산)", "q": "두 변수 X, Y에 대해 Cov(X, Y)=6, V(X)=9, V(Y)=16이다. Y를 X로 설명하는 단순 선형회귀모형의 결정계수(R²)는?", "o": ["0.04", "0.375", "0.25", "0.50"]}, {"n": 33, "s": 3, "t": "분산분석(계산)", "q": "세 가지 처리(k=3)를 비교하는 일원배치 분산분석에서 총 관측치 수는 30, 처리제곱합(SSR)은 60, 잔차제곱합(SSE)은 135이다. F 통계량은?", "o": ["6", "2.25", "0.44", "12"]}, {"n": 34, "s": 3, "t": "시계열", "q": "시계열 분석에 대한 설명으로 옳지 않은 것은?", "o": ["PACF가 시차 1 이후 절단되고 ACF가 지수적으로 감소하면 AR(1) 모형이 적합하다", "백색잡음은 평균 0, 분산 일정, 자기상관 0인 시계열로 정상성을 만족한다", "이동평균법에서 평균을 구하는 구간 n을 크게 할수록 최근 변화에 더 민감하게 반응한다", "ARIMA(0, 1, 1)은 1차 차분한 시계열에 MA(1) 모형을 적용한 것이다"]}, {"n": 35, "s": 3, "t": "다변량 분석", "q": "다변량 분석에 대한 설명으로 옳지 않은 것은?", "o": ["주성분분석의 주성분들은 설명력에 따른 서열이 있지만, 요인분석의 요인들은 서로 대등하다", "주성분분석에서는 고유값이 1보다 작은 주성분만 선택하는 것이 일반적이다", "다차원척도법(MDS)에서는 스트레스(stress) 값이 작을수록 적합도가 좋다", "비계량적 MDS는 순서척도 자료에, 계량적 MDS는 구간·비율척도 자료에 사용한다"]}, {"n": 36, "s": 3, "t": "확률변수의 성질(계산)", "q": "서로 독립인 확률변수 X, Y의 분산이 각각 V(X)=4, V(Y)=9일 때 V(2X − Y)는?", "o": ["7", "13", "−1", "25"]}, {"n": 37, "s": 3, "t": "모형 검증", "q": "모형 검증 방법에 대한 설명으로 옳지 않은 것은?", "o": ["k-fold 교차검증은 데이터를 k개 조각으로 나누어 검증 조각을 바꿔가며 k번 학습·평가하고 결과를 평균한다", "LOOCV는 k=n인 교차검증으로 관측치 1개만 검증에 사용하며 계산 비용이 매우 크다", "홀드아웃 방법은 보통 훈련 70% : 시험 30%와 같이 데이터를 한 번 분할하여 평가한다", "교차검증은 데이터가 매우 많을 때만 유용하며, 데이터가 적을 때는 사용할 수 없다"]}, {"n": 38, "s": 3, "t": "오즈(계산)", "q": "어떤 고객이 이탈할 오즈(odds)가 3으로 추정되었다. 이 고객이 이탈할 확률은?", "o": ["0.60", "0.33", "0.75", "3.0"]}, {"n": 39, "s": 3, "t": "의사결정나무 절차", "q": "의사결정나무 분석의 절차로 옳은 것은?", "o": ["가지치기 → 나무의 성장 → 타당성 평가 → 해석 및 예측", "나무의 성장 → 가지치기 → 타당성 평가 → 해석 및 예측", "타당성 평가 → 나무의 성장 → 가지치기 → 해석 및 예측", "나무의 성장 → 타당성 평가 → 가지치기 → 해석 및 예측"]}, {"n": 40, "s": 3, "t": "지니 지수(계산)", "q": "어떤 마디에 범주 A 6개, 범주 B 6개(총 12개)가 있다. 이 마디를 자식 마디 L(A 4개, B 0개)과 R(A 2개, B 6개)로 분할했을 때 지니 지수의 감소량은?", "o": ["0.25", "0.125", "0.3125", "0.375"]}, {"n": 41, "s": 3, "t": "의사결정나무 분리 기준", "q": "의사결정나무의 분리 기준에 대한 설명으로 옳지 않은 것은?", "o": ["지니 지수와 엔트로피 지수는 값이 낮을수록 순수한 마디이므로, 분할 후 값이 작아지는 분리가 좋은 분리이다", "정보이득(information gain)은 값이 클수록 좋은 분리이다", "CHAID에서 사용하는 카이제곱 통계량은 값이 작을수록(p-값이 클수록) 좋은 분리이다", "두 범주의 비율이 50:50인 마디의 엔트로피(log₂ 기준)는 1로 최대가 된다"]}, {"n": 42, "s": 3, "t": "앙상블", "q": "배깅, 부스팅, 스태킹 등 앙상블 기법의 특징을 비교한 설명으로 옳지 않은 것은?", "o": ["배깅의 각 부트스트랩 표본은 비복원추출로 만들어지므로 표본끼리 관측치가 겹치지 않는다", "부스팅은 편향을 줄여 정확도를 높이지만 과적합 가능성이 있고 상대적으로 느리다", "배깅은 모형의 분산을 줄여 과적합을 방지하는 효과가 크다", "스태킹은 서로 다른 종류의 모형들이 낸 예측 결과를 메타 모형이 다시 학습하여 결합한다"]}, {"n": 43, "s": 3, "t": "분류 기법", "q": "분류 기법에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 나이브 베이즈는 목표변수가 주어졌을 때 설명변수들이 서로 조건부 독립이라고 가정한다\nㄴ. 나이브 베이즈는 베이즈 정리에 따라 사전확률과 우도의 곱에 비례하는 사후확률로 범주를 판별한다\nㄷ. KNN에서 k를 크게 할수록 결정 경계가 단순해진다\nㄹ. ReLU 활성화 함수는 음수 입력을 0으로, 양수 입력은 그대로 출력한다\nㅁ. 시그모이드 함수의 출력 범위는 −1에서 1 사이이다", "o": ["ㄱ, ㄴ, ㄷ", "ㄱ, ㄴ, ㄹ, ㅁ", "ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ, ㄹ"]}, {"n": 44, "s": 3, "t": "혼동행렬(계산)", "q": "다음 혼동행렬에 대한 설명으로 옳지 않은 것은?\n```\n                예측 양성   예측 음성\n실제 양성 (50)      30          20\n실제 음성 (50)      10          40\n```", "o": ["정밀도(Precision)는 0.75이다", "카파(Kappa) 통계량은 0.20이다", "특이도(Specificity)는 0.80이다", "정확도(Accuracy)는 0.70이다"]}, {"n": 45, "s": 3, "t": "모형 평가", "q": "분류 모형의 평가에 대한 설명으로 옳은 것은?", "o": ["이익도표(gain chart)에서는 하위 등급으로 갈수록 반응률이 높아져야 좋은 모형이다", "AUC가 0.5보다 작으면 완벽한 분류 모형으로 판단한다", "ROC 곡선이 대각선(45도 선) 아래쪽에 위치할수록 분류 성능이 우수하다", "향상도 곡선(lift chart)은 상위 등급에서 향상도가 크고, 등급이 내려갈수록 빠르게 1에 가까워질수록 좋은 모형이다"]}, {"n": 46, "s": 3, "t": "유사도(계산)", "q": "두 고객의 5개 상품 구매 여부(1=구매, 0=미구매)가 A=(1, 1, 0, 0, 1), B=(1, 0, 0, 1, 1)일 때 단순일치계수와 자카드 계수를 순서대로 나열한 것은?", "o": ["0.5, 0.6", "0.6, 0.5", "0.4, 0.5", "0.6, 0.4"]}, {"n": 47, "s": 3, "t": "거리·유사도 측도", "q": "거리·유사도 측도에 대한 설명으로 옳지 않은 것은?", "o": ["코사인 유사도는 벡터의 크기가 아닌 방향의 유사성을 측정하며 문서 유사도 계산에 활용된다", "마할라노비스 거리는 변수 간 상관관계를 고려한 거리이다", "같은 두 점에 대해 유클리드 거리는 항상 맨하탄 거리보다 크거나 같다", "표준화 거리는 변수의 척도 차이를 제거하지만 변수 간 상관관계는 고려하지 않는다"]}, {"n": 48, "s": 3, "t": "계층적 군집(계산)", "q": "네 개체 A, B, C, D 사이의 거리가 다음과 같다. 최단연결법(single linkage)으로 계층적 군집을 수행할 때, 모든 개체가 하나의 군집으로 합쳐지는 마지막 병합 거리는?\n```\n      A    B    C    D\nA     0    2    6   10\nB     2    0    5    9\nC     6    5    0    4\nD    10    9    4    0\n```", "o": ["5", "10", "4", "6"]}, {"n": 49, "s": 3, "t": "혼합분포 군집(EM)", "q": "혼합분포 군집과 EM 알고리즘에 대한 설명으로 옳지 않은 것은?", "o": ["E단계에서는 현재의 모수 추정값으로 각 관측치가 각 군집에 속할 확률(기댓값)을 계산한다", "혼합분포 군집은 k-평균 군집과 마찬가지로 이상값에 민감하다", "EM 알고리즘은 군집의 개수를 데이터로부터 자동으로 결정하므로 사전에 지정할 필요가 없다", "M단계에서는 로그가능도를 최대화하도록 각 분포의 모수를 갱신한다"]}, {"n": 50, "s": 3, "t": "연관규칙 해석", "q": "어느 마트의 거래 자료에서 도출된 연관규칙 세 개의 측도가 다음과 같다. 이에 대한 해석으로 옳은 것은?\n```\n규칙              지지도   신뢰도   향상도\nR1: {A} → {B}     0.30     0.72     0.90\nR2: {C} → {D}     0.10     0.60     2.00\nR3: {E} → {F}     0.20     0.50     1.00\n```", "o": ["R3는 향상도가 1이므로 E와 F는 강한 양의 연관성을 가진다", "신뢰도가 높을수록 향상도도 항상 높아지므로 R1이 가장 유용한 규칙이다", "R2는 지지도가 가장 낮으므로 세 규칙 중 가장 의미 없는 규칙이다", "R1은 신뢰도가 가장 높지만 향상도가 1보다 작아, A 구매가 B 구매 가능성을 오히려 낮추는 규칙이다"]}];
+const META = {"name": {"1": "1과목 데이터 이해", "2": "2과목 데이터 분석 기획", "3": "3과목 데이터 분석"}, "range": {"1": [1, 10], "2": [11, 20], "3": [21, 50]}, "points": 2, "total": 100, "passTotal": 60, "passRatio": 0.4, "timeLimitMin": 90, "storageKey": "adsp_midterm_v1", "resultPrefix": "ADSP중간고사결과", "title": "ADsP 중간고사"};
+const KEY_B64 = "eyIxIjp7ImEiOjQsImUiOiLsoJXshLHsoIEg642w7J207YSwPeyWuOyWtMK366y47J6QIOuTsSDshJzsiKDtmJUo7Yq567O0IOusuOq1rCwg64W57Leo66GdLCDsg4Htkogg7ZuE6riwIOq4gCkuIOygleufieyggSDrjbDsnbTthLA97IiY7LmYwrfrj4TtmJXCt+q4sO2YuCjqsJXsiJjrn4kgMTVtbSwg7JuU67OEIOunpOy2nOyVoSDtlanqs4QpLiJ9LCIyIjp7ImEiOjMsImUiOiJcdTAwMjd+7ZW07JW86rKg64ukXHUwMDI37JmAIOqwmeydgCDtlonrj5kg6rKw7KCV7J2AIOyngOyLnSDri6jqs4TsnbTri6QuIOyngO2YnOuKlCBcdTAwMjfrp6TsnqUgQeqwgCDsho3tlZwg7IOB6raM7J2YIOuLpOuluCDsoJDtj6zrk6Trj4Qg7IaQ64uY7J20IOunjuydhCDqsoPsnbTri6RcdTAwMjfsspjrn7wg6re867O4IOybkOumrOulvCDrsJTtg5XsnLzroZwg7ZWcIO2ZleyepSDstpTroaDCt+yYiOy4oeydtOuLpC4ifSwiMyI6eyJhIjo0LCJlIjoi6rK97ZeYwrfrjIDtmZTrpbwg7Ya17ZWcIOyVlOusteyngOKGkuyVlOusteyngCDqs7XsnKDripQg6rO17Ya17ZmU7J2064ukLiDrgrTrqbTtmZTripQg66ek64m07Ja8IOuTsSDtmJXsi53sp4Drpbwg67CY67O1IO2VmeyKte2VtCDqsJzsnbjsnZgg7JWU66y17KeA66GcIOyytOuTne2VmOuKlCDqs7zsoJUo7ZiV7Iud7KeA4oaS7JWU66y17KeAKS4ifSwiNCI6eyJhIjoxLCJlIjoiV0hFUkXripQg7ZaJIOuLqOychCDsobDqsbQsIEhBVklOR+ydgCBHUk9VUCBCWeuhnCDrrLbsnbgg6re466O57J2YIOynkeqzhCDsobDqsbTsl5Ag7IKs7Jqp7ZWc64ukLiBHUk9VUCBCWeyXkCDtj6ztlajrkJwg7Je07J2AIOynkeqzhO2VqOyImOyZgCDtlajqu5ggU0VMRUNU7ZWgIOyImCDsnojri6QuIn0sIjUiOnsiYSI6MywiZSI6IlZlcmFjaXR564qUIOuNsOydtO2EsOydmCDsoJXtmZXshLHCt+yLoOuisOyEsSjtkojsp4gp7J2EIOucu+2VnOuLpC4g67mE7KaI64uI7IqkIOqwgOy5mOuKlCBWYWx1ZS4gM1YoVm9sdW1lwrdWYXJpZXR5wrdWZWxvY2l0eSnsl5AgVmFsdWXCt1ZlcmFjaXR566W8IOuNlO2VtCA0VsK3NVbroZwg7ZmV7J6l7ZWc64ukLiJ9LCI2Ijp7ImEiOjMsImUiOiJcdTAwMjftlajqu5gg6rWs66ek7ZWY64qU6rCAXHUwMDI364qUIOyXsOq0gOq3nOy5me2VmeyKteydmCDsp4jrrLjsnbTri6QuIOqwkOygleu2hOyEneydgCBcdTAwMjfsg4jroZzsmrQg7ZmY67aIIOygleyxheyXkCDrjIDtlZwg6rOg6rCd7J2YIO2PieqwgOuKlCDslrTrlqTqsIA/XHUwMDI37LKY65+8IOqzoOqwneydmCDrsJjsnZHCt+qwkOygleydhCDrrLvripTri6QuIn0sIjciOnsiYSI6MiwiZSI6IuyYiOy4oSDslYzqs6Drpqzsppjsl5Ag65Sw6528IOyLpOygnCDtlonrj5kg7KCE7JeQIOyxheyehOydhCDrrLvripQg6rKD7J2AIOyxheyehCDsm5DsuZkg7Zu87IaQ7J2066mwLCDthrXsoJwg67Cp7JWI7J2AIFx1MDAyN+qysOqzvCDquLDrsJgg7LGF7J6EIOybkOy5mSDqs6DsiJhcdTAwMjfsnbTri6QuIOyCrOyDne2ZnCDsuajtlbTihpLrj5nsnZjsoJzsl5DshJwg7LGF7J6E7KCc66GcLCDrjbDsnbTthLAg7Jik7Jqp4oaS7JWM6rOg66as7KaYIOygkeq3vCDtl4jsmqko7JWM6rOg66as7KaI66+47Iqk7Yq4KS4ifSwiOCI6eyJhIjoyLCJlIjoi7LSd6rOE7LKY66asPeqwnOuzhCDqsJLsnYQg7ZWp6rOEwrftj4nqt6Ag65OxIO2GteqzhOqwkuycvOuhnCDrjIDssrQuIOqwgOuqheyymOumrD3ri6Trpbgg6rCS7Jy866GcIOuMgOyytCjtmY3quLjrj5nihpLsnoTqur3soJUpLCDrspTso7ztmZQ96rWs6rCEwrfrspTso7zroZwg67OA7ZmYKDM17IS44oaSMzDrjIApLCDrp4jsiqTtgrk97J2867aA66W8IOKXi8K3KiDrk7HsnLzroZwg6rCA66a8KO2ZjeKXi+KXiykuIn0sIjkiOnsiYSI6MSwiZSI6IuqwgO2KuOuEiOydmCA064yAIOyXreufiTog642w7J207YSwIOq0gOumrCwg67aE7ISdIOuqqOuNuOungSwg67mE7KaI64uI7IqkIOu2hOyEnSwg7IaM7ZSE7Yq4IOyKpO2CrC4gXHUwMDI37Ya16rOE7ZWZXHUwMDI3LCBcdTAwMjdJVCDqtazstpVcdTAwMjcg65Ox7J2AIOuBvOybjOuEo+q4sCDtlajsoJUg67O06riw7J2064ukLiJ9LCIxMCI6eyJhIjo0LCJlIjoi6rCA7LmYIOyCsOygleydtCDslrTroKTsmrQgM+qwgOyngCDsnbTsnKA6IOuNsOydtO2EsCDtmZzsmqkg67Cp7IudKOyerOyCrOyaqcK37J6s7KGw7ZWpwrfri6TrqqnsoIEpLCDsg4jroZzsmrQg6rCA7LmYIOywvey2nCwg67aE7ISdIOq4sOyIoOydmCDrsJzsoIQuIOyggOyepSDruYTsmqnsnYAg7Jik7Z6I66CkIO2VmOudvSDstpTshLjsnbTrqbAsIOqwgOy5mOuKlCDslpHsl5Ag67mE66GA7ZWY7KeAIOyViuuKlOuLpC4ifSwiMTEiOnsiYSI6MiwiZSI6Iuu2hOyEnSDrjIDsg4EoV2hhdCnsnYAg7JWM7KeA66eMIOuwqeuylShIb3cp7J2EIOuqqOultOuptCDshpTro6jshZguIOuRmCDri6Qg7JWM66m0IOy1nOygge2ZlCwg67Cp67KV66eMIOyVjOuptCDthrXssLAsIOuRmCDri6Qg66qo66W066m0IOuwnOqyrC4ifSwiMTIiOnsiYSI6MywiZSI6IuqwnOyduOydmCDslZTrrLXsp4DqsIAg7ZiV7Iud7ZmU65CY7Ja0IO2YleyLneyngOqwgCDrkJjqs6AsIOydtOulvCDssrTqs4TtmZTtlZwg6rKD7J20IOuwqeuyleuhoOydtOupsCwg67Cp67KV66Gg7J2AIOuLpOyLnCDsobDsp4Hsl5Ag64K07J6s7ZmU65Cc64ukLiAx6rO866qpIFNFQ0ko6rO17Ya17ZmUwrftkZzstpztmZTCt+yXsOqysO2ZlMK364K066m07ZmUKeyZgCDtmLzrj5ntlZjsp4Ag66eQIOqygy4ifSwiMTMiOnsiYSI6MiwiZSI6IuuwqeuyleuhoOydmCDqtazshLEg7JqU7IaMIDTqsIDsp4A6IOyDgeyEuO2VnCDsoIjssKgsIOuwqeuylSwg64+E6rWs7JmAIOq4sOuylSwg7YWc7ZSM66a/6rO8IOyCsOy2nOusvC4g7KCE66y46rCA7J2YIOqyve2XmMK37KeB6rSA7J2AIOq1rOyEsSDsmpTshozqsIAg7JWE64uI64ukLiJ9LCIxNCI6eyJhIjoxLCJlIjoiS0RE7J2YIO2VtOyEncK37Y+J6rCA64qUIENSSVNQLURN7J2YIO2PieqwgCArIOyghOqwnCDrkZAg64uo6rOE66GcIO2ZleyepeuQmOyWtCDrjIDsnZHrkJzri6QuIEtERCDrs4DtmZjihpTrjbDsnbTthLAg7KSA67mELCBLREQg642w7J207YSwIOuniOydtOuLneKGlOuqqOuNuOungS4ifSwiMTUiOnsiYSI6NCwiZSI6IuuNsOydtO2EsCDsiqTthqDslrTripQg7KCV7ZiVIOyKpO2GoOyWtChSREJNUynsmYAg67mE7KCV7ZiVIOyKpO2GoOyWtCjtlZjrkaHCt05vU1FMKeulvCDqtazrtoTtlZjsl6wg7ISk6rOE7ZWc64ukKOOEuSDsmKTri7UpLiDtlLzrk5zrsLEg7JyE7LmYIDLqs7M6IOu2hOyEneKGlOykgOu5hCDrsJjrs7UsIO2PieqwgMK37KCE6rCc4oaS7LCo6riwIOq4sO2ajS4ifSwiMTYiOnsiYSI6MiwiZSI6IuqzvOygnCDsoJXsnZjshJwg7ZWt66qpOiDshozsiqQg642w7J207YSwLCDrjbDsnbTthLAg7J6F7IiYIOuwjyDrtoTshJ0g64Kc7J2064+ELCDrtoTshJ0g67Cp67KVLCDrtoTshJ0g7IiY7ZaJIOyjvOq4sCwg67aE7ISdIOqysOqzvCDqsoDspp0g7Jik64SI7IutLCDsg4HshLgg67aE7ISdIOqzvOyglS4g7IaM7IqkIOy9lOuTnOuKlCDsoJXsnZjshJwg7ZWt66qp7J20IOyVhOuLiOuLpC4ifSwiMTciOnsiYSI6MywiZSI6IuyhsOuLrCDsmIHsl63sl5DshJzripQgUG9DIO2Yle2DnCDtlITroZzsoJ3tirjsnZgg6rK97JqwIOq1rOunpCDrjIDsi6Ag7YG065287Jqw65OcIOuTsSDri6TslpHtlZwg67Cp7JWI7J2EIOqygO2GoO2VnOuLpC4ifSwiMTgiOnsiYSI6NCwiZSI6IuyCrOu2hOuptCDsoJXsnZgo6rCV7J2Y7J6Q66OMIOq4sOykgCk6IOKFoCDtmITsnqzCt+yWtOugpOybgCwg4oWhIOuvuOuemMK37Ja066Ck7JuALCDihaIg7ZiE7J6swrfsiazsm4Ao7LWc7Jqw7ISgKSwg4oWjIOuvuOuemMK37Ims7JuALiDrgpzsnbTrj4Qg6riw7KSAIOKFoiDihpIg4oWgIOKGkiDihaEsIOyLnOq4ieyEsSDquLDspIAg4oWiIOKGkiDihaMg4oaSIOKFoS4g7J207ZaJIOuhnOuTnOuntSAz64uo6rOE64qUIOuNsOydtO2EsCDrtoTshJ0g7LK06rOEIOuPhOyehSDihpIg7Jyg7Zqo7ISxIOqygOymnSDihpIg7ZmV7IKwIOuwjyDqs6Drj4TtmZQg7Iic7J2064ukKOOEuSDsmKTri7UpLiJ9LCIxOSI6eyJhIjoxLCJlIjoi64+E7J6F4oaS7Zmc7Jqp4oaS7ZmV7IKw4oaS7LWc7KCB7ZmU7J2YIDTri6jqs4TripQg67aE7ISdIFx1MDAyN+yEseyImeuPhFx1MDAyNyDrqqjrjbjsnbTri6QuIOykgOu5hOuPhOuKlCDrtoTshJ0g7JeF66y0IO2MjOyVhcK37J2466ClIOuwjyDsobDsp4HCt+u2hOyEnSDquLDrspXCt+u2hOyEnSDrjbDsnbTthLDCt+u2hOyEnSDrrLjtmZTCt0lUIOyduO2UhOudvOydmCA27JiB7Jet7Jy866GcIOynhOuLqO2VnOuLpC4ifSwiMjAiOnsiYSI6MSwiZSI6Iuynkeykke2YlT3rs4Trj4Qg7KCE64u0IOyhsOyngSjsnbTspJHtmZTCt+ydtOybkO2ZlCDqsIDriqXshLEpLCDquLDriqXtmJU97ZiE7JeFIOu2gOyEnOqwgCDsp4HsoJEg7IiY7ZaJKOqzvOqxsCDsi6TsoIEg67aE7ISd7JeQIOq1re2VnCksIOu2hOyCsO2YlT3rtoTshJ0g7J2466Cl7J2EIO2YhOyXhSDrtoDshJzsl5Ag7KeB7KCRIOuwsOy5mCjsl4XrrLQg6rO864ukwrfsnbTsm5DtmZQpLiJ9LCIyMSI6eyJhIjoxLCJlIjoiUuydgCDsnbjrqZTrqqjrpqwg6rWs7KGwIOuVjOusuOyXkCDsmKTtnojroKQg64yA7Jqp65+JIOuNsOydtO2EsCDsspjrpqzsl5Ag7ZWc6rOE6rCAIOyeiOqzoCDsho3rj4TqsIAg64qQ66as64ukKOOEtyDsmKTri7UpLiJ9LCIyMiI6eyJhIjozLCJlIjoiXHUwMDNjXHUwMDNjLeuKlCDsoITsl60g67OA7IiY7JeQIOuMgOyehe2VmOqzoCh4PTUpLCBcdTAwM2Mt64qUIO2VqOyImCDslYjsl5Ag7KeA7JetIOuzgOyImOulvCDrp4zrk6Dri6QoeD0xMCkuIO2VqOyImOuKlCDsp4Dsl60g67OA7IiYIDEw7J2EIOuwmO2ZmO2VmOupsCDsoITsl60geOuKlCA16rCAIOuQnOuLpC4ifSwiMjMiOnsiYSI6MiwiZSI6IuyerO2ZnOyaqSDqt5zsuZkocmVjeWNsaW5nKTog7Ken7J2AIOuyoe2EsCBjKDEsIDEwKeydtCDrsJjrs7XrkJjslrQgMcOXMSwgMsOXMTAsIDPDlzEsIDTDlzEwLCA1w5cxLCA2w5cxMOycvOuhnCDqs4TsgrDrkJzri6QuIn0sIjI0Ijp7ImEiOjQsImUiOiJt7J2AIOyXtCDsmrDshKDsnLzroZwg7LGE7JuM7KC4IDHtlokgKDEsIDMpLCAy7ZaJICgyLCA0KeydtOuLpC4gJSol64qUIO2WieugrOqzseydtOuvgOuhnCAy7ZaJIDHsl7QgPSAyw5cxICsgNMOXMiA9IDEwLiAo7JqU7IaM67OEIOqzsSBtKm3snZggWzIsMV3snYAgNCwg7ZaJ66Cs6rOx7J2YIFsxLDFd7J2AIDcsIFsxLDJd64qUIDE1KSJ9LCIyNSI6eyJhIjoyLCJlIjoiTkHqsIAg7Y+s7ZWo65CcIO2VqeydgCBOQSwgbmEucm09VFJVReulvCDsp4DsoJXtlZjrqbQgTkHrpbwg7KCc7Jm47ZWY6rOgIDE2LiBsZW5ndGgoKeuKlCBOQeuPhCDtlZjrgpjsnZgg7J6Q66as66GcIOyEuOuvgOuhnCA0LiJ9LCIyNiI6eyJhIjoxLCJlIjoiRVNE7J2YIOq4sOykgOydgCDtj4nqt6AgwrEgMyDtkZzspIDtjrjssKgo7KCV6rec67aE7Y+s7JeQ7IScIDk5LjclIOuwlinsnbTri6QuIDLPg+uhnCDrsJTqvrwg67O06riw64qUIO2VqOyglS4ifSwiMjciOnsiYSI6NCwiZSI6Iuu5hOuhgCDrsLDrtoQ6IDUww5cwLjY9MzAsIDUww5cwLjQ9MjAuIOy4te2ZlOy2lOy2nOydgCDsuLUg64K0IOuPmeyniMK37Li1IOqwhCDsnbTsp4go7KeR65297LaU7Lac7J2AIOuwmOuMgCkuIOy4tSDtgazquLDsmYAg66y06rSA7ZWcIOyehOydmCDrsLDrtoTsnYAg67aI67mE66GA7Li17ZmU7LaU7LacLiJ9LCIyOCI6eyJhIjozLCJlIjoi67Cw67CY7J2066m0IFAoQeKIqUIpPTDsnbTrr4DroZwgUChB4oiqQik9MC4zKzAuND0wLjcsIFAoQXxCKT0wLzAuND0wLiAo64+F66a97J20652866m0IFAoQeKIqUIpPTAuMTIsIFAoQeKIqkIpPTAuNTgsIFAoQXxCKT0wLjMpIOuwsOuwmOqzvCDrj4Xrpr3snYAg64uk66W4IOqwnOuFkOydtOuLpC4ifSwiMjkiOnsiYSI6NCwiZSI6IuydtO2Vreu2hO2PrCBFPW5wPTIwLCBWPW5wKDHiiJJwKT0xNi4g65GQIOuqqOu2hOyCsOydmCDruYTqtZDripQgRuu2hO2PrCjri6jsnbwg66qo67aE7IKwIOqygOygleydtCDsubTsnbTsoJzqs7HrtoTtj6wpLiDjhLkg7Jik64u1LiJ9LCIzMCI6eyJhIjoxLCJlIjoi7Iug66Kw7IiY7KSA7J2EIOuGkuydtOuptCB66rCS7J20IOy7pOyguCgxLjk24oaSMi41OCkg6rWs6rCE7J20IOuEk+yWtOynhOuLpC4g7Y+t7J2AIM+DL+KImm7sl5Ag67mE66GA7ZWY66+A66GcIG7snbQgNOuwsOqwgCDrkJjrqbQg7KCI67CYLiJ9LCIzMSI6eyJhIjoyLCJlIjoi64yA7J2R7ZGc67O4IHQt6rKA7KCV7J2YIOu5hOuqqOyImCDrjIDslYjsnYAg7JyM7L2V7IqoIOu2gO2YuOyInOychCDqsoDsoJXsnbTri6QuIO2BrOujqOyKpOy5vC3smYjrpqzsiqQg6rKA7KCV7J2AIOydvOybkOuwsOy5mCDrtoTsgrDrtoTshJ3snZgg67mE66qo7IiYIOuMgOyViC4ifSwiMzIiOnsiYSI6MywiZSI6InIgPSBDb3YvKM+DeMK3z4N5KSA9IDYvKDPDlzQpID0gMC417J206rOgLCDri6jsiJztmozqt4Dsl5DshJwgUsKyID0gcsKyID0gMC4yNS4g67aE7IKw7J2EIOygnOqzseq3vCDsl4bsnbQg6re464yA66GcIOqzse2VtCDrgpjriITrqbQoNi8xNDQpIOyYpOuLtS4ifSwiMzMiOnsiYSI6MSwiZSI6IuyymOumrCDsnpDsnKDrj4Q9a+KIkjE9Miwg7J6U7LCoIOyekOycoOuPhD1u4oiSaz0yNy4gTVNSPTYwLzI9MzAsIE1TRT0xMzUvMjc9NSwgRj1NU1IvTVNFPTYuIn0sIjM0Ijp7ImEiOjMsImUiOiLsnbTrj5ntj4nqt6DsnZgg6rWs6rCEIG7snbQg7YGs66m0IOqzoeyEoOydgCDrtoDrk5zrn6zsm4zsp4Dsp4Drp4wg67OA7ZmU7JeQIOuRlOqwkO2VtOynhOuLpC4g7LWc6re8IOyekOujjOyXkCDtgbAg6rCA7KSR7LmY66W8IOyjvOuKlCDqsoPsnYAg7KeA7IiY7Y+J7Zmc67KVLiJ9LCIzNSI6eyJhIjoyLCJlIjoi7KO87ISx67aEIOyEoO2DnSDquLDspIA6IOqzoOycoOqwkiAxIFx1MDAyN+ydtOyDgVx1MDAyNywg64iE7KCBIOq4sOyXrOycqCA3MH45MCUsIOyKpO2BrOumrCDtlIzroa/snZgg7JeY67O0IOyngOygkC4ifSwiMzYiOnsiYSI6NCwiZSI6IuuPheumveydtOuptCBWKGFYK2JZKT1hwrJWKFgpK2LCslYoWSkgPSA0w5c0ICsgMcOXOSA9IDI1LiDssKgo4oiSKeydmCDrtoTsgrDrj4Qg642U7ZWc64ukKDE24oiSOT037J2AIO2VqOyglSkuIn0sIjM3Ijp7ImEiOjQsImUiOiLqtZDssKjqsoDspp3snYAg66qo65OgIOuNsOydtO2EsOqwgCDtlZwg67KI7JSpIOqygOymneyXkCDsgqzsmqnrkJjrr4DroZwg642w7J207YSw6rCAIOyggeydhCDrlYwg7Yq57Z6IIOycoOyaqe2VmOuLpC4ifSwiMzgiOnsiYSI6MywiZSI6Im9kZHMgPSBwLygx4oiScCkgPSAzIOKGkiBwID0gb2Rkcy8oMStvZGRzKSA9IDMvNCA9IDAuNzUuIOyYpOymiOuKlCDtmZXrpaDsnbQg7JWE64uI66+A66GcIDHsnYQg64SY7J2EIOyImCDsnojri6QuIn0sIjM5Ijp7ImEiOjIsImUiOiLshLHsnqUo67aE66asIOq4sOykgMK37KCV7KeAIOq3nOy5mSDsoIHsmqkpIOKGkiDqsIDsp4DsuZjquLAo6rO87KCB7ZWpIOuwqeyngCkg4oaSIO2DgOuLueyEsSDtj4nqsIAo6rKA7KadIOuNsOydtO2EsCkg4oaSIO2VtOyEnSDrsI8g7JiI7LihLiJ9LCI0MCI6eyJhIjoxLCJlIjoi67aA66qoIOyngOuLiCA9IDHiiJIoMC41wrIrMC41wrIpID0gMC41LiBMID0gMCwgUiA9IDHiiJIoKDIvOCnCsisoNi84KcKyKSA9IDAuMzc1LiDsnpDsi50g7KeA64uI7J2YIOqwgOykke2Pieq3oCA9ICg0LzEyKcOXMCArICg4LzEyKcOXMC4zNzUgPSAwLjI1IOKGkiDqsJDshozrn4kgMC414oiSMC4yNSA9IDAuMjUuIOuLqOyInO2Pieq3oCgwLjE4NzUp7Jy866GcIOqzhOyCsO2VmOuptCAwLjMxMjXqsIAg65CY7Ja0IOyYpOuLtS4ifSwiNDEiOnsiYSI6MywiZSI6Iuy5tOydtOygnOqzsSDthrXqs4Trn4nsnYAg7YG07IiY66GdKHAt6rCS7J20IOyekeydhOyImOuhnSkg7J6Q7IudIOuniOuUlCDqsIQg7LCo7J206rCAIOuanOugt+2VnCDsoovsnYAg67aE66as7J2064ukLiJ9LCI0MiI6eyJhIjoxLCJlIjoi67aA7Yq47Iqk7Yq4656p7J2AIOuzteybkOy2lOy2nOydtOuvgOuhnCDqsJnsnYAg6rSA7Lih7LmY6rCAIO2VnCDtkZzrs7jsl5Ag7Jes65+sIOuyiCDrvZHtnojqsbDrgpgg7ZGc67O4IOqwhOyXkCDqsrnsuaAg7IiYIOyeiOuLpC4ifSwiNDMiOnsiYSI6NCwiZSI6IuyLnOq3uOuqqOydtOuTnOydmCDstpzroKUg67KU7JyE64qUIDB+MeydtOuLpCjiiJIxfjHsnYAgdGFuaCkuIEtOTuydgCBr6rCAIOyekeydhOyImOuhnSDqsr3qs4TqsIAg67O17J6h7ZW07KC4IOqzvOuMgOygge2VqSDsnITtl5guIn0sIjQ0Ijp7ImEiOjIsImUiOiLsoJXtmZXrj4Q9KDMwKzQwKS8xMDA9MC43MCwg7KCV67CA64+EPTMwLzQwPTAuNzUsIO2KueydtOuPhD00MC81MD0wLjgwLCDrr7zqsJDrj4Q9MzAvNTA9MC42MC4g7Lm07YyMOiBQbz0wLjcwLCBQZT0wLjXDlzAuNCswLjXDlzAuNj0wLjUwIOKGkiDOuj0oMC43MOKIkjAuNTApLygx4oiSMC41MCk9MC40MC4ifSwiNDUiOnsiYSI6NCwiZSI6IlJPQ+uKlCDsmbzsqr0g7JyE66GcIOqwiOyImOuhnSjrjIDqsIHshKDsl5DshJwg66mA7IiY66GdKSDsoovqs6AgQVVD64qUIDHsl5Ag6rCA6rmM7Jq47IiY66GdIOyii+uLpCgwLjU966y07J6R7JyEKS4g7J207J2164+E7ZGc64qUIOyDgeychCDrk7HquInsnZgg67CY7J2R66Wg7J20IOuGkuyVhOyVvCDtlZzri6QuIn0sIjQ2Ijp7ImEiOjIsImUiOiLrkZgg64ukIDHsnbgg7ZWt66qpIDLqsJwsIOuRmCDri6QgMOyduCDtla3rqqkgMeqwnCwg67aI7J287LmYIDLqsJwuIOuLqOyInOydvOy5mOqzhOyImD0oMisxKS81PTAuNiwg7J6Q7Lm065OcIOqzhOyImD0yLyg14oiSMSk9MC41KOuRmCDri6QgMOyduCDtla3rqqnsnYAg67aE66qo7JeQ7IScIOygnOyZuCkuIn0sIjQ3Ijp7ImEiOjMsImUiOiLtla3sg4Eg7LK067mE7IWw7ZSEIOqxsOumrCDiiaQg7Jyg7YG066as65OcIOqxsOumrCDiiaQg66eo7ZWY7YOEIOqxsOumrOydtOuLpC4g7JiIOiBBKDAsMCksIEIoMyw0KeyXkOyEnCDsnKDtgbTrpqzrk5wgNSwg66eo7ZWY7YOEIDcuIn0sIjQ4Ijp7ImEiOjEsImUiOiIx7LCoOiBB4oCTQiDrs5Htlako6rGw66asIDIpLiB7QUJ94oCTQz1taW4oNiw1KT01LCB7QUJ94oCTRD1taW4oMTAsOSk9OSwgQ+KAk0Q9NCDihpIgMuywqDogQ+KAk0Qg67OR7ZWpKDQpLiDrp4jsp4Drp4k6IHtBQn3igJN7Q0R9PW1pbig1LDkpPTUuICjstZzsnqXsl7DqsrDrspXsnbTrnbzrqbQg66eI7KeA66eJIOuzke2VqSDqsbDrpqzripQgMTApIn0sIjQ5Ijp7ImEiOjMsImUiOiLtmLztlanrtoTtj6wg6rWw7KeR64+EIO2YvO2Vqe2VoCDrtoTtj6wo6rWw7KeRKeydmCDqsJzsiJjrpbwg7IKs7KCE7JeQIOygle2VtOyVvCDtlZjrqbAsIEVN7J2AIOq3uCDqsJzsiJjqsIAg7KO87Ja07KeEIOyDge2DnOyXkOyEnCDrqqjsiJjsmYAg7IaM7IaNIO2ZleuloOydhCDrsJjrs7Ug7LaU7KCV7ZWc64ukLiAo6rWw7KeRIOyImOulvCDrr7jrpqwg7KCV7ZWY7KeAIOyViuuKlCDqsoPsnYAg6rOE7Li17KCBIOq1sOynkeydmCDtirnsp5XsnbTri6QuKSJ9LCI1MCI6eyJhIjo0LCJlIjoi7Zal7IOB64+EPeyLoOuisOuPhC9QKEIp7J2066+A66GcIFIx7J2YIFAoQik9MC43Mi8wLjk9MC4466GcIELripQg7JuQ656YIOunjuydtCDtjJTrpqzripQg7ZKI66qp7J2064ukLiDsi6DrorDrj4TqsIAg64aS7JWE64+EIO2WpeyDgeuPhFx1MDAzYzHsnbTrqbQg7J2M7J2YIOq0gOqzhC4gUjMo7Zal7IOB64+EIDEp64qUIOuPheumvSwgUjLripQg7Zal7IOB64+EIDIuMOycvOuhnCDqsIDsnqUg6rCV7ZWcIOyWkeydmCDsl7DqtIAuIn19";
+const CIRCLED = ["①","②","③","④"];
+const STORE = META.storageKey;
+let KEY = null, submitted = false, t0 = Date.now(), timerId = null, timeUpShown = false;
+
+function decodeKey(){
+  const bin = atob(KEY_B64);
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function renderStem(stem){
+  const parts = stem.split("```"); let html = "";
+  parts.forEach((p,i)=>{ if(!p) return; const t = p.replace(/^\n+|\n+$/g,"");
+    html += (i%2===1) ? '<pre class="code">'+esc(t)+'</pre>' : '<div class="q-stem">'+esc(t)+'</div>'; });
+  return html;
+}
+function build(){
+  const root = document.getElementById("questions"); let cur = null;
+  QUESTIONS.forEach(q=>{
+    if(q.s !== cur){ cur = q.s; const r = META.range[q.s];
+      const h = document.createElement("div"); h.className="section";
+      h.textContent = "■ " + META.name[q.s] + "  (" + r[0] + "번 ~ " + r[1] + "번, " + (r[1]-r[0]+1) + "문항)"; root.appendChild(h); }
+    const d = document.createElement("div"); d.className = "q"; d.id = "q"+q.n; d.dataset.n = q.n;
+    let opts = "";
+    q.o.forEach((o,i)=>{ opts += '<li><label><input type="radio" name="q'+q.n+'" value="'+(i+1)+'"><span class="mark">'+CIRCLED[i]+'</span><span>'+esc(o)+'</span></label></li>'; });
+    d.innerHTML = '<div class="q-head"><span class="q-num">'+q.n+'.</span><div class="q-body">'+renderStem(q.q)+'<ul class="opts">'+opts+'</ul><div class="expl" id="e'+q.n+'"></div></div></div>';
+    root.appendChild(d);
+  });
+  root.addEventListener("change", e=>{ if(e.target.type==="radio"){ e.target.closest(".q").classList.add("answered"); updateProgress(); save(); } });
+}
+function getAnswers(){ const a = {}; QUESTIONS.forEach(q=>{ const c = document.querySelector('input[name="q'+q.n+'"]:checked'); if(c) a[q.n] = +c.value; }); return a; }
+function updateProgress(){ const n = Object.keys(getAnswers()).length; document.getElementById("cnt").textContent = n; document.getElementById("pbar").style.width = (n / QUESTIONS.length * 100) + "%"; }
+function save(){ try{ localStorage.setItem(STORE, JSON.stringify({name:document.getElementById("name").value, ans:getAnswers(), t0:t0})); }catch(e){} }
+function restore(){
+  try{ const raw = localStorage.getItem(STORE); if(!raw) return; const d = JSON.parse(raw); let any = false;
+    if(d.name) document.getElementById("name").value = d.name;
+    if(d.t0) t0 = d.t0;
+    Object.entries(d.ans||{}).forEach(([n,v])=>{ const el = document.querySelector('input[name="q'+n+'"][value="'+v+'"]'); if(el){ el.checked = true; el.closest(".q").classList.add("answered"); any = true; } });
+    if(any){ document.getElementById("restore-notice").style.display = "block"; }
+  }catch(e){}
+}
+function fmtTime(ms){ const s = Math.floor(ms/1000); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function tick(){
+  const el = document.getElementById("timer");
+  if(META.timeLimitMin){
+    const remain = META.timeLimitMin*60000 - (Date.now()-t0);
+    el.textContent = fmtTime(Math.max(0, remain));
+    if(remain <= 0){ el.style.color = "#ff8a80";
+      if(!timeUpShown && !submitted){ timeUpShown = true; alert("시험 시간("+META.timeLimitMin+"분)이 종료되었습니다. 답안을 제출해 주세요."); } }
+    else if(remain <= 10*60000){ el.style.color = "#ffd54f"; }
+  } else { el.textContent = fmtTime(Date.now()-t0); }
+}
+function pct(a,b){ return Math.round(a/b*100); }
+function barColor(p){ return p>=70 ? "#43a047" : (p>=40 ? "#fbc02d" : "#e53935"); }
+
+function submit(){
+  const name = document.getElementById("name").value.trim();
+  if(!name){ alert("응시자 이름을 입력해 주세요."); document.getElementById("name").focus(); return; }
+  const ans = getAnswers();
+  const blank = QUESTIONS.filter(q=>!(q.n in ans)).map(q=>q.n);
+  if(blank.length){
+    const shown = blank.slice(0,15).join(", ") + (blank.length>15 ? " …" : "");
+    if(!confirm("미응답 문항이 "+blank.length+"개 있습니다.\n(번호: "+shown+")\n미응답은 오답으로 처리되며, 제출 후에는 답안을 수정할 수 없습니다.\n그래도 제출할까요?")) return;
+  } else if(!confirm("제출하면 답안을 수정할 수 없습니다. 제출할까요?")) return;
+  KEY = KEY || decodeKey();
+  const elapsed = Date.now() - t0; clearInterval(timerId);
+  document.getElementById("name").disabled = true;   // 제출 후 이름·답안 모두 수정 불가
+  const subj = {}; Object.keys(META.name).forEach(s=>{ subj[s] = {got:0, max:0, wrong:[]}; });
+  const topic = {}; const wrong = [];
+  QUESTIONS.forEach(q=>{
+    const k = KEY[q.n]; const a = ans[q.n]; const ok = (a === k.a);
+    subj[q.s].max += META.points; if(!topic[q.t]) topic[q.t] = {s:q.s, wrong:0, total:0}; topic[q.t].total++;
+    const card = document.getElementById("q"+q.n);
+    card.querySelectorAll("input").forEach(i=>i.disabled = true);
+    const labels = card.querySelectorAll(".opts label");
+    labels[k.a-1].classList.add("is-answer");
+    let badge;
+    if(ok){ subj[q.s].got += META.points; badge = '<span class="badge ok">정답</span>'; card.classList.add("correct"); }
+    else { wrong.push(q.n); subj[q.s].wrong.push(q.n); topic[q.t].wrong++;
+      if(a === undefined){ badge = '<span class="badge bl">미응답</span>'; card.classList.add("blank"); }
+      else { badge = '<span class="badge ng">오답</span>'; card.classList.add("wrong"); labels[a-1].classList.add("is-chosen-wrong"); } }
+    card.querySelector(".q-num").insertAdjacentHTML("afterend", badge);
+    const ex = document.getElementById("e"+q.n); ex.innerHTML = "<b>정답 " + CIRCLED[k.a-1] + "</b> &nbsp; " + esc(k.e); ex.style.display = "block";
+  });
+  const total = Object.values(subj).reduce((x,s)=>x+s.got,0);
+  const passed = total >= META.passTotal && Object.values(subj).every(s=> s.got >= s.max*META.passRatio);
+  submitted = true; try{ localStorage.removeItem(STORE); }catch(e){}
+  renderResult({name, total, subj, topic, wrong, blank, elapsed, passed});
+}
+
+function renderResult(r){
+  document.getElementById("r-score").textContent = r.total;
+  document.getElementById("r-meta").innerHTML = "<b>"+esc(r.name)+"</b> 님 &nbsp;·&nbsp; 소요 시간 "+fmtTime(r.elapsed)+" &nbsp;·&nbsp; 틀린 문항 "+r.wrong.length+"개 (미응답 "+r.blank.length+"개)<br>"
+    + (r.passed ? '<span class="badge ok" style="margin-left:0">합격 기준 충족</span>' : '<span class="badge ng" style="margin-left:0">합격 기준 미달</span>') + ' <span style="color:#666;font-size:.85rem">(총점 '+META.passTotal+'점 이상 + 과목별 '+Math.round(META.passRatio*100)+'% 이상, 실제 시험 기준 참고)</span>';
+  const passPct = Math.round(META.passRatio*100);
+  let g = "";
+  Object.keys(META.name).forEach(s=>{ const x = r.subj[s]; const p = pct(x.got, x.max);
+    g += '<div class="subj"><div class="t">'+META.name[s]+'</div><div class="n">'+x.got+' / '+x.max+'점 <span style="font-size:.95rem;color:#666">('+p+'%)</span></div><div class="bar"><div style="width:'+p+'%;background:'+barColor(p)+'"></div></div>'
+       + (x.got < x.max*META.passRatio ? '<div class="warn" style="font-size:.85rem;margin-top:4px">과락 기준('+passPct+'%) 미달</div>' : '') + '</div>'; });
+  document.getElementById("r-subjects").innerHTML = g;
+
+  // --- 분석 및 학습 조언 ---
+  const order = Object.keys(META.name).sort((a,b)=> (r.subj[a].got/r.subj[a].max) - (r.subj[b].got/r.subj[b].max));
+  const weak = order[0], wp = pct(r.subj[weak].got, r.subj[weak].max);
+  const failSubj = Object.keys(META.name).filter(s=> r.subj[s].got < r.subj[s].max*META.passRatio);
+  const sorted = Object.entries(r.topic).filter(([t,x])=>x.wrong>0).sort((a,b)=> b[1].wrong - a[1].wrong || (b[1].wrong/b[1].total) - (a[1].wrong/a[1].total));
+  let topics = sorted.filter(([t,x])=>x.wrong>=2).slice(0,5);
+  if(topics.length === 0) topics = sorted.slice(0,3);
+  const pt = r.total / META.total * 100;
+  const passPt = META.passTotal / META.total * 100;
+  let h = "<h3>학습 조언</h3>";
+  if(r.wrong.length === 0){ h += "<p>모든 문항을 맞혔습니다. 완벽합니다!</p>"; }
+  else {
+    if(pt >= 90) h += "<p>매우 우수한 성적입니다. 아래 틀린 영역만 가볍게 복습하면 됩니다.</p>";
+    else if(pt >= passPt + 10) h += "<p>합격권입니다. 취약 영역을 보완하면 안정적으로 통과할 수 있습니다.</p>";
+    else if(pt >= passPt) h += "<p>합격선 부근입니다. 과락이 나지 않도록 약한 과목을 집중 보강하세요.</p>";
+    else h += "<p>아직 합격선("+META.passTotal+"점)에 미치지 못합니다. 틀린 문항의 해설을 정독하고 핵심 개념부터 다시 정리하세요.</p>";
+    h += "<ul>";
+    if(wp >= 90) h += "<li>모든 과목이 고르게 우수합니다. (가장 낮은 과목: "+META.name[weak]+" "+wp+"%)</li>";
+    else h += "<li><b>가장 약한 과목: "+META.name[weak]+"</b> ("+r.subj[weak].got+"/"+r.subj[weak].max+"점, "+wp+"%) → 이 과목을 더 공부하세요.</li>";
+    if(failSubj.length) h += '<li class="warn">과락 주의: '+failSubj.map(s=>META.name[s]).join(", ")+' 은(는) '+passPct+'% 미만입니다. 실제 시험이라면 총점과 관계없이 불합격입니다.</li>';
+    if(topics.length) h += "<li>집중 복습 영역: " + topics.map(([t,x])=>"<b>"+esc(t)+"</b> ("+x.wrong+"/"+x.total+" 틀림)").join(", ") + "</li>";
+    if(r.blank.length) h += "<li>미응답 "+r.blank.length+"문항이 있습니다. 실제 시험에서는 빈칸을 남기지 말고 반드시 답을 고르세요.</li>";
+    h += "</ul>";
+  }
+  document.getElementById("r-advice").innerHTML = h;
+  document.getElementById("r-wrong").innerHTML = r.wrong.length ? "<b>틀린 문제 번호:</b> " + r.wrong.join(", ") + (r.blank.length ? "<br><b>미응답 번호:</b> " + r.blank.join(", ") : "") : "<b>틀린 문제가 없습니다.</b>";
+
+  // --- 화면 가운데 팝업: 점수 + 과목별 점수 + 약점 요약 ---
+  document.getElementById("m-score").textContent = r.total;
+  document.getElementById("m-pass").innerHTML = r.passed
+    ? '<span class="badge ok" style="margin-left:0;font-size:.95rem;padding:4px 14px">합격 기준 충족</span>'
+    : '<span class="badge ng" style="margin-left:0;font-size:.95rem;padding:4px 14px">합격 기준 미달</span>';
+  document.getElementById("m-subj").innerHTML = Object.keys(META.name).map(s=>{ const x = r.subj[s]; const p = pct(x.got, x.max);
+    return '<div class="m-row"><span>'+META.name[s]+'</span><b style="color:'+barColor(p)+'">'+x.got+' / '+x.max+'점 ('+p+'%)'+(x.got < x.max*META.passRatio ? ' 과락' : '')+'</b></div>'; }).join("");
+  let w = '<div><b>틀린 문항 '+r.wrong.length+'개</b>'+(r.blank.length ? ' (미응답 '+r.blank.length+'개 포함)' : '')+(r.wrong.length ? ' — 번호: '+r.wrong.slice(0,12).join(", ")+(r.wrong.length>12 ? " …" : "") : '')+'</div>';
+  if(r.wrong.length){
+    w += '<div style="margin-top:4px">가장 약한 과목: <b>'+META.name[weak]+'</b> ('+wp+'%)</div>';
+    if(failSubj.length) w += '<div class="warn" style="margin-top:4px">과락 주의: '+failSubj.map(s=>META.name[s]).join(", ")+' ('+passPct+'% 미만)</div>';
+    if(topics.length) w += '<div style="margin-top:4px">집중 복습 영역: <b>'+topics.slice(0,3).map(([t,x])=>esc(t)+' ('+x.wrong+'/'+x.total+')').join(", ")+'</b></div>';
+  } else { w += '<div style="margin-top:4px">모든 문항을 맞혔습니다. 완벽합니다!</div>'; }
+  document.getElementById("m-weak").innerHTML = w;
+
+  window.__result = r;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("btn-submit").disabled = true; document.getElementById("btn-submit").textContent = "제출 완료";
+  document.getElementById("intro").classList.add("hidden");
+  window.scrollTo({top:0, behavior:"auto"});
+  document.getElementById("modal").hidden = false;
+  document.getElementById("m-detail").focus();
+}
+function closeModal(){
+  document.getElementById("modal").hidden = true;
+  document.getElementById("result").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function saveResultFile(){
+  const r = window.__result; if(!r) return;
+  const d = new Date(); const pad = n=>String(n).padStart(2,"0");
+  const date = d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+" "+pad(d.getHours())+":"+pad(d.getMinutes());
+  const subjLine = Object.keys(META.name).map(s=> META.name[s]+": "+r.subj[s].got+"/"+r.subj[s].max+" ("+pct(r.subj[s].got,r.subj[s].max)+"%)").join("  ");
+  const csv = [r.name, r.total].concat(Object.keys(META.name).map(s=>r.subj[s].got)).concat(['"'+r.wrong.join(",")+'"']).join(",");
+  const txt = [META.title+" ("+QUESTIONS.length+"문항) 결과", "이름: "+r.name, "일시: "+date, "점수: "+r.total+" / "+META.total+"  ("+(r.passed?"합격 기준 충족":"합격 기준 미달")+")", subjLine,
+    "틀린 문제: "+(r.wrong.join(", ")||"없음"), "미응답: "+(r.blank.join(", ")||"없음"), "소요 시간: "+fmtTime(r.elapsed), "", "CSV(이름,총점,1과목,2과목,3과목,틀린번호): "+csv].join("\r\n");
+  const blob = new Blob(["﻿"+txt], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = META.resultPrefix+"_"+r.name+"_"+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+".txt"; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+}
+
+/* ===== 과목별 탭 ===== */
+let curTab = "1";
+function tabKeys(){ return Object.keys(META.name); }
+function initTabs(){
+  const box = document.getElementById("questions");
+  let pending = null;
+  Array.from(box.children).forEach(el=>{
+    if(el.classList.contains("section")){ pending = el; }
+    else if(el.classList.contains("q")){
+      const q = QUESTIONS.find(x=>x.n === +el.dataset.n);
+      el.dataset.s = String(q.s);
+      if(pending){ pending.dataset.s = String(q.s); pending = null; }
+    }
+  });
+  const keys = tabKeys();
+  keys.forEach((k,i)=>{
+    if(i === keys.length-1) return;
+    const w = document.createElement("div"); w.className = "tab-next"; w.dataset.s = k; w.dataset.next = "1";
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn-primary btn-sm";
+    b.textContent = "다음: " + META.name[keys[i+1]] + " →";
+    b.addEventListener("click", ()=>showTab(keys[i+1]));
+    w.appendChild(b); box.appendChild(w);
+  });
+  const nav = document.createElement("nav"); nav.id = "tabs"; nav.className = "tabs"; nav.setAttribute("role","tablist");
+  keys.concat(["all"]).forEach(k=>{
+    const b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.dataset.s = k; b.setAttribute("role","tab");
+    b.innerHTML = '<span class="tl"></span><span class="tc"></span>';
+    b.addEventListener("click", ()=>showTab(k));
+    nav.appendChild(b);
+  });
+  box.before(nav);
+  showTab(curTab, true);
+}
+function showTab(s, noScroll){
+  curTab = s;
+  document.querySelectorAll("#questions [data-s]").forEach(el=>{
+    const off = (s === "all") ? el.dataset.next === "1" : el.dataset.s !== s;
+    el.classList.toggle("tab-off", off);
+  });
+  document.querySelectorAll("#tabs .tab").forEach(b=>{
+    const on = b.dataset.s === s;
+    b.classList.toggle("active", on); b.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  if(!noScroll){
+    const top = document.getElementById("questions").getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({top: Math.max(0, top), behavior: "auto"});
+  }
+}
+function refreshTabs(){
+  if(!document.getElementById("tabs")) return;
+  const ans = getAnswers(), res = window.__tabRes;
+  document.querySelectorAll("#tabs .tab").forEach(b=>{
+    const k = b.dataset.s, qs = k === "all" ? QUESTIONS : QUESTIONS.filter(q=>String(q.s) === k);
+    b.querySelector(".tl").textContent = k === "all" ? "전체" : META.name[k];
+    const tc = b.querySelector(".tc");
+    b.classList.remove("complete","has-wrong");
+    if(res){
+      const r = res[k]; tc.textContent = r.got + "/" + r.max + "점 · 오답 " + r.wrong;
+      if(r.wrong > 0) b.classList.add("has-wrong");
+    } else {
+      const a = qs.filter(q=>q.n in ans).length; tc.textContent = a + "/" + qs.length + " 작성";
+      if(a === qs.length) b.classList.add("complete");
+    }
+  });
+}
+function tabsAfterSubmit(){
+  const res = {}, all = {got:0, max:0, wrong:0};
+  tabKeys().forEach(k=>{
+    const cards = document.querySelectorAll('#questions .q[data-s="' + k + '"]');
+    const ok = Array.from(cards).filter(c=>c.classList.contains("correct")).length;
+    res[k] = {got: ok*META.points, max: cards.length*META.points, wrong: cards.length - ok};
+    all.got += res[k].got; all.max += res[k].max; all.wrong += res[k].wrong;
+  });
+  res.all = all; window.__tabRes = res; refreshTabs();
+}
+const __origUpdateProgress = updateProgress;
+updateProgress = function(){ __origUpdateProgress(); refreshTabs(); };
+const __origRenderResult = renderResult;
+renderResult = function(r){ __origRenderResult(r); tabsAfterSubmit(); };
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  build(); restore(); initTabs(); updateProgress();
+  if(META.timeLimitMin) document.getElementById("timer-label").textContent = "남은 시간";
+  tick(); timerId = setInterval(tick, 1000);
+  document.getElementById("total").textContent = QUESTIONS.length;
+  document.getElementById("name").addEventListener("input", save);
+  document.getElementById("btn-submit").addEventListener("click", submit);
+  document.getElementById("btn-clear").addEventListener("click", ()=>{ if(confirm("저장된 답안을 모두 지우고 처음부터 시작할까요?")){ try{localStorage.removeItem(STORE);}catch(e){} location.reload(); } });
+  document.getElementById("btn-retry").addEventListener("click", ()=>{ if(confirm("처음부터 다시 풀까요?")){ try{localStorage.removeItem(STORE);}catch(e){} submitted = false; location.reload(); } });
+  document.getElementById("btn-print").addEventListener("click", ()=>window.print());
+  document.getElementById("btn-save").addEventListener("click", saveResultFile);
+  document.getElementById("m-detail").addEventListener("click", closeModal);
+  document.getElementById("modal").addEventListener("click", e=>{ if(e.target.id === "modal") closeModal(); });
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !document.getElementById("modal").hidden) closeModal(); });
+  let onlyWrong = false;
+  document.getElementById("btn-toggle-wrong").addEventListener("click", function(){
+    onlyWrong = !onlyWrong; this.textContent = onlyWrong ? "전체 문제 보기" : "오답만 보기";
+    document.querySelectorAll(".q").forEach(c=>{ c.classList.toggle("hidden", onlyWrong && c.classList.contains("correct")); });
+    document.querySelectorAll(".section").forEach(s=>s.classList.toggle("hidden", onlyWrong));
+  });
+  window.addEventListener("beforeunload", e=>{ if(!submitted && Object.keys(getAnswers()).length){ e.preventDefault(); e.returnValue = ""; } });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADsP 데이터분석 준전문가 예상문제 (100문항)</title>
+<style>
+:root{--blue:#1f4e78;--blue2:#2f6fa8;--light:#eaf2fb;--green:#2e7d32;--red:#c62828;--amber:#f9a825;--border:#d9dee5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#222;background:#f4f6f9;line-height:1.6}
+header{background:var(--blue);color:#fff;padding:18px 0}
+.wrap{max-width:900px;margin:0 auto;padding:0 14px}
+h1{margin:0;font-size:1.35rem}
+.sub{opacity:.9;font-size:.9rem;margin-top:4px}
+.panel{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin:14px 0}
+.name-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.name-row label{font-weight:bold}
+.name-row input{font-size:1.05rem;padding:8px 10px;border:1px solid #bbb;border-radius:6px;min-width:200px}
+.info{font-size:.92rem;color:#444;margin-top:8px}
+.notice{font-size:.9rem;background:#fff8e1;border:1px solid #ffe08a;padding:8px 10px;border-radius:6px;margin-top:10px;display:none}
+.section{margin:26px 0 8px;font-weight:bold;color:var(--blue);font-size:1.1rem;border-left:5px solid var(--blue);padding-left:10px}
+.q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0}
+.q.answered{border-color:#9fc5e8}
+.q-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.q-num{font-weight:bold;color:var(--blue);white-space:nowrap}
+.q-body{flex:1;min-width:0}
+.q-stem{white-space:pre-wrap;word-break:keep-all}
+pre.code{background:#f3f5f8;border:1px solid #e1e5ea;border-radius:6px;padding:8px 10px;font-family:Consolas,"D2Coding","Courier New",monospace;font-size:.92rem;overflow-x:auto;margin:8px 0;white-space:pre}
+.opts{list-style:none;margin:10px 0 0;padding:0}
+.opts label{display:flex;gap:8px;align-items:flex-start;padding:7px 8px;border-radius:6px;cursor:pointer;word-break:keep-all}
+.opts label:hover{background:var(--light)}
+.opts input{margin-top:5px;flex:none}
+.opts .mark{font-weight:bold;color:var(--blue);flex:none}
+.q.correct{border-color:#81c784;background:#f6fcf6}
+.q.wrong{border-color:#e57373;background:#fff7f7}
+.q.blank{border-color:#ffb74d;background:#fffaf2}
+.opts label.is-answer{background:#e3f4e4;font-weight:bold}
+.opts label.is-chosen-wrong{background:#fde2e2;text-decoration:line-through}
+.expl{margin-top:10px;padding:10px 12px;background:#fffbe6;border-left:4px solid var(--amber);font-size:.93rem;border-radius:4px;display:none}
+.badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.78rem;color:#fff;margin-left:6px;vertical-align:middle}
+.badge.ok{background:var(--green)}.badge.ng{background:var(--red)}.badge.bl{background:#ef6c00}
+.footer-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 -2px 8px rgba(0,0,0,.06);z-index:5}
+.footer-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.footer-left .cnt{white-space:nowrap;font-weight:bold}
+button{font-family:inherit;font-size:1rem;padding:10px 18px;border:none;border-radius:8px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.btn-primary{background:var(--blue);color:#fff;font-weight:bold}
+.btn-primary:hover:not(:disabled){background:var(--blue2)}
+.btn-ghost{background:#e9ecef;color:#333}
+.btn-sm{font-size:.9rem;padding:7px 12px}
+.progress{height:10px;background:#e5e9ef;border-radius:5px;overflow:hidden;flex:1;max-width:320px}
+.progress>div{height:100%;background:var(--blue);width:0;transition:width .2s}
+#result{display:none;border:2px solid var(--blue)}
+.res-top{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.score-big{font-size:3.2rem;font-weight:800;color:var(--blue);line-height:1}
+.score-big small{font-size:1.2rem;color:#666;font-weight:normal}
+.res-meta{font-size:.95rem;color:#333}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:14px}
+.subj{border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.subj .t{font-weight:bold}
+.subj .n{font-size:1.3rem;font-weight:bold;margin-top:2px}
+.bar{height:12px;background:#e5e9ef;border-radius:6px;overflow:hidden;margin-top:6px}
+.bar>div{height:100%}
+.advice{background:var(--light);border-left:5px solid var(--blue);padding:12px 14px;border-radius:6px;margin-top:14px}
+.advice h3{margin:0 0 6px;font-size:1.02rem}
+.advice ul{margin:6px 0 0 18px;padding:0}
+.advice li{margin:3px 0}
+.warn{color:var(--red);font-weight:bold}
+.res-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.wrong-list{margin-top:10px;font-size:.93rem;word-break:break-all}
+.hidden{display:none !important}
+@media (max-width:600px){.score-big{font-size:2.5rem}.footer-bar{flex-wrap:wrap}.progress{max-width:none}}
+.modal{position:fixed;inset:0;background:rgba(10,25,45,.62);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal[hidden]{display:none}
+.modal-box{background:#fff;border-radius:16px;padding:26px 26px 20px;max-width:540px;width:100%;text-align:center;box-shadow:0 12px 44px rgba(0,0,0,.35);animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.m-title{font-size:1.05rem;color:#555;letter-spacing:.05em}
+.m-score{font-size:4.6rem;font-weight:800;color:var(--blue);line-height:1.1;margin:4px 0 2px}
+.m-score small{font-size:1.3rem;color:#666;font-weight:normal;margin-left:4px}
+.m-subj{margin:14px 0 10px;border-top:1px solid var(--border)}
+.m-row{display:flex;justify-content:space-between;gap:12px;padding:7px 8px;border-bottom:1px dashed var(--border);text-align:left;font-size:.95rem}
+.m-weak{background:var(--light);border-radius:8px;padding:10px 12px;text-align:left;font-size:.95rem;line-height:1.6}
+.m-actions{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+@media (max-width:600px){.m-score{font-size:3.6rem}}
+@media print{.footer-bar,.res-actions,.btn-ghost,.modal{display:none}.q{break-inside:avoid}}
+.tabs{position:sticky;top:0;z-index:6;display:flex;gap:6px;background:#f4f6f9;padding:10px 0 0;margin:14px 0 0;border-bottom:2px solid var(--blue);flex-wrap:wrap}
+.tab{flex:1;min-width:120px;background:#fff;color:#333;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 10px;font-size:.95rem;line-height:1.35;text-align:center}
+.tab:hover{background:var(--light)}
+.tab.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:bold}
+.tab .tl{display:block}
+.tab .tc{display:block;font-size:.8rem;font-weight:normal;opacity:.9}
+.tab.complete:not(.active) .tc{color:var(--green)}
+.tab.has-wrong:not(.active) .tc{color:var(--red);font-weight:bold}
+.tab-off{display:none !important}
+.tab-next{display:flex;justify-content:flex-end;margin:14px 0 4px}
+@media print{.tabs,.tab-next{display:none !important}.tab-off{display:block !important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>ADsP 데이터분석 준전문가 예상문제 <span style="font-weight:normal">(100문항)</span></h1>
+  <div class="sub">1과목 20문항 · 2과목 20문항 · 3과목 60문항 · 문항당 1점 · 총 100점 &nbsp;|&nbsp; <span id="timer-label">경과 시간</span> <span id="timer">00:00</span></div>
+</div></header>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="m-title" id="m-title">채점 결과</div>
+    <div class="m-score"><span id="m-score">0</span><small>/ 100점</small></div>
+    <div id="m-pass"></div>
+    <div class="m-subj" id="m-subj"></div>
+    <div class="m-weak" id="m-weak"></div>
+    <div class="m-actions">
+      <button class="btn-primary" id="m-detail">틀린 문제와 해설 보기</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="panel" id="result">
+    <h2 style="margin:0 0 10px;color:var(--blue)">채점 결과</h2>
+    <div class="res-top">
+      <div class="score-big"><span id="r-score">0</span><small> / 100점</small></div>
+      <div class="res-meta" id="r-meta"></div>
+    </div>
+    <div class="grid" id="r-subjects"></div>
+    <div class="advice" id="r-advice"></div>
+    <div class="wrong-list" id="r-wrong"></div>
+    <div class="res-actions">
+      <button class="btn-ghost btn-sm" id="btn-toggle-wrong">오답만 보기</button>
+      <button class="btn-ghost btn-sm" id="btn-save">결과 파일 저장</button>
+      <button class="btn-ghost btn-sm" id="btn-print">인쇄</button>
+      <button class="btn-ghost btn-sm" id="btn-retry">다시 풀기</button>
+    </div>
+  </section>
+
+  <section class="panel" id="intro">
+    <div class="name-row">
+      <label for="name">응시자 이름</label>
+      <input id="name" type="text" placeholder="이름을 입력하세요" autocomplete="off" maxlength="30">
+    </div>
+    <div class="info">※ 각 문항의 보기 중 하나를 선택하세요. 모두 풀고 아래 <b>제출</b> 버튼을 누르면 즉시 점수와 과목별 분석이 표시됩니다.<br>
+    ※ 합격 기준(실제 시험 참고): 총점 60점 이상이면서 과목별 40% 이상(1과목 8점 · 2과목 8점 · 3과목 24점).<br>
+    ※ 작성 중인 답안은 이 브라우저에 자동 저장되므로 창을 닫았다가 다시 열어도 이어서 풀 수 있습니다.</div>
+    <div class="notice" id="restore-notice">이전에 작성하던 답안을 불러왔습니다. &nbsp;<button class="btn-ghost btn-sm" id="btn-clear">처음부터 다시</button></div>
+  </section>
+
+  <div id="questions"></div>
+</main>
+
+<div class="footer-bar">
+  <div class="footer-left">
+    <span class="cnt"><span id="cnt">0</span> / <span id="total">100</span> 작성</span>
+    <div class="progress"><div id="pbar"></div></div>
+  </div>
+  <button class="btn-primary" id="btn-submit">제출하기</button>
+</div>
+
+<script>
+const QUESTIONS = [{"n": 1, "s": 1, "t": "데이터의 이해", "q": "데이터의 특성에 대한 설명으로 옳은 것은?", "o": ["존재적 특성은 있는 그대로의 객관적 사실(fact)을 의미한다", "데이터는 다른 객체와의 상호관계 없이 그 자체만으로 가치를 가진다", "존재적 특성은 추론·예측·전망을 위한 근거가 되는 성질을 의미한다", "당위적 특성은 가공되지 않은 원천 자료 그 자체를 의미한다"]}, {"n": 2, "s": 1, "t": "데이터의 이해", "q": "다음 중 반정형 데이터에 해당하는 것은?", "o": ["영상·음성 파일", "소셜미디어의 자유 텍스트 게시글", "관계형 데이터베이스의 고객 테이블", "웹 로그, 센서 데이터, XML·JSON 파일"]}, {"n": 3, "s": 1, "t": "지식경영(SECI)", "q": "노나카의 SECI 지식변환 모델에서 개인의 암묵지를 매뉴얼·문서 등 형식지로 변환하는 단계는?", "o": ["공통화(Socialization)", "표출화(Externalization)", "연결화(Combination)", "내면화(Internalization)"]}, {"n": 4, "s": 1, "t": "DIKW", "q": "DIKW 피라미드에서 \"A마트의 연필이 B마트보다 저렴하므로 A마트에서 연필을 사야겠다\"는 어느 단계에 해당하는가?", "o": ["데이터(Data)", "정보(Information)", "지식(Knowledge)", "지혜(Wisdom)"]}, {"n": 5, "s": 1, "t": "데이터베이스", "q": "데이터베이스와 DBMS에 대한 설명으로 옳지 않은 것은?", "o": ["데이터베이스는 안정성을 높이기 위해 동일한 데이터를 여러 곳에 중복 저장하는 '통합된 데이터'이다", "데이터베이스 설계에서 ERD 작성은 개념적 설계, 정규화는 논리적 설계, 인덱스 설계는 물리적 설계 단계에서 수행한다", "DBMS의 3대 기능은 정의·조작·제어이며 각각 DDL·DML·DCL에 대응한다", "관계형 DB는 테이블, 계층형 DB는 트리, 네트워크형 DB는 그래프(망) 구조로 데이터를 표현한다"]}, {"n": 6, "s": 1, "t": "SQL", "q": "SQL 명령어의 분류(일반 교재의 DDL/DML/DCL 구분 기준)가 옳지 않은 것은?", "o": ["CREATE – DDL(데이터 정의어)", "GRANT – DCL(데이터 제어어)", "DELETE – DML(데이터 조작어)", "TRUNCATE – DML(데이터 조작어)"]}, {"n": 7, "s": 1, "t": "DBMS/NoSQL", "q": "NoSQL 데이터베이스와 저장 구조의 연결이 옳은 것은?", "o": ["Redis – 인메모리 키-값 저장", "MongoDB – 컬럼(Column)형 저장", "MongoDB – 키-값(Key-Value) 저장", "HBase – 문서(Document)형 저장"]}, {"n": 8, "s": 1, "t": "데이터 웨어하우스", "q": "데이터 웨어하우스(DW)와 관련 개념에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. DW는 주제 지향적·통합적·시계열적·비휘발적이라는 4가지 특징을 가진다\nㄴ. 데이터 마트(DM)는 전사 통합 저장소이고, DW는 부서·주제 단위의 소규모 저장소이다\nㄷ. ETL은 추출(Extract) → 변환(Transform) → 적재(Load)의 순서로 수행된다\nㄹ. OLTP는 다차원 분석 처리, OLAP은 실시간 거래 처리를 담당한다\nㅁ. DW의 데이터는 적재 후 조회 위주로 사용되며 수시로 갱신되지 않는다", "o": ["ㄱ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ", "ㄴ, ㄹ", "ㄱ, ㄷ, ㅁ"]}, {"n": 9, "s": 1, "t": "빅데이터의 정의", "q": "빅데이터의 정의에 대한 설명으로 옳은 것은?", "o": ["맥킨지는 일반적 DB 소프트웨어의 관리·분석 범위를 초과하는 데이터 '규모'의 관점에서 정의하였다", "IDC는 데이터 크기 자체의 변화에만 초점을 둔 규모 관점에서 정의하였다", "빅데이터 정의의 관점은 인재·조직 → 기술 → 규모의 순서로 좁아져 왔다", "마이어-쇤버거와 쿠키어는 빅데이터를 하드웨어 저장 장치의 용량으로 정의하였다"]}, {"n": 10, "s": 1, "t": "빅데이터 3V/출현 배경", "q": "빅데이터에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 더그 래니의 3V는 Volume(규모), Variety(다양성), Velocity(속도)이다\nㄴ. Veracity(정확성)는 3V에 포함되는 기본 요소이다\nㄷ. 빅데이터 출현 배경에는 산업계의 고객 데이터 축적, 학계의 거대 데이터 활용 확산, 저장 기술·클라우드 등 기술 발전이 있다\nㄹ. 빅데이터는 기존 기술과 무관하게 갑자기 등장한 새로운 기술이다\nㅁ. 빅데이터의 가치 산정이 어려운 이유에는 데이터 활용 방식의 변화, 새로운 가치 창출, 분석 기술의 발전이 있다", "o": ["ㄱ, ㄴ, ㄷ, ㅁ", "ㄱ, ㄴ, ㄷ", "ㄱ, ㄷ, ㄹ", "ㄱ, ㄷ, ㅁ"]}, {"n": 11, "s": 1, "t": "빅데이터의 기능", "q": "빅데이터의 기능을 설명하는 비유와 그 의미·예시의 연결이 옳은 것은?", "o": ["플랫폼 – 데이터를 통해 산업을 들여다보는 도구, 예: 구글 Ngram Viewer", "렌즈 – 현미경이 생물학 발전에 기여했듯 산업 발전에 기여, 예: 구글 Ngram Viewer", "21세기의 원유 – 서드파티가 공동 활용할 목적으로 구축된 유무형의 구조물, 예: 카카오톡", "산업혁명의 석탄·철 – 현미경이 생물학 발전에 기여했듯 산업 발전에 기여"]}, {"n": 12, "s": 1, "t": "빅데이터의 변화", "q": "빅데이터가 만들어내는 본질적인 변화로 옳지 않은 것은?", "o": ["양보다 질로", "표본조사에서 전수조사로", "인과관계에서 상관관계로", "사전처리에서 사후처리로"]}, {"n": 13, "s": 1, "t": "빅데이터 활용 테크닉", "q": "빅데이터 활용 기본 테크닉과 질문의 연결이 옳지 않은 것은?", "o": ["연관규칙학습 – 커피를 구매하는 사람이 탄산음료를 더 많이 사는가?", "유전 알고리즘 – 최대 시청률을 얻으려면 어떤 프로그램을 어떤 시간대에 편성해야 하는가?", "회귀분석 – 구매자의 나이가 구매 차량의 가격에 어떤 영향을 미치는가?", "유형분석 – 새로운 환불 정책에 대한 고객의 평가는 어떤가?"]}, {"n": 14, "s": 1, "t": "빅데이터 위기 요인", "q": "빅데이터 위기 요인과 통제 방안의 연결이 옳은 것은?", "o": ["책임 원칙 훼손 – 개인정보 제공자의 동의 강화", "사생활 침해 – 결과 기반 책임 원칙 고수", "사생활 침해 – 알고리즘에 대한 접근 허용", "데이터 오용 – 알고리즘 접근권 허용 및 알고리즈미스트 양성"]}, {"n": 15, "s": 1, "t": "개인정보 보호·활용", "q": "개인정보의 보호와 활용에 대한 설명으로 옳지 않은 것은?", "o": ["옵트아웃(Opt-out)은 일단 수집·활용하되 정보 주체가 사후에 거부할 수 있도록 하는 방식이다", "가명정보는 정보 주체의 동의 없이도 통계 작성·과학적 연구 등의 목적으로 활용할 수 있다", "마이데이터는 기업이 보유한 개인정보를 정보 주체의 동의 없이 제3자에게 제공할 수 있게 하는 제도이다", "가명화는 매핑 정보가 남아 있어 원래 정보로 복원될 수 있지만, 익명화는 복원이 불가능하다"]}, {"n": 16, "s": 1, "t": "데이터 사이언티스트 역량", "q": "데이터 사이언티스트에게 요구되는 역량 중 소프트 스킬에 해당하는 것을 모두 고른 것은?\nㄱ. 빅데이터에 대한 이론적 지식   ㄴ. 통찰력 있는 분석   ㄷ. 설득력 있는 전달\nㄹ. 분석 기술에 대한 숙련   ㅁ. 다분야 간 협력", "o": ["ㄱ, ㄴ, ㄷ", "ㄴ, ㄷ, ㅁ", "ㄴ, ㄹ, ㅁ", "ㄱ, ㄹ"]}, {"n": 17, "s": 1, "t": "가치 패러다임", "q": "데이터 사이언스의 가치 패러다임 변화 순서로 옳은 것은?", "o": ["디지털화(Digitalization) → 연결(Connection) → 에이전시(Agency)", "에이전시(Agency) → 디지털화(Digitalization) → 연결(Connection)", "디지털화(Digitalization) → 에이전시(Agency) → 연결(Connection)", "연결(Connection) → 디지털화(Digitalization) → 에이전시(Agency)"]}, {"n": 18, "s": 1, "t": "개인정보 비식별화", "q": "개인정보 비식별화 기법과 예시의 연결이 옳지 않은 것은?", "o": ["데이터 범주화 – 홍길동, 35세 → 홍씨, 30~40세", "가명처리 – 홍길동, 35세 → 임꺽정, 35세", "데이터 마스킹 – 홍길동, 35세 → 홍○○, 35세", "총계처리 – 주민등록번호 등 식별 가능한 속성 자체를 삭제"]}, {"n": 19, "s": 1, "t": "빅데이터 회의론", "q": "빅데이터 회의론의 원인으로 옳은 것을 모두 고른 것은?\nㄱ. 과거 CRM 투자 실패에 따른 부정적 학습 효과\nㄴ. 빅데이터와 무관한 사례까지 성공담으로 홍보하는 과대 포장\nㄷ. 분석 알고리즘의 부재\nㄹ. 데이터 저장 비용의 급격한 상승", "o": ["ㄷ, ㄹ", "ㄱ, ㄴ", "ㄴ, ㄹ", "ㄱ, ㄷ"]}, {"n": 20, "s": 1, "t": "빅데이터 처리 기술", "q": "빅데이터 처리 기술에 대한 설명으로 옳은 것은?", "o": ["HDFS는 데이터를 블록으로 나누어 여러 서버에 복제 저장하고, 맵리듀스는 Map(키-값 생성) 후 Reduce(집계)로 병렬 처리한다", "맵리듀스는 인메모리 처리 방식이어서 디스크 기반인 스파크보다 반복 분석에 유리하다", "NoSQL은 엄격한 고정 스키마를 요구하므로 수평 확장에 불리하다", "클라우드 컴퓨팅은 IT 자원을 직접 구매·보유하는 방식이어서 빅데이터 확산의 비용 장벽이 되었다"]}, {"n": 21, "s": 2, "t": "분석 기획 4유형", "q": "분석 대상(What)은 모르지만 분석 방법(How)은 알고 있는 경우의 분석 주제 유형은?", "o": ["최적화(Optimization)", "솔루션(Solution)", "통찰(Insight)", "발견(Discovery)"]}, {"n": 22, "s": 2, "t": "목표 시점별 기획", "q": "분석 기획의 목표 시점별 접근 방식에 대한 설명으로 옳은 것은?", "o": ["두 방식은 서로 배타적이어서 하나의 조직에서 함께 적용할 수 없다", "과제 중심적 접근은 Accuracy & Deploy를 중시하는 장기적 방식이다", "과제 중심적 접근은 Speed & Test, Quick-Win 방식으로 당면 문제를 빠르게 해결한다", "장기적 마스터플랜 방식은 Quick-Win을 통한 즉각적 성과를 목표로 한다"]}, {"n": 23, "s": 2, "t": "분석 기획 고려사항", "q": "분석 기획 시 고려사항과 의사결정 장애 요소에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 가용 데이터의 존재 여부와 유형(정형·반정형·비정형)을 먼저 파악해야 한다\nㄴ. 분석 과제를 수행하는 과정에서 발생할 수 있는 장애 요소에 대한 사전 계획을 수립해야 한다\nㄷ. 의사결정 장애 요소에는 고정관념, 편향된 생각, 프레이밍 효과가 있다\nㄹ. 프레이밍 효과는 동일한 사안이라도 제시되는 틀(방식)에 따라 판단이 달라지는 현상이다\nㅁ. 텍스트·이미지·영상 데이터는 정형 데이터이므로 RDB에 그대로 적재하여 분석한다", "o": ["ㄱ, ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ", "ㄱ, ㄷ, ㄹ"]}, {"n": 24, "s": 2, "t": "개발 모델", "q": "분석 방법론의 개발 모델에 대한 설명으로 옳지 않은 것은?", "o": ["나선형 모델은 관리 체계가 단순하여 소규모·단기 프로젝트에 가장 적합하다", "나선형 모델은 반복을 통해 점증적으로 개발하며 위험 분석을 중시한다", "프로토타입 모델은 요구사항이 불명확할 때 시제품을 만들어 사용자 의견을 반영·개선해 가는 방식이다", "폭포수 모델은 단계를 순차적으로 진행하며 문제 발견 시 이전 단계로 피드백한다"]}, {"n": 25, "s": 2, "t": "KDD 방법론", "q": "KDD 분석 방법론에서 분석 목적에 맞는 변수를 선택·생성하고 데이터의 차원을 축소하며, 학습용과 시험용 데이터로 분리하는 단계는?", "o": ["데이터셋 선택(Selection)", "데이터 전처리(Preprocessing)", "데이터 변환(Transformation)", "데이터 마이닝(Data Mining)"]}, {"n": 26, "s": 2, "t": "CRISP-DM", "q": "CRISP-DM 방법론에 대한 설명으로 옳지 않은 것은?", "o": ["4레벨 구조는 단계 → 일반화 태스크 → 세분화 태스크 → 프로세스 실행 순이다", "단계 간 피드백을 통한 반복 수행으로 완성도를 높이는 구조이다", "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개의 6단계로 구성된다", "모델링 결과에 대한 모델 평가는 반드시 '평가' 단계에서만 수행된다"]}, {"n": 27, "s": 2, "t": "방법론 계층 구조", "q": "분석 방법론의 계층적 프로세스 모델에 대한 설명으로 옳지 않은 것은?", "o": ["각 단계는 기준선(baseline)으로 설정되어 관리되며 버전 관리 등을 통해 통제된다", "빅데이터 분석 방법론은 단계(Phase) → 태스크(Task) → 스텝(Step)의 3계층으로 구성된다", "CRISP-DM 역시 단계 → 태스크 → 스텝의 동일한 3계층 구조로 구성된다", "스텝은 WBS의 워크패키지에 해당하며 입력자료, 처리 및 도구, 출력자료로 구성된 단위 프로세스이다"]}, {"n": 28, "s": 2, "t": "빅데이터 분석 방법론", "q": "빅데이터 분석 방법론의 단계와 태스크의 연결이 옳지 않은 것은?", "o": ["데이터 준비 – 데이터 수집 및 정합성 점검", "데이터 분석 – 텍스트 분석, 시각화", "시스템 구현 – 모델 발전 계획 수립", "분석 기획 – 프로젝트 위험 계획 수립"]}, {"n": 29, "s": 2, "t": "분석 과제 발굴", "q": "분석 과제 발굴 방식에 대한 설명으로 옳은 것은?", "o": ["하향식 접근법은 발산(diverge), 상향식 접근법은 수렴(converge) 과정에 해당한다", "상향식 접근법은 Why 관점, 하향식 접근법은 What 관점에서 접근한다", "상향식 접근법은 절차가 체계적이고 논리적이어서 시행착오가 거의 없다", "상향식 접근법에서는 군집·연관분석 등 비지도학습 기법이 주로 활용된다"]}, {"n": 30, "s": 2, "t": "하향식 접근법", "q": "하향식 접근법의 문제 탐색 단계에서 분석 기회 발굴의 범위를 확장하는 4가지 관점 중 \"고객, 채널, 영향자\"를 탐색하는 관점은?", "o": ["거시적 관점(STEEP)", "경쟁자 확대 관점", "시장의 니즈 탐색 관점", "역량의 재해석 관점"]}, {"n": 31, "s": 2, "t": "하향식 접근법", "q": "하향식 접근법의 각 단계에 대한 설명으로 옳지 않은 것은?", "o": ["문제 탐색 단계에서는 비즈니스 모델 캔버스의 9개 블록 전체를 그대로 활용하여 분석 기회를 도출한다", "타당성 검토 단계에서는 경제적 타당성, 데이터 및 기술적 타당성을 평가한다", "해결방안 탐색 단계에서는 기존 시스템 활용 가능 여부와 분석 역량 보유 여부에 따라 2×2 매트릭스로 방안을 검토한다", "문제 정의 단계에서는 비즈니스 문제를 데이터 분석 문제로 변환하여 정의한다"]}, {"n": 32, "s": 2, "t": "분석 프로젝트 관리", "q": "분석 과제의 5대 관리 속성에 대한 설명으로 옳은 것은?", "o": ["정밀도(Precision)는 모델과 실제 값 사이의 차이가 적은 정도를 말한다", "정확도(Accuracy)는 활용 측면, 정밀도(Precision)는 안정성 측면에서 중요하며 두 지표는 상충 관계일 수 있다", "사기 탐지·실시간 추천 시스템은 배치(Batch) 처리 속도로 충분하다", "데이터 복잡성(Data Complexity)은 분석 결과의 정확도를 의미한다"]}, {"n": 33, "s": 2, "t": "분석 마스터플랜", "q": "분석 마스터플랜 수립 시 \"적용 범위 및 방식\"을 결정하기 위한 고려 요소가 아닌 것은?", "o": ["분석 데이터 적용 수준", "기술 적용 수준", "전략적 중요도", "업무 내재화 적용 수준"]}, {"n": 34, "s": 2, "t": "우선순위 평가(ROI)", "q": "ROI 관점에서 빅데이터 분석 과제의 우선순위를 평가할 때 옳은 것은?", "o": ["Value(가치)는 데이터 획득·저장 비용과 관련된 난이도 판단 요소이다", "투자 비용 요소인 3V(크기·다양성·속도)는 난이도를, 비즈니스 효과인 Value(가치)는 시급성을 판단하는 기준이다", "Volume·Variety·Velocity는 시급성 판단 요소이다", "ROI 관점에서는 시급성만 고려하고 난이도는 고려하지 않는다"]}, {"n": 35, "s": 2, "t": "우선순위 사분면", "q": "ROI 관점에서 분석 과제를 시급성(현재/미래)과 난이도(쉬움/어려움)의 4개 영역으로 나누었다. \"시급성\"을 기준으로 우선순위를 정할 때(현재 과제를 먼저 추진) 추진 순서로 옳은 것은?", "o": ["현재·어려움 → 현재·쉬움 → 미래·쉬움", "현재·쉬움 → 미래·쉬움 → 미래·어려움", "미래·쉬움 → 현재·쉬움 → 현재·어려움", "현재·쉬움 → 현재·어려움 → 미래·어려움"]}, {"n": 36, "s": 2, "t": "분석 거버넌스", "q": "분석 거버넌스 체계의 구성 요소를 모두 고른 것은?\nㄱ. 조직(Organization)   ㄴ. 과제 기획 및 운영 프로세스(Process)   ㄷ. 분석 관련 시스템(System)\nㄹ. 데이터(Data)   ㅁ. 분석 교육 및 마인드 육성 체계(Human Resource)   ㅂ. 연간 분석 예산(Budget)", "o": ["ㄱ, ㄴ, ㄷ, ㄹ, ㅁ", "ㄱ, ㄷ, ㄹ, ㅂ", "ㄱ, ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ"]}, {"n": 37, "s": 2, "t": "분석 성숙도", "q": "분석 성숙도 모델의 단계와 특징의 연결이 옳은 것은?", "o": ["최적화 단계 – 일부 부서에서 담당자 역량에 의존해 실적 분석을 수행한다", "활용 단계 – 분석 결과를 실제 업무에 적용하며 미래 결과를 예측·시뮬레이션한다", "확산 단계 – OLAP 등 기초적인 분석 환경을 처음 구축한다", "도입 단계 – 전사 차원의 분석 CoE 조직 운영"]}, {"n": 38, "s": 2, "t": "분석 수준 진단", "q": "데이터 분석 수준 진단 결과, 준비도는 낮지만 조직·인력·분석 기법 등을 내부에서 제한적으로 사용하고 있어 성숙도가 높은 편인 기업 유형은?", "o": ["준비형", "정착형", "도입형", "확산형"]}, {"n": 39, "s": 2, "t": "분석 조직 구조", "q": "분석 조직 구조 중 \"별도의 분석 조직 없이 해당 업무 부서에서 직접 분석을 수행하여 전사적 핵심 분석이 어렵고 과거 실적 분석에 국한되기 쉬운\" 구조는?", "o": ["집중형 구조", "기능형 구조", "분산형 구조", "매트릭스 구조"]}, {"n": 40, "s": 2, "t": "SEMMA", "q": "SAS의 SEMMA 분석 방법론 단계 순서로 옳은 것은?", "o": ["Sample → Explore → Model → Modify → Assess", "Sample → Modify → Explore → Model → Assess", "Sample → Explore → Modify → Model → Assess", "Explore → Sample → Model → Modify → Assess"]}, {"n": 41, "s": 3, "t": "R 기초", "q": "R의 특수값에 대한 설명으로 옳지 않은 것은?", "o": ["1/0의 결과는 NA이다", "NULL은 값이 없음을 의미하며 자리 자체가 존재하지 않는다", "0/0의 결과는 NaN(Not a Number)이다", "NA는 결측값을 의미하며 벡터에서 자리를 차지한다"]}, {"n": 42, "s": 3, "t": "R 기초", "q": "다음 R 코드를 실행했을 때 출력되는 두 값을 순서대로 나열한 것은?\n```\n7 %% 3\n7 %/% 3\n```", "o": ["2.33, 1", "1, 2.33", "2, 1", "1, 2"]}, {"n": 43, "s": 3, "t": "R 기초", "q": "다음 R 코드의 실행 결과는?\n```\nrep(c(1, 2), each = 2)\n```", "o": ["1 2 1 2", "2 2 1 1", "1 1 2 2", "1 2"]}, {"n": 44, "s": 3, "t": "R 기초", "q": "다음 R 코드의 실행 결과는?\n```\nm <- matrix(1:6, nrow = 2)\napply(m, 2, sum)\n```", "o": ["3 7 11", "1 2 3", "6 15", "9 12"]}, {"n": 45, "s": 3, "t": "R 기초", "q": "R의 자료 구조에 대한 설명으로 옳지 않은 것은?", "o": ["리스트(list)는 서로 다른 자료형과 길이의 원소를 가질 수 있다", "벡터(vector)는 동일한 자료형의 원소만 가질 수 있다", "데이터프레임(data.frame)은 열마다 다른 자료형을 가질 수 있으며 각 열의 길이는 같아야 한다", "행렬(matrix)은 열마다 서로 다른 자료형을 가질 수 있다"]}, {"n": 46, "s": 3, "t": "데이터 마트", "q": "데이터 마트의 요약변수와 파생변수에 대한 설명으로 옳지 않은 것은?", "o": ["요약변수는 수집된 정보를 분석 목적에 맞게 종합한 변수로 재활용성이 높다", "\"고객별 총 구매금액\"은 파생변수, \"구매금액 100만 원 이상이면 VIP로 분류\"는 요약변수이다", "파생변수는 사용자가 특정 조건이나 함수로 의미를 부여한 변수로 주관적일 수 있다", "파생변수는 논리적 타당성을 갖추어야 한다"]}, {"n": 47, "s": 3, "t": "데이터 마트", "q": "reshape 패키지의 melt() 함수에 대한 설명으로 옳은 것은?", "o": ["긴(long) 형식 데이터를 넓은(wide) 형식으로 재구성한다", "두 데이터프레임을 공통 키를 기준으로 병합한다", "그룹별 요약 통계량을 계산한다", "여러 열에 흩어진 측정값을 id-variable-value 형태의 긴(long) 형식으로 변환한다"]}, {"n": 48, "s": 3, "t": "데이터 마트", "q": "R 데이터 핸들링 패키지와 기능의 연결이 옳지 않은 것은?", "o": ["data.table – 키(key) 설정을 통한 대용량 데이터의 빠른 탐색·처리", "sqldf – R에서 SQL 문장으로 데이터프레임을 조회·조작", "reshape – 결측값의 다중 대치(multiple imputation) 수행", "plyr – 분할(split)·적용(apply)·결합(combine) 원리의 데이터 처리, ddply는 데이터프레임 입출력"]}, {"n": 49, "s": 3, "t": "결측값 처리", "q": "결측값 처리 방법에 대한 설명으로 옳지 않은 것은?", "o": ["다중대치법은 분석 → 대치 → 결합의 3단계로 수행되며 여러 개의 가상 완전 자료를 만든다", "조건부 평균대치법은 회귀식 등으로 추정한 값을 결측값에 대치하는 방법이다", "단순확률대치법은 Hot-deck 등 확률적으로 뽑은 값으로 대치하여 평균대치법의 표준오차 과소추정 문제를 보완한다", "R의 Amelia 패키지는 다중대치법을 구현한 패키지이다"]}, {"n": 50, "s": 3, "t": "이상값 처리", "q": "어떤 변수의 제1사분위수(Q1)가 30, 제3사분위수(Q3)가 50일 때, 상자그림(IQR의 1.5배) 기준으로 이상값에 해당하는 값은?", "o": ["75", "85", "5", "50"]}, {"n": 51, "s": 3, "t": "표본추출", "q": "표본추출 방법에 대한 설명으로 옳지 않은 것은?", "o": ["계통추출: 번호를 부여하고 일정 간격(K=N/n)으로 건너뛰며 추출한다", "집락추출: 집락 내는 동질, 집락 간은 이질이 되도록 나눈 뒤 일부 집락을 선택한다", "단순랜덤추출: 모든 원소가 뽑힐 확률이 동일하도록 무작위로 추출한다", "층화추출: 층 내는 동질, 층 간은 이질이 되도록 나눈 뒤 각 층에서 랜덤 추출한다"]}, {"n": 52, "s": 3, "t": "측정 척도", "q": "측정 척도에 대한 설명으로 옳지 않은 것은?", "o": ["온도(℃)는 절대적 0점이 존재하므로 비율척도에 해당한다", "순서척도: 만족도(상·중·하)처럼 순위의 의미가 있는 척도", "구간척도: 간격은 의미가 있으나 절대적 0점이 없는 척도", "명목척도: 성별·혈액형처럼 분류를 목적으로 하는 척도"]}, {"n": 53, "s": 3, "t": "확률(베이즈 정리)", "q": "공장 A와 B가 전체 제품의 60%, 40%를 생산하며 불량률은 각각 2%, 5%이다. 임의로 뽑은 제품이 불량품이었을 때, 이 제품이 A 공장에서 생산되었을 확률은?", "o": ["0.012", "0.600", "0.625", "0.375"]}, {"n": 54, "s": 3, "t": "확률변수의 성질", "q": "확률변수 X의 분산이 V(X)=4일 때, Y = 3X + 2의 분산 V(Y)는?", "o": ["38", "12", "36", "14"]}, {"n": 55, "s": 3, "t": "중심극한정리(계산)", "q": "분포 형태를 알 수 없는 모집단의 평균이 50, 표준편차가 12이다. 이 모집단에서 크기 36인 표본을 반복해서 뽑을 때 표본평균의 분포에 대한 설명으로 옳은 것은?", "o": ["평균 50, 표준오차 12인 분포를 따르며 형태는 모집단과 같다", "근사적으로 평균 50, 표준오차 2인 정규분포를 따른다", "근사적으로 평균 50, 표준오차 1/3인 정규분포를 따른다", "모집단의 분포 형태를 모르므로 표본평균의 분포도 알 수 없다"]}, {"n": 56, "s": 3, "t": "구간추정", "q": "모표준편차 σ=20인 정규모집단에서 크기 100의 표본을 뽑아 표본평균 100을 얻었다. 모평균의 95% 신뢰구간은? (z(0.025)=1.96)", "o": ["100 ± 1.96", "100 ± 0.392", "100 ± 39.2", "100 ± 3.92"]}, {"n": 57, "s": 3, "t": "가설검정", "q": "가설검정의 p-값(p-value)에 대한 설명으로 옳은 것은?", "o": ["귀무가설이 참이라는 가정 하에서 관측된 검정통계량과 같거나 더 극단적인 값이 나올 확률이다", "대립가설이 참일 확률이다", "p-값이 유의수준보다 크면 귀무가설을 기각한다", "귀무가설이 참일 확률이다"]}, {"n": 58, "s": 3, "t": "가설검정", "q": "가설검정의 오류에 대한 설명으로 옳지 않은 것은?", "o": ["제1종 오류: 귀무가설이 참인데 기각하는 오류(확률 α)", "제2종 오류: 귀무가설이 거짓인데 채택하는 오류(확률 β)", "유의수준 α를 작게 하면 제2종 오류 확률 β도 함께 작아진다", "검정력(power)은 1 − β 이다"]}, {"n": 59, "s": 3, "t": "t-검정", "q": "서로 다른 두 반(A반 30명, B반 28명)의 시험 평균 점수에 차이가 있는지 검정하려 한다. 가장 적절한 분석 절차는?", "o": ["집단이 2개이므로 일원배치 분산분석을 수행한 뒤 사후검정을 실시한다", "정규성 검정 없이 곧바로 윌콕슨 부호순위 검정을 수행한다", "var.test()로 두 집단의 등분산 여부를 확인한 뒤, 그 결과에 맞게 독립 이표본 t-검정(t.test의 var.equal 옵션)을 수행한다", "같은 시험을 본 자료이므로 두 반의 점수를 짝지어 대응표본 t-검정을 수행한다"]}, {"n": 60, "s": 3, "t": "카이제곱 검정", "q": "카이제곱 검정의 종류와 사례의 연결이 옳지 않은 것은?", "o": ["동질성 검정 – 서로 다른 지역 집단에서 응답 분포가 같은지 검정", "상관 검정 – 두 연속형 변수의 선형 상관 정도를 카이제곱 검정으로 측정", "독립성 검정 – 성별과 선호 브랜드 간에 연관성이 있는지 검정", "적합도 검정 – 주사위의 각 눈이 1/6 확률로 나오는지 검정"]}, {"n": 61, "s": 3, "t": "분산분석", "q": "일원배치 분산분석(ANOVA)에서 대립가설(H1)로 옳은 것은?", "o": ["모든 집단의 평균이 서로 다르다", "모든 집단의 분산이 같다", "모든 집단의 평균이 같다", "적어도 한 집단의 평균은 다른 집단과 다르다"]}, {"n": 62, "s": 3, "t": "상관분석", "q": "상관분석에 대한 설명으로 옳지 않은 것은?", "o": ["상관계수가 0이면 두 변수는 반드시 서로 독립이다", "스피어만 상관계수는 순위(서열) 자료에 사용하며 단조 관계를 측정한다", "피어슨 상관계수는 연속형 변수 간 선형 관계의 정도를 측정한다", "상관계수의 부호는 관계의 방향을, 절댓값의 크기는 관계의 강도를 나타낸다"]}, {"n": 63, "s": 3, "t": "회귀분석 가정", "q": "선형 회귀분석의 가정에 대한 설명으로 옳지 않은 것은?", "o": ["등분산성: 오차항의 분산이 독립변수 값에 관계없이 일정하다", "독립성: 오차항 간 자기상관이 없으며, 더빈-왓슨 통계량이 2 부근이면 만족한다", "선형성: 종속변수와 독립변수 사이에 선형 관계가 있다", "정규성: 독립변수(설명변수)가 정규분포를 따라야 한다"]}, {"n": 64, "s": 3, "t": "회귀분석 해석", "q": "다음은 R의 lm() 회귀분석 결과 일부이다. 해석으로 옳지 않은 것은?\n```\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)\n(Intercept)   3.2000     0.8000   4.000  0.00395\nx             1.5000     0.2500   6.000  0.00033\n\nMultiple R-squared: 0.82,  Adjusted R-squared: 0.80\nF-statistic: 36 on 1 and 8 DF,  p-value: 0.00033\n```", "o": ["x의 p-값이 0.05보다 크므로 x는 유의하지 않은 변수이다", "x가 1 증가하면 y는 평균적으로 1.5 증가한다", "추정된 회귀식은 ŷ = 3.2 + 1.5x 이다", "결정계수가 0.82이므로 모형이 y 변동의 약 82%를 설명한다"]}, {"n": 65, "s": 3, "t": "다중공선성/변수선택", "q": "다중 회귀분석에 대한 설명으로 옳지 않은 것은?", "o": ["변수 선택 시 AIC 값이 작을수록 좋은 모형으로 판단한다", "다중공선성 해결 방법으로 변수 제거, 주성분 회귀, 릿지·라쏘 회귀가 있다", "범주가 k개인 범주형 변수는 k개의 더미변수로 변환한다", "분산팽창요인(VIF)이 10 이상이면 다중공선성을 의심한다"]}, {"n": 66, "s": 3, "t": "정규화 회귀", "q": "정규화(규제) 회귀에 대한 설명으로 옳은 것은?", "o": ["라쏘 회귀는 L2 규제를 사용하여 계수의 크기만 줄인다", "라쏘 회귀는 L1 규제를 사용하여 일부 회귀계수를 0으로 만들어 변수 선택 효과가 있다", "릿지 회귀는 규제를 적용하지 않은 일반 최소제곱 회귀와 동일하다", "릿지 회귀는 L1 규제를 사용하여 일부 회귀계수를 정확히 0으로 만든다"]}, {"n": 67, "s": 3, "t": "회귀계수 계산", "q": "단순 선형회귀에서 Cov(X, Y)=8, V(X)=4, x̄=5, ȳ=12일 때 기울기 β₁, 절편 β₀, 그리고 x=7에서의 예측값 ŷ을 순서대로 나열한 것은?", "o": ["β₁=0.5, β₀=9.5, ŷ=13", "β₁=2, β₀=12, ŷ=26", "β₁=2, β₀=2, ŷ=16", "β₁=4, β₀=−8, ŷ=20"]}, {"n": 68, "s": 3, "t": "시계열 정상성", "q": "시계열 자료의 정상성(stationarity)에 대한 설명으로 옳지 않은 것은?", "o": ["분산이 시점에 따라 커지는 비정상 시계열은 차분(differencing)으로 정상화한다", "분산이 시점에 의존하지 않고 일정하다", "공분산은 시차(lag)에만 의존하고 시점에는 의존하지 않는다", "평균이 모든 시점에서 일정하다"]}, {"n": 69, "s": 3, "t": "시계열 모형", "q": "자기상관함수(ACF)는 시차 2 이후 절단되고(0에 가까워짐), 부분자기상관함수(PACF)는 시차가 커질수록 지수적으로 감소하는 정상 시계열에 적합한 모형은?", "o": ["AR(1)", "AR(2)", "ARIMA(2, 1, 0)", "MA(2)"]}, {"n": 70, "s": 3, "t": "분해시계열/평활", "q": "분해 시계열과 평활법에 대한 설명으로 옳지 않은 것은?", "o": ["순환 요인: 주기가 알려지지 않은 변동(경기 순환 등)", "지수평활법: 오래된 과거 자료일수록 더 큰 가중치를 부여한다", "계절 요인: 고정된 주기(계절·요일 등)로 반복되는 변동", "추세 요인: 장기적인 상승·하락 경향"]}, {"n": 71, "s": 3, "t": "주성분분석", "q": "다음은 4개 변수에 대한 주성분분석 결과이다. 누적 기여율 85% 이상을 기준으로 할 때 선택해야 하는 주성분의 개수는?\n```\n                        PC1   PC2   PC3   PC4\nStandard deviation     1.549 1.000 0.632 0.447\nProportion of Variance 0.600 0.250 0.100 0.050\nCumulative Proportion  0.600 0.850 0.950 1.000\n```", "o": ["1개", "2개", "3개", "4개"]}, {"n": 72, "s": 3, "t": "기술통계(왜도)", "q": "단봉형의 연속 분포가 오른쪽으로 긴 꼬리를 가질 때(왜도 > 0) 평균, 중앙값, 최빈값의 일반적인 크기 순서로 옳은 것은?", "o": ["중앙값 > 평균 > 최빈값", "평균 > 중앙값 > 최빈값", "평균 = 중앙값 = 최빈값", "최빈값 > 중앙값 > 평균"]}, {"n": 73, "s": 3, "t": "데이터 마이닝 기능", "q": "데이터 마이닝의 기능과 활용 사례의 연결이 옳지 않은 것은?", "o": ["기술(Description) – 유사한 특성의 고객끼리 묶어 시장을 세분화한다", "추정(Estimation) – 고객의 연소득처럼 연속형 값을 산출한다", "분류(Classification) – 신용카드 신청자를 승인/거절 집단으로 판별한다", "예측(Prediction) – 고객의 다음 달 매출액을 미리 산출한다"]}, {"n": 74, "s": 3, "t": "데이터 마이닝 개요", "q": "데이터 마이닝 추진 5단계의 순서로 옳은 것은?", "o": ["데이터 준비 → 데이터 가공 → 목적 설정 → 검증 → 기법 적용", "데이터 준비 → 목적 설정 → 데이터 가공 → 기법 적용 → 검증", "목적 설정 → 데이터 가공 → 데이터 준비 → 기법 적용 → 검증", "목적 설정 → 데이터 준비 → 데이터 가공 → 기법 적용 → 검증"]}, {"n": 75, "s": 3, "t": "지도/비지도 학습", "q": "다음 중 비지도 학습에 해당하는 기법을 모두 고른 것은?\nㄱ. 의사결정나무   ㄴ. k-평균 군집   ㄷ. 자기조직화지도(SOM)   ㄹ. 로지스틱 회귀   ㅁ. 연관분석", "o": ["ㄱ, ㄴ, ㄷ", "ㄱ, ㄹ", "ㄴ, ㄷ, ㅁ", "ㄴ, ㅁ"]}, {"n": 76, "s": 3, "t": "데이터 분할/과적합", "q": "데이터 분할과 과적합에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 데이터는 일반적으로 훈련용·검증용·시험용으로 분할한다\nㄴ. 검증용 데이터는 학습된 모형의 과적합 여부를 확인하고 매개변수를 조정하는 데 사용한다\nㄷ. 과대적합이 발생하면 훈련 데이터의 오차는 낮지만 시험 데이터의 오차는 높아진다\nㄹ. 모형의 복잡도를 높이면 과소적합은 해소될 수 있지만 과대적합의 위험이 커진다\nㅁ. 시험용 데이터로 매개변수를 조정하면 최종 성능을 더 정확하게 평가할 수 있다", "o": ["ㄱ, ㄴ, ㄷ", "ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"]}, {"n": 77, "s": 3, "t": "교차검증/부트스트랩", "q": "교차검증과 부트스트랩에 대한 설명으로 옳지 않은 것은?", "o": ["부트스트랩에서 한 관측치가 한 번도 뽑히지 않을 확률은 약 36.8%이다", "부트스트랩은 비복원추출을 사용하므로 같은 관측치가 중복 선택되지 않는다", "부트스트랩은 원 데이터와 같은 크기의 표본을 복원추출로 반복 생성한다", "k-fold 교차검증은 데이터를 k개 조각으로 나누어 검증 조각을 바꿔가며 k번 학습·평가한다"]}, {"n": 78, "s": 3, "t": "로지스틱 회귀", "q": "로지스틱 회귀분석에 대한 설명으로 옳지 않은 것은?", "o": ["회귀계수는 최소제곱법으로 추정한다", "R에서는 glm() 함수에 family = binomial 옵션을 지정하여 수행한다", "로짓(logit) 변환을 통해 선형 회귀 형태로 모형화하며 예측값은 0과 1 사이의 확률이다", "종속변수가 범주형(예: 성공/실패)일 때 사용한다"]}, {"n": 79, "s": 3, "t": "오즈비 해석", "q": "로지스틱 회귀분석에서 설명변수 x의 회귀계수가 0.693(≈ ln 2)으로 추정되었다. 이에 대한 해석으로 옳지 않은 것은?", "o": ["회귀계수가 0이면 오즈비는 1이 되어 x는 오즈에 영향을 주지 않는다", "x의 오즈비(odds ratio)는 exp(0.693) ≈ 2이다", "x가 2 증가하면 사건의 오즈(odds)는 약 4배가 된다", "x가 1 증가하면 사건이 발생할 확률이 2배가 된다"]}, {"n": 80, "s": 3, "t": "의사결정나무", "q": "의사결정나무의 용어에 대한 설명으로 옳지 않은 것은?", "o": ["뿌리마디(root node): 나무가 시작되는 최상위 마디", "깊이(depth): 뿌리마디에서 끝마디에 이르기까지 거치는 분리 단계의 수", "가지치기(pruning): 나무를 더 깊게 성장시켜 훈련 데이터의 정확도를 높이는 과정", "끝마디(terminal node, leaf): 더 이상 분리되지 않는 마디"]}, {"n": 81, "s": 3, "t": "의사결정나무", "q": "의사결정나무에 대한 설명으로 옳지 않은 것은?", "o": ["자료가 조금만 바뀌어도 나무 구조가 크게 달라질 수 있어 불안정하다", "이상값(outlier)에 매우 민감하므로 분석 전 반드시 제거해야 한다", "비모수적 방법으로 정규성 등 분포 가정이 필요 없다", "규칙이 나무 구조로 표현되어 해석과 설명이 쉽다"]}, {"n": 82, "s": 3, "t": "지니 지수", "q": "어떤 마디에 범주 A가 8개, 범주 B가 2개 포함되어 있을 때 이 마디의 지니 지수는?", "o": ["0.68", "0.50", "0.16", "0.32"]}, {"n": 83, "s": 3, "t": "의사결정나무 알고리즘", "q": "의사결정나무 알고리즘과 분리 기준의 연결이 옳은 것은?", "o": ["CART – 지니 지수", "CHAID – 엔트로피 지수", "C4.5 – 카이제곱 통계량", "CART – 분류 문제에서 F-통계량 사용"]}, {"n": 84, "s": 3, "t": "앙상블", "q": "앙상블 기법에 대한 설명으로 옳지 않은 것은?", "o": ["부스팅은 이전 모형이 잘못 분류한 데이터에 가중치를 높여 순차적으로 학습한다", "배깅은 부트스트랩 표본으로 여러 모형을 만들고 다수결 투표(보팅)로 결합한다", "부스팅은 각 모형을 서로 독립적·병렬적으로 학습하므로 배깅보다 속도가 빠르다", "랜덤 포레스트는 배깅에 변수의 무작위 선택을 추가하여 모형 간 상관을 줄인다"]}, {"n": 85, "s": 3, "t": "인공신경망", "q": "단층 퍼셉트론으로는 해결할 수 없어 은닉층을 가진 다층 퍼셉트론이 필요한 대표적인 문제는?", "o": ["AND 문제", "OR 문제", "XOR 문제", "NOT 문제"]}, {"n": 86, "s": 3, "t": "인공신경망", "q": "인공신경망에 대한 설명으로 옳지 않은 것은?", "o": ["은닉 노드 수는 적을수록 항상 성능이 좋아지므로 최소로 설정한다", "출력층 활성화 함수로 이진 분류에는 시그모이드, 다중 분류에는 소프트맥스를 사용한다", "역전파 알고리즘은 출력층에서 입력층 방향으로 오차를 전파하며 가중치를 갱신한다", "학습률(learning rate)이 너무 크면 최적값을 지나쳐 발산할 수 있다"]}, {"n": 87, "s": 3, "t": "인공신경망(계산)", "q": "입력 노드 3개, 은닉 노드 4개, 출력 노드 1개인 신경망에서 편향(bias)을 포함한 학습 파라미터의 총 개수는?", "o": ["20", "21", "12", "16"]}, {"n": 88, "s": 3, "t": "SVM", "q": "다음 설명에 해당하는 분류 기법은?\n\"두 클래스를 구분하는 초평면 중 마진(margin)이 최대가 되는 것을 찾으며, 결정 경계에 가장 가까운 서포트 벡터를 이용하고, 커널 트릭으로 비선형 분류도 가능하다.\"", "o": ["나이브 베이즈", "k-최근접 이웃(KNN)", "랜덤 포레스트", "서포트 벡터 머신(SVM)"]}, {"n": 89, "s": 3, "t": "혼동행렬(계산)", "q": "어떤 분류 모형의 혼동행렬이 다음과 같을 때 민감도(재현율)는?\n```\n                예측 양성   예측 음성\n실제 양성 (50)      40          10\n실제 음성 (50)      20          30\n```", "o": ["0.70", "0.60", "0.80", "0.67"]}, {"n": 90, "s": 3, "t": "모형 평가 지표", "q": "분류 모형의 평가 지표에 대한 설명으로 옳지 않은 것은?", "o": ["재현율(Recall)은 민감도와 같은 공식으로 TP / (TP + FN)이다", "F1 점수는 정밀도와 재현율의 산술평균이다", "정밀도(Precision) = TP / (TP + FP)", "정확도(Accuracy) = (TP + TN) / 전체"]}, {"n": 91, "s": 3, "t": "ROC/AUC", "q": "ROC 곡선과 AUC에 대한 설명으로 옳지 않은 것은?", "o": ["ROC 곡선이 대각선(45도 선)에 가까울수록 좋은 모형이다", "x축은 1 − 특이도(FPR), y축은 민감도(TPR)이다", "AUC가 0.5이면 무작위 분류와 성능이 같다", "AUC가 1에 가까울수록 분류 성능이 좋다"]}, {"n": 92, "s": 3, "t": "군집 타당성", "q": "군집 타당성 평가 지표에 대한 설명으로 옳은 것은?", "o": ["Dunn 지수는 값이 작을수록 좋은 군집이다", "실루엣 계수는 0에 가까울수록 군집이 잘 분리된 것이다", "실루엣 계수의 범위는 0 이상 무한대이다", "실루엣 계수는 −1~1 범위이며 1에 가까울수록 군집화가 잘 된 것이다"]}, {"n": 93, "s": 3, "t": "거리 계산", "q": "두 점 A(0, 0)와 B(6, 8) 사이의 유클리드 거리와 맨하탄 거리를 순서대로 나열한 것은?", "o": ["10, 14", "10, 8", "100, 14", "14, 10"]}, {"n": 94, "s": 3, "t": "계층적 군집", "q": "계층적 군집분석에 대한 설명으로 옳지 않은 것은?", "o": ["와드(Ward) 연결법은 병합 시 오차제곱합의 증가분이 최소가 되는 군집을 묶는다", "한 번 병합된 개체는 이후 단계에서 다른 군집으로 재배치될 수 있다", "덴드로그램으로 병합 과정과 거리를 시각화하고 원하는 높이에서 절단하여 군집 수를 정한다", "군집의 개수를 사전에 지정하지 않아도 된다"]}, {"n": 95, "s": 3, "t": "k-평균 군집", "q": "k-평균 군집이 이상값에 민감하다는 단점을 보완하기 위해, 군집의 중심으로 평균 대신 실제 관측치(medoid)를 사용하는 방법은?", "o": ["최단연결법", "DBSCAN", "자기조직화지도(SOM)", "k-medoids(PAM)"]}, {"n": 96, "s": 3, "t": "SOM", "q": "자기조직화지도(SOM)에 대한 설명으로 옳지 않은 것은?", "o": ["입력 벡터와 가장 가까운 경쟁층 뉴런(BMU)과 그 이웃 뉴런의 연결 강도를 갱신한다", "입력 공간의 위상(topology)을 보존하여 가까운 패턴은 지도에서도 가깝게 배치된다", "역전파 알고리즘으로 오차를 줄여 나가므로 학습 속도가 느리다", "입력층과 경쟁층(출력층)의 2층 구조이며 은닉층이 없다"]}, {"n": 97, "s": 3, "t": "연관분석(계산)", "q": "전체 거래 100건 중 빵 구매 40건, 우유 구매 50건, 빵과 우유 동시 구매 20건일 때 규칙 {빵} → {우유}의 신뢰도는?", "o": ["0.2", "1.0", "0.4", "0.5"]}, {"n": 98, "s": 3, "t": "연관분석(계산)", "q": "전체 거래 200건 중 A 구매 50건, B 구매 80건, A와 B 동시 구매 40건일 때 규칙 {A} → {B}의 향상도(lift)와 그 해석으로 옳은 것은?", "o": ["향상도 2.0, A 구매가 B 구매를 증가시키는 양의 관계", "향상도 0.5, A 구매가 B 구매를 감소시키는 음의 관계", "향상도 1.0, 두 품목은 서로 독립", "향상도 0.8, 두 품목은 서로 독립"]}, {"n": 99, "s": 3, "t": "연관분석", "q": "연관분석에 대한 설명으로 옳지 않은 것은?", "o": ["거래량이 적은 희소 품목은 규칙 발견에서 제외되기 쉽다", "분석을 위해 반드시 목적변수(종속변수)를 지정해야 한다", "장바구니 분석이라고도 하며 목적변수가 없는 비지도 학습 기법이다", "품목 수가 증가하면 계산량이 기하급수적으로 증가한다"]}, {"n": 100, "s": 3, "t": "연관규칙 알고리즘", "q": "연관규칙 알고리즘에 대한 설명으로 옳지 않은 것은?", "o": ["Apriori는 최소 지지도 이상인 빈발 항목집합만 후보로 남기며 규칙을 생성한다", "순차패턴분석은 거래의 시간 순서를 고려하는 연관분석이다", "Apriori는 데이터베이스를 단 1회만 스캔하여 모든 규칙을 생성한다", "FP-Growth는 FP-트리를 구성하여 후보 집합 생성 없이 탐색하며 데이터베이스를 2회만 스캔한다"]}];
+const META = {"name": {"1": "1과목 데이터 이해", "2": "2과목 데이터 분석 기획", "3": "3과목 데이터 분석"}, "range": {"1": [1, 20], "2": [21, 40], "3": [41, 100]}, "points": 1, "total": 100, "passTotal": 60, "passRatio": 0.4, "timeLimitMin": 0, "storageKey": "adsp_exam_v1", "resultPrefix": "ADSP결과", "title": "ADsP 데이터분석 준전문가 예상문제"};
+const KEY_B64 = "eyIxIjogeyJhIjogMSwgImUiOiAi7KG07J6s7KCBIO2KueyEsT3snojripQg6re464yA66Gc7J2YIOqwneq0gOyggSDsgqzsi6Qo7JiIOiDrp6TsnqUg7Jio64+EIDIx64+EKSwg64u57JyE7KCBIO2KueyEsT3stpTroaDCt+yYiOy4ocK37KCE66edwrfstpTsoJXsnZgg6re86rGwLiDrjbDsnbTthLDripQg64uk66W4IOqwneyytOyZgOydmCDsg4HtmLjqtIDqs4Qg7IaN7JeQ7IScIOqwgOy5mOulvCDqsIDsp4Tri6QuIn0sICIyIjogeyJhIjogNCwgImUiOiAi67CY7KCV7ZiVIOuNsOydtO2EsOuKlCDrjbDsnbTthLAg7JWI7JeQIOyKpO2CpOuniCjrqZTtg4DrjbDsnbTthLAp66W8IO2PrO2VqO2VmOuKlCDtmJXtg5zroZwg7Ju566Gc6re4wrfshLzshJzCt1hNTMK3SlNPTuydtCDrjIDtkZzsoIHsnbTri6QuIFJEQiDthYzsnbTruJTsnYAg7KCV7ZiVLCDthY3siqTtirjCt+yYgeyDgcK37J2M7ISx7J2AIOu5hOygle2YlS4ifSwgIjMiOiB7ImEiOiAyLCAiZSI6ICLqs7XthrXtmZQ97JWU66y17KeA4oaS7JWU66y17KeALCDtkZzstpztmZQ97JWU66y17KeA4oaS7ZiV7Iud7KeALCDsl7DqsrDtmZQ97ZiV7Iud7KeA4oaS7ZiV7Iud7KeALCDrgrTrqbTtmZQ97ZiV7Iud7KeA4oaS7JWU66y17KeALiJ9LCAiNCI6IHsiYSI6IDMsICJlIjogIuuNsOydtO2EsD1B66eI7Yq4IOyXsO2VhCAxMDDsm5DCt0Lrp4jtirggMjAw7JuQLCDsoJXrs7Q9QeuniO2KuOqwgCDrjZQg7Iu464ukLCDsp4Dsi509QeuniO2KuOyXkOyEnCDsgqzslbzqsqDri6Qo7ZaJ64+ZIOqysOyglSksIOyngO2YnD1B66eI7Yq47J2YIOuLpOuluCDsg4Htkojrj4Qg7IyAIOqyg+ydtOuLpCjtmZXsnqUg7LaU66GgKS4ifSwgIjUiOiB7ImEiOiAxLCAiZSI6ICLthrXtlanrkJwg642w7J207YSw656AIOuPmeydvO2VnCDrgrTsmqnsnZgg642w7J207YSw6rCAIOykkeuzteydhCDstZzshoztmZTtlZjrj4TroZ0g7Ya17ZWp65CY7Ja0IOyeiOuLpOuKlCDrnLvsnbTrqbAsIOydmOuPhOyggeyduCDspJHrs7Ug7KCA7J6l7J2AIO2Gte2VqeyEseyXkCDsnITrsLDrkJzri6QuIOyEpOqzhCDsoIjssKg6IOyalOq1rOyCrO2VrSDrtoTshJ0g4oaSIOqwnOuFkOyggShFUkQpIOKGkiDrhbzrpqzsoIEo7KCV6rec7ZmUKSDihpIg66y866as7KCBKOyduOuNseyKpCkg7ISk6rOELiJ9LCAiNiI6IHsiYSI6IDQsICJlIjogIlRSVU5DQVRF64qUIO2FjOydtOu4lCDqtazsobDripQg64Ko6riw6rOgIOuNsOydtO2EsCDsoITssrTrpbwg7IKt7KCc7ZWY64qUIERETOydtOuLpC4gREVMRVRF64qUIERNTC4ifSwgIjciOiB7ImEiOiAxLCAiZSI6ICJNb25nb0RCPeusuOyEnO2YlSwgSEJhc2U97Lus65+87ZiVKO2VmOuRoSDquLDrsJgpLCBSZWRpcz3snbjrqZTrqqjrpqwg7YKkLeqwkiDsoIDsnqUuIn0sICI4IjogeyJhIjogNCwgImUiOiAi44S07J2AIOuwmOuMgChEVz3soITsgqzCt+uMgOq3nOuqqCwgRE0967aA7IScwrfso7zsoJzrs4Qg7IaM6rec66qoKSwg44S564+EIOuwmOuMgChPTFRQPeyLpOyLnOqwhCDqsbDrnpgg7LKY66asLCBPTEFQPeuLpOywqOybkCDrtoTshJ0pLiDjhYHsnYAg67mE7ZyY67Cc7ISxIO2KueynleydtOuLpC4ifSwgIjkiOiB7ImEiOiAxLCAiZSI6ICLrp6Xtgqjsp4A96rec66qoIOq0gOygkCjquLDsobQgREIg7IaM7ZSE7Yq47Juo7Ja07J2YIOyImOynkcK37KCA7J6lwrfqtIDrpqzCt+u2hOyEnSDsl63rn4nsnYQg64SY64qUIOuNsOydtO2EsCkuIOq1kOyerCDquLDspIDsnLzroZwgSURD64qUIOq4sOyIoCjslYTtgqTthY3sspgpIOq0gOygkCwg66eI7J207Ja0LeyHpOuyhOqxsMK37L+g7YKk7Ja064qUIOyDiOuhnOyatCDthrXssLDCt+qwgOy5mCDstpTstpzqs7wg7IKs7ZqMIOuzgO2ZlCDqtIDsoJDsnLzroZwg67O464ukLiDsoJXsnZgg67KU7JyE64qUIOq3nOuqqOKGkuq4sOyIoOKGkuyduOyerMK37KGw7KeBIOyInOycvOuhnCDtmZXrjIAuIn0sICIxMCI6IHsiYSI6IDQsICJlIjogIlZlcmFjaXR5wrdWYWx1ZeuKlCA0VsK3NVbroZwg7ZmV7J6l65CcIOyalOyGjOydtOyngCAzVuqwgCDslYTri4jri6QuIOu5heuNsOydtO2EsOuKlCDsgrDsl4Xqs4TCt+2VmeqzhMK36riw7IigIOuwnOyghOydtOudvOuKlCDrsLDqsr0g7IaN7JeQ7IScIOygkOynhOyggeycvOuhnCDstpztmITtlojri6Qo6rCR7J6Q6riwIOuTseyepSBYKS4g6rCA7LmYIOyCsOygleydtCDslrTroKTsmrQg7J207JygKO2ZnOyaqSDrsKnsi50g67OA7ZmUwrfsg4jroZzsmrQg6rCA7LmYIOywvey2nMK367aE7ISdIOq4sOyIoCDrsJzsoIQp64qUIOOFgeqzvCDqsJnri6QuIn0sICIxMSI6IHsiYSI6IDIsICJlIjogIu2UjOueq+2PvD3qs7Xrj5kg7Zmc7JqpIOuqqeyggeydmCDsnKDrrLTtmJUg6rWs7KGw66y8KO2OmOydtOyKpOu2gcK37Lm07Lm07Jik7YahKSwgMjHshLjquLDsnZgg7JuQ7JygPeqyveygnCDshLHsnqXsl5Ag7ZWE7JqU7ZWcIOygleuztCDsoJzqs7XCt+yLoOyCsOyXhSDssL3stpwsIOyEne2DhMK37LKgPeyDneyCsOyEseydhCDtmo3quLDsoIHsnLzroZwg64aS7JesIOyCrO2ajMK36rK97KCcIOyghOuwmOydmCDtmIHrqoXsoIEg67OA7ZmULiDikaHikaLikaPripQg67mE7Jyg7JmAIOydmOuvuOqwgCDshJzroZwg67CU64CM7Ja0IOyeiOuLpC4ifSwgIjEyIjogeyJhIjogMSwgImUiOiAi7KeI67O064ukIOyWkSjrjbDsnbTthLDqsIAg66eO7JWE7KeI7IiY66GdIOydvOu2gCDsmKTrpZjqsIAg7IOB7IeE65CoKeydtCDsmLPri6QuIn0sICIxMyI6IHsiYSI6IDQsICJlIjogIuqzoOqwneydmCDtj4nqsIDCt+uwmOydkeydgCDqsJDsoJXrtoTshJ0oU2VudGltZW50IEFuYWx5c2lzKS4g7Jyg7ZiV67aE7ISd7J2AICfsnbQg7IKs7Jqp7J6Q64qUIOyWtOuWpCDtirnshLHsnYQg6rCA7KeEIOynkeuLqOyXkCDsho3tlZjripTqsIA/J+yZgCDqsJnsnYAg67aE66WYIOyniOusuOyXkCDtlbTri7ntlZzri6QuIn0sICIxNCI6IHsiYSI6IDQsICJlIjogIuyCrOyDne2ZnCDsuajtlbTihpLrj5nsnZjsoJzsl5DshJwg7LGF7J6E7KCc66GcLCDssYXsnoQg7JuQ7LmZIO2bvOyGkOKGkuqysOqzvCDquLDrsJgg7LGF7J6EIOybkOy5mSDqs6DsiJgsIOuNsOydtO2EsCDsmKTsmqnihpLslYzqs6Drpqzsppgg7KCR6re8IO2XiOyaqSjslYzqs6Drpqzspojrr7jsiqTtirgpLiJ9LCAiMTUiOiB7ImEiOiAzLCAiZSI6ICLrp4jsnbTrjbDsnbTthLDripQg7KCV67O0IOyjvOyytOqwgCDsnpDsi6DsnZgg6rCc7J24KOyLoOyaqSnsoJXrs7Trpbwg7JuQ7ZWY64qUIOqzs+ycvOuhnCDsmK7quLDrj4TroZ0g7JqU6rWs7ZWgIOyImCDsnojripQgJ+yghOyGoeyalOq1rOq2jCfsl5Ag6riw67CY7ZWcIOygnOuPhOuhnCwg7KCV67O0IOyjvOyytOydmCDsnZjsgqzqsIAg7ZW17Ius7J2064ukLiDsmLXtirjsnbg97IKs7KCEIOuPmeydmCDtm4Qg7IiY7KeRLCDsmLXtirjslYTsm4M97IKs7ZuEIOqxsOu2gCDtl4jsmqkuIn0sICIxNiI6IHsiYSI6IDIsICJlIjogIu2VmOuTnCDsiqTtgqw967mF642w7J207YSwIOydtOuhoOyggSDsp4Dsi53Ct+u2hOyEnSDquLDsiKAg7IiZ66CoKMK37LWc7KCB7J2YIOu2hOyEnSDshKTqs4TsmYAg64W47ZWY7JqwIOy2leyggSksIOyGjO2UhO2KuCDsiqTtgqw97Ya17LCw66ClIOyeiOuKlCDrtoTshJ3Ct+yEpOuTneugpSDsnojripQg7KCE64uswrfri6TrtoTslbwg6rCEIO2YkeugpSgz6rCcKS4ifSwgIjE3IjogeyJhIjogMSwgImUiOiAi65SU7KeA7YS47ZmUKOyYiDogTVMg7Jq07JiB7LK07KCcKSDihpIg7Jew6rKwKOyYiDog6rWs6riAIOqygOyDiSkg4oaSIOyXkOydtOyghOyLnCjsmIg6IElvVCwg67O17J6h7ZWcIOyXsOqysOydmCDqtIDrpqwpIOyInOycvOuhnCDrs4DtmZQuIn0sICIxOCI6IHsiYSI6IDQsICJlIjogIuy0neqzhOyymOumrOuKlCDqsJzrs4Qg6rCS7J2EIO2VqeqzhMK37Y+J6regIOuTseycvOuhnCDrjIDssrTtlZjripQg6riw67KVKOyYiDog66y866as7ZWZ6rO8IO2VmeyDnSDtgqQg7ZWpIDM1MGNtKS4g7Iud67OEIOyGjeyEsSDsnpDssrTrpbwg7IKt7KCc7ZWY64qUIOqyg+ydgCAn642w7J207YSwIOyCreygnCcg6riw67KVLiAoMjAxNiDruYTsi53rs4Qg7KGw7LmYIOqwgOydtOuTnOudvOyduCDquLDspIApIn0sICIxOSI6IHsiYSI6IDIsICJlIjogIu2ajOydmOuhoOydmCDsm5DsnbggMuqwgOyngDog4pGgIOqzvOqxsOydmCDrtoDsoJXsoIEg7ZWZ7Iq1IO2aqOqzvChDUk0g7Yq465287Jqw66eIKSwg4pGhIOqzvOuMgCDtj6zsnqUuIn0sICIyMCI6IHsiYSI6IDEsICJlIjogIuyKpO2MjO2BrOqwgCDsnbjrqZTrqqjrpqwo67mg66aEKSwg66e166as65OA7Iqk6rCAIOuUlOyKpO2BrCDquLDrsJjsnbTri6QuIE5vU1FM7J2AIOycoOyXsO2VnCDsiqTtgqTrp4jroZwg7IiY7Y+JIO2ZleyepeyXkCDqsJXtlZjqs6AsIO2BtOudvOyasOuTnOuKlCDsnpDsm5DsnYQg7ZWE7JqU7ZWcIOunjO2BvCDruYzroKQg7JOw64qUIOuwqeyLneycvOuhnCDruYXrjbDsnbTthLAg7ZmV7IKw7J2YIOqyveygnOyggSDquLDrsJjsnbQg65CY7JeI64ukLiJ9LCAiMjEiOiB7ImEiOiAzLCAiZSI6ICLstZzsoIHtmZQ964yA7IOBT8K367Cp67KVTywg7IaU66Oo7IWYPeuMgOyDgU/Ct+uwqeuylVgsIO2GteywsD3rjIDsg4FYwrfrsKnrspVPLCDrsJzqsqw964yA7IOBWMK367Cp67KVWC4ifSwgIjIyIjogeyJhIjogMywgImUiOiAi6rO87KCcIOykkeyLrD1TcGVlZCZUZXN0wrdRdWljay1XaW7Ct1Byb2JsZW0gU29sdmluZywg66eI7Iqk7YSw7ZSM656cPUFjY3VyYWN5JkRlcGxvecK3TG9uZyBUZXJtIFZpZXfCt1Byb2JsZW0gRGVmaW5pdGlvbi4g7Iuk7KCc66Gc64qUIOuRkCDrsKnsi53snYQg7Jy17ZWp7ZWY7JesIOyggeyaqS4ifSwgIjIzIjogeyJhIjogMiwgImUiOiAi6rOg66Ck7IKs7ZWtIDPqsIDsp4A96rCA7JqpIOuNsOydtO2EsMK37KCB7KCI7ZWcIOycoOyKpOy8gOydtOyKpMK37J6l7JWgIOyalOyGjCDsgqzsoIQg6rOE7ZqNLiDthY3siqTtirjCt+ydtOuvuOyngMK37JiB7IOB7J2AIOygle2YleydtCDslYTri4jrnbwg67mE7KCV7ZiVIOuNsOydtO2EsOydtOuvgOuhnCBSRELsl5Ag6re464yA66GcIOyggeyerO2VoCDsiJgg7JeG64ukKOOFgSDsmKTri7UpLiJ9LCAiMjQiOiB7ImEiOiAxLCAiZSI6ICLrgpjshKDtmJUg66qo64247J2AIOuwmOuzteqzvCDsnITtl5gg6rSA66as66GcIOq0gOumrCDssrTqs4TqsIAg67O17J6h7ZWY66mwIOuMgOq3nOuqqMK36rOg7JyE7ZeYIO2UhOuhnOygne2KuOyXkCDsoIHtlantlZjri6QuIn0sICIyNSI6IHsiYSI6IDMsICJlIjogIktERCA164uo6rOEOiDshKDtg50g4oaSIOyghOyymOumrCjsnqHsnYzCt+ydtOyDgeqwksK36rKw7Lih6rCSIOyymOumrCkg4oaSIOuzgO2ZmCjrs4DsiJgg7IOd7ISxwrfssKjsm5Ag7LaV7IaMwrftlZnsirUv7Iuc7ZeYIOu2hOumrCkg4oaSIOuNsOydtO2EsCDrp4jsnbTri50g4oaSIO2VtOyEncK37Y+J6rCALiJ9LCAiMjYiOiB7ImEiOiA0LCAiZSI6ICLrqqjrjbjrp4Eg64uo6rOE7JeQ7IScIOuqqOuNuCDsnpHshLHqs7wg66qo6424IO2PieqwgCjqs7zsoIHtlakg7KCQ6rKAIOuTsSnrpbwg7IiY7ZaJ7ZWY6rOgLCDtj4nqsIAg64uo6rOE7JeQ7ISc64qUIOyXheustCDrqqnsoIEg67aA7ZWpIOyXrOu2gCjrqqjrjbgg7KCB7Jqp7ISxKeulvCDtj4nqsIDtlZzri6QuIn0sICIyNyI6IHsiYSI6IDMsICJlIjogIkNSSVNQLURN7J2AIOuLqOqzhCDihpIg7J2867CY7ZmUIO2DnOyKpO2BrCDihpIg7IS467aE7ZmUIO2DnOyKpO2BrCDihpIg7ZSE66Gc7IS47IqkIOyLpO2WieydmCA066CI67KoIOq1rOyhsOydtOuLpC4g67mF642w7J207YSwIOu2hOyEnSDrsKnrspXroaDsnZggM+qzhOy4tSjri6jqs4Qt7YOc7Iqk7YGsLeyKpO2FnSnqs7wg6rWs67aE7ZW07JW8IO2VnOuLpC4ifSwgIjI4IjogeyJhIjogMywgImUiOiAi66qo6424IOuwnOyghCDqs4Ttmo0g7IiY66a97J2AICftj4nqsIAg67CPIOyghOqwnCcg64uo6rOE7J2YIO2DnOyKpO2BrOydtOuLpC4g7Iuc7Iqk7YWcIOq1rO2YhCDri6jqs4TripQg7ISk6rOEIOuwjyDqtaztmIQsIOyLnOyKpO2FnCDthYzsiqTtirgg67CPIOyatOyYgS4ifSwgIjI5IjogeyJhIjogNCwgImUiOiAi7ZWY7Zal7IudPVdoeSDqtIDsoJAo66y47KCc6rCAIOyjvOyWtOyngOqzoCDtlbTrspXsnYQg7LC+7J2MKSwg7IOB7Zal7IudPVdoYXQg6rSA7KCQKOuNsOydtO2EsOyXkOyEnCDsnbjsgqzsnbTtirgg64+E7LacLCDruYTsp4Drj4TtlZnsirXCt+yLnO2WieywqeyYpMK37ZSE66Gc7Yag7YOA7J207ZWRKS4g65SU7J6Q7J24IOyCrOqzoOyXkOyEnOuKlCDsg4HtlqXsi53snZgg67Cc7IKw6rO8IO2VmO2WpeyLneydmCDsiJjroLTsnYQg67CY67O17ZWY66mwIOygkeq3vO2VnOuLpC4ifSwgIjMwIjogeyJhIjogMywgImUiOiAi6rGw7Iuc7KCBPeyCrO2ajMK36riw7Iigwrfqsr3soJzCt+2ZmOqyvcK37KCV7LmYKFNURUVQKSwg6rK97J+B7J6QIO2ZleuMgD3rjIDssrTsnqzCt+qyveyfgeyekMK37Iug6recIOynhOyeheyekCwg7Iuc7J6l7J2YIOuLiOymiD3qs6DqsJ3Ct+yxhOuEkMK37JiB7Zal7J6QLCDsl63rn4nsnZgg7J6s7ZW07ISdPeuCtOu2gCDsl63rn4nCt+2MjO2KuOuEiCDrhKTtirjsm4ztgawuIn0sICIzMSI6IHsiYSI6IDEsICJlIjogIuu2hOyEnSDqs7zsoJwg67Cc6rW07JeQ7ISc64qUIOu5hOymiOuLiOyKpCDrqqjrjbgg7LqU67KE7Iqk66W8IOyXheustMK37KCc7ZKIwrfqs6DqsJ3snZgg7ZW17IusIDPsmIHsl63qs7wg6rec7KCc7JmAIOqwkOyCrMK37KeA7JuQIOyduO2UhOudvOydmCAy7JiB7JetLCDstJ0gNeyYgeyXreycvOuhnCDri6jsiJztmZTtlZjsl6wg7Zmc7Jqp7ZWc64ukLiA567iU66GdIOyghOyytCDtmZzsmqnsnYAg7Jik64u1LiJ9LCAiMzIiOiB7ImEiOiAyLCAiZSI6ICLsoJXtmZXrj4Q966qo64246rO8IOyLpOygnCDqsJLsnZgg7LCo7J206rCAIOyggeydgCDsoJXrj4Qo7Zmc7JqpIOy4oeuptCksIOygleuwgOuPhD3rsJjrs7Ug7IiY7ZaJIOyLnCDqsrDqs7zsnZgg7J286rSA7ISxKOyViOygleyEsSDsuKHrqbQpLiDrtoTshJ0g7KO86riw64qUIOyLpOyLnOqwhCDsmpTqtazsmYAg7J28wrfso7zCt+yblCDri6jsnIQg67Cw7LmY66GcIOq1rOu2hO2VnOuLpC4ifSwgIjMzIjogeyJhIjogMywgImUiOiAi7Jqw7ISg7Iic7JyEIOqzoOugpCDsmpTshow97KCE65617KCBIOykkeyalOuPhMK367mE7KaI64uI7IqkIOyEseqzvChST0kpwrfsi6Ttlokg7Jqp7J207ISxLCDsoIHsmqkg67KU7JyEL+uwqeyLnSDqs6DroKQg7JqU7IaMPeyXheustCDrgrTsnqztmZTCt+u2hOyEnSDrjbDsnbTthLDCt+q4sOyIoCDsoIHsmqkg7IiY7KSALiJ9LCAiMzQiOiB7ImEiOiAyLCAiZSI6ICLsi5zquInshLE967mE7KaI64uI7IqkIO2aqOqzvChWYWx1ZSwg7KCE65617KCBIOykkeyalOuPhCksIOuCnOydtOuPhD3tiKzsnpAg67mE7JqpKDNWOiDrjbDsnbTthLAg7ZqN65OdwrfsoIDsnqXCt+qwgOqztSDruYTsmqnqs7wg67aE7ISdIOyImOykgCkuIn0sICIzNSI6IHsiYSI6IDQsICJlIjogIuyLnOq4ieyEsSDquLDspIDsnYAg7Iuc6riJ7ZWcKO2YhOyerCkg6rO87KCc66W8IOuovOyggCDstpTsp4TtlZjrr4DroZwg7ZiE7J6swrfsiazsm4Ag4oaSIO2YhOyerMK37Ja066Ck7JuAIOKGkiDrr7jrnpjCt+yWtOugpOybgCDsiJzsnbTri6QuIOuCnOydtOuPhCDquLDspIDsnYAg7Ims7Jq0IOqzvOygnOulvCDrqLzsoIAg7LaU7KeE7ZWY66+A66GcIO2YhOyerMK37Ims7JuAIOKGkiDrr7jrnpjCt+yJrOybgCDihpIg66+4656YwrfslrTroKTsm4Ao67O06riwIDIp7J2064ukLiDrkZAg6riw7KSA7J2EIOuwlOq/lCDrgrTripQg7ZWo7KCV7J20IOu5iOy2nOydtOuLpC4g7ZiE7J6swrfsiazsm4Ag7JiB7Jet7J20IOy1nOyasOyEoCDstpTsp4Qg7JiB7Jet7J206rOgLCDtmITsnqzCt+yWtOugpOybgCDqs7zsoJzripQg67KU7JyEwrfrjbDsnbTthLAg7LaV7IaM66GcIOuCnOydtOuPhOulvCDrgq7stpTrqbQg7JWe64u56rKoIOy2lOynhO2VoCDsiJgg7J6I64ukLiAo7IKs67aE66m0IOuyiO2YuCDihaB+4oWj64qUIOyekOujjOuniOuLpCDri6TrpbTqsowg67aZ7J2066+A66GcIOyYgeyXreydmCDsho3shLHsnLzroZwg6riw7Ja17ZWc64ukLikifSwgIjM2IjogeyJhIjogMSwgImUiOiAi67aE7ISdIOqxsOuyhOuEjOyKpCA17JqU7IaMOiDsobDsp4EsIOqzvOygnCDquLDtmo0g67CPIOyatOyYgSDtlITroZzshLjsiqQsIOyLnOyKpO2FnCwg642w7J207YSwLCDrtoTshJ0g6rWQ7JyhIOuwjyDrp4jsnbjrk5wg7Jyh7ISxIOyytOqzhC4gJ+yYiOyCsCfsnYAg7Y+s7ZWo65CY7KeAIOyViuuKlOuLpC4ifSwgIjM3IjogeyJhIjogMiwgImUiOiAi64+E7J6FPU9MQVDCt+yLpOyggSDrtoTshJ3Ct+ydvOu2gCDrtoDshJwsIO2ZnOyaqT3sl4XrrLQg7KCB7JqpwrfsmIjsuKEg7Iuc666s66CI7J207IWYwrfsoITrrLgg64u064u5IOu2gOyEnCwg7ZmV7IKwPeyghOyCrCDqtIDrpqzCt0NvRSwg7LWc7KCB7ZmUPeuNsOydtO2EsCDsgqzsnbTslrjsiqQg6re466O5wrftmIHsi6AuIn0sICIzOCI6IHsiYSI6IDIsICJlIjogIuykgOu5hO2YlT3spIDruYTrj4TihpPCt+yEseyImeuPhOKGkywg7KCV7LCp7ZiVPeykgOu5hOuPhOKGk8K37ISx7IiZ64+E4oaRKDHssKgg7KCV7LCpIO2VhOyalCksIOuPhOyehe2YlT3spIDruYTrj4TihpHCt+yEseyImeuPhOKGkyjrsJTroZwg64+E7J6FIOqwgOuKpSksIO2ZleyCsO2YlT3spIDruYTrj4TihpHCt+yEseyImeuPhOKGkS4ifSwgIjM5IjogeyJhIjogMiwgImUiOiAi7KeR7KSR7ZiVPeyghOuLtCDsobDsp4HsnbQg7KCE7IKsIOu2hOyEnSDsiJjtloko7J207KSR7ZmUwrfsnbTsm5DtmZQg6rCA64ql7ISxKSwg6riw64ql7ZiVPe2YhOyXhSDrtoDshJzqsIAg7KeB7KCRIOyImO2WiSjqs7zqsbAg7Iuk7KCBIOq1re2VnCksIOu2hOyCsO2YlT3rtoTshJ0g7J2466Cl7J2EIO2YhOyXhSDrtoDshJzsl5Ag67Cw7LmYKOyXheustCDqs7zri6TCt+ydtOybkO2ZlCkuIn0sICI0MCI6IHsiYSI6IDMsICJlIjogIlNFTU1BOiDsg5jtlIzrp4Eg4oaSIO2DkOyDiSDihpIg7IiY7KCVKOuzgO2ZmCkg4oaSIOuqqOuNuOungSDihpIg7Y+J6rCALiDsiJjsoJUoTW9kaWZ5KeydtCDrqqjrjbjrp4Hrs7Tri6Qg66i87KCAIOyYqOuLpC4ifSwgIjQxIjogeyJhIjogMSwgImUiOiAiMS8w7J2AIEluZijrrLTtlZzrjIApLCAtMS8w7J2AIC1JbmYsIDAvMOydgCBOYU7snbTri6QuIn0sICI0MiI6IHsiYSI6IDQsICJlIjogIiUl64qUIOuCmOuouOyngCDsl7DsgrAoNyAlJSAzID0gMSksICUvJeuKlCDrqqsg7Jew7IKwKDcgJS8lIDMgPSAyKS4ifSwgIjQzIjogeyJhIjogMywgImUiOiAiZWFjaOuKlCDqsIEg7JqU7IaM66W8IOyngOyglSDtmp/siJjrp4ztgbwg67CY67O1KDEgMSAyIDIpLCB0aW1lc+uKlCDrsqHthLAg7KCE7LK066W8IOuwmOuztShyZXAoYygxLDIpLCB0aW1lcz0yKSDihpIgMSAyIDEgMikuIn0sICI0NCI6IHsiYSI6IDEsICJlIjogIm1hdHJpeCgp64qUIOq4sOuzuOyggeycvOuhnCDsl7Qg7Jqw7ISgKGJ5cm93PUZBTFNFKeycvOuhnCDssYTsmrDrr4DroZwgMe2WiTogMSAzIDUsIDLtlok6IDIgNCA2LiBNQVJHSU49MuuKlCDsl7Qg64uo7JyEIOyggeyaqeydtOuvgOuhnCDsl7TtlakgMywgNywgMTEuICjtlontlansnYAgOSwgMTIpIn0sICI0NSI6IHsiYSI6IDQsICJlIjogIu2WieugrOydgCDri6jsnbwg7J6Q66OM7ZiV66eMIOqwgOuKpe2VmOuLpC4g7Je066eI64ukIOyekOujjO2YleydtCDri6Trpbwg7IiYIOyeiOuKlCDqsoPsnYAg642w7J207YSw7ZSE66CI7J6ELiJ9LCAiNDYiOiB7ImEiOiAyLCAiZSI6ICLstJ0g6rWs66ek6riI7JWh7LKY65+8IOuLqOyInCDsp5Hqs4TtlZwg6rKD7J2AIOyalOyVveuzgOyImCwg7KGw6rG07J2EIOyggeyaqe2VtCDsnZjrr7jrpbwg67aA7Jes7ZWcIFZJUCDsl6zrtoDripQg7YyM7IOd67OA7IiY7J2064ukLiJ9LCAiNDciOiB7ImEiOiA0LCAiZSI6ICJtZWx0KCk9d2lkZeKGkmxvbmco64W57J206riwKSwgY2FzdCgpPWxvbmfihpJ3aWRlKOyerOq1rOyEsSkuIOuzke2VqeydgCBtZXJnZSgpLCDqt7jro7kg7JqU7JW97J2AIGFnZ3JlZ2F0ZSgpLiJ9LCAiNDgiOiB7ImEiOiAzLCAiZSI6ICJyZXNoYXBl64qUIG1lbHQvY2FzdOuhnCDrjbDsnbTthLAg6rWs7KGw66W8IOuzgO2ZmO2VmOuKlCDtjKjtgqTsp4AuIOuLpOykkSDrjIDsuZjripQgQW1lbGlhLCBtaWNlIO2MqO2CpOyngC4ifSwgIjQ5IjogeyJhIjogMSwgImUiOiAi64uk7KSR64yA7LmY67KV7J2YIOyInOyEnOuKlCDrjIDsuZgoaW1wdXRhdGlvbikg4oaSIOu2hOyEnShhbmFseXNpcykg4oaSIOqysO2VqShjb21iaW5hdGlvbinsnbTri6QuIO2Pieq3oOuMgOy5mOuyleydgCDruYTsobDqsbTrtoAo7KCE7LK0IO2Pieq3oCnsmYAg7KGw6rG067aAKO2ajOq3gOyLnSDstpTsoJXqsJIp66GcIOuCmOuJnOuLpC4ifSwgIjUwIjogeyJhIjogMiwgImUiOiAiSVFSPTUw4oiSMzA9MjAuIO2VmO2VnD0zMOKIkjEuNcOXMjA9MCwg7IOB7ZWcPTUwKzEuNcOXMjA9ODAuIDg164qUIOyDge2VnOydhCDstIjqs7ztlZjrr4DroZwg7J207IOB6rCSLiJ9LCAiNTEiOiB7ImEiOiAyLCAiZSI6ICLsp5Hrnb0o6rWw7KeRKey2lOy2nOydgCDsp5Hrnb0g64K0IOydtOyniMK37KeR6529IOqwhCDrj5nsp4jsnbQg65CY64+E66GdIOuCmOuIhOqzoCDsnbzrtoAg7KeR65297J2EIOuenOuNpCDshKDtg53tlZzri6QuIOy4te2ZlOy2lOy2nOydtCDsuLUg64K0IOuPmeyniMK37Li1IOqwhCDsnbTsp4guIn0sICI1MiI6IHsiYSI6IDEsICJlIjogIuyYqOuPhCAw4oSD64qUICfsl4bsnYwn7J2EIOucu+2VmOyngCDslYrsnLzrr4DroZwg6rWs6rCEKOuTseqwhCnsspnrj4TsnbTri6QuIOu5hOycqOyymeuPhOuKlCDrrLTqsozCt+q4uOydtMK37IaM65Od7LKY65+8IOygiOuMgCAw7KCQ7J20IOyeiOyWtCDruYTsnKgg67mE6rWQ6rCAIOqwgOuKpS4ifSwgIjUzIjogeyJhIjogNCwgImUiOiAiUChBfOu2iOufiSk9MC42w5cwLjAyIC8gKDAuNsOXMC4wMiswLjTDlzAuMDUpPTAuMDEyLzAuMDMyPTAuMzc1LiJ9LCAiNTQiOiB7ImEiOiAzLCAiZSI6ICJWKGFYK2IpPWHCslYoWCk9M8Kyw5c0PTM2LiDsg4HsiJjtla0gYuuKlCDrtoTsgrDsl5Ag7JiB7Zal7J2EIOyjvOyngCDslYrripTri6QuIn0sICI1NSI6IHsiYSI6IDIsICJlIjogIuykkeyLrOq3ue2VnOygleumrDog66qo7KeR64uoIOu2hO2PrOyZgCDqtIDqs4Tsl4bsnbQgbuydtCDstqnrtoTtnogg7YGs66m0IO2RnOuzuO2Pieq3oOydgCBOKM68LCDPg8KyL24p7JeQIOq3vOyCrO2VnOuLpC4g7ZGc7KSA7Jik7LCoPc+DL+KImm49MTIv4oiaMzY9Mi4ifSwgIjU2IjogeyJhIjogNCwgImUiOiAieMyEIMKxIDEuOTbDl8+DL+KImm4gPSAxMDAgwrEgMS45NsOXMjAvMTAgPSAxMDAgwrEgMy45MiDihpIgKDk2LjA4LCAxMDMuOTIpLiJ9LCAiNTciOiB7ImEiOiAxLCAiZSI6ICJwLeqwkuydgCBIMOqwgCDssLjsnbTrnbzripQg6rCA7KCVIO2VmOydmCDtmZXrpaDsnbTsp4AgSDDqsIAg7LC47J28IO2ZleuloOydtCDslYTri4jri6QuIHAt6rCSIDwg7Jyg7J2Y7IiY7KSAKM6xKeydtOuptCBIMCDquLDqsIEuIn0sICI1OCI6IHsiYSI6IDMsICJlIjogIs6x7JmAIM6y64qUIOyDgey2qSDqtIDqs4Q6IO2RnOuzuCDtgazquLDqsIAg6rOg7KCV65CcIOyDge2DnOyXkOyEnCDOseulvCDspITsnbTrqbQgzrLripQg7Luk7KeE64ukLiJ9LCAiNTkiOiB7ImEiOiAzLCAiZSI6ICLshJzroZwg64uk66W4IOuPheumveuQnCDrkZAg7KeR64uo7J2YIO2Pieq3oCDruYTqtZDripQg64+F66a9IOydtO2RnOuzuCB0LeqygOygleydtOupsCwg6re4IOyghOyXkCBG6rKA7KCVKHZhci50ZXN0KeycvOuhnCDrk7HrtoTsgrAg7Jes67aA66W8IO2ZleyduO2VnOuLpC4g64yA7J2R7ZGc67O4IHQt6rKA7KCV7J2AIOqwmeydgCDrjIDsg4HsnZgg7KCEwrftm4Qg7Lih7KCV7LKY65+8IOynneydhCDsnbTro6wg7J6Q66OM7JeQIOyCrOyaqe2VnOuLpC4gKOywuOqzoDogUuydmCB0LnRlc3Qg6riw67O46rCS7J2AIFdlbGNoIOqygOygleydtOupsCwg7KeR64uo7J20IDLqsJzsnbwg65WMIOydvOybkOuwsOy5mCDrtoTsgrDrtoTshJ3snYAgdC3qsoDsoJXqs7wg64+Z7LmY7J2066+A66GcIOyCrO2bhOqygOygleydgCDrtojtlYTsmpTtlZjri6QuKSJ9LCAiNjAiOiB7ImEiOiAyLCAiZSI6ICLsubTsnbTsoJzqs7Eg6rKA7KCVIDPsooU6IOygge2VqeuPhMK364+F66a97ISxwrfrj5nsp4jshLEoUjogY2hpc3EudGVzdCnsnbTrqbAg67KU7KO87ZiVIOuzgOyImOydmCDruYjrj4Qo6rWQ7LCo7ZGcKeulvCDri6Tro6zri6QuIOyXsOyGje2YlSDrs4DsiJjsnZgg7IOB6rSA7J2AIO2UvOyWtOyKqCDsg4HqtIDrtoTshJ0oY29yLnRlc3Qp7Jy866GcIOqygOygle2VnOuLpC4ifSwgIjYxIjogeyJhIjogNCwgImUiOiAiSDA6IOuqqOuToCDsp5Hri6jsnZgg7Y+J6reg7J20IOqwmeuLpCwgSDE6IOyggeyWtOuPhCDtlZjrgpjsnZgg7KeR64uoIO2Pieq3oOydgCDri6TrpbTri6QoJ+uqqOuRkCDri6TrpbTri6Qn6rCAIOyVhOuLmCkuIn0sICI2MiI6IHsiYSI6IDEsICJlIjogIuyDgeq0gOqzhOyImCAw7J2AICfshKDtmJUnIOq0gOqzhOqwgCDsl4bri6TripQg65y77J2066mwIOu5hOyEoO2YlSDqtIDqs4TqsIAg7KG07J6s7ZWgIOyImCDsnojri6QuIOuPheumveydtOuptCDsg4HqtIAgMOydtOyngOunjCDqt7gg7Jet7J2AIOyEseumve2VmOyngCDslYrripTri6QuIn0sICI2MyI6IHsiYSI6IDQsICJlIjogIuygleq3nOyEsSDqsIDsoJXsnYAgJ+yYpOywqO2VrSfsnbQg7KCV6rec67aE7Y+s66W8IOuUsOuluOuLpOuKlCDqsoPsnbTri6QoUS1RIHBsb3QsIOyDpO2UvOuhnC3snIztgawg6rKA7KCV7Jy866GcIO2ZleyduCkuIOyEpOuqheuzgOyImOydmCDrtoTtj6zsl5Ag64yA7ZWcIOqwgOygleydgCDsl4bri6QuIn0sICI2NCI6IHsiYSI6IDEsICJlIjogInjsnZggcC3qsJLsnYAgMC4wMDAzM+ycvOuhnCAwLjA167O064ukIO2bqOyUrCDsnpHslYQgeOuKlCDsnKDsnZjtlZwg67OA7IiY7J2064ukLiDqs4TsiJgg7Jyg7J2Y7ISxPXTCt3DqsJIsIOuqqO2YlSDsnKDsnZjshLE9Riwg7ISk66qF66ClPVLCsi4ifSwgIjY1IjogeyJhIjogMywgImUiOiAi67KU7KO8IGvqsJzsnbgg67OA7IiY64qUIGviiJIx6rCc7J2YIOuNlOuvuOuzgOyImOuhnCDrs4DtmZjtlZzri6Qo6riw7KSAIOuylOyjvCAx6rCcIOygnOyZuCkuIn0sICI2NiI6IHsiYSI6IDIsICJlIjogIuumv+yngD1MMiDqt5zsoJwo6rOE7IiYIOy2leyGjCwgMOydgCDslYgg65CoKSwg65287I+YPUwxIOq3nOygnCjqs4TsiJjrpbwgMOycvOuhnCDrp4zrk6TslrQg67OA7IiYIOyEoO2DnSkuIn0sICI2NyI6IHsiYSI6IDMsICJlIjogIs6y4oKBPUNvdihYLFkpL1YoWCk9OC80PTIsIM6y4oKAPciz4oiSzrLigoF4zIQ9MTLiiJIyw5c1PTIsIMW3PTIrMsOXNz0xNi4g7ZqM6reA7KeB7ISg7J2AIO2Pieq3oOygkCAoeMyELCDIsynrpbwg7KeA64Kc64ukLiJ9LCAiNjgiOiB7ImEiOiAxLCAiZSI6ICLstpTshLgo7Y+J6regIOu5hOygleyDgSnripQg7LCo67aE7Jy866GcLCDrtoTsgrAg67mE7KCV7IOB7J2AIOuhnOq3uCDrk7Eg67OA7ZmY7Jy866GcIOygleyDge2ZlO2VnOuLpC4ifSwgIjY5IjogeyJhIjogNCwgImUiOiAiQVIocCk6IFBBQ0bqsIAgcCDsnbTtm4Qg7KCI64uoLCBBQ0bripQg7KeA7IiYIOqwkOyGjC4gTUEocSk6IEFDRuqwgCBxIOydtO2bhCDsoIjri6gsIFBBQ0bripQg7KeA7IiYIOqwkOyGjC4g65Sw65287IScIE1BKDIpLiJ9LCAiNzAiOiB7ImEiOiAyLCAiZSI6ICLsp4DsiJjtj4ntmZzrspXsnYAg7LWc6re8IOyekOujjOydvOyImOuhnSDtgbAg6rCA7KSR7LmY66W8IOu2gOyXrO2VmOupsCDqsIDspJHsuZjripQg6rO86rGw66GcIOqwiOyImOuhnSDsp4DsiJjsoIHsnLzroZwg6rCQ7IaM7ZWc64ukKM6x6rCAIO2BtOyImOuhnSDstZzqt7wg67CY7JiB4oaRKS4ifSwgIjcxIjogeyJhIjogMiwgImUiOiAiUEMxK1BDMuydmCDriITsoIEg6riw7Jes7Jyo7J20IDAuODUoODUlKeydtOuvgOuhnCAy6rCcLiDso7zshLHrtoQg7IiYIOqysOyglSDquLDspIA6IOuIhOyggSDquLDsl6zsnKggNzB+OTAlLCDqs6DsnKDqsJIgMSDsnbTsg4EsIOyKpO2BrOumrCDtlIzroa/snZgg7JeY67O0IOyngOygkC4ifSwgIjcyIjogeyJhIjogMiwgImUiOiAi7Jmc64+EPjAo7Jik66W47Kq9IOq8rOumrCnsnbTrqbQg7Y+J6regPuykkeyVmeqwkj7stZzruYjqsJIsIOyZnOuPhDww7J2066m0IOuwmOuMgC4g7Y+J6reg7J2AIOydtOyDgeqwkijtgbAg6rCSKeyXkCDrgYzroKTqsIDrr4DroZwg6rCA7J6lIO2BrOuLpC4ifSwgIjczIjogeyJhIjogMSwgImUiOiAi7Jyg7IKs7ZWcIOqwnOyytOulvCDqt7jro7nsnLzroZwg66y264qUIOqyg+ydgCDqtbDsp5EoQ2x1c3RlcmluZynsnbTri6QuIOq4sOyIoChEZXNjcmlwdGlvbinsnYAg642w7J207YSw7J2YIO2KueynlcK37J2Y66+466W8IO2RnO2YhO2VmOuKlCDquLDriqUuIOu2hOulmD3rspTso7ztmJUsIOy2lOyglT3sl7Dsho3tmJUsIOyYiOy4oT3rr7jrnpgg7Iuc7KCQLiJ9LCAiNzQiOiB7ImEiOiA0LCAiZSI6ICLrqqnCt+ykgMK36rCAwrfquLDCt+qygC4g66qp7KCB67OA7IiYIOygleydmOuKlCAz64uo6rOEKOuNsOydtO2EsCDqsIDqs7Up7JeQ7IScIOyImO2Wie2VnOuLpC4ifSwgIjc1IjogeyJhIjogMywgImUiOiAi7KeA64+E7ZWZ7Iq1PeydmOyCrOqysOygleuCmOustMK366Gc7KeA7Iqk7YuxIO2ajOq3gMK37Iug6rK966edKOu2hOulmCnCt+2ajOq3gCwg67mE7KeA64+E7ZWZ7Iq1Peq1sOynkcK37Jew6rSA67aE7ISdwrdTT00o7Iug6rK966ed7J207KeA66eMIOu5hOyngOuPhCkuIn0sICI3NiI6IHsiYSI6IDMsICJlIjogIuyLnO2XmOyaqSDrjbDsnbTthLDripQg7ZWZ7Iq17J2064KYIOunpOqwnOuzgOyImCDsobDsoJXsl5Ag7JOw7KeAIOyViuqzoCDstZzsooUg7ISx64qlIO2PieqwgOyXkOunjCDsgqzsmqntlbTslbwg7ZWc64ukKOOFgSDsmKTri7UpLiDrp6TqsJzrs4DsiJgg7KGw7KCV7J2AIOqygOymneyaqSDrjbDsnbTthLDsnZgg7Jet7ZWgLiJ9LCAiNzciOiB7ImEiOiAyLCAiZSI6ICLrtoDtirjsiqTtirjrnqnsnYAg67O17JuQ7LaU7Lac7J2066+A66GcIOqwmeydgCDqtIDsuKHsuZjqsIAg7Jes65+sIOuyiCDrvZHtnpAg7IiYIOyeiOuLpC4g7ZWcIOq0gOy4oey5mOqwgCDtj6ztlajrkKAg7ZmV66WgIOyVvSA2My4yJSwg7KCc7Jm465CgIO2ZleuloCDslb0gMzYuOCUuIn0sICI3OCI6IHsiYSI6IDEsICJlIjogIuuhnOyngOyKpO2LsSDtmozqt4DsnZgg6rOE7IiY64qUIOy1nOuMgOyasOuPhOy2lOygleuylShNTEUp7Jy866GcIOy2lOygle2VnOuLpC4g7LWc7IaM7KCc6rOx67KV7J2AIOyEoO2YlSDtmozqt4AuIn0sICI3OSI6IHsiYSI6IDQsICJlIjogImV4cCjOsinripQgeOqwgCAxIOymneqwgO2VoCDrlYwgJ+yYpOymiCfqsIAg66qHIOuwsOqwgCDrkJjripTsp4Drpbwg64KY7YOA64K066mwIO2ZleuloOydtCAy67Cw6rCAIOuQmOuKlCDqsoPsnbQg7JWE64uI64ukKO2ZleuloOydgCAwfjEg7IKs7J2066GcIOygnO2VnCkuIHjqsIAgMiDspp3qsIDtlZjrqbQg7Jik7KaI64qUIGV4cCgyw5cwLjY5MyniiYg067CwLiJ9LCAiODAiOiB7ImEiOiAzLCAiZSI6ICLqsIDsp4DsuZjquLDripQg6rO87KCB7ZWp7J2EIOunieq4sCDsnITtlbQg67aI7ZWE7JqU7ZWcIOqwgOyngOulvCDsoJzqsbDtlZjsl6wg64KY66y066W8IOuLqOyInO2ZlO2VmOuKlCDqs7zsoJXsnbTri6QuIOygiOywqDog7ISx7J6lIOKGkiDqsIDsp4DsuZjquLAg4oaSIO2DgOuLueyEsSDtj4nqsIAg4oaSIO2VtOyEncK37JiI7LihLiJ9LCAiODEiOiB7ImEiOiAyLCAiZSI6ICLsnZjsgqzqsrDsoJXrgpjrrLTripQg7J207IOB6rCS7JeQIO2BrOqyjCDsmIHtlqXrsJvsp4Ag7JWK64qUIO2OuOydtOyWtOyEnCjsnqXsoJApIOydtOyDgeqwkuydhCDrsJjrk5zsi5wg7KCc6rGw7ZW07JW8IO2VmOuKlCDqsoPsnYAg7JWE64uI64ukLiDri6jsoJDsnYAg67aE66WYIOqyveqzhCDrtoDqt7zsnZgg7JiI7LihIOyYpOulmCwg67aI7JWI7KCV7ISxLCDqsJzrs4Qg67OA7IiYIOyYge2WpeugpSDtjIzslYXsnZgg7Ja066Ck7JuALiJ9LCAiODIiOiB7ImEiOiA0LCAiZSI6ICLsp4Dri4gg7KeA7IiYPTHiiJLOo3DCsj0x4oiSKDAuOMKyKzAuMsKyKT0x4oiSMC42OD0wLjMyLiDsp4Dri4jCt+yXlO2KuOuhnO2UvOuKlCDrgq7snYTsiJjroZ0g7Iic7IiY7ZWcIOuniOuUlC4ifSwgIjgzIjogeyJhIjogMSwgImUiOiAiQ0FSVD3sp4Dri4gg7KeA7IiYKOu2hOulmCnCt+u2hOyCsCDqsJDshozrn4ko7ZqM6reAKSwgQzQuNS9DNS4wPeyXlO2KuOuhnO2UvCDquLDrsJgo7KCV67O07J2065Od67mEKSwgQ0hBSUQ97Lm07J207KCc6rOxIO2GteqzhOufiSjrtoTrpZgpwrdGLe2GteqzhOufiSjsl7Dsho3tmJUg66qp7ZGcKS4gQ0FSVOuKlCDrtoTrpZjsl5DshJwgRi3thrXqs4Trn4nsnYQg7JOw7KeAIOyViuuKlOuLpC4ifSwgIjg0IjogeyJhIjogMywgImUiOiAi67Cw6rmFPeuzkeugrCDtlZnsirXCt+u2hOyCsCDqsJDshowsIOu2gOyKpO2MhT3siJzssKgg7ZWZ7Iq1wrfqsIDspJHsuZgg67aA7JeswrftjrjtlqUg6rCQ7IaMKEFkYUJvb3N0LCBHQk0pLiDrtoDsiqTtjIXsnYAg7Iic7LCoIO2VmeyKteydtOudvCDrs5HroKwg7ZWZ7Iq17J24IOuwsOq5heuztOuLpCDruaDrpbTsp4Ag7JWK64ukLiJ9LCAiODUiOiB7ImEiOiAzLCAiZSI6ICJYT1LripQg7ISg7ZiVIOu2hOumrOqwgCDrtojqsIDriqXtlZjsl6wg64uo7Li1IO2NvOyFie2KuOuhoOycvOuhnCDtkoAg7IiYIOyXhuqzoCwg7J2A64uJ7Li17J2EIOuRlCDri6TsuLUg7Y287IWJ7Yq466Gg7Jy866GcIO2VtOqysO2VnOuLpC4ifSwgIjg2IjogeyJhIjogMSwgImUiOiAi7J2A64uJIOuFuOuTnOqwgCDrhIjrrLQg66eO7Jy866m0IOqzvOuMgOygge2VqcK37ZWZ7Iq1IOyLnOqwhCDspp3qsIAsIOuEiOustCDsoIHsnLzrqbQg6rO87IaM7KCB7ZWpLiDsoIHsoIjtlZwg7IiY66W8IOywvuyVhOyVvCDtlZzri6QuIn0sICI4NyI6IHsiYSI6IDIsICJlIjogIuyeheugpeKGkuydgOuLiTog6rCA7KSR7LmYIDPDlzQ9MTIgKyDtjrjtlqUgNCA9IDE2LCDsnYDri4nihpLstpzroKU6IOqwgOykkey5mCA0w5cxPTQgKyDtjrjtlqUgMSA9IDUuIOy0nSAyMeqwnCjtjrjtlqUg7KCc7Jm4IOyLnCAxNuqwnCkuIn0sICI4OCI6IHsiYSI6IDQsICJlIjogIlNWTSDtgqTsm4zrk5w6IOuniOynhCDstZzrjIDtmZTCt+yEnO2PrO2KuCDrsqHthLDCt+y7pOuEkCDtirjrpq0uIEtOTuydgCAn6rKM7Jy866W4IO2VmeyKtScsIOuCmOydtOu4jCDrsqDsnbTspojripQg67Kg7J207KaIIOygleumrCDquLDrsJguIn0sICI4OSI6IHsiYSI6IDMsICJlIjogIuuvvOqwkOuPhD1UUC8oVFArRk4pPTQwLzUwPTAuODAuIOygleuwgOuPhD00MC82MOKJiDAuNjcsIOygle2ZleuPhD0oNDArMzApLzEwMD0wLjcwLCDtirnsnbTrj4Q9MzAvNTA9MC42MC4ifSwgIjkwIjogeyJhIjogMiwgImUiOiAiRjEg7KCQ7IiY64qUIOygleuwgOuPhOyZgCDsnqztmITsnKjsnZgg7KGw7ZmU7Y+J6regOiAyw5co7KCV67CA64+Ew5fsnqztmITsnKgpLyjsoJXrsIDrj4Qr7J6s7ZiE7JyoKS4ifSwgIjkxIjogeyJhIjogMSwgImUiOiAiUk9DIOqzoeyEoOydtCDsmbzsqr0g7JyEIOuqqOyEnOumrOyXkCDqsIDquYzsmrjsiJjroZ0o64yA6rCB7ISg7JeQ7IScIOupgOyImOuhnSkg7KKL7J2AIOuqqO2YleydtOupsCBBVUPqsIAg7Luk7KeE64ukLiJ9LCAiOTIiOiB7ImEiOiA0LCAiZSI6ICLsi6Tro6jsl6MgcyhpKT0oYuKIkmEpL21heChhLGIpLCDrspTsnIQg4oiSMX4xLCAx7JeQIOqwgOq5jOyauOyImOuhnSDsoovri6QuIER1bm4g7KeA7IiYPeq1sOynkSDqsIQg7LWc7IaM6rGw66asL+q1sOynkSDrgrQg7LWc64yA6rGw66as66GcIO2BtOyImOuhnSDsoovri6QuIn0sICI5MyI6IHsiYSI6IDEsICJlIjogIuycoO2BtOumrOuTnD3iiJooNsKyKzjCsik94oiaMTAwPTEwLCDrp6jtlZjtg4Q9fDZ8K3w4fD0xNC4g7ZWt7IOBIOyytOu5hOyFsO2UhCDiiaQg7Jyg7YG066as65OcIOKJpCDrp6jtlZjtg4QuIn0sICI5NCI6IHsiYSI6IDIsICJlIjogIuqzhOy4teyggSDqtbDsp5Hsl5DshJzripQg7ZWcIOuyiCDrs5Htlako67aE7ZWgKeuQnCDqsJzssrTripQg64uk7IucIOyerOuwsOy5mOuQmOyngCDslYrripTri6QuIOyXsOqysOuylTog7LWc64uoKG1pbinCt+y1nOyepShtYXgpwrftj4nqt6DCt+ykkeyLrMK37JmA65OcKOyYpOywqOygnOqzse2VqSkuIn0sICI5NSI6IHsiYSI6IDQsICJlIjogImstbWVkb2lkcyhQQU0p64qUIOq1sOynkSDspJHsi6zsnYQg7Iuk7KCcIOq0gOy4oey5mOuhnCDsnqHslYQg7J207IOB6rCS7J2YIOyYge2WpeydhCDspITsnbjri6QuIGstbWVhbnMg7KCI7LCoOiDspJHsi6wg7ISg7YOdIOKGkiDtlaDri7kg4oaSIOykkeyLrCDqsLHsi6Ag4oaSIOuwmOuztS4ifSwgIjk2IjogeyJhIjogMywgImUiOiAiU09N7J2AIOyXreyghO2MjOulvCDsgqzsmqntlZjsp4Ag7JWK6rOgIOqyveyfge2VmeyKtSjsirnsnpAg64m065+w6rO8IOydtOybgyDribTrn7DsnZgg6rCA7KSR7LmYIOqwseyLoCnsnYQg7IKs7Jqp7ZWc64ukLiJ9LCAiOTciOiB7ImEiOiA0LCAiZSI6ICLsi6DrorDrj4Q9UCjrubXiiKnsmrDsnKApL1Ao67m1KT0oMjAvMTAwKS8oNDAvMTAwKT0wLjUuIOyngOyngOuPhD0wLjIsIO2WpeyDgeuPhD0wLjUvMC41PTEuMCjrj4Xrpr0pLiJ9LCAiOTgiOiB7ImEiOiAxLCAiZSI6ICLsi6DrorDrj4Q9NDAvNTA9MC44LCBQKEIpPTgwLzIwMD0wLjQsIO2WpeyDgeuPhD0wLjgvMC40PTIuMC4g7Zal7IOB64+EPjHsnbTrqbQg7JaR7J2YIOq0gOqzhCwgPTHsnbTrqbQg64+F66a9LCA8MeydtOuptCDsnYzsnZgg6rSA6rOELiJ9LCAiOTkiOiB7ImEiOiAyLCAiZSI6ICLsl7DqtIDrtoTshJ3snYAg67mE66qp7KCB7ISxIO2DkOyDiSDquLDrspXsnLzroZwg66qp7KCB67OA7IiY6rCAIO2VhOyalCDsl4bri6QuIOuLqOygkDog6rOE7IKw65+JIOymneqwgCwg7IS467aE7ZmU65CcIO2SiOuqqeydmCDrrLTsnZjrr7jtlZwg6rec7LmZLCDtnazshowg7ZKI66qpIOygnOyZuC4ifSwgIjEwMCI6IHsiYSI6IDMsICJlIjogIkFwcmlvcmnripQg7ZuE67O0IOynke2VqeydhCDsg53shLHtlZjrqbAgRELrpbwg67CY67O1IOyKpOy6lO2VnOuLpCjqsIDsp4DsuZjquLDroZwg7ZuE67O0IOy2leyGjCkuIEZQLUdyb3d0aOqwgCDsiqTsupQgMu2ajC4ifX0=";
+const CIRCLED = ["①","②","③","④"];
+const STORE = META.storageKey;
+let KEY = null, submitted = false, t0 = Date.now(), timerId = null, timeUpShown = false;
+
+function decodeKey(){
+  const bin = atob(KEY_B64);
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function renderStem(stem){
+  const parts = stem.split("```"); let html = "";
+  parts.forEach((p,i)=>{ if(!p) return; const t = p.replace(/^\n+|\n+$/g,"");
+    html += (i%2===1) ? '<pre class="code">'+esc(t)+'</pre>' : '<div class="q-stem">'+esc(t)+'</div>'; });
+  return html;
+}
+function build(){
+  const root = document.getElementById("questions"); let cur = null;
+  QUESTIONS.forEach(q=>{
+    if(q.s !== cur){ cur = q.s; const r = META.range[q.s];
+      const h = document.createElement("div"); h.className="section";
+      h.textContent = "■ " + META.name[q.s] + "  (" + r[0] + "번 ~ " + r[1] + "번, " + (r[1]-r[0]+1) + "문항)"; root.appendChild(h); }
+    const d = document.createElement("div"); d.className = "q"; d.id = "q"+q.n; d.dataset.n = q.n;
+    let opts = "";
+    q.o.forEach((o,i)=>{ opts += '<li><label><input type="radio" name="q'+q.n+'" value="'+(i+1)+'"><span class="mark">'+CIRCLED[i]+'</span><span>'+esc(o)+'</span></label></li>'; });
+    d.innerHTML = '<div class="q-head"><span class="q-num">'+q.n+'.</span><div class="q-body">'+renderStem(q.q)+'<ul class="opts">'+opts+'</ul><div class="expl" id="e'+q.n+'"></div></div></div>';
+    root.appendChild(d);
+  });
+  root.addEventListener("change", e=>{ if(e.target.type==="radio"){ e.target.closest(".q").classList.add("answered"); updateProgress(); save(); } });
+}
+function getAnswers(){ const a = {}; QUESTIONS.forEach(q=>{ const c = document.querySelector('input[name="q'+q.n+'"]:checked'); if(c) a[q.n] = +c.value; }); return a; }
+function updateProgress(){ const n = Object.keys(getAnswers()).length; document.getElementById("cnt").textContent = n; document.getElementById("pbar").style.width = (n / QUESTIONS.length * 100) + "%"; }
+function save(){ try{ localStorage.setItem(STORE, JSON.stringify({name:document.getElementById("name").value, ans:getAnswers(), t0:t0})); }catch(e){} }
+function restore(){
+  try{ const raw = localStorage.getItem(STORE); if(!raw) return; const d = JSON.parse(raw); let any = false;
+    if(d.name) document.getElementById("name").value = d.name;
+    if(d.t0) t0 = d.t0;
+    Object.entries(d.ans||{}).forEach(([n,v])=>{ const el = document.querySelector('input[name="q'+n+'"][value="'+v+'"]'); if(el){ el.checked = true; el.closest(".q").classList.add("answered"); any = true; } });
+    if(any){ document.getElementById("restore-notice").style.display = "block"; }
+  }catch(e){}
+}
+function fmtTime(ms){ const s = Math.floor(ms/1000); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function tick(){
+  const el = document.getElementById("timer");
+  if(META.timeLimitMin){
+    const remain = META.timeLimitMin*60000 - (Date.now()-t0);
+    el.textContent = fmtTime(Math.max(0, remain));
+    if(remain <= 0){ el.style.color = "#ff8a80";
+      if(!timeUpShown && !submitted){ timeUpShown = true; alert("시험 시간("+META.timeLimitMin+"분)이 종료되었습니다. 답안을 제출해 주세요."); } }
+    else if(remain <= 10*60000){ el.style.color = "#ffd54f"; }
+  } else { el.textContent = fmtTime(Date.now()-t0); }
+}
+function pct(a,b){ return Math.round(a/b*100); }
+function barColor(p){ return p>=70 ? "#43a047" : (p>=40 ? "#fbc02d" : "#e53935"); }
+
+function submit(){
+  const name = document.getElementById("name").value.trim();
+  if(!name){ alert("응시자 이름을 입력해 주세요."); document.getElementById("name").focus(); return; }
+  const ans = getAnswers();
+  const blank = QUESTIONS.filter(q=>!(q.n in ans)).map(q=>q.n);
+  if(blank.length){
+    const shown = blank.slice(0,15).join(", ") + (blank.length>15 ? " …" : "");
+    if(!confirm("미응답 문항이 "+blank.length+"개 있습니다.\n(번호: "+shown+")\n미응답은 오답으로 처리되며, 제출 후에는 답안을 수정할 수 없습니다.\n그래도 제출할까요?")) return;
+  } else if(!confirm("제출하면 답안을 수정할 수 없습니다. 제출할까요?")) return;
+  KEY = KEY || decodeKey();
+  const elapsed = Date.now() - t0; clearInterval(timerId);
+  document.getElementById("name").disabled = true;   // 제출 후 이름·답안 모두 수정 불가
+  const subj = {}; Object.keys(META.name).forEach(s=>{ subj[s] = {got:0, max:0, wrong:[]}; });
+  const topic = {}; const wrong = [];
+  QUESTIONS.forEach(q=>{
+    const k = KEY[q.n]; const a = ans[q.n]; const ok = (a === k.a);
+    subj[q.s].max += META.points; if(!topic[q.t]) topic[q.t] = {s:q.s, wrong:0, total:0}; topic[q.t].total++;
+    const card = document.getElementById("q"+q.n);
+    card.querySelectorAll("input").forEach(i=>i.disabled = true);
+    const labels = card.querySelectorAll(".opts label");
+    labels[k.a-1].classList.add("is-answer");
+    let badge;
+    if(ok){ subj[q.s].got += META.points; badge = '<span class="badge ok">정답</span>'; card.classList.add("correct"); }
+    else { wrong.push(q.n); subj[q.s].wrong.push(q.n); topic[q.t].wrong++;
+      if(a === undefined){ badge = '<span class="badge bl">미응답</span>'; card.classList.add("blank"); }
+      else { badge = '<span class="badge ng">오답</span>'; card.classList.add("wrong"); labels[a-1].classList.add("is-chosen-wrong"); } }
+    card.querySelector(".q-num").insertAdjacentHTML("afterend", badge);
+    const ex = document.getElementById("e"+q.n); ex.innerHTML = "<b>정답 " + CIRCLED[k.a-1] + "</b> &nbsp; " + esc(k.e); ex.style.display = "block";
+  });
+  const total = Object.values(subj).reduce((x,s)=>x+s.got,0);
+  const passed = total >= META.passTotal && Object.values(subj).every(s=> s.got >= s.max*META.passRatio);
+  submitted = true; try{ localStorage.removeItem(STORE); }catch(e){}
+  renderResult({name, total, subj, topic, wrong, blank, elapsed, passed});
+}
+
+function renderResult(r){
+  document.getElementById("r-score").textContent = r.total;
+  document.getElementById("r-meta").innerHTML = "<b>"+esc(r.name)+"</b> 님 &nbsp;·&nbsp; 소요 시간 "+fmtTime(r.elapsed)+" &nbsp;·&nbsp; 틀린 문항 "+r.wrong.length+"개 (미응답 "+r.blank.length+"개)<br>"
+    + (r.passed ? '<span class="badge ok" style="margin-left:0">합격 기준 충족</span>' : '<span class="badge ng" style="margin-left:0">합격 기준 미달</span>') + ' <span style="color:#666;font-size:.85rem">(총점 '+META.passTotal+'점 이상 + 과목별 '+Math.round(META.passRatio*100)+'% 이상, 실제 시험 기준 참고)</span>';
+  const passPct = Math.round(META.passRatio*100);
+  let g = "";
+  Object.keys(META.name).forEach(s=>{ const x = r.subj[s]; const p = pct(x.got, x.max);
+    g += '<div class="subj"><div class="t">'+META.name[s]+'</div><div class="n">'+x.got+' / '+x.max+'점 <span style="font-size:.95rem;color:#666">('+p+'%)</span></div><div class="bar"><div style="width:'+p+'%;background:'+barColor(p)+'"></div></div>'
+       + (x.got < x.max*META.passRatio ? '<div class="warn" style="font-size:.85rem;margin-top:4px">과락 기준('+passPct+'%) 미달</div>' : '') + '</div>'; });
+  document.getElementById("r-subjects").innerHTML = g;
+
+  // --- 분석 및 학습 조언 ---
+  const order = Object.keys(META.name).sort((a,b)=> (r.subj[a].got/r.subj[a].max) - (r.subj[b].got/r.subj[b].max));
+  const weak = order[0], wp = pct(r.subj[weak].got, r.subj[weak].max);
+  const failSubj = Object.keys(META.name).filter(s=> r.subj[s].got < r.subj[s].max*META.passRatio);
+  const sorted = Object.entries(r.topic).filter(([t,x])=>x.wrong>0).sort((a,b)=> b[1].wrong - a[1].wrong || (b[1].wrong/b[1].total) - (a[1].wrong/a[1].total));
+  let topics = sorted.filter(([t,x])=>x.wrong>=2).slice(0,5);
+  if(topics.length === 0) topics = sorted.slice(0,3);
+  const pt = r.total / META.total * 100;
+  const passPt = META.passTotal / META.total * 100;
+  let h = "<h3>학습 조언</h3>";
+  if(r.wrong.length === 0){ h += "<p>모든 문항을 맞혔습니다. 완벽합니다!</p>"; }
+  else {
+    if(pt >= 90) h += "<p>매우 우수한 성적입니다. 아래 틀린 영역만 가볍게 복습하면 됩니다.</p>";
+    else if(pt >= passPt + 10) h += "<p>합격권입니다. 취약 영역을 보완하면 안정적으로 통과할 수 있습니다.</p>";
+    else if(pt >= passPt) h += "<p>합격선 부근입니다. 과락이 나지 않도록 약한 과목을 집중 보강하세요.</p>";
+    else h += "<p>아직 합격선("+META.passTotal+"점)에 미치지 못합니다. 틀린 문항의 해설을 정독하고 핵심 개념부터 다시 정리하세요.</p>";
+    h += "<ul>";
+    if(wp >= 90) h += "<li>모든 과목이 고르게 우수합니다. (가장 낮은 과목: "+META.name[weak]+" "+wp+"%)</li>";
+    else h += "<li><b>가장 약한 과목: "+META.name[weak]+"</b> ("+r.subj[weak].got+"/"+r.subj[weak].max+"점, "+wp+"%) → 이 과목을 더 공부하세요.</li>";
+    if(failSubj.length) h += '<li class="warn">과락 주의: '+failSubj.map(s=>META.name[s]).join(", ")+' 은(는) '+passPct+'% 미만입니다. 실제 시험이라면 총점과 관계없이 불합격입니다.</li>';
+    if(topics.length) h += "<li>집중 복습 영역: " + topics.map(([t,x])=>"<b>"+esc(t)+"</b> ("+x.wrong+"/"+x.total+" 틀림)").join(", ") + "</li>";
+    if(r.blank.length) h += "<li>미응답 "+r.blank.length+"문항이 있습니다. 실제 시험에서는 빈칸을 남기지 말고 반드시 답을 고르세요.</li>";
+    h += "</ul>";
+  }
+  document.getElementById("r-advice").innerHTML = h;
+  document.getElementById("r-wrong").innerHTML = r.wrong.length ? "<b>틀린 문제 번호:</b> " + r.wrong.join(", ") + (r.blank.length ? "<br><b>미응답 번호:</b> " + r.blank.join(", ") : "") : "<b>틀린 문제가 없습니다.</b>";
+
+  // --- 화면 가운데 팝업: 점수 + 과목별 점수 + 약점 요약 ---
+  document.getElementById("m-score").textContent = r.total;
+  document.getElementById("m-pass").innerHTML = r.passed
+    ? '<span class="badge ok" style="margin-left:0;font-size:.95rem;padding:4px 14px">합격 기준 충족</span>'
+    : '<span class="badge ng" style="margin-left:0;font-size:.95rem;padding:4px 14px">합격 기준 미달</span>';
+  document.getElementById("m-subj").innerHTML = Object.keys(META.name).map(s=>{ const x = r.subj[s]; const p = pct(x.got, x.max);
+    return '<div class="m-row"><span>'+META.name[s]+'</span><b style="color:'+barColor(p)+'">'+x.got+' / '+x.max+'점 ('+p+'%)'+(x.got < x.max*META.passRatio ? ' 과락' : '')+'</b></div>'; }).join("");
+  let w = '<div><b>틀린 문항 '+r.wrong.length+'개</b>'+(r.blank.length ? ' (미응답 '+r.blank.length+'개 포함)' : '')+(r.wrong.length ? ' — 번호: '+r.wrong.slice(0,12).join(", ")+(r.wrong.length>12 ? " …" : "") : '')+'</div>';
+  if(r.wrong.length){
+    w += '<div style="margin-top:4px">가장 약한 과목: <b>'+META.name[weak]+'</b> ('+wp+'%)</div>';
+    if(failSubj.length) w += '<div class="warn" style="margin-top:4px">과락 주의: '+failSubj.map(s=>META.name[s]).join(", ")+' ('+passPct+'% 미만)</div>';
+    if(topics.length) w += '<div style="margin-top:4px">집중 복습 영역: <b>'+topics.slice(0,3).map(([t,x])=>esc(t)+' ('+x.wrong+'/'+x.total+')').join(", ")+'</b></div>';
+  } else { w += '<div style="margin-top:4px">모든 문항을 맞혔습니다. 완벽합니다!</div>'; }
+  document.getElementById("m-weak").innerHTML = w;
+
+  window.__result = r;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("btn-submit").disabled = true; document.getElementById("btn-submit").textContent = "제출 완료";
+  document.getElementById("intro").classList.add("hidden");
+  window.scrollTo({top:0, behavior:"auto"});
+  document.getElementById("modal").hidden = false;
+  document.getElementById("m-detail").focus();
+}
+function closeModal(){
+  document.getElementById("modal").hidden = true;
+  document.getElementById("result").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function saveResultFile(){
+  const r = window.__result; if(!r) return;
+  const d = new Date(); const pad = n=>String(n).padStart(2,"0");
+  const date = d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+" "+pad(d.getHours())+":"+pad(d.getMinutes());
+  const subjLine = Object.keys(META.name).map(s=> META.name[s]+": "+r.subj[s].got+"/"+r.subj[s].max+" ("+pct(r.subj[s].got,r.subj[s].max)+"%)").join("  ");
+  const csv = [r.name, r.total].concat(Object.keys(META.name).map(s=>r.subj[s].got)).concat(['"'+r.wrong.join(",")+'"']).join(",");
+  const txt = [META.title+" ("+QUESTIONS.length+"문항) 결과", "이름: "+r.name, "일시: "+date, "점수: "+r.total+" / "+META.total+"  ("+(r.passed?"합격 기준 충족":"합격 기준 미달")+")", subjLine,
+    "틀린 문제: "+(r.wrong.join(", ")||"없음"), "미응답: "+(r.blank.join(", ")||"없음"), "소요 시간: "+fmtTime(r.elapsed), "", "CSV(이름,총점,1과목,2과목,3과목,틀린번호): "+csv].join("\r\n");
+  const blob = new Blob(["﻿"+txt], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = META.resultPrefix+"_"+r.name+"_"+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+".txt"; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+}
+
+/* ===== 과목별 탭 ===== */
+let curTab = "1";
+function tabKeys(){ return Object.keys(META.name); }
+function initTabs(){
+  const box = document.getElementById("questions");
+  let pending = null;
+  Array.from(box.children).forEach(el=>{
+    if(el.classList.contains("section")){ pending = el; }
+    else if(el.classList.contains("q")){
+      const q = QUESTIONS.find(x=>x.n === +el.dataset.n);
+      el.dataset.s = String(q.s);
+      if(pending){ pending.dataset.s = String(q.s); pending = null; }
+    }
+  });
+  const keys = tabKeys();
+  keys.forEach((k,i)=>{
+    if(i === keys.length-1) return;
+    const w = document.createElement("div"); w.className = "tab-next"; w.dataset.s = k; w.dataset.next = "1";
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn-primary btn-sm";
+    b.textContent = "다음: " + META.name[keys[i+1]] + " →";
+    b.addEventListener("click", ()=>showTab(keys[i+1]));
+    w.appendChild(b); box.appendChild(w);
+  });
+  const nav = document.createElement("nav"); nav.id = "tabs"; nav.className = "tabs"; nav.setAttribute("role","tablist");
+  keys.concat(["all"]).forEach(k=>{
+    const b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.dataset.s = k; b.setAttribute("role","tab");
+    b.innerHTML = '<span class="tl"></span><span class="tc"></span>';
+    b.addEventListener("click", ()=>showTab(k));
+    nav.appendChild(b);
+  });
+  box.before(nav);
+  showTab(curTab, true);
+}
+function showTab(s, noScroll){
+  curTab = s;
+  document.querySelectorAll("#questions [data-s]").forEach(el=>{
+    const off = (s === "all") ? el.dataset.next === "1" : el.dataset.s !== s;
+    el.classList.toggle("tab-off", off);
+  });
+  document.querySelectorAll("#tabs .tab").forEach(b=>{
+    const on = b.dataset.s === s;
+    b.classList.toggle("active", on); b.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  if(!noScroll){
+    const top = document.getElementById("questions").getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({top: Math.max(0, top), behavior: "auto"});
+  }
+}
+function refreshTabs(){
+  if(!document.getElementById("tabs")) return;
+  const ans = getAnswers(), res = window.__tabRes;
+  document.querySelectorAll("#tabs .tab").forEach(b=>{
+    const k = b.dataset.s, qs = k === "all" ? QUESTIONS : QUESTIONS.filter(q=>String(q.s) === k);
+    b.querySelector(".tl").textContent = k === "all" ? "전체" : META.name[k];
+    const tc = b.querySelector(".tc");
+    b.classList.remove("complete","has-wrong");
+    if(res){
+      const r = res[k]; tc.textContent = r.got + "/" + r.max + "점 · 오답 " + r.wrong;
+      if(r.wrong > 0) b.classList.add("has-wrong");
+    } else {
+      const a = qs.filter(q=>q.n in ans).length; tc.textContent = a + "/" + qs.length + " 작성";
+      if(a === qs.length) b.classList.add("complete");
+    }
+  });
+}
+function tabsAfterSubmit(){
+  const res = {}, all = {got:0, max:0, wrong:0};
+  tabKeys().forEach(k=>{
+    const cards = document.querySelectorAll('#questions .q[data-s="' + k + '"]');
+    const ok = Array.from(cards).filter(c=>c.classList.contains("correct")).length;
+    res[k] = {got: ok*META.points, max: cards.length*META.points, wrong: cards.length - ok};
+    all.got += res[k].got; all.max += res[k].max; all.wrong += res[k].wrong;
+  });
+  res.all = all; window.__tabRes = res; refreshTabs();
+}
+const __origUpdateProgress = updateProgress;
+updateProgress = function(){ __origUpdateProgress(); refreshTabs(); };
+const __origRenderResult = renderResult;
+renderResult = function(r){ __origRenderResult(r); tabsAfterSubmit(); };
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  build(); restore(); initTabs(); updateProgress();
+  if(META.timeLimitMin) document.getElementById("timer-label").textContent = "남은 시간";
+  tick(); timerId = setInterval(tick, 1000);
+  document.getElementById("total").textContent = QUESTIONS.length;
+  document.getElementById("name").addEventListener("input", save);
+  document.getElementById("btn-submit").addEventListener("click", submit);
+  document.getElementById("btn-clear").addEventListener("click", ()=>{ if(confirm("저장된 답안을 모두 지우고 처음부터 시작할까요?")){ try{localStorage.removeItem(STORE);}catch(e){} location.reload(); } });
+  document.getElementById("btn-retry").addEventListener("click", ()=>{ if(confirm("처음부터 다시 풀까요?")){ try{localStorage.removeItem(STORE);}catch(e){} submitted = false; location.reload(); } });
+  document.getElementById("btn-print").addEventListener("click", ()=>window.print());
+  document.getElementById("btn-save").addEventListener("click", saveResultFile);
+  document.getElementById("m-detail").addEventListener("click", closeModal);
+  document.getElementById("modal").addEventListener("click", e=>{ if(e.target.id === "modal") closeModal(); });
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !document.getElementById("modal").hidden) closeModal(); });
+  let onlyWrong = false;
+  document.getElementById("btn-toggle-wrong").addEventListener("click", function(){
+    onlyWrong = !onlyWrong; this.textContent = onlyWrong ? "전체 문제 보기" : "오답만 보기";
+    document.querySelectorAll(".q").forEach(c=>{ c.classList.toggle("hidden", onlyWrong && c.classList.contains("correct")); });
+    document.querySelectorAll(".section").forEach(s=>s.classList.toggle("hidden", onlyWrong));
+  });
+  window.addEventListener("beforeunload", e=>{ if(!submitted && Object.keys(getAnswers()).length){ e.preventDefault(); e.returnValue = ""; } });
+});
+</script>
+</body>
+</html>
