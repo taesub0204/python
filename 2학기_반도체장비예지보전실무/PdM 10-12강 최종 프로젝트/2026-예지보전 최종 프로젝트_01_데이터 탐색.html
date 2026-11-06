@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>예지보전 | 프로젝트 소개와 MISSION 01 센서 데이터 탐색</title><style>
+:root{--ink:#243a41;--muted:#60757b;--teal:#138a83;--teal-dark:#126a66;--mint:#e4f7ef;--mint2:#f0faf6;--coral:#f37e69;--coral-soft:#fff1ea;--sun:#f2ba5c;--bg:#f8fbf9;--card:#fff;--line:#dbe9e6;--shadow:0 12px 36px rgba(24,93,82,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.85 'Pretendard','Noto Sans KR','Malgun Gothic',system-ui,sans-serif;color:var(--ink);background:var(--bg);word-break:keep-all}a{color:inherit}.wrap{max-width:1050px;margin:auto;padding:0 32px}.hero{background:linear-gradient(125deg,#dbf7eb 0%,#f5fff7 58%,#fff0e7 100%);border-bottom:1px solid #d8eee6;overflow:hidden;position:relative}.hero:before{content:'';position:absolute;width:460px;height:460px;border-radius:50%;background:#b6eee052;right:-180px;top:-240px;box-shadow:0 0 0 65px #b8e9d030,0 0 0 145px #fed9bc30}.hero .wrap{padding-top:68px;padding-bottom:67px;position:relative}.k-label{font-size:12px;letter-spacing:.17em;font-weight:850;color:var(--teal-dark)}.hero h1{font-size:clamp(35px,5vw,58px);letter-spacing:-.055em;line-height:1.28;margin:18px 0 18px;color:#195e5b}.hero h1 span{color:var(--coral)}.hero p{font-size:18px;color:#486e6b;max-width:680px;margin:0}.accent{display:block;width:57px;height:5px;background:var(--coral);border-radius:8px;margin:0 0 18px}.nav{position:sticky;top:0;z-index:9;background:#ffffffed;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.nav .wrap{display:flex;gap:27px;overflow-x:auto;scrollbar-width:none}.nav a{text-decoration:none;white-space:nowrap;font-size:13px;font-weight:750;color:#547873;padding:13px 0}.nav a:hover{color:var(--teal)}main{padding-top:57px;padding-bottom:88px}.section{margin:0 0 72px;scroll-margin-top:78px}.eyebrow{color:var(--teal);font-weight:850;font-size:12px;letter-spacing:.14em;margin-bottom:6px;display:flex;align-items:center;gap:13px}.eyebrow:after{content:'';height:1px;flex:1;background:var(--line)}h2{font-size:29px;line-height:1.45;margin:0 0 26px;color:#155d59;letter-spacing:-.04em}h3{font-size:20px;margin:30px 0 12px;color:#206c67;letter-spacing:-.025em}h4{margin:0 0 7px;color:#166d67;font-size:17px}p{margin:0 0 15px}.lead{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--coral);border-radius:0 15px 15px 0;padding:25px 28px;box-shadow:var(--shadow);font-size:17px;margin:22px 0}.lead p:last-child{margin:0}.emph{color:var(--teal-dark);font-weight:800}.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin:26px 0}.photo{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}.photo a{display:block;position:relative}.photo img{width:100%;height:218px;object-fit:cover;display:block}.photo a:hover img{filter:brightness(.92)}.photo .txt{padding:17px 21px 21px}.photo small{font-weight:850;color:var(--coral);letter-spacing:.13em}.photo h4{font-size:21px;margin:3px 0 6px}.photo p{font-size:14px;color:#596f73;margin:0}.photo .watch{font-size:12px;display:inline-block;margin-top:9px;color:var(--teal-dark);font-weight:700}.definitions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:23px 0}.definition{background:var(--mint2);border:1px solid #d0ebe1;padding:20px;border-radius:13px}.definition b{color:#16756e;display:block;font-size:17px}.definition small{color:#68847d;font-size:12px}.definition p{font-size:14px;margin:8px 0 0}.pipeline{display:flex;align-items:center;gap:10px;margin:23px 0;background:white;padding:21px;border-radius:13px;border:1px solid var(--line)}.pipeline .node{flex:1;background:var(--mint2);text-align:center;border-radius:9px;padding:13px 9px}.pipeline .node b{display:block;color:var(--teal-dark)}.pipeline .node span{color:var(--muted);font-size:12px}.pipeline .arrow{color:var(--coral);font-size:23px;font-weight:800}.tablewrap{overflow-x:auto;margin:22px 0 26px;border-radius:12px;border:1px solid var(--line);background:white}table{border-collapse:collapse;width:100%;font-size:14px;min-width:600px}th{background:#d9f3eb;color:#205f5a;text-align:left;padding:12px 15px;font-weight:800}td{padding:12px 15px;border-top:1px solid #e6efec;vertical-align:top}tbody tr:nth-child(even){background:#f6fbf8}td code{font-size:13px}.question{background:linear-gradient(115deg,#eaf9f1,#fff7ec);border:1px solid #d6eade;border-radius:15px;padding:25px 27px;margin:20px 0 30px}.question .prompt{display:block;color:var(--teal);font-size:12px;letter-spacing:.12em;font-weight:850;margin-bottom:8px}.question strong{font-size:19px;color:#235e5b;line-height:1.65}.mission{display:grid;grid-template-columns:155px minmax(0,1fr);gap:23px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:15px;padding:25px 27px;margin:15px 0;box-shadow:0 5px 18px #1b7a6008}.mission .num{border-right:1px solid #deebe6;padding-right:18px;min-height:90px}.mission .num small{display:block;font-size:11px;color:var(--coral);font-weight:850;letter-spacing:.1em}.mission .num b{font-size:44px;line-height:1.25;color:var(--teal)}.mission h3{margin:0 0 8px;font-size:19px}.mission .goal{font-size:14px;font-weight:750;color:#247871}.mission ul{padding-left:20px;margin:8px 0 0;font-size:14px}.mission li{margin:3px 0}.mission li::marker{color:var(--coral)}.callout{background:var(--coral-soft);border-left:4px solid var(--coral);border-radius:0 10px 10px 0;padding:17px 20px;margin:18px 0;color:#65544c}.report{background:white;border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:13px;padding:22px 26px;margin:20px 0}.report h3:first-child{margin-top:0}.report h4{margin-top:18px}.report p:last-child{margin-bottom:0}.end{padding:29px;background:linear-gradient(120deg,#e2f8ec,#fff3e6);border-radius:17px;border:1px solid #d2e9dc;text-align:center;margin-top:38px}.end strong{display:block;color:#1a7068;font-size:20px;margin-bottom:8px}.end p{margin:0}footer{border-top:1px solid var(--line);text-align:center;color:#78908a;font-size:12px;padding:23px}.top{position:fixed;right:20px;bottom:20px;background:var(--teal);color:white;border-radius:30px;padding:8px 15px;text-decoration:none;font-size:12px;box-shadow:var(--shadow)}@media(max-width:720px){.wrap{padding:0 20px}.hero .wrap{padding-top:49px;padding-bottom:49px}.hero h1{font-size:35px}.hero p{font-size:16px}.split,.definitions{grid-template-columns:1fr}.photo img{height:195px}.mission{grid-template-columns:1fr;gap:9px;padding:20px}.mission .num{display:flex;align-items:center;gap:10px;min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:0 0 10px}.mission .num b{font-size:28px}h2{font-size:25px}.nav .wrap{gap:16px}.pipeline{gap:5px;padding:11px}.pipeline .node{padding:11px 4px}.pipeline .node b{font-size:13px}.pipeline .arrow{font-size:16px}}
+@media print{.nav,.top{display:none!important}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero .wrap{padding-top:30px;padding-bottom:35px}.section{break-inside:auto;margin-bottom:42px}.photo,.mission,.definition,.question,.report,.end{break-inside:avoid}body{background:white}th{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* Mission workbook: restrained content styling */
+.hero:before{display:none}.hero .wrap{padding-top:55px;padding-bottom:54px}.hero h1{font-size:clamp(32px,4.5vw,49px);margin:13px 0}.hero p{font-size:16px}.section{margin-bottom:72px}.activity h2{font-size:30px;margin:0 0 25px;color:#155d59}.subsection{margin:0 0 48px}.subsection:last-child{margin-bottom:0}.subsection h3{font-size:24px;line-height:1.4;margin:0 0 20px;color:#206c67}.subsection p{margin:0 0 15px}.eyebrow{margin-bottom:8px}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px;margin:19px 0 23px;background:white}table{border-collapse:collapse;width:100%;min-width:540px;font-size:14px}th{text-align:left;background:#e5f4ee;color:#1c6560;font-weight:750}th,td{padding:11px 15px;border-bottom:1px solid #e6eeeb;vertical-align:top}tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:#fafdfb}.codebox{background:#172a35;border:1px solid #29444b;border-radius:10px;overflow:hidden;margin:19px 0 22px}.codehead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 15px;background:#25434b;color:#d2e8e6;font-size:12px}.copy{border:1px solid #8fccc1;background:#315d61;color:white;border-radius:6px;padding:5px 12px;cursor:pointer}.copy:hover{background:#3d7775}pre{margin:0;padding:16px 19px;overflow-x:auto;font:13px/1.75 'D2Coding',Consolas,'Courier New',monospace;color:#e8f1ef;tab-size:4;white-space:pre}code{font-family:inherit}.inline{font:0.9em Consolas,'Courier New',monospace;background:#edf5f2;padding:2px 5px;border-radius:4px}.question{border-left:3px solid #8ccdc2;padding:8px 0 8px 17px;margin:21px 0 23px}.question b{color:#175f5b}.question p:last-child{margin-bottom:0}.question ol,.question ul{margin:7px 0 0;padding-left:21px}.question li{margin:4px 0}.record{border-left:3px solid var(--coral);background:#fffaf6;padding:13px 19px;margin:22px 0 0}.record b{color:#bd6251}.record p{margin:4px 0 0}.note{padding:13px 17px;background:#f0faf6;border-left:3px solid #97d9c8;margin:19px 0}.note p{margin:0}.compactlist{margin:8px 0 17px;padding-left:22px}.compactlist li{margin:5px 0}.checklist{list-style:none;padding:0}.checklist li{margin:8px 0}.checklist li::before{content:'□';padding-right:10px;color:#138a83}.divider{height:1px;background:var(--line);margin:62px 0}.num{font-weight:750;color:#1d736b}.end{border-top:2px solid #9bd7c7;margin-top:42px;padding-top:20px}footer{border-top:1px solid var(--line);padding:22px 0 35px;color:#728783;font-size:12px}
+@media(max-width:650px){.wrap{padding:0 20px}.hero .wrap{padding-top:38px;padding-bottom:40px}.subsection h3{font-size:21px}.activity h2{font-size:26px}.subsection{margin-bottom:39px}pre{font-size:12px;padding:13px}.nav .wrap{gap:16px}}
+@media print{.nav,.copy{display:none!important}.hero{background:#e6f7f0!important;print-color-adjust:exact}.section{break-inside:auto}.codebox,.question,.record{break-inside:avoid}pre{white-space:pre-wrap;overflow:visible}.subsection{break-inside:auto}}
+
+/* 프로젝트 소개·데이터 설명: 통합 문서에서 간결한 표현 유지 */
+.project-context .split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}
+.project-context .photo{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+.project-context .photo img{width:100%;height:210px;object-fit:cover;display:block}
+.project-context .photo .txt{padding:15px 18px 18px}
+.project-context .photo h4{font-size:19px;margin:2px 0 6px}
+.project-context .photo small{color:#aa6154;font-size:11px;letter-spacing:.08em}
+.project-context .photo p{font-size:14px;color:#586d70;margin-bottom:4px}
+.project-context .photo .watch{font-size:12px;color:#20766c}
+.project-context .lead{border-left:3px solid #9ccdc4;padding:15px 20px;margin:18px 0;background:#fff}
+.project-context .definitions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:19px 0}
+.project-context .definition{border:1px solid #dcebe7;padding:15px;background:#fff;border-radius:8px}
+.project-context .definition b{display:block;color:#286e68}
+.project-context .definition small{display:block;font-size:12px;color:#778a85}
+.project-context .definition p{font-size:14px;margin:6px 0 0}
+.project-context .pipeline{display:flex;align-items:center;gap:10px;margin:18px 0}
+.project-context .pipeline .node{flex:1;border:1px solid #dcebe7;background:#fff;padding:11px;border-radius:8px;text-align:center}
+.project-context .pipeline .node b{display:block;font-size:14px;color:#245e59}
+.project-context .pipeline .node span{font-size:12px;color:#687d79}
+.project-context .pipeline .arrow{color:#4a9f95;font-weight:bold}
+.project-context .emph{color:#1b716a;font-weight:750}
+/* 질문은 단색 배경과 명확한 제목으로 표시 */
+.question{background:#f7faf9!important;background-image:none!important;border:1px solid #e0ebe7!important;border-left:3px solid #9bcbbf!important;border-radius:8px!important;padding:14px 18px!important}
+.question b{color:#225d59!important}
+/* 프로젝트 내 단계가 확정되지 않아 다음 미션을 예고하지 않음 */
+@media(max-width:700px){.project-context .split,.project-context .definitions{grid-template-columns:1fr}.project-context .photo img{height:190px}.project-context .pipeline{flex-wrap:wrap}.project-context .pipeline .node{min-width:135px}}
+
+/* Readability: clean, white questions (screen and print). */
+.question, .section .question {
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #d8e5e1 !important;
+  border-left: 3px solid #8cbdb2 !important;
+  box-shadow: none !important;
+}
+@media print {
+  .question, .section .question { background: #ffffff !important; background-image: none !important; }
+}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="k-label">PREDICTIVE MAINTENANCE · FINAL PROJECT</div><h1>MISSION 01<br/>두 장비의 센서 데이터 탐색</h1><p>프로젝트 소개 · 센서 데이터 구조 · 장비별 탐색 실습</p></div></header>
+<nav class="nav"><div class="wrap"><a href="#intro">미션 안내</a><a href="#a">A. 구조·상태</a><a href="#b">B. 센서 분포</a><a href="#c">C. 상관관계</a><a href="#d">D. 시간 변화</a><a href="#e">E. 장비 비교</a><a href="#finish">결과 정리</a></div></nav>
+<main class="wrap">
+<section class="section activity" id="intro"><div class="eyebrow">MISSION 01 · INTRO</div><h2>이번 미션에서 해결할 문제</h2>
+<p>AGV와 OHT는 같은 종류의 센서 데이터를 가지고 있습니다. 그렇다면 장비 상태에 따라 센서 값이 변화하는 모습도 같을까요?</p>
+<p>이번 프로젝트에서는 센서 데이터를 이용하여 장비 상태를 정상(0), 관심(1), 경고(2), 위험(3)의 네 단계로 분류합니다. 모델을 학습하기 전에 데이터의 구조와 센서 값의 특징을 확인하겠습니다.</p>
+<p>AGV 데이터를 먼저 탐색한 뒤, OHT와 같은 장비 유형 안의 개별 장비로 분석 대상을 확장합니다.</p>
+<div class="note"><p><strong>질문과 기록 안내</strong> 실습 질문은 코드 이해와 탐구를 돕기 위한 것입니다. 모든 답을 보고서에 작성할 필요는 없습니다. <strong>[필수 기록]</strong>과 미션 마지막 안내를 기준으로 결과를 보관하세요.</p></div>
+</section>
+<section class="section activity" id="a"><div class="eyebrow">ACTIVITY A</div><h2>ACTIVITY A. 데이터의 구조와 상태 분포 살펴보기</h2>
+<div class="subsection"><h3>1. 데이터 불러오기</h3>
+<p>이번 프로젝트에서는 <span class="inline">agv_processed.csv</span>와 <span class="inline">oht_processed.csv</span>를 사용합니다. 각 행에는 특정 수집 시점의 장비 정보가 기록되어 있습니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-1" type="button">코드 복사</button></div><pre><code id="code-1">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 제공된 CSV 파일의 경로
+agv_path = "agv_processed.csv"
+oht_path = "oht_processed.csv"
+
+# timestamp를 날짜·시간 자료형으로 불러오기
+df_agv = pd.read_csv(agv_path, parse_dates=["timestamp"])
+df_oht = pd.read_csv(oht_path, parse_dates=["timestamp"])
+
+print("AGV:", df_agv.shape)
+print("OHT:", df_oht.shape)</code></pre></div>
+<p><span class="inline">parse_dates=["timestamp"]</span>는 시간 정보를 날짜·시간 자료형으로 불러오도록 지정합니다. 이후 시간에 따른 센서 변화를 분석할 때 필요합니다.</p>
+</div>
+<div class="subsection"><h3>2. 분석 대상 선택하기</h3>
+<p>이번에는 AGV 데이터를 먼저 분석합니다. 이후 <span class="inline">TARGET</span>을 변경하고 선택 코드를 다시 실행하면 같은 분석 코드를 OHT에도 적용할 수 있습니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-2" type="button">코드 복사</button></div><pre><code id="code-2"># 분석할 장비를 선택합니다.
+TARGET = "AGV"  # "AGV" 또는 "OHT"
+
+if TARGET == "AGV":
+    df = df_agv.copy()
+else:
+    df = df_oht.copy()
+
+# 장비별로 묶고, 같은 장비에서는 시간순으로 정렬
+df = df.sort_values(
+    ["device_id", "timestamp"]
+).reset_index(drop=True)
+
+print("분석 대상:", TARGET)
+print("데이터 크기:", df.shape)</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>변수</th><th>의미</th><th>사용처</th></tr></thead><tbody>
+<tr><td><code>TARGET</code></td><td>분석할 장비 유형</td><td>AGV/OHT 선택</td></tr>
+<tr><td><code>df_agv</code></td><td>AGV 원본 데이터</td><td>AGV 탐색 및 비교</td></tr>
+<tr><td><code>df_oht</code></td><td>OHT 원본 데이터</td><td>OHT 탐색 및 비교</td></tr>
+<tr><td><code>df</code></td><td>현재 선택한 데이터</td><td>이후 공통 분석 코드</td></tr>
+</tbody></table></div>
+<p><span class="inline">sort_values(["device_id", "timestamp"])</span>는 장비별로 데이터를 정렬하고, 같은 장비 안에서는 측정 시간순으로 정렬합니다.</p>
+</div>
+<div class="subsection"><h3>3. 데이터 구조와 품질 확인하기</h3>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-3" type="button">코드 복사</button></div><pre><code id="code-3"># 데이터의 앞부분과 열 이름 확인
+display(df.head())
+print("컬럼 목록:")
+print(df.columns.tolist())
+
+# 자료형, 기초 통계, 결측치 확인
+print("\n데이터 정보:")
+df.info()
+print("\n기초 통계:")
+display(df.describe().T)
+print("\n결측치:")
+display(df.isna().sum())
+
+# 장비별 데이터 수 확인
+print("\n장비별 기록 수:")
+display(df["device_id"].value_counts())</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>확인 항목</th><th>살펴볼 내용</th></tr></thead><tbody>
+<tr><td>데이터 구조</td><td>행과 열의 수, 자료형</td></tr>
+<tr><td>센서 값</td><td>평균, 표준편차, 최솟값, 최댓값</td></tr>
+<tr><td>결측치</td><td>누락된 측정값의 유무</td></tr>
+<tr><td>장비 정보</td><td>장비별 데이터 수</td></tr>
+</tbody></table></div>
+<div class="question"><b>Q1. 데이터 분석</b>
+<p><span class="inline">df.describe().T</span>에서 <span class="inline">NTC_temp</span>와 <span class="inline">IR_temp_max</span>의 통계값을 확인하세요. 두 센서의 평균과 최댓값을 비교하고, 무엇을 측정한 값인지 생각해 보세요.</p>
+</div>
+</div>
+<div class="subsection"><h3>4. 장비 상태별 데이터 분포</h3>
+<p>이번 프로젝트에서 모델이 예측할 값은 <span class="inline">state</span>입니다.</p>
+<div class="tablewrap"><table><thead><tr><th>state</th><th>상태</th></tr></thead><tbody>
+<tr><td>0</td><td>정상</td></tr>
+<tr><td>1</td><td>관심</td></tr>
+<tr><td>2</td><td>경고</td></tr>
+<tr><td>3</td><td>위험</td></tr>
+</tbody></table></div>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-4" type="button">코드 복사</button></div><pre><code id="code-4"># 상태별 개수와 비율 계산
+state_counts = (
+    df["state"]
+    .value_counts()
+    .reindex([0, 1, 2, 3], fill_value=0)
+)
+
+state_summary = pd.DataFrame({
+    "데이터 수": state_counts,
+    "비율(%)": (state_counts / len(df) * 100).round(1)
+})
+display(state_summary)
+
+# 상태별 데이터 개수 시각화
+plt.figure(figsize=(8, 4))
+sns.countplot(
+    data=df,
+    x="state",
+    order=[0, 1, 2, 3],
+    color="steelblue"
+)
+plt.title(f"{TARGET}: State Distribution")
+plt.xlabel("State")
+plt.ylabel("Count")
+plt.tight_layout()
+plt.show()</code></pre></div>
+<p><span class="inline">reindex([0, 1, 2, 3], fill_value=0)</span>는 상태를 지정한 순서로 표시하고 없는 상태는 개수 0으로 채웁니다.</p>
+<div class="question"><b>Q2. 코드와 결과 해석</b>
+<ol><li><span class="inline">value_counts()</span>의 결과를 <span class="inline">len(df)</span>로 나누는 이유는 무엇인가요?</li><li>현재 상태별 비율을 확인하세요. 전체 정확도(Accuracy)가 높더라도 위험 상태를 잘 분류한다고 보장할 수 없는 이유는 무엇일까요?</li></ol>
+</div>
+<div class="record"><b>기록해 두기</b><p><strong>AGV의 상태별 데이터 수·비율과 분포 그래프</strong>를 보관하세요. ACTIVITY E에서 OHT와 비교합니다.</p></div>
+</div>
+</section>
+<section class="section activity" id="b"><div class="eyebrow">ACTIVITY B</div><h2>ACTIVITY B. 상태에 따라 센서 값이 달라질까?</h2>
+<div class="subsection"><h3>1. 센서 분포 확인하기</h3>
+<p>상태별 센서 값의 분포를 <strong>바이올린 플롯(Violin Plot)</strong>으로 살펴봅니다. 바이올린 플롯은 값이 어느 구간에 집중되는지, 얼마나 퍼져 있는지, 상태별로 얼마나 겹치는지 보여줍니다.</p>
+<p><strong>바이올린 플롯을 읽는 방법</strong></p>
+<ul class="compactlist"><li><strong>세로 위치:</strong> 센서 값의 크기를 나타냅니다.</li><li><strong>가로 폭:</strong> 해당 값 부근에 데이터가 얼마나 밀집되어 있는지 나타냅니다. 폭이 넓은 구간에 상대적으로 많은 값이 분포합니다.</li><li><strong>전체 길이와 형태:</strong> 값이 분포하는 범위와 밀집 구간을 살펴볼 수 있습니다.</li><li><strong>내부 선:</strong> 이번 코드에서는 중앙값과 사분위수를 표시합니다.</li></ul>
+<p>단, 바이올린 플롯은 데이터의 분포를 매끄럽게 추정하여 그립니다. <strong>폭이 넓다고 해서 다른 바이올린보다 실제 표본 수가 반드시 많다는 뜻은 아닙니다.</strong> 표본 수가 적을 때는 매끄러운 형태가 실제 분포를 과장할 수도 있습니다.</p>
+<p>먼저 내부 온도, 열화상 최대 온도, 전류 센서를 비교합니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-5" type="button">코드 복사</button></div><pre><code id="code-5"># 상태별 분포를 확인할 센서 목록
+SENSORS = [
+    "NTC_temp",
+    "IR_temp_max",
+    "CT1_current"
+]
+
+# 목록에 있는 센서마다 바이올린 플롯 생성
+for sensor in SENSORS:
+    plt.figure(figsize=(8, 4))
+    sns.violinplot(
+        data=df,
+        x="state",
+        y=sensor,
+        order=[0, 1, 2, 3],
+        inner="quartile",
+        cut=0,
+        color="lightblue"
+    )
+    plt.title(f"{TARGET}: {sensor} by State")
+    plt.xlabel("State")
+    plt.ylabel(sensor)
+    plt.tight_layout()
+    plt.show()</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>매개변수</th><th>의미</th></tr></thead><tbody>
+<tr><td><code>x="state"</code></td><td>장비 상태별로 분포 구분</td></tr>
+<tr><td><code>y=sensor</code></td><td>현재 선택한 센서 값 표시</td></tr>
+<tr><td><code>inner="quartile"</code></td><td>중앙값과 사분위수 표시</td></tr>
+<tr><td><code>cut=0</code></td><td>추정 밀도의 범위를 실제 관측값 범위로 제한</td></tr>
+</tbody></table></div>
+<div class="question"><b>Q3. 그래프 해석</b>
+<ol><li>정상(0)과 위험(3) 상태의 센서 값 분포 차이가 가장 뚜렷한 센서는 무엇인가요?</li><li>서로 다른 상태의 값이 많이 겹치는 센서가 있다면, 센서 하나만으로 상태를 구분하기 어려운 이유는 무엇일까요?</li></ol>
+</div>
+</div>
+<div class="subsection"><h3>2. 다른 센서도 분석해 보기</h3>
+<p><span class="inline">SENSORS</span>에 센서 이름을 추가하면 같은 그래프를 그릴 수 있습니다.</p>
+<div class="question"><b>Q4. 코드 수정 및 탐구</b>
+<p><span class="inline">SENSORS</span>를 수정하여 <span class="inline">PM10</span>, <span class="inline">CT2_current</span>, <span class="inline">ex_humidity</span>의 바이올린 플롯도 그려보세요. 이 중 상태별 차이가 뚜렷하거나 예상과 다른 분포를 보이는 센서가 있나요?</p>
+</div>
+<div class="question"><b>Q5. 심화 탐구</b>
+<p>정상과 위험 상태의 분포가 크게 겹치는 센서는 반드시 불필요한 특성일까요? 다른 센서와 함께 사용할 때 얻을 수 있는 정보도 고려해 보세요.</p>
+</div>
+<div class="record"><b>기록해 두기</b><p><strong>AGV에서 상태별 차이가 뚜렷한 센서 하나와 차이가 작아 보이는 센서 하나의 바이올린 플롯</strong>을 보관하세요.</p></div>
+</div>
+<div class="subsection">
+<h3>3. 같은 유형에서도 장비별 센서 분포가 같을까?</h3>
+<p>지금까지의 바이올린 플롯은 선택한 장비 유형의 <strong>모든 장비 기록을 합쳐서</strong> 나타낸 결과입니다. 이번에는 같은 유형 안에서 <code>device_id</code>가 다른 장비 두 대를 선택해 센서 분포를 비교해 보겠습니다.</p>
+<p>두 그래프의 세로축 범위를 동일하게 유지하면 장비 사이의 차이를 더 쉽게 관찰할 수 있습니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-12" type="button">코드 복사</button></div>
+<pre><code id="code-12"># 같은 유형의 장비 ID 중 비교할 두 대 선택
+DEVICE_IDS = sorted(df["device_id"].unique())[:2]
+SENSOR = "NTC_temp"  # 비교해 볼 센서
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
+
+for ax, device_id in zip(axes, DEVICE_IDS):
+    # 선택한 장비의 기록만 추출
+    device_df = df[df["device_id"] == device_id]
+
+    sns.violinplot(
+        data=device_df, x="state", y=SENSOR,
+        order=[0, 1, 2, 3], inner="quartile",
+        cut=0, color="lightblue", ax=ax
+    )
+    ax.set_title(f"{device_id}: {SENSOR}")
+    ax.set_xlabel("State")
+    ax.set_ylabel(SENSOR if ax is axes[0] else "")
+
+plt.suptitle(f"{TARGET}: Comparison between Devices")
+plt.tight_layout()
+plt.show()</code></pre></div>
+<div class="question"><b>Q6. 장비와 센서 변경 실험</b><ol>
+<li><code>DEVICE_IDS</code>를 다른 장비 두 대로 변경하고 같은 센서를 비교해 보세요.</li>
+<li><code>SENSOR</code>를 <code>IR_temp_max</code>나 <code>CT1_current</code>로 바꿔 보세요. 같은 장비 유형에서도 장비 ID에 따라 상태별 센서 분포가 달라지나요?</li>
+<li>어떤 상태가 한 장비에서는 나타나지 않는다면, 그 장비의 그래프를 해석할 때 무엇을 주의해야 할까요?</li>
+</ol></div>
+<div class="record"><b>기록해 두기</b><p>같은 장비 유형 안에서 서로 다른 두 장비를 비교한 그래프 중 <strong>차이가 드러나는 그래프 한 개</strong>를 보관하세요. 차이가 거의 없다면 그것도 관찰 결과입니다.</p></div>
+</div></section>
+<section class="section activity" id="c"><div class="eyebrow">ACTIVITY C</div><h2>ACTIVITY C. 센서 사이의 관계 살펴보기</h2>
+<div class="subsection"><h3>1. 센서 간 상관관계 확인하기</h3>
+<p>주요 센서의 상관관계를 히트맵으로 확인합니다. 이미 학습한 <span class="inline">corr()</span>와 <span class="inline">sns.heatmap()</span>을 사용합니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-6" type="button">코드 복사</button></div><pre><code id="code-6"># 상관관계를 살펴볼 센서 목록
+SENSOR_COLS = [
+    "NTC_temp",
+    "IR_temp_max",
+    "CT1_current",
+    "CT2_current",
+    "PM10",
+    "ex_temp"
+]
+
+# 센서 간 상관계수 행렬 계산
+corr = df[SENSOR_COLS].corr()
+
+# 상관계수 히트맵
+plt.figure(figsize=(9, 7))
+sns.heatmap(
+    corr,
+    annot=True,
+    fmt=".2f",
+    cmap="coolwarm",
+    vmin=-1,
+    vmax=1,
+    center=0
+)
+plt.title(f"{TARGET}: Sensor Correlation")
+plt.tight_layout()
+plt.show()</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>변수</th><th>의미</th></tr></thead><tbody>
+<tr><td><code>SENSOR_COLS</code></td><td>상관관계를 분석할 센서 이름 목록</td></tr>
+<tr><td><code>corr</code></td><td>센서 간 상관계수 행렬</td></tr>
+</tbody></table></div>
+<div class="question"><b>Q7. 코드 수정 및 탐구</b>
+<p><span class="inline">SENSOR_COLS</span>에 <span class="inline">CT3_current</span>와 <span class="inline">CT4_current</span>를 추가하고 히트맵을 다시 그려보세요. 네 전류 센서 사이에는 어떤 관계가 나타나나요?</p>
+</div>
+</div>
+<div class="subsection"><h3>2. 센서와 장비 상태의 관계 확인하기</h3>
+<p>이번에는 각 센서와 예측 대상인 <span class="inline">state</span> 사이의 상관계수를 확인합니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-7" type="button">코드 복사</button></div><pre><code id="code-7"># state를 포함하여 상관계수 계산
+state_corr = df[SENSOR_COLS + ["state"]].corr()
+
+# state와의 관계만 남기고 절댓값이 큰 순서로 정렬
+state_corr = (
+    state_corr["state"]
+    .drop("state")
+    .sort_values(key=abs, ascending=False)
+)
+
+display(state_corr.to_frame("Correlation"))</code></pre></div>
+<p><span class="inline">state_corr["state"]</span>는 상태와 각 센서의 상관계수를 선택합니다. <span class="inline">drop("state")</span>는 상태 자신과의 상관계수를 제외하고, <span class="inline">sort_values(key=abs, ascending=False)</span>는 절댓값이 큰 순서로 정렬합니다.</p>
+<div class="question"><b>Q8. 결과 해석 및 심화 탐구</b>
+<ol><li><span class="inline">state</span>와의 상관계수 절댓값이 가장 큰 센서 세 개는 무엇인가요?</li><li>상태를 0, 1, 2, 3으로 표현했을 때 센서와의 상관계수가 높다는 것은 어떤 경향을 나타내나요?</li><li>상관계수가 가장 높은 센서가 반드시 머신러닝 모델에서 가장 중요한 특성일까요? 그 이유를 생각해 보세요.</li></ol>
+</div>
+<p>상태와 센서의 상관계수는 선형적 경향을 확인하는 탐색 지표입니다. 모델에서 실제로 유용한지는 이후 학습·평가 결과로 확인해야 합니다.</p>
+<div class="record"><b>기록해 두기</b><p><strong>AGV의 상관관계 히트맵과 state 상관계수 결과</strong>를 보관하세요.</p></div>
+</div>
+</section>
+<section class="section activity" id="d"><div class="eyebrow">ACTIVITY D</div><h2>ACTIVITY D. 시간에 따른 센서 값과 장비 상태 관찰하기</h2>
+<div class="subsection"><h3>1. 시간순 분석을 위한 준비</h3>
+<p>특정 시점에 측정된 값과 일정 시간 동안 변화한 모습은 서로 다른 정보를 제공합니다. 시간에 따른 변화를 올바르게 확인하려면 <strong>장비 구분, 측정 시각 정렬, 수집 간격 확인</strong>이 필요합니다.</p>
+</div>
+<div class="subsection"><h3>2. 모든 측정 기록이 연속된 것은 아니다</h3>
+<p>이번 데이터에는 여러 장비의 측정 기록이 포함되어 있습니다. 같은 장비에서도 모든 기록이 연속적으로 수집된 것은 아닙니다. 다음 기록을 살펴보세요.</p>
+<div class="tablewrap"><table><thead><tr><th>timestamp</th><th>NTC_temp</th></tr></thead><tbody>
+<tr><td>10:00:01</td><td>27.1</td></tr>
+<tr><td>10:00:02</td><td>27.3</td></tr>
+<tr><td>10:00:03</td><td>27.5</td></tr>
+<tr><td>14:30:01</td><td>28.2</td></tr>
+<tr><td>14:30:02</td><td>28.4</td></tr>
+</tbody></table></div>
+<p>앞의 세 기록은 1초 간격이지만, 세 번째와 네 번째 기록 사이에는 긴 공백이 있습니다. 이 데이터를 그대로 선으로 연결하면 <strong>실제로 측정되지 않은 시간의 변화까지 관찰된 것처럼 보일 수 있습니다.</strong> 서로 다른 장비의 기록을 이어 그리는 것도 잘못된 해석으로 이어집니다.</p>
+<p>따라서 이번 실습에서는 같은 장비의 기록을 시간순으로 정렬하고, 직전 기록과의 시간 차이가 <strong>5분을 초과하면</strong> 새로운 수집 구간으로 나눕니다. 5분은 분석을 위한 실습 기준이며 실제 설비의 가동 시작·종료 시점과 일치한다고 볼 수는 없습니다.</p>
+</div>
+<div class="subsection"><h3>3. 연속된 수집 구간 구분하기</h3>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-8" type="button">코드 복사</button></div><pre><code id="code-8"># 기본은 전체 장비를 살펴봅니다. 특정 장비만 보려면 ID를 입력하세요.
+DEVICE_ID = None  # 예: "agv01" 또는 "oht01" (현재 TARGET에 맞게)
+
+# 선택한 장비만 추출하거나 전체 데이터를 사용
+source_df = df if DEVICE_ID is None else df[df["device_id"] == DEVICE_ID]
+if source_df.empty:
+    raise ValueError(f"장비 ID를 확인하세요: {DEVICE_ID}")
+
+# 장비별로 구분하고 시간순으로 정렬
+plot_df = source_df.sort_values(
+    ["device_id", "timestamp"]
+).copy()
+
+# 같은 장비에서 직전 기록과의 시간 차이를 초 단위로 계산
+time_diff = (
+    plot_df.groupby("device_id")["timestamp"]
+    .diff()
+    .dt.total_seconds()
+)
+
+# 각 장비의 첫 기록 또는 5분을 초과한 공백은 새 구간
+new_segment = (
+    time_diff.isna() |
+    (time_diff &gt; 300)
+)
+
+# True일 때마다 누적합이 증가하여 구간 번호 생성
+plot_df["segment"] = new_segment.cumsum()
+
+print("수집 구간 수:", plot_df["segment"].nunique())</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>코드</th><th>역할</th></tr></thead><tbody>
+<tr><td><code>groupby("device_id")</code></td><td>장비별로 기록을 구분</td></tr>
+<tr><td><code>diff()</code></td><td>같은 장비에서 직전 기록과의 차이 계산</td></tr>
+<tr><td><code>dt.total_seconds()</code></td><td>시간 차이를 초로 변환</td></tr>
+<tr><td><code>time_diff.isna()</code></td><td>각 장비의 첫 기록 확인</td></tr>
+<tr><td><code>time_diff &gt; 300</code></td><td>직전 기록과 5분을 초과하여 떨어진 위치 확인</td></tr>
+<tr><td><code>cumsum()</code></td><td>새 구간이 나타날 때마다 번호 증가</td></tr>
+</tbody></table></div>
+<p><span class="inline">groupby("device_id")</span>를 사용하므로 장비가 바뀌는 지점에서 서로 다른 장비의 시간 차이를 계산하지 않습니다. 각 장비의 첫 기록은 이전 측정값이 없으므로 <span class="inline">diff()</span> 결과가 결측값입니다. <span class="inline">new_segment</span>가 <span class="inline">True</span>가 되는 지점마다 새 구간 번호가 부여됩니다.</p>
+<div class="question"><b>Q9. 코드 이해</b>
+<p><span class="inline">new_segment = (time_diff &gt; 300)</span>처럼 <span class="inline">time_diff.isna()</span>를 제거하면 어떤 문제가 생길까요? 특히 각 장비의 첫 기록이 어떻게 처리되는지 살펴보세요.</p>
+</div>
+<div class="question"><b>Q10. 코드 수정 및 실험</b>
+<p>수집 간격 기준을 300초에서 60초로 변경해 보세요. 구간 수가 어떻게 바뀌나요? 기준을 짧거나 길게 정할 때 각각 어떤 장단점이 있을까요?</p>
+</div>
+</div>
+<div class="subsection"><h3>4. 분석할 수집 구간 선택하기</h3>
+<p>이제 상태가 두 종류 이상 포함된 구간을 우선 선택하겠습니다. 해당 구간이 없다면 기록 수가 가장 많은 구간을 선택합니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-9" type="button">코드 복사</button></div><pre><code id="code-9"># 구간별 데이터 수와 서로 다른 상태의 수
+segment_info = plot_df.groupby("segment").agg(
+    data_count=("state", "size"),
+    state_count=("state", "nunique")
+)
+
+# 두 종류 이상의 상태를 포함한 구간을 후보로 선택
+candidates = segment_info[
+    segment_info["state_count"] &gt;= 2
+]
+
+# 후보 중 데이터가 가장 많은 구간 선택
+if candidates.empty:
+    selected_segment = segment_info["data_count"].idxmax()
+else:
+    selected_segment = candidates["data_count"].idxmax()
+
+# 선택된 구간만 시간순으로 추출
+part = plot_df[
+    plot_df["segment"] == selected_segment
+].sort_values("timestamp")
+
+print("선택 장비:", part["device_id"].iloc[0])
+print("수집 구간:", selected_segment)
+print("데이터 수:", len(part))
+print("포함된 상태:", sorted(part["state"].unique()))</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>변수</th><th>의미</th></tr></thead><tbody>
+<tr><td><code>segment_info</code></td><td>구간별 데이터 수와 상태 종류 수</td></tr>
+<tr><td><code>candidates</code></td><td>서로 다른 상태가 2개 이상인 구간</td></tr>
+<tr><td><code>selected_segment</code></td><td>선택된 수집 구간 번호</td></tr>
+<tr><td><code>part</code></td><td>선택된 구간의 측정 기록</td></tr>
+</tbody></table></div>
+<p>두 상태 이상이 포함되었다고 해서 상태가 정상에서 위험으로 순서대로 변한다고 단정할 수는 없습니다. 변화 방향은 그래프에서 확인하세요.</p>
+</div>
+<div class="subsection"><h3>5. 센서 값과 장비 상태 시각화하기</h3>
+<p>선택한 구간의 센서 값과 장비 상태를 같은 시간축에 표시합니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-10" type="button">코드 복사</button></div><pre><code id="code-10"># 변경해 볼 센서
+SENSOR = "NTC_temp"
+
+# 위쪽: 센서 값 / 아래쪽: 상태, 시간축 공유
+fig, axes = plt.subplots(
+    2, 1,
+    figsize=(12, 7),
+    sharex=True
+)
+
+axes[0].plot(
+    part["timestamp"],
+    part[SENSOR],
+    color="steelblue"
+)
+axes[0].set_ylabel(SENSOR)
+axes[0].set_title("Sensor Value")
+
+# 상태는 계단 그래프로 표시
+axes[1].step(
+    part["timestamp"],
+    part["state"],
+    where="post",
+    color="tomato"
+)
+axes[1].set_yticks([0, 1, 2, 3])
+axes[1].set_ylabel("State")
+axes[1].set_xlabel("Time")
+axes[1].set_title("Equipment State")
+
+for ax in axes:
+    ax.grid(alpha=0.3)
+
+plt.suptitle(f"{TARGET}: Sensor and State over Time")
+plt.tight_layout()
+plt.show()</code></pre></div>
+<p><span class="inline">sharex=True</span>는 두 그래프에 동일한 시간축을 적용합니다. <span class="inline">plot()</span>은 센서 측정값을 선으로, <span class="inline">step()</span>은 상태값을 계단 형태로 표시합니다. 선은 기록된 점 사이를 연결한 것이며, 측정되지 않은 구간의 실제 변화까지 알려주지는 않습니다.</p>
+<div class="question"><b>Q11. [필수 기록] 시계열 관찰</b>
+<ol><li>선택한 구간에서 장비 상태가 변화하는 시점이 있나요?</li><li>상태 변화 전후로 센서 값의 변화도 관찰되나요?</li><li><span class="inline">SENSOR</span>를 <span class="inline">"CT1_current"</span> 또는 <span class="inline">"IR_temp_max"</span>로 변경해 보세요. 다른 센서에서도 비슷한 경향이 보이나요?</li></ol>
+</div>
+<div class="record"><b>기록해 두기</b><p><strong>AGV의 시간별 센서·상태 그래프 중 의미 있다고 판단한 하나</strong>를 보관하고 관찰 결과를 적어 두세요. 뚜렷한 관계가 관찰되지 않아도 그 사실을 기록하면 됩니다.</p></div>
+</div>
+<div class="subsection"><h3>6. 다른 장비의 시간 변화도 확인하기</h3>
+<p>앞의 그래프에서는 조건에 맞는 수집 구간을 자동으로 선택했습니다. 이번에는 분석할 <strong>장비 ID를 직접 지정</strong>하여 다른 장비의 시간 변화를 살펴보세요.</p>
+<p>ACTIVITY D의 3번 코드에서 <code>DEVICE_ID = None</code>을 현재 장비 유형의 ID로 변경하고, <strong>3번부터 5번까지 차례로 다시 실행</strong>합니다. 장비 ID 목록은 ACTIVITY A의 출력에서 확인할 수 있습니다.</p>
+<div class="codebox"><div class="codehead"><span>Python · 수정할 변수 예시</span><button class="copy" data-target="code-13" type="button">코드 복사</button></div><pre><code id="code-13"># ACTIVITY D의 3번 코드에서 이 변수만 변경
+DEVICE_ID = sorted(df["device_id"].unique())[1]
+
+# 변경 후 D의 3번~5번 코드를 다시 실행하세요.
+# SENSOR도 바꿔서 온도와 전류의 변화를 비교해 보세요.</code></pre></div>
+<div class="question"><b>Q12. 장비별 시계열 탐색</b><ol>
+<li>다른 장비를 선택했을 때 수집 구간 수와 포함된 상태가 어떻게 달라지나요?</li>
+<li>같은 센서를 사용해도 장비마다 시간에 따른 변화 양상이 비슷한가요? 그래프 두 개를 비교해 보세요.</li>
+</ol></div></div></section>
+<section class="section activity" id="e"><div class="eyebrow">ACTIVITY E</div><h2>ACTIVITY E. OHT를 분석하고 두 장비 비교하기</h2>
+<div class="subsection"><h3>1. OHT 데이터 탐색하기</h3>
+<p>AGV 데이터에서는 상태 분포, 센서 값 분포, 상관관계, 시간 변화를 살펴봤습니다. 이번에는 분석 대상을 OHT로 바꾸고 <strong>ACTIVITY A~D의 코드를 같은 순서로 다시 실행</strong>하세요.</p>
+<div class="codebox"><div class="codehead"><span>Python · 실습 코드</span><button class="copy" data-target="code-11" type="button">코드 복사</button></div><pre><code id="code-11"># ACTIVITY A의 선택 코드에서 이 값을 변경
+TARGET = "OHT"
+
+# 반드시 분석 대상 선택 코드도 다시 실행해야
+# df가 OHT 데이터로 바뀝니다.</code></pre></div>
+<p><strong>주의:</strong> 위의 <span class="inline">TARGET</span> 한 줄만 실행한다고 <span class="inline">df</span>가 자동으로 바뀌지 않습니다. ACTIVITY A의 <strong>분석 대상 선택 코드 전체</strong>부터 다시 실행해야 합니다.</p>
+<p>OHT 분석 결과가 나오면 앞에서 보관한 AGV 그래프를 나란히 놓고 아래 질문에 답하세요.</p>
+<div class="question"><b>Q13. [필수 기록] 상태 및 센서 분포 비교</b>
+<ol><li>AGV와 OHT의 상태별 데이터 비율은 어떻게 다른가요?</li><li>같은 센서의 바이올린 플롯을 비교했을 때 두 장비의 분포는 어떻게 다른가요?</li><li>두 장비에서 상태별 차이가 가장 뚜렷해 보이는 센서는 동일한가요?</li></ol>
+</div>
+<div class="question"><b>Q14. 상관관계 비교</b>
+<ol><li>AGV에서 상관계수가 높았던 센서 조합이 OHT에서도 비슷한 관계를 보이나요?</li><li><span class="inline">state</span>와의 상관계수 절댓값이 큰 센서 순서는 두 장비에서 비슷한가요?</li><li>차이가 있다면 이후 특성 선택에 어떤 점을 고려할 수 있을까요?</li></ol>
+</div>
+<div class="question"><b>Q15. [필수 기록] 시계열 및 종합 비교</b>
+<ol><li>AGV와 OHT의 시간별 센서·상태 그래프에서 공통으로 나타난 특징은 무엇인가요?</li><li>두 장비 사이에서 가장 의미 있다고 판단한 차이점 두 가지를 선택하고, 그래프나 통계값으로 근거를 제시하세요.</li><li>이 차이가 이후 모델의 성능이나 특성 선택에 어떤 영향을 줄지 예상해 보세요.</li></ol>
+</div>
+<p>마지막 질문은 탐색에서 확인된 사실과 아직 검증하지 않은 예상을 구분해서 작성하세요. 실제 모델 성능과의 관계는 다음 미션에서 확인합니다.</p>
+</div>
+</section>
+<section class="section activity" id="finish"><div class="eyebrow">MISSION 01 · WRAP UP</div><h2>미션 01 결과 정리</h2>
+<p>이번 미션에서는 AGV와 OHT의 센서 데이터를 탐색하고 장비 상태에 따른 센서 특징과 두 장비의 차이를 살펴봤습니다. 아직 모델을 학습하지 않았으므로 어떤 특성이 실제 예측 성능에 가장 크게 기여하는지는 알 수 없습니다.</p>
+<div class="subsection"><h3>완료 확인</h3>
+<ul class="checklist"><li>AGV와 OHT의 데이터를 불러오고 구조를 확인했다.</li><li>장비 상태별 데이터 분포를 확인했다.</li><li>바이올린 플롯으로 센서 분포를 분석했다.</li><li>센서 간 상관관계와 <code>state</code>와의 관계를 확인했다.</li><li>수집 구간을 구분하고 시간에 따른 변화를 관찰했다.</li><li>두 장비의 공통점과 차이점을 정리했다.</li><li>같은 유형 안에서 장비 ID를 변경해 센서 분포 또는 시간 변화를 비교했다.</li></ul>
+</div>
+<div class="subsection"><h3>보고서에 기록할 내용</h3>
+<p>모든 질문의 답이나 모든 출력 결과를 보고서에 포함할 필요는 없습니다. 다음 내용에 집중하세요.</p>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>보고서 내용</th></tr></thead><tbody>
+<tr><td>1. 데이터 개요</td><td>AGV와 OHT의 데이터 규모, 상태별 데이터 분포와 특징</td></tr>
+<tr><td>2. 센서 분포 분석</td><td>상태별 차이가 나타나는 센서를 선택하고 그래프를 근거로 분석</td></tr>
+<tr><td>3. 시계열 분석</td><td>시간에 따른 센서 값과 장비 상태 변화에서 관찰한 특징</td></tr>
+<tr><td>4. 장비 유형 비교</td><td>AGV와 OHT에서 발견한 주요 공통점과 차이점, 이후 실험에서 확인할 내용</td></tr>
+</tbody></table></div>
+<p>분석 결과는 실제로 관찰한 데이터를 근거로 설명하세요.</p>
+</div>
+<div class="end"><strong>MISSION 01 완료</strong><p>이후에는 데이터 탐색 결과를 바탕으로 장비 상태 분류 실험을 이어갈 수 있습니다.</p></div>
+</section>
+</main><footer><div class="wrap">제조현장 이송장치의 열화 예지보전 · MISSION 01</div></footer>
+<script>document.querySelectorAll('button[data-target]').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);const t=el.textContent;try{await navigator.clipboard.writeText(t);b.textContent='복사 완료';setTimeout(()=>b.textContent='코드 복사',1500)}catch(e){const r=document.createRange();r.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='선택됨 · Ctrl+C';}}));</script></body></html>

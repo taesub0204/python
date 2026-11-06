@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>예지보전 · MISSION 02 | 특성 선택과 머신러닝 모델 비교</title><style>
+:root{--bg:#f8fbf9;--paper:#fff;--ink:#243a41;--muted:#5f7579;--teal:#138a83;--teal-dark:#176c68;--line:#dbe9e6;--mint:#e7f7f0;--coral:#f37e69}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.83 'Pretendard','Noto Sans KR','Malgun Gothic',system-ui,sans-serif;word-break:keep-all}
+.wrap{max-width:1040px;padding:0 34px;margin:0 auto}a{color:var(--teal-dark)}
+.hero{background:#e7f7f0;border-bottom:1px solid #cce9de;padding:52px 0 48px}.eyebrow{font:800 12px/1.4 inherit;letter-spacing:.14em;color:var(--teal-dark)}
+.hero h1{margin:14px 0 14px;font-size:clamp(34px,4.3vw,50px);letter-spacing:-.045em;line-height:1.32;color:#175e58}.hero p{max-width:700px;margin:0;color:#4a6d69;font-size:17px}
+.nav{position:sticky;top:0;background:#fffffff4;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}.nav .wrap{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none}.nav a{text-decoration:none;color:#547873;white-space:nowrap;font-size:13px;font-weight:750;padding:13px 0}.nav a:hover{color:var(--teal)}
+main{padding-top:55px!important;padding-bottom:90px!important}main h1{display:none}main>p:first-of-type{font-size:17px;color:#466c67;margin-top:0}
+.section-title{font-size:30px;line-height:1.4;color:#165f59;letter-spacing:-.035em;margin:70px 0 29px;padding-top:22px;border-top:1px solid var(--line);scroll-margin-top:95px}
+.section-title:first-of-type{border-top:0;margin-top:5px;padding-top:0}
+.sub-title{font-size:24px;line-height:1.42;color:#226a64;letter-spacing:-.025em;margin:49px 0 18px;scroll-margin-top:95px}
+main p{margin:0 0 16px}main ul, main ol{padding-left:26px;margin:12px 0 24px}main li{margin:7px 0}main li::marker{color:var(--teal)}main strong{font-weight:780}main hr{border:0;height:1px;background:var(--line);margin:60px 0}
+main code:not(pre code){font:0.89em/1.5 Consolas,'D2Coding',monospace;background:#eaf4f0;color:#21685e;border-radius:4px;padding:2px 5px;word-break:break-all}
+.tablewrap{overflow-x:auto;background:white;border:1px solid var(--line);border-radius:9px;margin:20px 0 28px}
+table{border-collapse:collapse;width:100%;min-width:590px;font-size:14px}thead th{background:#e5f4ee;color:#215f58;font-weight:800;text-align:left;padding:12px 15px}tbody td{border-top:1px solid #e5eeea;padding:11px 15px;vertical-align:top}tbody tr:nth-child(even){background:#f9fcfa}
+.codebox{border:1px solid #29444b;border-radius:10px;margin:21px 0 26px;overflow:hidden;background:#172b35}.codehead{background:#25434b;display:flex;align-items:center;justify-content:space-between;padding:7px 14px;color:#d4e8e6;font-size:12px;font-weight:750}.copy{cursor:pointer;background:#315d61;border:1px solid #84bfb6;border-radius:6px;color:white;font:inherit;padding:5px 12px}.copy:hover{background:#3b7270}pre{margin:0;padding:17px 19px;overflow:auto;tab-size:4;color:#e8f1ef;font:13px/1.74 'D2Coding',Consolas,'Courier New',monospace;white-space:pre}pre code{color:inherit;font:inherit;background:transparent}
+.question{background:#fff;border:1px solid #dbe9e6;border-left:3px solid #8fbbb1;border-radius:9px;margin:22px 0 28px;padding:17px 20px;box-shadow:none}.question p{margin:0}.question strong{color:#1c6761;font-size:17px}.question.required{border-left-color:var(--coral)}.question.required strong{color:#ad5a4a}
+.note{background:#fff;border-left:3px solid #93cfc0;padding:16px 19px;border-radius:0 7px 7px 0;margin:20px 0 28px}.note p{margin:0}
+.last-note{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}footer{border-top:1px solid var(--line);color:#7b908b;text-align:center;font-size:12px;padding:22px}.top{position:fixed;bottom:20px;right:20px;color:white;background:var(--teal);border-radius:25px;text-decoration:none;font-size:12px;padding:9px 13px}
+@media(max-width:680px){.wrap{padding:0 20px}.hero{padding:39px 0}.section-title{font-size:26px}.sub-title{font-size:21px;margin-top:39px}.nav .wrap{gap:15px}pre{font-size:12px;padding:13px}.question{padding:13px 15px}table{min-width:540px}}
+@media print{body{background:#fff;font-size:11pt}.nav,.top,.copy{display:none!important}.hero{padding:24px 0 25px}.section-title{break-after:avoid}h3{break-after:avoid}.codebox,.question{break-inside:avoid}pre{white-space:pre-wrap;overflow-wrap:anywhere}.wrap{max-width:none}.question{background:white!important}.codebox{background:#172b35!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}thead th{background:#e5f4ee!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style></head>
+<body id="top"><header class="hero"><div class="wrap"><div class="eyebrow">PREDICTIVE MAINTENANCE · MISSION 02</div><h1>적은 센서로<br>장비 상태 분류하기</h1><p>특성공학 실습 · 특성 선택과 머신러닝 모델 비교</p></div></header>
+<nav class="nav"><div class="wrap"><a href="#intro">미션 안내</a><a href="#activity-a">A. 데이터 준비</a><a href="#activity-b">B. 기본 모델</a><a href="#activity-c">C. 센서 추가</a><a href="#activity-d">D. 결과 해석</a><a href="#activity-e">E. 최종 평가·저장</a><a href="#finish">결과 정리</a></div></nav>
+<main class="wrap">
+
+<h2 class="section-title" id="intro">이번 미션에서 해결할 문제</h2>
+<p>미션 01에서는 AGV와 OHT의 센서 데이터를 탐색했습니다. 장비 상태에 따라 뚜렷한 변화를 보이는 센서도 있었고, 상태별 분포가 많이 겹치는 센서도 있었습니다.</p>
+<p><strong>장비 상태를 분류하는 데 모든 센서가 필요할까요?</strong></p>
+<p>센서 수를 줄이면서도 충분한 분류 성능을 유지할 수 있다면 데이터 수집과 처리 부담을 줄이고 모델을 더 단순하게 구성할 수 있습니다. 이번에는 <strong>특성공학(Feature Engineering)</strong> 중 <strong>특성 선택(Feature Selection)</strong>을 중심으로 탐구합니다.</p>
+<h3 class="sub-title">특성공학의 주요 기법</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>기법</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>특성 선택 (Feature Selection)</strong></td>
+<td>기존 특성 중 필요한 것을 선택</td>
+<td>11개 센서 특성 중 온도·전류 특성 3개만 사용</td>
+</tr>
+<tr>
+<td>특성 변환 (Feature Transformation)</td>
+<td>기존 특성의 값이나 표현 방식을 변경</td>
+<td>표준화, 로그 변환</td>
+</tr>
+<tr>
+<td>특성 생성 (Feature Creation)</td>
+<td>기존 데이터로 새로운 특성을 생성</td>
+<td>전류 합계, 열화상 온도와 내부 온도의 차이</td>
+</tr>
+<tr>
+<td>특성 추출 (Feature Extraction)</td>
+<td>여러 특성을 새로운 표현으로 압축</td>
+<td>PCA를 이용한 차원 축소</td>
+</tr>
+</tbody>
+</table></div>
+<p>이번에는 센서 특성 2개로 시작해 하나씩 추가하는 <strong>전진 선택(Forward Selection) 방식의 탐구</strong>를 진행합니다. 모든 후보 조합을 자동으로 평가하는 정식 전진 선택 알고리즘이 아니라, <strong>학생이 직접 센서를 고르고 선택 이유와 결과를 비교하는 활동</strong>입니다.</p>
+<h3 class="sub-title">이번 미션의 실험 방법</h3>
+<p>동일한 센서 조합에 <strong>로지스틱 회귀(Logistic Regression)</strong>와 <strong>랜덤포레스트(Random Forest)</strong>를 각각 적용합니다. 로지스틱 회귀는 입력 특성을 선형적으로 결합하는 분류 모델이고, 랜덤포레스트는 여러 결정트리를 결합한 앙상블 분류 모델입니다.</p>
+<ol>
+<li>장비별 학습·검증·최종 평가 데이터를 구분합니다.</li>
+<li>센서 2개로 두 모델을 학습합니다.</li>
+<li>센서를 하나씩 추가하고, 센서 조합도 바꾸어 봅니다.</li>
+<li>전체 11개 센서를 사용한 모델과 비교합니다.</li>
+<li>모델을 선택하여 최종 평가하고 파일로 저장합니다.</li>
+</ol>
+<p><strong>이번 미션의 핵심 질문:</strong> 장비 상태를 분류하는 데 어떤 센서가 얼마나 필요하며, 센서 선택의 효과는 알고리즘과 장비 유형에 따라 달라질까요?</p>
+<blockquote class="note">
+<p><strong>질문과 기록 안내</strong><br/>
+코드를 이해하고 실험 결과를 해석하기 위한 질문이 포함되어 있습니다. 모든 질문의 답을 보고서에 옮길 필요는 없습니다. <strong>[필수 기록]</strong> 표시가 있는 결과는 과정 중에 보관하세요. 이번 미션은 미리 정해진 최적의 센서 조합을 찾는 활동이 아닙니다.</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="activity-a">ACTIVITY A. 모델 학습을 위한 데이터 준비</h2>
+<h3 class="sub-title">1. 데이터 불러오기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-1" type="button">코드 복사</button></div><pre><code class="language-python" id="code-1">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import time
+from pathlib import Path
+import joblib
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import (
+    accuracy_score, f1_score, recall_score,
+    classification_report, confusion_matrix,
+    ConfusionMatrixDisplay
+)
+
+# 파일 경로는 실제 파일 위치에 맞게 수정
+agv_path = "agv_processed.csv"
+oht_path = "oht_processed.csv"
+
+df_agv = pd.read_csv(agv_path, parse_dates=["timestamp"])
+df_oht = pd.read_csv(oht_path, parse_dates=["timestamp"])
+
+# 장비 유형별 데이터 보관
+datasets = {"AGV": df_agv, "OHT": df_oht}
+
+for device, df in datasets.items():
+    print(f"[{device}] 데이터 크기: {df.shape}")
+    print("장비별 기록 수:")
+    print(df["device_id"].value_counts().sort_index())
+</code></pre></div>
+<p><code>datasets</code>는 장비 유형별 데이터프레임을 저장한 딕셔너리입니다. 이후 같은 학습 코드를 AGV와 OHT에 적용할 때 사용합니다.</p>
+<blockquote class="question">
+<p><strong>Q1. 데이터 구조 확인</strong><br/>
+AGV와 OHT에서 장비 ID별 측정 기록 수를 확인하세요. 각 장비의 기록 수는 동일한가요? 장비별 데이터 수가 다를 때 학습과 평가 결과를 해석하면서 어떤 점을 주의해야 할까요?</p>
+</blockquote>
+<h3 class="sub-title">2. 전체 센서 목록 정의하기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-2" type="button">코드 복사</button></div><pre><code class="language-python" id="code-2"># 모델에 사용할 11개 센서 특성
+ALL_FEATURES = [
+    "PM10", "PM2.5", "PM1.0",
+    "NTC_temp",
+    "CT1_current", "CT2_current",
+    "CT3_current", "CT4_current",
+    "IR_temp_max",
+    "ex_temp", "ex_humidity"
+]
+
+TARGET_COL = "state"
+print("센서 특성 수:", len(ALL_FEATURES))
+</code></pre></div>
+<p>여기서 말하는 '센서 수'는 실제 설치된 물리적 센서의 개수가 아니라 <strong>모델에 입력하는 센서 특성(열)의 수</strong>입니다. 여러 특성이 같은 물리적 장치에서 나오기도 하므로, 특성 수 감소가 실제 설치 비용 감소와 정확히 같지는 않습니다.</p>
+<h3 class="sub-title">3. 장비별 학습·검증·최종 평가 데이터 분리하기</h3>
+<p>한 장비의 인접 시점 데이터가 학습용과 평가용에 함께 들어가면 평가 성능이 낙관적으로 나타날 수 있습니다. 따라서 <strong>행을 무작위로 나누지 않고 장비 ID별로 분리</strong>합니다.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>학습(Train)</th>
+<th>검증(Validation)</th>
+<th>최종 평가(Test)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGV</td>
+<td>agv01~agv03</td>
+<td>agv04</td>
+<td>agv05</td>
+</tr>
+<tr>
+<td>OHT</td>
+<td>oht01~oht03</td>
+<td>oht04</td>
+<td>oht05</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>학습 데이터는 모델의 매개변수를 학습하는 데 사용합니다.</li>
+<li>검증 데이터는 센서 조합과 알고리즘을 비교해 모델을 선택하는 데 사용합니다.</li>
+<li>최종 평가 데이터는 <strong>모델을 선택한 뒤 마지막에 한 번</strong> 확인합니다.</li>
+</ul>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-3" type="button">코드 복사</button></div><pre><code class="language-python" id="code-3"># 장비별 분할 결과 저장
+split_data = {}
+
+for device, df in datasets.items():
+    device_ids = sorted(df["device_id"].unique())
+
+    if len(device_ids) != 5:
+        raise ValueError(f"{device}: 장비 ID 5개를 예상했습니다.")
+
+    train_ids = device_ids[:3]   # 학습용 3대
+    val_ids = device_ids[3:4]    # 검증용 1대
+    test_ids = device_ids[4:5]   # 최종 평가용 1대
+
+    # 장비 ID가 겹치지 않도록 행 선택
+    train_df = df[df["device_id"].isin(train_ids)].copy()
+    val_df = df[df["device_id"].isin(val_ids)].copy()
+    test_df = df[df["device_id"].isin(test_ids)].copy()
+
+    split_data[device] = {
+        "train": train_df,
+        "val": val_df,
+        "test": test_df
+    }
+
+    print(f"\n[{device}]")
+    print("Train:", train_ids, len(train_df))
+    print("Validation:", val_ids, len(val_df))
+    print("Test:", test_ids, len(test_df))
+</code></pre></div>
+<p><code>split_data["AGV"]["train"]</code>처럼 장비 유형과 데이터 구분을 지정하여 원하는 기록을 꺼낼 수 있습니다.</p>
+<blockquote class="question">
+<p><strong>Q2. 코드 이해</strong><br/>
+<code>device_ids[:3]</code>, <code>device_ids[3:4]</code>, <code>device_ids[4:5]</code>를 각각 출력해 보세요. 무작위로 행을 나누는 방법과 비교해, 지금 방식이 새로운 장비에 대한 평가에 더 적합한 이유는 무엇일까요?</p>
+</blockquote>
+<h3 class="sub-title">4. 상태별 분포 확인하기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-4" type="button">코드 복사</button></div><pre><code class="language-python" id="code-4">for device, parts in split_data.items():
+    print(f"\n[{device}] 상태별 비율 (%)")
+    ratios = {}
+
+    for split_name in ["train", "val", "test"]:
+        # 상태별 비율을 동일한 순서로 계산
+        ratios[split_name] = (
+            parts[split_name]["state"]
+            .value_counts(normalize=True)
+            .reindex([0, 1, 2, 3], fill_value=0)
+            .mul(100)
+            .round(1)
+        )
+
+    print(pd.DataFrame(ratios))
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q3. 데이터 분포 분석</strong><br/>
+학습·검증 데이터에 네 가지 상태가 모두 있나요? 상태별 비율은 얼마나 다른가요? 검증 데이터에 특정 상태가 거의 없다면 Accuracy와 클래스별 Recall 중 무엇을 특히 주의해서 봐야 할까요?</p>
+</blockquote>
+<blockquote class="question">
+<p><strong>Q4. 실험 설계</strong><br/>
+이후 센서를 추가하거나 교체할 때 검증 데이터의 성능을 반복해서 확인합니다. 이 과정에서 <strong>최종 평가 데이터를 미리 사용하지 않는 이유</strong>는 무엇인가요?</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="activity-b">ACTIVITY B. 센서 2개로 기본 모델 학습하기</h2>
+<h3 class="sub-title">1. 첫 번째 센서 조합 선택하기</h3>
+<p>모두 같은 출발점에서 실험하기 위해 내부 온도와 전류 특성을 하나씩 선택합니다. 이 조합이 가장 좋은 조합이라고 미리 결정한 것은 아닙니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-5" type="button">코드 복사</button></div><pre><code class="language-python" id="code-5"># 공통 출발점: 온도 1개 + 전류 1개
+BASE_FEATURES = ["NTC_temp", "CT1_current"]
+print("첫 번째 센서 조합:", BASE_FEATURES)
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q5. 기본 센서 분석</strong><br/>
+미션 01에서 확인했던 두 센서의 상태별 분포를 떠올려 보세요. 이 두 특성만으로 네 가지 상태를 어느 정도 구분할 수 있을 것 같나요? 실험 결과를 보기 전에 예상과 근거를 짧게 기록하세요.</p>
+</blockquote>
+<h3 class="sub-title">2. 두 알고리즘을 같은 조건에서 준비하기</h3>
+<p>로지스틱 회귀는 <code>StandardScaler</code>로 표준화하고, 랜덤포레스트에는 원래 센서 값을 사용합니다. <strong>학습 장비와 검증 장비, 입력 센서 조합은 동일하게 유지</strong>합니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-6" type="button">코드 복사</button></div><pre><code class="language-python" id="code-6">def make_model(algorithm):
+    """알고리즘 이름에 맞는 새 모델을 생성합니다."""
+
+    if algorithm == "LogisticRegression":
+        # 학습 데이터로만 표준화 기준 계산
+        return Pipeline([
+            ("scaler", StandardScaler()),
+            ("classifier", LogisticRegression(
+                max_iter=1500,
+                class_weight="balanced",
+                random_state=42
+            ))
+        ])
+
+    if algorithm == "RandomForest":
+        # 결정트리 기반 모델은 표준화 없이 학습
+        return RandomForestClassifier(
+            n_estimators=100,
+            class_weight="balanced",
+            random_state=42,
+            n_jobs=-1
+        )
+
+    raise ValueError(f"알 수 없는 알고리즘: {algorithm}")
+</code></pre></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>설정</th>
+<th>로지스틱 회귀</th>
+<th>랜덤포레스트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>특성 표준화</td>
+<td><code>StandardScaler</code></td>
+<td>적용하지 않음</td>
+</tr>
+<tr>
+<td>클래스 가중치</td>
+<td><code>balanced</code></td>
+<td><code>balanced</code></td>
+</tr>
+<tr>
+<td>학습 반복/규모</td>
+<td><code>max_iter=1500</code></td>
+<td><code>n_estimators=100</code></td>
+</tr>
+<tr>
+<td>재현성 설정</td>
+<td><code>random_state=42</code></td>
+<td><code>random_state=42</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><code>Pipeline</code>은 표준화와 학습을 연결합니다. 검증 데이터에는 <strong>학습 데이터에서 구한 평균·표준편차</strong>를 적용하므로 검증 데이터 정보가 학습에 섞이는 것을 방지할 수 있습니다.</p>
+<blockquote class="question">
+<p><strong>Q6. 모델 코드 이해</strong><br/>
+로지스틱 회귀에만 <code>StandardScaler</code>를 포함한 이유는 무엇인가요? <code>class_weight="balanced"</code>를 사용하는 목적은 무엇인가요? 검증 데이터에 적용할 표준화 기준을 새로 계산하면 왜 문제가 될까요?</p>
+</blockquote>
+<h3 class="sub-title">3. 평가 함수 작성하기</h3>
+<p>센서를 변경할 때마다 평가 코드를 다시 작성하지 않도록, 모델과 데이터를 입력받아 지표를 계산하는 함수를 사용합니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-7" type="button">코드 복사</button></div><pre><code class="language-python" id="code-7">def evaluate_model(model, X, y_true):
+    """학습된 모델의 분류 지표를 계산합니다."""
+    y_pred = model.predict(X)
+
+    return {
+        "Accuracy": accuracy_score(y_true, y_pred),
+        "Macro F1": f1_score(
+            y_true, y_pred,
+            labels=[0, 1, 2, 3],
+            average="macro", zero_division=0
+        ),
+        "Danger Recall": recall_score(
+            y_true, y_pred,
+            labels=[3],
+            average="macro", zero_division=0
+        )
+    }
+</code></pre></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>평가 지표</th>
+<th>살펴볼 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>전체 분류 정확도</td>
+</tr>
+<tr>
+<td>Macro F1</td>
+<td>네 상태를 같은 비중으로 반영한 F1-score</td>
+</tr>
+<tr>
+<td>Danger Recall</td>
+<td>실제 위험(3) 상태를 얼마나 찾아냈는지</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="question">
+<p><strong>Q7. 함수 구조 이해</strong><br/>
+<code>evaluate_model()</code> 안에는 <code>model.fit()</code>이 없습니다. 그 이유는 무엇인가요? 이 함수가 지표를 개별 변수 대신 <strong>딕셔너리로 반환</strong>하면 이후 실험 결과를 정리할 때 어떤 점이 편리할까요?</p>
+</blockquote>
+<h3 class="sub-title">4. 모델 및 결과를 누적하는 공통 실험 함수</h3>
+<p>이번 미션에서는 센서 수와 조합을 여러 번 바꿔 학습합니다. 매번 두 장비·두 알고리즘을 실행하고 결과를 모으기 위해 함수를 만듭니다.</p>
+<p>같은 실험 이름으로 <strong>같은 센서 조합을 다시 실행할 경우</strong> 기존 결과를 갱신하며, 다른 센서 조합으로 바꾸려면 새로운 실험 이름을 사용합니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-8" type="button">코드 복사</button></div><pre><code class="language-python" id="code-8">ALGORITHMS = ["LogisticRegression", "RandomForest"]
+
+# 실험의 학습 모델과 결과를 누적하는 공간
+trained_models = {}
+experiment_results = {}
+
+
+def run_experiment(stage, features):
+    """선택한 센서로 AGV/OHT의 두 모델을 학습·검증합니다."""
+    features = list(features)
+
+    # 선택한 센서가 유효한지 확인
+    if not features or len(features) != len(set(features)):
+        raise ValueError("특성 목록은 비어 있거나 중복되면 안 됩니다.")
+    if not set(features).issubset(ALL_FEATURES):
+        raise ValueError("ALL_FEATURES에 없는 센서가 포함되었습니다.")
+
+    # 기존 실험 이름에 다른 센서를 덮어쓰지 않도록 확인
+    for device in split_data:
+        for algorithm in ALGORITHMS:
+            key = (device, algorithm, stage)
+            if key in experiment_results:
+                if experiment_results[key]["Features"] != features:
+                    raise ValueError(
+                        f"'{stage}'에 다른 센서가 이미 기록되어 있습니다. "
+                        "새로운 stage 이름을 사용하세요."
+                    )
+
+    for device, parts in split_data.items():
+        X_train = parts["train"][features]
+        y_train = parts["train"][TARGET_COL]
+        X_val = parts["val"][features]
+        y_val = parts["val"][TARGET_COL]
+
+        for algorithm in ALGORITHMS:
+            model = make_model(algorithm)
+
+            # 학습 시간 측정 (환경에 따라 달라질 수 있음)
+            start = time.perf_counter()
+            model.fit(X_train, y_train)
+            fit_seconds = time.perf_counter() - start
+
+            scores = evaluate_model(model, X_val, y_val)
+            key = (device, algorithm, stage)
+
+            # (장비, 알고리즘, 실험명)으로 구분하여 보관
+            trained_models[key] = model
+            experiment_results[key] = {
+                "Device": device,
+                "Algorithm": algorithm,
+                "Stage": stage,
+                "Features": features.copy(),
+                "Feature Count": len(features),
+                "Fit Seconds": fit_seconds,
+                **scores
+            }
+
+    return pd.DataFrame(list(experiment_results.values()))
+</code></pre></div>
+<p><code>trained_models</code>에는 실제 학습한 모델이, <code>experiment_results</code>에는 센서 목록과 검증 결과가 저장됩니다. 여기서 <code>Fit Seconds</code>는 학습 시간의 참고값이며, 하드웨어·시스템 부하에 따라 달라질 수 있습니다.</p>
+<blockquote class="question">
+<p><strong>Q8. 코드 읽기</strong><br/>
+<code>key = (device, algorithm, stage)</code>에 세 값이 모두 들어가는 이유는 무엇인가요? <code>stage</code>를 제외하면 센서 조합을 변경해 반복 학습할 때 어떤 문제가 생길까요? 같은 실험을 두 번 실행해도 결과 표에 동일한 행이 계속 쌓이지 않는 이유도 코드를 읽고 찾아보세요.</p>
+</blockquote>
+<h3 class="sub-title">5. 센서 2개로 첫 실험 실행하기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-9" type="button">코드 복사</button></div><pre><code class="language-python" id="code-9"># 공통 기준 실험: 센서 2개
+result_df = run_experiment(
+    stage="2_sensors",
+    features=BASE_FEATURES
+)
+
+SHOW_COLS = [
+    "Device", "Algorithm", "Stage", "Feature Count",
+    "Accuracy", "Macro F1", "Danger Recall"
+]
+
+print(result_df[SHOW_COLS].round(4))
+</code></pre></div>
+<blockquote class="question required">
+<p><strong>Q9. [필수 기록] 첫 번째 실험 결과</strong><br/>
+센서 2개로 만든 네 모델(AGV/OHT × 두 알고리즘)의 결과를 비교하세요. Macro F1이 가장 높은 모델과 위험 재현율이 가장 높은 모델은 무엇인가요? 알고리즘에 따른 차이와 장비에 따른 차이 중 어느 쪽이 더 크게 나타났나요? 예상과 달랐다면 기록해 두세요.</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="activity-c">ACTIVITY C. 센서를 추가하면서 성능 변화 관찰하기</h2>
+<h3 class="sub-title">1. 세 번째 센서 선택하기</h3>
+<p>미션 01의 센서별 분포, 상관관계, 시계열 분석 결과를 참고해 하나의 센서를 추가해 봅니다. 아래의 <code>IR_temp_max</code>는 <strong>예시</strong>이므로 다른 센서를 선택해도 됩니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-10" type="button">코드 복사</button></div><pre><code class="language-python" id="code-10"># 기본 2개 센서를 유지하고 세 번째 센서를 추가
+FEATURES_3 = BASE_FEATURES + [
+    "IR_temp_max"  # 다른 센서로 수정 가능
+]
+
+print("3개 센서:", FEATURES_3)
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q10. 세 번째 센서 선택</strong><br/>
+어떤 센서를 선택했나요? 상태별 분포가 뚜렷한지, 기존 두 센서와 상관관계가 어떤지, 새 정보를 보완할 수 있는지 등을 근거로 선택 이유를 기록하세요.</p>
+</blockquote>
+<blockquote class="question">
+<p><strong>Q11. 실험 전 가설 설정</strong><br/>
+방금 선택한 센서는 로지스틱 회귀와 랜덤포레스트 중 어느 알고리즘에서 더 큰 효과를 낼 것 같나요? 알고리즘의 특징을 근거로 <strong>실험 전에</strong> 짧게 예측해 보세요. 예상이 맞는지는 다음 단계에서 확인합니다.</p>
+</blockquote>
+<h3 class="sub-title">2. 센서 3개 실험 실행하기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-11" type="button">코드 복사</button></div><pre><code class="language-python" id="code-11"># 센서 3개 실험을 별도 이름으로 기록
+result_df = run_experiment(
+    stage="3_sensors",
+    features=FEATURES_3
+)
+
+print(result_df[SHOW_COLS].round(4))
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q12. 코드 이해</strong><br/>
+<code>run_experiment()</code>에서 센서 구성이 바뀔 때마다 <code>make_model()</code>로 <strong>새 모델</strong>을 만든 뒤 다시 <code>fit()</code>합니다. 기존에 학습한 모델을 그대로 두고 센서만 하나 추가하여 <code>predict()</code>하면 안 되는 이유는 무엇일까요?</p>
+</blockquote>
+<blockquote class="question">
+<p><strong>Q13. 센서 3개 결과 해석</strong><br/>
+센서 2개에서 3개로 늘렸을 때 Macro F1과 위험 재현율이 어떻게 변했나요? 두 알고리즘에서 변화가 같은 방향이었나요? AGV와 OHT에서도 같은 효과가 나타났나요? 변화가 없다면 그 센서가 무조건 불필요하다고 단정할 수 있을까요?</p>
+</blockquote>
+<h3 class="sub-title">3. 네 번째 센서 선택하기</h3>
+<p>세 번째 센서 실험의 결과를 참고하여 또 하나의 센서를 선택해 봅시다. 이번에는 이전 선택과 다른 관점, 예를 들어 <strong>기존 센서와 상관관계가 높은 센서</strong> 또는 <strong>상대적으로 낮은 센서</strong>를 고려해도 좋습니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-12" type="button">코드 복사</button></div><pre><code class="language-python" id="code-12"># 네 번째 센서도 기존 목록에 추가
+FEATURES_4 = FEATURES_3 + [
+    "PM10"  # 아직 사용하지 않은 센서로 수정 가능
+]
+
+result_df = run_experiment(
+    stage="4_sensors",
+    features=FEATURES_4
+)
+
+print(result_df[SHOW_COLS].round(4))
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q14. 네 번째 센서 선택</strong><br/>
+앞선 실험을 통해 무엇을 알게 되었나요? 그 결과를 바탕으로 왜 이번 센서를 선택했는지 설명해 보세요. 기존 센서와 비슷한 정보를 제공하는 센서를 추가하면 어떤 결과가 나올 것으로 예상했나요?</p>
+</blockquote>
+<blockquote class="question required">
+<p><strong>Q15. [필수 기록] 센서 추가 효과</strong><br/>
+센서 2개·3개·4개 결과를 나란히 비교하세요. 센서를 추가할 때마다 성능이 향상되었나요? 어느 단계에서 변화가 가장 컸나요? 각 단계에서 선택한 센서 이름과 세 평가 지표를 함께 보관하세요.</p>
+</blockquote>
+<h3 class="sub-title">4. 센서 수는 같게, 조합은 다르게</h3>
+<p>같은 3개 특성이라도 무엇을 선택했는지에 따라 성능이 달라질 수 있습니다. 앞선 조합과 다른 3개 특성 조합을 구성해 보세요.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-13" type="button">코드 복사</button></div><pre><code class="language-python" id="code-13"># 기존 3개 조합과 다른 대안 조합 예시
+FEATURES_3_ALT = [
+    "NTC_temp",
+    "CT1_current",
+    "PM2.5"
+]
+
+# 새로운 조합에는 반드시 다른 실험명 사용
+result_df = run_experiment(
+    stage="3_sensors_alt",
+    features=FEATURES_3_ALT
+)
+
+print(result_df[SHOW_COLS].round(4))
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q16. 센서 조합 교체 실험</strong><br/>
+센서 수를 3개로 유지하면서 조합을 바꿔 보세요. 어떤 특성을 교체했나요? 같은 개수의 센서로 학습했는데도 결과가 달라졌나요? 왜 센서 수만으로 모델을 판단할 수 없을까요?</p>
+</blockquote>
+<h3 class="sub-title">5. 전체 센서 11개 모델과 비교하기</h3>
+<p>센서 11개를 모두 사용할 때의 성능도 같은 방식으로 확인합니다. 전체 특성 모델은 반드시 최고 성능을 보이는 모델은 아닙니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-14" type="button">코드 복사</button></div><pre><code class="language-python" id="code-14"># 비교 기준: 전체 11개 센서 사용
+result_df = run_experiment(
+    stage="all_sensors",
+    features=ALL_FEATURES
+)
+
+print(result_df[SHOW_COLS].round(4))
+</code></pre></div>
+<blockquote class="question required">
+<p><strong>Q17. [필수 기록] 전체 센서와 비교</strong><br/>
+11개 전체 센서 모델이 모든 지표에서 가장 좋았나요? 소수의 센서를 사용해도 비슷한 성능이 나온 조합이 있나요? 더 적은 입력 특성을 선택할 이유와 그때 포기해야 할 성능이 있는지 설명하세요.</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="activity-d">ACTIVITY D. 실험 결과 분석하기</h2>
+<h3 class="sub-title">1. 센서 수에 따른 성능 변화 시각화</h3>
+<p>센서 수에 따라 두 알고리즘의 검증 성능이 어떻게 변화했는지 그래프로 확인합니다. 여기에서는 <strong>2개·3개·4개·전체 센서의 기본 진행 경로</strong>만 시각화합니다. 대안 조합은 같은 센서 수의 점이 겹치므로 이후 별도 비교합니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-15" type="button">코드 복사</button></div><pre><code class="language-python" id="code-15"># 기본 진행 경로에 해당하는 결과만 선택
+MAIN_STAGES = [
+    "2_sensors", "3_sensors", "4_sensors", "all_sensors"
+]
+
+main_results = result_df[
+    result_df["Stage"].isin(MAIN_STAGES)
+].copy()
+
+for device in ["AGV", "OHT"]:
+    part = main_results[main_results["Device"] == device]
+
+    plt.figure(figsize=(9, 5))
+
+    # 센서 개수별 알고리즘 성능 변화
+    sns.lineplot(
+        data=part,
+        x="Feature Count",
+        y="Macro F1",
+        hue="Algorithm",
+        marker="o"
+    )
+
+    plt.title(f"{device}: Feature Count vs Macro F1")
+    plt.xlabel("Number of Features")
+    plt.ylabel("Macro F1")
+    plt.ylim(0, 1)
+    plt.grid(alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q18. 그래프 직접 수정하기</strong><br/>
+<code>y="Macro F1"</code>을 변경하여 Accuracy와 Danger Recall 그래프도 만들어 보세요. 세 지표의 증감 방향이 항상 같나요? 서로 반대 방향으로 변한 단계가 있다면 어떤 판단이 필요할까요?</p>
+</blockquote>
+<h3 class="sub-title">2. 같은 센서 조합에서 알고리즘 비교</h3>
+<blockquote class="question">
+<p><strong>Q19. 알고리즘 비교</strong><br/>
+동일한 센서 조합에서 로지스틱 회귀와 랜덤포레스트 중 어느 쪽이 더 높은 성능을 보이나요? 센서가 늘어날수록 두 알고리즘의 성능 차이가 어떻게 변하나요? 알고리즘이 센서 정보를 다르게 활용했을 가능성을 생각해 보세요.</p>
+</blockquote>
+<h3 class="sub-title">3. AGV와 OHT의 차이 확인</h3>
+<blockquote class="question">
+<p><strong>Q20. 장비 유형 비교</strong><br/>
+AGV와 OHT에서 센서 추가 효과가 가장 컸던 단계는 각각 언제인가요? 효과적인 센서 조합이 같나요? 미션 01의 장비별 센서 분포 차이와 연결해 해석해 보세요.</p>
+</blockquote>
+<h3 class="sub-title">4. 계산 비용도 함께 보기</h3>
+<p>센서 특성 수를 줄이면 입력 데이터의 차원도 줄어듭니다. 하지만 학습 시간은 알고리즘, 데이터 행 수, CPU 사용 상황 등의 영향을 함께 받습니다. 모델을 학습할 때 기록한 <code>Fit Seconds</code>를 확인해 보겠습니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-16" type="button">코드 복사</button></div><pre><code class="language-python" id="code-16"># 이미 측정된 학습 시간을 별도 표로 확인
+fit_table = result_df[
+    ["Device", "Algorithm", "Stage",
+     "Feature Count", "Fit Seconds"]
+].sort_values(["Device", "Algorithm", "Feature Count"])
+
+print(fit_table.round(4))
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q21. 계산 비용 탐구</strong><br/>
+특성 수가 적을 때와 많을 때 학습 시간이 얼마나 차이나나요? 로지스틱 회귀와 랜덤포레스트의 차이도 확인하세요. 특성 수 감소가 <strong>학습 연산량·예측 입력량·실제 센서 설치/관리 비용</strong>에 각각 어떤 영향을 줄 수 있을까요? 실행 시간이 짧으면 차이가 일정하지 않을 수 있다는 점도 고려하세요.</p>
+</blockquote>
+<h3 class="sub-title">5. 성능과 특성 수 사이에서 선택하기</h3>
+<blockquote class="question required">
+<p><strong>Q22. [필수 기록] 모델 적합성 판단</strong><br/>
+AGV 또는 OHT 하나를 선택하고 <strong>전체 11개 센서 모델</strong>과 <strong>소수 센서 모델</strong>을 비교하세요. Accuracy·Macro F1·Danger Recall, 센서 특성 개수, 학습 시간까지 고려할 때 어떤 모델을 선택하겠나요? 단순 최고 점수 대신 성능과 입력 정보의 균형을 기준으로 판단해도 좋습니다.</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="activity-e">ACTIVITY E. 최종 모델 평가 및 저장하기</h2>
+<h3 class="sub-title">1. 검증 결과를 바탕으로 모델 선택하기</h3>
+<p>앞에서는 <strong>검증 장비의 데이터</strong>로 여러 센서 조합을 비교했습니다. 이제 최종 평가 장비의 결과를 확인하기 전에 사용할 모델을 확정합니다. 같은 평가 장비를 여러 번 사용하면서 유리한 센서를 다시 고르는 과정은 피해야 합니다.</p>
+<blockquote class="question">
+<p><strong>Q23. 최종 모델 선택</strong><br/>
+선택한 <strong>장비 유형, 알고리즘, 실험명, 입력 센서 목록, 검증 성능</strong>을 정리하세요. 다른 실험보다 이 모델을 선택한 이유는 무엇인가요? 최종 평가를 실행하기 전에 기록하세요.</p>
+</blockquote>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-17" type="button">코드 복사</button></div><pre><code class="language-python" id="code-17"># 학생이 직접 수정하는 선택 항목
+SELECTED_DEVICE = "AGV"              # "AGV" 또는 "OHT"
+SELECTED_ALGORITHM = "LogisticRegression"  # 또는 "RandomForest"
+SELECTED_STAGE = "3_sensors"         # 실행한 실험명
+
+# 장비·알고리즘·실험명으로 모델 선택
+model_key = (
+    SELECTED_DEVICE,
+    SELECTED_ALGORITHM,
+    SELECTED_STAGE
+)
+
+if model_key not in trained_models:
+    raise ValueError("선택한 모델이 없습니다. 실험명을 확인하세요.")
+
+selected_model = trained_models[model_key]
+selected_record = experiment_results[model_key]
+selected_features = selected_record["Features"].copy()
+
+print("선택한 장비:", SELECTED_DEVICE)
+print("알고리즘:", SELECTED_ALGORITHM)
+print("실험명:", SELECTED_STAGE)
+print("사용 센서:", selected_features)
+print("검증 Macro F1:", round(selected_record["Macro F1"], 4))
+</code></pre></div>
+<h3 class="sub-title">2. 최종 평가 장비에 적용하기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-18" type="button">코드 복사</button></div><pre><code class="language-python" id="code-18"># 지금까지 센서/모델 선택에 사용하지 않은 장비
+final_test_df = split_data[SELECTED_DEVICE]["test"]
+X_test = final_test_df[selected_features]
+y_test = final_test_df[TARGET_COL]
+
+# 학습된 모델로 최종 예측
+y_pred = selected_model.predict(X_test)
+test_scores = evaluate_model(selected_model, X_test, y_test)
+
+print("[최종 평가]")
+print(pd.DataFrame([test_scores]).round(4))
+
+print("[클래스별 지표]")
+print(classification_report(
+    y_test, y_pred,
+    labels=[0, 1, 2, 3],
+    target_names=["Normal", "Watch", "Warning", "Danger"],
+    digits=3, zero_division=0
+))
+
+# 실제 상태(세로)와 예측 상태(가로) 비교
+cm = confusion_matrix(y_test, y_pred, labels=[0, 1, 2, 3])
+disp = ConfusionMatrixDisplay(
+    confusion_matrix=cm,
+    display_labels=["Normal", "Watch", "Warning", "Danger"]
+)
+disp.plot(cmap="Blues", values_format="d")
+plt.title(f"{SELECTED_DEVICE}: Final Test")
+plt.tight_layout()
+plt.show()
+</code></pre></div>
+<blockquote class="question required">
+<p><strong>Q24. [필수 기록] 최종 평가 해석</strong><br/>
+선택한 모델의 <strong>검증 성능과 최종 평가 성능</strong>은 얼마나 차이나나요? 위험 상태의 재현율은 어떤가요? 두 장비가 서로 다르고, 검증을 이용해 선택한 모델이라는 점을 고려하여 차이의 가능한 이유를 설명하세요. 최종 평가가 예상과 달라도 결과를 바꾸기 위해 같은 평가 장비를 반복 사용하지 마세요.</p>
+</blockquote>
+<h3 class="sub-title">3. 모델과 센서 목록을 함께 저장하기</h3>
+<p>학습이 끝난 모델을 다시 활용하려면 <strong>모델뿐 아니라 입력 센서의 이름과 순서</strong>도 보관해야 합니다. 로지스틱 회귀의 표준화 단계는 <code>Pipeline</code> 안에 포함되어 함께 저장됩니다.</p>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-19" type="button">코드 복사</button></div><pre><code class="language-python" id="code-19"># 저장할 폴더 생성
+MODEL_DIR = Path("saved_models")
+MODEL_DIR.mkdir(exist_ok=True)
+
+model_path = MODEL_DIR / (
+    f"{SELECTED_DEVICE}_"
+    f"{SELECTED_ALGORITHM}_"
+    f"{SELECTED_STAGE}.joblib"
+)
+
+# 모델 + 입력 특성 순서 + 기본 정보 함께 저장
+model_package = {
+    "model": selected_model,
+    "features": selected_features,
+    "device": SELECTED_DEVICE,
+    "algorithm": SELECTED_ALGORITHM,
+    "stage": SELECTED_STAGE,
+    "target_labels": [0, 1, 2, 3]
+}
+
+joblib.dump(model_package, model_path)
+print("저장 위치:", model_path.resolve())
+</code></pre></div>
+<blockquote class="question">
+<p><strong>Q25. 모델 저장 코드 이해</strong><br/>
+<code>model_package</code>에 <code>model</code>뿐 아니라 <code>features</code>를 저장한 이유는 무엇인가요? 같은 센서가 있더라도 열 순서가 달라지면 왜 문제가 될 수 있을까요? 로지스틱 회귀의 표준화 정보는 어디에 보관되어 있을까요?</p>
+</blockquote>
+<h3 class="sub-title">4. 저장한 모델 다시 불러오기</h3>
+<div class="codebox"><div class="codehead"><span>PYTHON · 실습 코드</span><button class="copy" data-target="code-20" type="button">코드 복사</button></div><pre><code class="language-python" id="code-20"># 직접 저장한 신뢰할 수 있는 파일만 불러오기
+loaded_package = joblib.load(model_path)
+
+loaded_model = loaded_package["model"]
+loaded_features = loaded_package["features"]
+
+# 저장된 열 이름과 순서를 그대로 사용
+X_check = final_test_df[loaded_features]
+
+before = selected_model.predict(X_check)
+after = loaded_model.predict(X_check)
+
+print("저장 전후 예측 일치:", np.array_equal(before, after))
+print("불러온 센서 목록:", loaded_features)
+</code></pre></div>
+<p>출력값이 <code>True</code>라면 같은 입력 데이터에 대한 저장 전후 예측이 일치한다는 뜻입니다. <code>joblib</code> 파일은 신뢰할 수 있는 파일만 불러오세요. 라이브러리 버전이 크게 달라지면 호환 문제가 발생할 수 있습니다.</p>
+<blockquote class="question">
+<p><strong>Q26. 모델 재사용 탐구</strong><br/>
+저장한 모델을 불러왔을 때 예측 결과가 일치했나요? 새로운 장비에서 저장 모델이 요구하는 센서 중 하나가 누락된다면 어떤 문제가 생기나요? 실제 장비에 적용하려면 어떤 조건을 확인해야 할까요?</p>
+</blockquote>
+<hr/>
+<h2 class="section-title" id="finish">미션 02 결과 정리</h2>
+<p>이번 미션에서는 <strong>특성 선택</strong>을 중심으로 적은 센서에서 시작해 입력 특성을 추가하며 두 알고리즘을 비교했습니다. 성능뿐 아니라 센서 특성 수와 모델의 일반화 가능성, 모델 재사용 조건도 살펴보았습니다.</p>
+<h3 class="sub-title">완료 확인</h3>
+<ul>
+<li>[ ] 장비 ID를 기준으로 학습·검증·최종 평가 데이터를 구분했다.</li>
+<li>[ ] 센서 2개로 두 알고리즘을 학습하고 검증했다.</li>
+<li>[ ] 센서를 3개·4개로 추가하고 선택 이유를 설명했다.</li>
+<li>[ ] 같은 센서 수에서 다른 조합도 비교했다.</li>
+<li>[ ] 전체 11개 센서 모델과 비교했다.</li>
+<li>[ ] 성능 변화와 학습 시간을 확인했다.</li>
+<li>[ ] 최종 모델을 선택하고 평가했다.</li>
+<li>[ ] 모델과 입력 특성 목록을 함께 저장하고 다시 불러왔다.</li>
+</ul>
+<h3 class="sub-title">보고서에 기록할 내용</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>기록할 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. 실험 목적과 설계</strong></td>
+<td>특성 선택의 목적, 장비 ID 기준 데이터 분할, 두 알고리즘</td>
+</tr>
+<tr>
+<td><strong>2. 센서 선택 과정</strong></td>
+<td>2→3→4개로 추가한 센서, 각 선택의 가설과 근거</td>
+</tr>
+<tr>
+<td><strong>3. 실험 결과 비교</strong></td>
+<td>센서 조합별 Accuracy·Macro F1·위험 상태 Recall, 전체 11개 모델과 비교</td>
+</tr>
+<tr>
+<td><strong>4. 최종 모델 선택과 평가</strong></td>
+<td>선택 모델과 이유, 검증·최종 평가 결과, 혼동행렬</td>
+</tr>
+<tr>
+<td><strong>5. 결론과 한계</strong></td>
+<td>적은 센서로 성능을 유지할 가능성, 장비별 차이, 추가 검증할 점</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>중요:</strong> 모델의 성능이 반드시 향상되어야 하는 것은 아닙니다. 관찰한 결과에 근거해 왜 그 센서를 선택했는지, 어떤 선택이 적절한지 설명하는 것이 이번 미션의 핵심입니다.</p>
+<div class="last-note">예지보전 프로젝트 · MISSION 02 · 실험 결과를 바탕으로 모델을 비교하고 선택합니다.</div></main>
+<footer>Predictive Maintenance · Feature Selection Laboratory</footer><a class="top" href="#top" aria-label="맨 위로">↑ 맨 위로</a>
+<script>
+for(const button of document.querySelectorAll('.copy')){
+ button.addEventListener('click',async()=>{
+   const node=document.getElementById(button.dataset.target);
+   if(!node)return;
+   const value=node.textContent;
+   try{await navigator.clipboard.writeText(value)}catch(e){
+     const area=document.createElement('textarea');area.value=value;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();
+   }
+   const original=button.textContent;button.textContent='복사 완료';setTimeout(()=>button.textContent=original,1400);
+ });
+}
+</script></body></html>

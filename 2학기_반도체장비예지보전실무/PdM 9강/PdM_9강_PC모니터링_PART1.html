@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PC 모니터링 실습 | PART 01</title>
+<style>
+:root{color-scheme:light;--ink:#18243a;--muted:#58677c;--blue:#2b61b4;--border:#dbe3ed;--soft:#f3f7fc;--paper:#fff;--code:#142033}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f5f7fa;color:var(--ink);font-family:system-ui,-apple-system,'Malgun Gothic','Apple SD Gothic Neo',sans-serif;line-height:1.75}a{color:var(--blue)}.layout{display:grid;grid-template-columns:230px minmax(0,860px);gap:28px;justify-content:center;max-width:1190px;margin:auto;padding:35px 22px}.nav{position:sticky;top:25px;align-self:start;padding:22px 16px;background:white;border:1px solid var(--border);border-radius:14px}.nav b{display:block;font-size:14px;margin-bottom:14px}.nav a{display:block;text-decoration:none;color:var(--muted);font-size:13px;padding:9px 10px;border-radius:8px}.nav a:hover,.nav a:focus{background:var(--soft);color:var(--blue)}main{background:white;border:1px solid var(--border);border-radius:16px;padding:42px 46px;min-width:0}.eyebrow{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.12em}.hero h1{font-size:32px;line-height:1.35;margin:10px 0}.hero p{color:var(--muted);margin:8px 0 24px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.meta span{font-size:12px;background:#eaf1fb;border-radius:99px;padding:5px 11px;color:#244b85}.objective{border-left:4px solid var(--blue);background:var(--soft);padding:14px 17px;border-radius:0 10px 10px 0}.section{padding-top:28px;margin-top:30px;border-top:1px solid var(--border);scroll-margin-top:20px}.section h2{font-size:23px;line-height:1.45;margin:0 0 18px}.section h3{font-size:17px;margin:27px 0 10px}p{margin:12px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 21px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}th{background:var(--soft);font-weight:700}td:first-child{width:35%}ol{padding-left:25px}li{padding:4px 0}.exercise{display:inline-block;background:#eaf1fb;color:#1b4f99;border-radius:5px;font-size:12px;font-weight:800;padding:2px 8px;margin-bottom:5px}.codebox{border:1px solid #344760;background:var(--code);border-radius:12px;overflow:hidden;margin:14px 0 18px}.codehead{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:#cbd8ed;background:#22324a;font-size:12px}.copy{font:inherit;background:#314b6c;color:white;border:1px solid #63758b;border-radius:6px;cursor:pointer;padding:6px 10px;min-height:32px}.copy:hover{background:#415d80}pre{padding:17px 19px;margin:0;overflow:auto;color:#e4ebf7;font-size:13.5px;line-height:1.65;tab-size:4}code{font-family:Consolas,'D2Coding','Courier New',monospace}p code,td code,li code{background:#edf2f8;color:#244b85;border-radius:4px;padding:1px 4px;font-size:.94em}.q{margin:22px 0 8px;padding:18px 20px;border:1px solid #cad9ed;background:#f7faff;border-radius:11px}.q strong{display:block;color:#194a8f;margin-bottom:5px}.q p{margin:0}.note{padding:13px 16px;border-radius:10px;background:#fff8e9;border-left:3px solid #d4a445;font-size:14px}.summary{background:var(--soft);border-radius:12px;padding:16px 22px}.pipeline{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:15px 0;flex-wrap:wrap}.pipeline span{background:white;border:1px solid var(--border);padding:9px 12px;border-radius:9px;flex:1;text-align:center;font-weight:700;font-size:13px;min-width:90px}.pipeline b{color:var(--muted)}footer{margin-top:30px;color:var(--muted);font-size:13px}.print-only{display:none}@media(max-width:850px){.layout{display:block;padding:10px}.nav{position:static;margin-bottom:10px;padding:13px}.nav b{margin-bottom:6px}.nav a{display:inline-block;padding:6px 9px}main{padding:25px 20px}.hero h1{font-size:26px}.section h2{font-size:21px}}@media print{body{background:white}.layout{display:block;max-width:none;padding:0}.nav,.copy{display:none}main{border:0;padding:0}pre{white-space:pre-wrap;overflow:visible}.codebox{break-inside:avoid}table,.q{break-inside:avoid}.print-only{display:block}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="nav" aria-label="교재 목차"><b>PART 01 · 목차</b><a href="#start">학습 목표</a><a href="#section1">1. 내 컴퓨터도 모니터링할 수 있을까?</a><a href="#section2">2. CPU와 메모리 사용률 측정</a><a href="#section3">3. 반복 측정 및 저장</a><a href="#section4">4. CPU 사용률 시각화</a><a href="#section5">5. 정리</a></nav>
+<main>
+<header class="hero" id="start"><div class="eyebrow">반도체장비예지보전실무 · PC 모니터링 실습</div><h1>PART 01.<br>내 컴퓨터의 CPU 사용률 확인하기</h1><p>컴퓨터 자원 사용량을 직접 측정하고 시계열 그래프로 나타낸다.</p><div class="meta"><span>예상 20~25분</span><span>실습 3개</span><span>질문 3개</span><span>로컬 Python</span></div><div class="objective"><b>학습 목표</b><div>CPU·메모리 사용률을 확인하고, CPU 사용률을 반복 측정하여 리스트에 저장한 뒤 선 그래프로 표현한다.</div></div></header>
+<section id="section1" class="section"><h2>1. 내 컴퓨터도 모니터링할 수 있을까?</h2><h3>1.1. PC 모니터링</h3><p>PC 모니터링은 컴퓨터의 자원 사용 상태를 확인하는 작업이다.</p><p>대표적인 모니터링 대상은 다음과 같다.</p><table><thead><tr><th>항목</th><th>의미</th></tr></thead><tbody><tr><td>CPU</td><td>프로그램의 명령을 처리하는 장치</td></tr><tr><td>메모리(RAM)</td><td>실행 중인 프로그램과 데이터를 임시로 저장하는 공간</td></tr><tr><td>디스크</td><td>프로그램과 데이터를 저장하는 장치</td></tr><tr><td>네트워크</td><td>다른 컴퓨터와 데이터를 주고받는 통신 기능</td></tr></tbody></table><p>컴퓨터에서 실행하는 작업에 따라 자원 사용량이 달라진다. 이러한 값을 일정한 간격으로 기록하면 시계열 데이터를 만들 수 있다.</p><h3>1.2. 작업 관리자에서 확인하기</h3><p>Windows 작업 관리자의 <b>성능</b> 탭에서 CPU와 메모리 사용 상태를 확인한다.</p><ol><li><code>Ctrl + Shift + Esc</code>로 작업 관리자를 실행한다.</li><li><b>성능 → CPU</b>를 선택하여 CPU 사용률을 확인한다.</li><li><b>성능 → 메모리</b>를 선택하여 메모리 사용량을 확인한다.</li></ol></section>
+<section id="section2" class="section"><h2>2. CPU와 메모리 사용률 측정하기</h2><span class="exercise">실습 01</span><h3>CPU·메모리 사용률 출력</h3><p><code>psutil</code> 라이브러리를 사용하여 현재 PC의 CPU와 메모리 사용률을 측정한다.</p><div class="codebox"><div class="codehead"><span>practice01.py · Python</span><button type="button" class="copy" aria-label="실습 01 코드 복사">코드 복사</button></div><pre><code>import psutil
+
+cpu = psutil.cpu_percent(interval=1)
+memory = psutil.virtual_memory().percent
+
+print("CPU 사용률:", cpu, "%")
+print("메모리 사용률:", memory, "%")</code></pre></div><h3>코드 설명</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>psutil.cpu_percent(interval=1)</code></td><td>1초 동안 CPU 사용률을 측정한다.</td></tr><tr><td><code>psutil.virtual_memory()</code></td><td>메모리 사용 정보를 가져온다.</td></tr><tr><td><code>.percent</code></td><td>메모리 사용률을 백분율 값으로 가져온다.</td></tr></tbody></table><p><code>cpu</code>와 <code>memory</code>에는 각각 실수(<code>float</code>) 형태의 사용률이 저장된다.</p><div class="q"><strong>Q1.1.</strong><p><code>psutil.virtual_memory()</code>의 반환값 전체를 출력해보세요. 메모리 사용률 외에 어떤 정보가 있는지 확인해보세요.</p></div></section>
+<section id="section3" class="section"><h2>3. CPU 사용률 반복 측정 및 저장하기</h2><p>CPU 사용률은 실행 중인 작업에 따라 계속 변한다. 일정한 간격으로 측정한 값을 리스트에 저장하면 시간에 따른 변화를 확인할 수 있다.</p><span class="exercise">실습 02</span><h3>CPU 사용률 20번 측정하기</h3><div class="codebox"><div class="codehead"><span>practice02.py · Python</span><button type="button" class="copy" aria-label="실습 02 코드 복사">코드 복사</button></div><pre><code>import psutil
+
+cpu_list = []
+
+for i in range(20):
+    cpu = psutil.cpu_percent(interval=1)
+
+    cpu_list.append(cpu)
+
+    print(f"{i+1}번째 측정: {cpu:.1f}%")
+
+print(cpu_list)</code></pre></div><h3>코드 설명</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>cpu_list = []</code></td><td>측정값을 저장할 빈 리스트를 생성한다.</td></tr><tr><td><code>range(20)</code></td><td>측정 과정을 20번 반복한다.</td></tr><tr><td><code>cpu_list.append(cpu)</code></td><td>측정한 CPU 사용률을 리스트에 추가한다.</td></tr><tr><td><code>{cpu:.1f}</code></td><td>CPU 사용률을 소수점 첫째 자리까지 표시한다.</td></tr></tbody></table><div class="q"><strong>Q2.1.</strong><p>반복 횟수를 20번에서 10번으로 변경해보세요. 측정 시간과 리스트에 저장된 데이터 개수를 확인해보세요.</p></div></section>
+<section id="section4" class="section"><h2>4. CPU 사용률 시각화하기</h2><span class="exercise">실습 03</span><h3>CPU 사용률 그래프</h3><p>앞에서 만든 리스트를 <code>matplotlib</code>으로 시각화한다.</p><p><b>실습 02 코드 아래에</b> 다음 코드를 추가한다.</p><div class="codebox"><div class="codehead"><span>practice02.py에 추가 · Python</span><button type="button" class="copy" aria-label="실습 03 코드 복사">코드 복사</button></div><pre><code>import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 4))
+
+plt.plot(cpu_list)
+
+plt.title("CPU Usage")
+plt.xlabel("Time (seconds)")
+plt.ylabel("CPU Usage (%)")
+
+plt.ylim(0, 100)
+plt.grid()
+
+plt.show()</code></pre></div><h3>코드 설명</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>plt.figure(figsize=(10, 4))</code></td><td>그래프 크기를 설정한다.</td></tr><tr><td><code>plt.plot(cpu_list)</code></td><td>CPU 측정값을 선 그래프로 그린다.</td></tr><tr><td><code>plt.xlabel()</code> / <code>plt.ylabel()</code></td><td>x축과 y축의 이름을 설정한다.</td></tr><tr><td><code>plt.ylim(0, 100)</code></td><td>y축 범위를 0~100으로 설정한다.</td></tr><tr><td><code>plt.grid()</code></td><td>그래프에 격자를 표시한다.</td></tr><tr><td><code>plt.show()</code></td><td>그래프를 출력한다.</td></tr></tbody></table><p>1초 간격으로 수집한 데이터이므로 측정 순서를 시간 흐름에 대응시켜 볼 수 있다. 첫 측정값의 x좌표는 0이다.</p><div class="q"><strong>Q3.1.</strong><p>CPU 사용률을 측정하는 동안 다른 프로그램을 실행해보세요. 그래프에 변화가 나타나는지 확인해보세요.</p></div><p class="note">측정 중 다른 프로그램을 실행해도 사용률이 크게 변하지 않을 수 있다. 결과는 PC 사양과 실행 작업에 따라 달라진다.</p></section>
+<section id="section5" class="section"><h2>5. PART 01 정리</h2><div class="summary"><div class="pipeline"><span>측정<br><small>psutil</small></span><b>→</b><span>반복·저장<br><small>for / append</small></span><b>→</b><span>시각화<br><small>matplotlib</small></span></div><p>PC의 CPU 사용률을 일정한 간격으로 측정하고, 리스트에 저장하여 그래프로 표현했다.</p></div><p><b>다음 파트</b>에서는 네 가지 컴퓨터 활동을 수행하면서 자원 사용량을 수집하고, 활동별 패턴을 비교한다.</p></section>
+<footer>반도체장비예지보전실무 · PC 모니터링 실습 | PART 01</footer>
+</main></div>
+<script>
+document.querySelectorAll('.codebox').forEach(function(box){const button=box.querySelector('.copy');const source=box.querySelector('code');button.addEventListener('click',async function(){const value=source.textContent;try{if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(value)}else{const area=document.createElement('textarea');area.value=value;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();const ok=document.execCommand('copy');area.remove();if(!ok)throw new Error('copy unavailable')}button.textContent='복사 완료';}catch(e){button.textContent='복사 실패';}setTimeout(function(){button.textContent='코드 복사'},1500)})});
+</script>
+</body>
+</html>
