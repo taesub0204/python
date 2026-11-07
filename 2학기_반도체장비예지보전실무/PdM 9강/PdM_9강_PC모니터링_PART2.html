@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>PC 모니터링 실습 | PART 02</title><style>
+:root{color-scheme:light;--ink:#18243a;--muted:#58677c;--blue:#2b61b4;--border:#dbe3ed;--soft:#f3f7fc;--paper:#fff;--code:#142033}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f5f7fa;color:var(--ink);font-family:system-ui,-apple-system,'Malgun Gothic','Apple SD Gothic Neo',sans-serif;line-height:1.75}a{color:var(--blue)}.layout{display:grid;grid-template-columns:230px minmax(0,860px);gap:28px;justify-content:center;max-width:1190px;margin:auto;padding:35px 22px}.nav{position:sticky;top:25px;align-self:start;padding:22px 16px;background:white;border:1px solid var(--border);border-radius:14px}.nav b{display:block;font-size:14px;margin-bottom:14px}.nav a{display:block;text-decoration:none;color:var(--muted);font-size:13px;padding:9px 10px;border-radius:8px}.nav a:hover,.nav a:focus{background:var(--soft);color:var(--blue)}main{background:white;border:1px solid var(--border);border-radius:16px;padding:42px 46px;min-width:0}.eyebrow{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.12em}.hero h1{font-size:32px;line-height:1.35;margin:10px 0}.hero p{color:var(--muted);margin:8px 0 24px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.meta span{font-size:12px;background:#eaf1fb;border-radius:99px;padding:5px 11px;color:#244b85}.objective{border-left:4px solid var(--blue);background:var(--soft);padding:14px 17px;border-radius:0 10px 10px 0}.section{padding-top:28px;margin-top:30px;border-top:1px solid var(--border);scroll-margin-top:20px}.section h2{font-size:23px;line-height:1.45;margin:0 0 18px}.section h3{font-size:17px;margin:27px 0 10px}p{margin:12px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 21px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}th{background:var(--soft);font-weight:700}td:first-child{width:35%}ol{padding-left:25px}li{padding:4px 0}.exercise{display:inline-block;background:#eaf1fb;color:#1b4f99;border-radius:5px;font-size:12px;font-weight:800;padding:2px 8px;margin-bottom:5px}.codebox{border:1px solid #344760;background:var(--code);border-radius:12px;overflow:hidden;margin:14px 0 18px}.codehead{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;color:#cbd8ed;background:#22324a;font-size:12px}.copy{font:inherit;background:#314b6c;color:white;border:1px solid #63758b;border-radius:6px;cursor:pointer;padding:6px 10px;min-height:32px}.copy:hover{background:#415d80}pre{padding:17px 19px;margin:0;overflow:auto;color:#e4ebf7;font-size:13.5px;line-height:1.65;tab-size:4}code{font-family:Consolas,'D2Coding','Courier New',monospace}p code,td code,li code{background:#edf2f8;color:#244b85;border-radius:4px;padding:1px 4px;font-size:.94em}.q{margin:22px 0 8px;padding:18px 20px;border:1px solid #cad9ed;background:#f7faff;border-radius:11px}.q strong{display:block;color:#194a8f;margin-bottom:5px}.q p{margin:0}.note{padding:13px 16px;border-radius:10px;background:#fff8e9;border-left:3px solid #d4a445;font-size:14px}.summary{background:var(--soft);border-radius:12px;padding:16px 22px}.pipeline{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:15px 0;flex-wrap:wrap}.pipeline span{background:white;border:1px solid var(--border);padding:9px 12px;border-radius:9px;flex:1;text-align:center;font-weight:700;font-size:13px;min-width:90px}.pipeline b{color:var(--muted)}footer{margin-top:30px;color:var(--muted);font-size:13px}.print-only{display:none}@media(max-width:850px){.layout{display:block;padding:10px}.nav{position:static;margin-bottom:10px;padding:13px}.nav b{margin-bottom:6px}.nav a{display:inline-block;padding:6px 9px}main{padding:25px 20px}.hero h1{font-size:26px}.section h2{font-size:21px}}@media print{body{background:white}.layout{display:block;max-width:none;padding:0}.nav,.copy{display:none}main{border:0;padding:0}pre{white-space:pre-wrap;overflow:visible}.codebox{break-inside:avoid}table,.q{break-inside:avoid}.print-only{display:block}}
+</style></head><body><div class="layout">
+<nav class="nav" aria-label="교재 목차"><b>PART 02 · 목차</b>
+<a href="#start">학습 목표</a><a href="#s1">1. 활동별 자원 사용 패턴</a><a href="#s2">2. 모니터링 데이터 수집</a><a href="#s3">3. 네 가지 활동 수행</a><a href="#s4">4. 활동별 그래프</a><a href="#s5">5. 통계값 비교</a><a href="#s6">6. 정리 및 활용 예시</a></nav>
+<main>
+<header class="hero" id="start"><div class="eyebrow">반도체장비예지보전실무 · PC 모니터링 실습</div><h1>PART 02.<br>컴퓨터 활동별 사용 패턴 수집하기</h1>
+<p>네 가지 작업을 수행하며 PC 자원 사용량을 기록하고, 실제 활동별 패턴을 비교한다.</p><div class="meta"><span>실습 4개</span><span>질문 4개</span><span>로컬 Python</span><span>CSV · 시각화</span></div>
+<div class="objective"><b>학습 목표</b><div>컴퓨터 활동에 따른 자원 사용량을 측정하여 시계열 데이터로 저장하고, 활동별 그래프와 통계값을 비교한다.</div></div></header>
+<section id="s1" class="section"><h2>1. 컴퓨터 활동과 자원 사용량</h2><h3>1.1. 활동별 자원 사용 패턴</h3>
+<p>컴퓨터는 수행하는 작업에 따라 CPU, 메모리, 디스크, 네트워크 자원을 다르게 사용한다. 웹페이지를 열 때는 데이터를 수신하고 화면을 구성하며, 동영상을 재생할 때는 영상 데이터를 수신하고 디코딩한다.</p>
+<p>네 가지 활동을 수행하고, 활동별 사용량을 수집한다.</p>
+<table><thead><tr><th>활동 이름</th><th>수행 작업</th></tr></thead><tbody><tr><td><code>idle</code></td><td>다른 작업을 하지 않고 대기</td></tr><tr><td><code>web</code></td><td>여러 웹페이지 탐색</td></tr><tr><td><code>video</code></td><td>유튜브 영상 재생</td></tr><tr><td><code>python</code></td><td>파이썬 반복 연산 실행</td></tr></tbody></table>
+<p>각 활동을 <b>40초 동안</b>, <b>2초 간격</b>으로 측정한다.</p><h3>1.2. 수집할 데이터</h3>
+<table><thead><tr><th>컬럼</th><th>의미</th></tr></thead><tbody>
+<tr><td><code>time</code></td><td>측정 시각</td></tr><tr><td><code>activity</code></td><td>수행한 활동 이름</td></tr><tr><td><code>cpu</code></td><td>CPU 사용률(%)</td></tr><tr><td><code>memory</code></td><td>메모리 사용률(%)</td></tr><tr><td><code>disk_read_mb_s</code></td><td>초당 디스크 읽기량(코드의 명칭은 MB/s, 실제 계산 단위는 MiB/s)</td></tr><tr><td><code>net_recv_mb_s</code></td><td>초당 네트워크 수신량(실제 계산 단위 MiB/s)</td></tr></tbody></table>
+<p>CPU·메모리는 사용률을 확인하고, 디스크·네트워크는 누적 전송량의 차이를 이용해 측정 구간의 초당 전송량을 계산한다.</p></section>
+<section id="s2" class="section"><h2>2. PC 모니터링 데이터 수집하기</h2><span class="exercise">실습 01</span><h3>PC 블랙박스 프로그램 만들기</h3>
+<p><code>collect.py</code> 파일을 생성한다. 활동별로 자원 사용량을 측정하고 <code>pc_data.csv</code>로 저장한다.</p>
+<div class="codebox"><div class="codehead"><span>collect.py · Python</span><button type="button" class="copy">코드 복사</button></div><pre><code>import pandas as pd
+import psutil
+from datetime import datetime
+
+activities = [&quot;idle&quot;, &quot;web&quot;, &quot;video&quot;, &quot;python&quot;]
+INTERVAL = 2
+DURATION = 40
+records = []
+
+print(&quot;PC 모니터링을 시작합니다.&quot;)
+
+for activity in activities:
+    print(f&quot;\n다음 활동: {activity}&quot;)
+    input(&quot;준비되면 Enter를 누르세요.&quot;)
+
+    psutil.cpu_percent(interval=None)
+    prev_disk = psutil.disk_io_counters()
+    prev_net = psutil.net_io_counters()
+
+    for i in range(DURATION // INTERVAL):
+        cpu = psutil.cpu_percent(interval=INTERVAL)
+        memory = psutil.virtual_memory().percent
+        disk = psutil.disk_io_counters()
+        net = psutil.net_io_counters()
+
+        disk_read = (
+            (disk.read_bytes - prev_disk.read_bytes)
+            / INTERVAL / 1024**2
+        )
+        net_recv = (
+            (net.bytes_recv - prev_net.bytes_recv)
+            / INTERVAL / 1024**2
+        )
+
+        records.append({
+            &quot;time&quot;: datetime.now().isoformat(timespec=&quot;seconds&quot;),
+            &quot;activity&quot;: activity,
+            &quot;cpu&quot;: cpu,
+            &quot;memory&quot;: memory,
+            &quot;disk_read_mb_s&quot;: disk_read,
+            &quot;net_recv_mb_s&quot;: net_recv
+        })
+
+        prev_disk = disk
+        prev_net = net
+
+        print(
+            f&quot;{activity:7s} | &quot;
+            f&quot;CPU {cpu:5.1f}% | &quot;
+            f&quot;RAM {memory:5.1f}%&quot;
+        )
+
+df = pd.DataFrame(records)
+df.to_csv(&quot;pc_data.csv&quot;, index=False, encoding=&quot;utf-8-sig&quot;)
+
+print(&quot;\n수집 완료!&quot;)
+print(df.groupby(&quot;activity&quot;)[[&quot;cpu&quot;, &quot;memory&quot;]].mean())</code></pre></div>
+<h3>코드 설명 ① 측정 조건</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>activities</code></td><td>측정할 네 가지 활동을 순서대로 저장한다.</td></tr><tr><td><code>INTERVAL = 2</code></td><td>측정 간격을 2초로 설정한다.</td></tr><tr><td><code>DURATION = 40</code></td><td>각 활동의 측정 시간을 40초로 설정한다.</td></tr><tr><td><code>DURATION // INTERVAL</code></td><td>활동별 반복 횟수를 계산한다(20번).</td></tr><tr><td><code>input()</code></td><td>Enter 입력 전까지 다음 활동을 시작하지 않는다.</td></tr></tbody></table>
+<h3>코드 설명 ② 시스템 자원 가져오기</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>psutil.cpu_percent()</code></td><td>CPU 사용률을 측정한다.</td></tr><tr><td><code>psutil.virtual_memory().percent</code></td><td>메모리 사용률을 가져온다.</td></tr><tr><td><code>psutil.disk_io_counters()</code></td><td>디스크 읽기·쓰기 누적값을 가져온다.</td></tr><tr><td><code>psutil.net_io_counters()</code></td><td>네트워크 송수신 누적값을 가져온다.</td></tr></tbody></table>
+<p>초당 전송량은 <b>(현재 누적값 − 이전 누적값) ÷ 측정 간격</b>으로 계산한다. 바이트를 <code>1024**2</code>로 나눠 MiB 단위로 변환한다.</p>
+<h3>코드 설명 ③ 데이터 저장</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>records.append({ ... })</code></td><td>각 측정 결과를 딕셔너리로 만들어 리스트에 추가한다.</td></tr><tr><td><code>pd.DataFrame(records)</code></td><td>저장된 측정값을 데이터프레임으로 변환한다.</td></tr><tr><td><code>df.to_csv(...)</code></td><td>데이터를 CSV 파일로 저장한다.</td></tr><tr><td><code>index=False</code></td><td>데이터프레임의 인덱스를 CSV에 저장하지 않는다.</td></tr><tr><td><code>encoding=&quot;utf-8-sig&quot;</code></td><td>Excel 등에서 한글을 읽기 편하도록 BOM이 포함된 UTF-8로 저장한다.</td></tr></tbody></table>
+<p class="note"><b>들여쓰기 주의:</b> <code>records.append()</code>와 누적값 갱신, 화면 출력 코드는 안쪽 <code>for i in ...</code> 반복문 내부에 있어야 한다. 반복문 바깥에 두면 활동마다 마지막 값 하나만 저장될 수 있다.</p>
+<div class="q"><strong>Q1.1.</strong><p><code>INTERVAL</code>과 <code>DURATION</code>을 확인해보세요. 각 활동에서 데이터가 몇 개 수집되는지 계산해보세요. 전체 데이터는 몇 개가 될까요?</p></div></section>
+<section id="s3" class="section"><h2>3. 네 가지 활동 수행하기</h2><span class="exercise">실습 02</span><h3>활동별 측정 실행</h3>
+<p><code>collect.py</code>를 실행하고, 화면에 표시되는 활동에 맞춰 작업을 수행한다. 각 활동의 준비가 끝나면 Enter를 눌러 측정을 시작한다.</p>
+<table><thead><tr><th>활동</th><th>수행 방법</th></tr></thead><tbody><tr><td><code>idle</code></td><td>다른 작업을 하지 않고 대기한다.</td></tr><tr><td><code>web</code></td><td>뉴스·검색 사이트 등의 웹페이지를 탐색한다.</td></tr><tr><td><code>video</code></td><td>유튜브에서 1080p 동영상을 재생한다.</td></tr><tr><td><code>python</code></td><td>별도로 연 명령 창에서 CPU 부하 프로그램을 실행한다.</td></tr></tbody></table>
+<h3>CPU 부하 프로그램</h3><p><code>collect.py</code>와 같은 폴더에 <code>cpu_load.py</code> 파일을 생성한다.</p><div class="codebox"><div class="codehead"><span>cpu_load.py · Python</span><button type="button" class="copy">코드 복사</button></div><pre><code>import time
+
+end_time = time.perf_counter() + 20
+
+while time.perf_counter() &lt; end_time:
+    total = 0
+
+    for i in range(100_000):
+        total += i * i
+
+print(&quot;CPU 부하 테스트 완료&quot;)</code></pre></div>
+<p><code>time.perf_counter()</code>로 경과 시간을 확인하면서 약 20초 동안 계산을 반복한다.</p>
+<h3>명령 창 열기 및 실행 순서</h3>
+<ol><li>VS Code에서 <code>collect.py</code>를 실행한다.</li><li><b>파일 탐색기</b>에서 <code>cpu_load.py</code>가 저장된 폴더를 연다.</li><li>폴더의 <b>빈 공간을 마우스 오른쪽 버튼으로 클릭</b>한 뒤 <b>‘터미널에서 열기’</b>를 선택한다. Windows 설정에 따라 메뉴 이름이나 실행되는 셸이 다를 수 있다.</li><li><code>idle</code>, <code>web</code>, <code>video</code> 활동을 순서대로 수행한다.</li><li><code>python</code> 활동 메시지가 나오면 VS Code 터미널에서 Enter를 누른다.</li><li>별도로 열린 터미널에서 아래 명령을 실행한다.</li><li>수집 완료 메시지가 나오면 <code>pc_data.csv</code>가 생성되었는지 확인한다.</li></ol>
+<div class="codebox"><div class="codehead"><span>별도로 열린 터미널 · 명령어</span><button type="button" class="copy">코드 복사</button></div><pre><code>python cpu_load.py</code></pre></div>
+<p class="note"><b>‘터미널에서 열기’가 보이지 않는다면:</b> 파일 탐색기에서 해당 폴더를 연 상태로 <b>주소 표시줄에 <code>cmd</code>를 입력하고 Enter</b>를 누른다. 현재 폴더에서 명령 프롬프트가 열린다. 폴더가 아닌 <code>.py</code> 파일 자체를 오른쪽 클릭하는 것이 아니다.</p>
+<p class="note"><b>안전:</b> CPU 부하 실행 중 발열이 심하거나 PC가 지나치게 느려지면 실행을 중단한다. 전체 CPU 사용률이 100%에 도달하지 않아도 정상적인 결과일 수 있다.</p>
+<div class="q"><strong>Q2.1.</strong><p>네 가지 활동의 측정을 완료한 뒤 <code>pc_data.csv</code>를 열어보세요. <code>activity</code> 컬럼의 값과 전체 데이터 개수를 확인해보세요.</p></div></section>
+<section id="s4" class="section"><h2>4. 활동별 CPU·메모리 사용률 시각화하기</h2><span class="exercise">실습 03</span><h3>활동별 그래프 출력</h3>
+<p><code>visualize.py</code> 파일을 생성한다. CSV 데이터를 활동별로 나누고, 네 개의 그래프로 나타낸다.</p><div class="codebox"><div class="codehead"><span>visualize.py · Python</span><button type="button" class="copy">코드 복사</button></div><pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(&quot;pc_data.csv&quot;)
+fig, axes = plt.subplots(4, 1, figsize=(11, 9))
+
+for ax, (activity, data) in zip(
+    axes, df.groupby(&quot;activity&quot;, sort=False)
+):
+    ax.plot(range(len(data)), data[&quot;cpu&quot;], label=&quot;CPU (%)&quot;)
+    ax.plot(range(len(data)), data[&quot;memory&quot;], label=&quot;Memory (%)&quot;)
+    ax.set_title(activity)
+    ax.set_ylim(0, 100)
+    ax.set_ylabel(&quot;Usage (%)&quot;)
+    ax.legend()
+    ax.grid(alpha=0.3)
+
+axes[-1].set_xlabel(&quot;Sample number (2 seconds each)&quot;)
+plt.tight_layout()
+plt.show()</code></pre></div>
+<h3>코드 설명</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>pd.read_csv()</code></td><td>CSV 파일을 데이터프레임으로 불러온다.</td></tr><tr><td><code>plt.subplots(4, 1)</code></td><td>세로로 배치한 그래프 네 개를 만든다.</td></tr><tr><td><code>df.groupby(&quot;activity&quot;)</code></td><td>활동 이름을 기준으로 데이터를 그룹화한다.</td></tr><tr><td><code>zip()</code></td><td>그래프 객체와 활동별 데이터를 짝지어 반복한다.</td></tr><tr><td><code>ax.plot()</code></td><td>CPU와 메모리 사용률을 선 그래프로 그린다.</td></tr><tr><td><code>ax.legend()</code></td><td>그래프의 범례를 표시한다.</td></tr><tr><td><code>plt.tight_layout()</code></td><td>그래프 요소가 겹치지 않도록 간격을 조정한다.</td></tr></tbody></table>
+<p class="note"><b>그래프에 선이 보이지 않는 경우:</b> 활동마다 측정값이 하나씩만 저장되지 않았는지 CSV를 확인한다. 데이터가 한 점이면 연결할 선이 없다.</p>
+<div class="q"><strong>Q3.1.</strong><p>네 가지 활동의 CPU 사용률 그래프를 비교해보세요. 어떤 활동에서 CPU 사용률이 높게 나타났는지 확인해보세요.</p></div></section>
+<section id="s5" class="section"><h2>5. 활동별 자원 사용량 비교하기</h2><span class="exercise">실습 04</span><h3>활동별 통계값 확인</h3>
+<p><code>visualize.py</code>의 그래프 표시 코드 뒤에 추가한다. 활동별 평균, 최댓값, 표준편차를 비교한다.</p><div class="codebox"><div class="codehead"><span>visualize.py에 추가 · Python</span><button type="button" class="copy">코드 복사</button></div><pre><code>summary = df.groupby(&quot;activity&quot;).agg(
+    cpu_mean=(&quot;cpu&quot;, &quot;mean&quot;),
+    cpu_max=(&quot;cpu&quot;, &quot;max&quot;),
+    cpu_std=(&quot;cpu&quot;, &quot;std&quot;),
+    memory_mean=(&quot;memory&quot;, &quot;mean&quot;),
+    disk_read_mean=(&quot;disk_read_mb_s&quot;, &quot;mean&quot;),
+    net_recv_mean=(&quot;net_recv_mb_s&quot;, &quot;mean&quot;)
+)
+
+print(summary.round(2))</code></pre></div>
+<h3>코드 설명</h3><table><thead><tr><th>코드</th><th>설명</th></tr></thead><tbody><tr><td><code>.agg()</code></td><td>여러 집계 연산을 한 번에 수행한다.</td></tr><tr><td><code>mean</code></td><td>평균을 계산한다.</td></tr><tr><td><code>max</code></td><td>최댓값을 계산한다.</td></tr><tr><td><code>std</code></td><td>표준편차를 계산한다.</td></tr><tr><td><code>.round(2)</code></td><td>출력값을 소수점 둘째 자리까지 반올림한다.</td></tr></tbody></table>
+<p>평균은 전반적인 자원 사용 수준을, 표준편차는 측정 구간 내 값의 변동 정도를 나타낸다.</p>
+<div class="q"><strong>Q4.1.</strong><p>활동별 CPU 평균과 표준편차를 비교해보세요. CPU 평균이 가장 높은 활동과 변동이 가장 큰 활동을 각각 찾아보세요.</p></div></section>
+<section id="s6" class="section"><h2>6. PART 02 정리</h2>
+<div class="summary"><div class="pipeline"><span>활동 수행</span><b>→</b><span>측정<br><small>psutil</small></span><b>→</b><span>CSV 저장</span><b>→</b><span>시각화</span><b>→</b><span>통계 비교</span></div>
+<p>컴퓨터의 작업에 따라 자원 사용량이 달라질 수 있다. 다만 같은 작업에서도 PC 환경과 실행 조건에 따라 패턴이 달라질 수 있다.</p></div>
+<h3>수집한 데이터로 시도해볼 수 있는 작업</h3>
+<table><thead><tr><th>활용 예시</th><th>내용</th></tr></thead><tbody>
+<tr><td>사용 패턴 분석</td><td>CPU·메모리·디스크·네트워크 변화를 비교한다.</td></tr>
+<tr><td>특성공학</td><td>평균·최댓값·표준편차·변화량 등의 특성을 만든다.</td></tr>
+<tr><td>작업 유형 분류</td><td>자원 사용 패턴으로 작업 종류를 추정하는 모델을 실험한다.</td></tr>
+<tr><td>미래 사용률 예측</td><td>과거 CPU 사용률을 이용해 이후의 사용률을 예측한다.</td></tr>
+<tr><td>이상 패턴 탐지</td><td>평소와 다른 자원 사용 상태를 찾아본다.</td></tr>
+<tr><td>모니터링 대시보드</td><td>자원 사용량을 실시간으로 보여주는 화면을 만든다.</td></tr>
+</tbody></table><p>이러한 실험에는 목적에 맞는 추가 데이터 수집과 전처리가 필요할 수 있다.</p></section>
+<footer>반도체장비예지보전실무 · PC 모니터링 실습 | PART 02</footer>
+</main></div><script>
+document.querySelectorAll('.codebox').forEach(function(box){const button=box.querySelector('.copy');const source=box.querySelector('code');button.addEventListener('click',async function(){const value=source.textContent;try{if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(value)}else{const area=document.createElement('textarea');area.value=value;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();const ok=document.execCommand('copy');area.remove();if(!ok)throw new Error('copy unavailable')}button.textContent='복사 완료';}catch(e){button.textContent='복사 실패';}setTimeout(function(){button.textContent='코드 복사'},1500)})});
+</script></body></html>

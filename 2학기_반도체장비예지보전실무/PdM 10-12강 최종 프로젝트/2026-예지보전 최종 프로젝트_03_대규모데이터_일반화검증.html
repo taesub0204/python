@@ -1,0 +1,161 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MISSION 03 | 대규모 데이터 확장과 일반화 성능 검증</title><style>
+:root{--ink:#253d40;--muted:#62787b;--mint:#168b7e;--mint-dark:#136e67;--ivory:#f9f8f3;--coral:#df7967;--line:#dfe9e6;--paper:#fff;--mint-soft:#e8f5f0}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f5f8f6;color:var(--ink);font:16px/1.76 "Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;word-break:keep-all}main{max-width:920px;margin:0 auto;padding:24px 20px 100px}.hero{padding:60px 46px 48px;border-radius:22px;background:var(--ivory);border:1px solid #ecede6;margin:0 0 30px}.kicker,.eyebrow{letter-spacing:2px;font-size:12px;font-weight:800;color:var(--mint-dark)}.mission-num{font-size:14px;color:var(--coral);font-weight:900;letter-spacing:3px;margin-top:20px}.hero h1{font-size:clamp(27px,4.1vw,41px);line-height:1.38;letter-spacing:-1.5px;margin:14px 0 22px}.hero em{font-style:normal;color:var(--mint-dark)}.hero-lead{color:var(--muted);margin:0 0 22px}.hero-tags{display:flex;flex-wrap:wrap;gap:8px}.hero-tags span{border:1px solid #d7e9e2;color:var(--mint-dark);border-radius:50px;padding:4px 13px;font-size:12px;background:#fff}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:37px 41px;margin:0 0 26px;box-shadow:0 2px 12px rgba(19,60,51,.025)}h2{font-size:25px;letter-spacing:-.7px;line-height:1.45;margin:0 0 20px}h3{font-size:19px;letter-spacing:-.3px;line-height:1.48;margin:34px 0 13px}h4{font-size:16px;margin:0 0 10px}p{margin:12px 0 16px}ul{padding-left:23px;margin:15px 0}li{margin:5px 0}.story{border-top:1px solid var(--line);padding:24px 0 6px}.story-index{font-size:12px;font-weight:900;letter-spacing:1px;color:var(--mint-dark)}.story h3{margin:9px 0 11px}.story blockquote{border-left:4px solid var(--coral);background:#fff8f5;margin:18px 0;padding:14px 19px;color:#73493f;border-radius:0 9px 9px 0;font-weight:650}.story-note{font-weight:800;color:var(--mint-dark);font-size:13px;padding:5px 0 17px}.scenario{background:var(--mint-soft);padding:22px 24px;border-radius:12px}.scenario h3{margin:5px 0 10px}.scenario p{margin:0}.scenario-label,.brief-label{font-size:12px;font-weight:900;letter-spacing:1.4px;color:var(--mint-dark)}.brief{border-left:4px solid var(--coral);background:#fff8f5;border-radius:0 10px 10px 0;padding:18px 22px;margin:26px 0}.brief p{margin:7px 0 0}.emphasis{font-weight:800;color:var(--mint-dark);font-size:17px}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0 24px}.flow div{background:#f1f7f4;border:1px solid #e2ede9;border-radius:10px;padding:13px 8px;text-align:center}.flow strong{display:block;color:var(--mint-dark);font-size:20px}.flow span{display:block;font-size:12px;line-height:1.5}.notice{background:#f0f7f4;border-left:3px solid var(--mint);padding:16px 21px;border-radius:0 9px 9px 0;margin:24px 0}.notice p{margin:6px 0 0}.activity-heading{padding:44px 11px 13px}.activity-heading>div{font-size:12px;color:var(--coral);font-weight:900;letter-spacing:2.6px}.activity-heading h2{margin:5px 0 3px;font-size:28px}.activity-heading p{color:var(--muted);margin:0 0 12px}.question{margin:24px 0;border:1px solid var(--line);border-radius:12px;background:white;overflow:hidden}.q-head{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #edf2ef}.q-head strong{color:var(--mint-dark);font-size:14px}.q-head span{font-size:12px;color:#738482}.q-body{padding:15px 20px 18px}.q-body>p:first-child{margin-top:0}.q-body>p:last-child{margin-bottom:0}.choices{padding-left:30px;list-style:decimal;margin:14px 0 3px}.choices li{padding-left:3px;margin:8px 0}.code-wrap{margin:20px 0 24px;border:1px solid #dbe5e3;border-radius:10px;overflow:hidden;background:#f8faf9}.code-wrap.todo{border-color:#e7bbac;background:#fffdfb}.code-top{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:#edf5f1;color:var(--mint-dark);font-size:12px;font-weight:800}.todo .code-top{background:#fcf0ea;color:#995747}.copy{border:1px solid #c7dcd5;border-radius:6px;background:white;color:#285d54;padding:5px 9px;font:inherit;font-size:11px;cursor:pointer}.copy:hover{background:#eaf7f1}pre{margin:0;padding:18px 20px;overflow:auto;font:13px/1.68 Consolas,"D2Coding","Liberation Mono",monospace;color:#2b4849;tab-size:4;white-space:pre}p code,li code,td code{background:#eef4f2;color:#225f58;border-radius:4px;padding:2px 5px;font:13px Consolas,monospace;word-break:break-all}.muted{color:var(--muted)}.small{font-size:13px}.tip{padding:14px 18px;border:1px solid #e7eeea;border-radius:9px;background:#fbfcfa}.tip p{margin:5px 0 0}.record{border:1px dashed #cbdad5;padding:12px 15px;min-height:62px;margin:15px 0 0;color:#869794;background:#fcfefd;font-size:13px}.optional{padding:20px;border:1px dashed #9fcbbc;border-radius:10px;margin:28px 0 0}.optional p{margin:0}.checks{display:grid;gap:10px;margin:15px 0 26px}.checks label{display:flex;gap:10px;align-items:baseline;padding:8px 12px;background:#f9fbfa;border-radius:7px}.checks input{accent-color:var(--mint)}table{width:100%;border-collapse:collapse;margin:17px 0 22px;font-size:14px}th{color:#3c6662;background:#edf6f1;text-align:left;font-weight:800}th,td{border-bottom:1px solid #e8efec;padding:11px 12px;vertical-align:top}tr.total{font-weight:800;background:#fbfdfb}.end-cap{text-align:center;padding:32px;background:#f4f8f5;border-radius:12px;margin:28px 0 0}.end-cap strong{font-size:18px;letter-spacing:1px;color:var(--mint-dark)}.end-cap p{margin-bottom:0}.appendix-head{padding:50px 10px 17px;margin-top:28px}.appendix-head h2{margin:7px 0}.appendix-head p{color:var(--muted)}.solutions details{border:1px solid #e0eae6;border-radius:10px;margin:11px 0;overflow:hidden}.solutions summary{cursor:pointer;padding:16px 18px;font-weight:800;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}.solutions summary::-webkit-details-marker{display:none}.solutions summary:after{content:"+";color:var(--mint);font-size:22px;margin-left:auto}.solutions details[open] summary:after{content:"−"}.solutions summary span{font-size:12px;color:var(--muted);font-weight:500}.detail-inner{padding:3px 19px 20px;border-top:1px solid #e7eeeb}.detail-inner .code-wrap{margin-bottom:10px}.footnote{text-align:center;color:#70837f;font-size:12px;margin:45px 0}@media(max-width:700px){main{padding:12px 12px 50px}.hero{padding:34px 22px}.panel{padding:25px 18px}.flow{grid-template-columns:repeat(2,1fr)}table{font-size:12px}th,td{padding:8px 7px}.activity-heading{padding-top:26px}.solutions summary{flex-wrap:wrap}}@media print{body{background:white;font-size:12px}main{max-width:none;margin:0;padding:0}.hero,.panel{box-shadow:none;break-inside:auto}.hero{padding:25px 20px}.panel{padding:18px 20px}.story,.question,.notice,.code-wrap,table{break-inside:avoid}.copy{display:none}pre{white-space:pre-wrap;word-wrap:break-word}.appendix-head{break-before:page}.solutions details:not([open]) .detail-inner{display:block}.solutions details:not([open]) summary:after{display:none}}
+</style></head><body><main><section class="hero"><div class="kicker">PREDICTIVE MAINTENANCE · PROJECT WORKBOOK</div><div class="mission-num">MISSION 03</div><h1>소량 데이터에서 선택한 모델은<br><em>대규모 데이터에서도 유효할까?</em></h1><p class="hero-lead">기존 모델의 재사용, 학습 데이터 확장, 새로운 장비에서의 일반화 성능 검증</p><div class="hero-tags"><span>모델 재사용</span><span>데이터 확장</span><span>성능 검증</span><span>엔지니어의 판단</span></div></section><section class="panel intro"><h2>01. 실무에서는 언제 이런 작업을 할까?</h2><p>제조현장에 AI 모델을 적용하는 일은 학습 데이터에서 높은 정확도를 얻는 것으로 끝나지 않습니다. 개발한 모델이 다른 장비에서도 잘 작동하는지, 데이터를 추가 확보했을 때 재학습할 필요가 있는지 판단해야 합니다.</p><div class="story"><div class="story-index">실무 상황 01</div><h3>시범 장비에서는 잘 작동했는데, 다른 장비에서도 될까?</h3><p>한 제조기업이 AGV 5대를 대상으로 장비 상태 분류 모델의 시범 프로젝트(PoC)를 진행했습니다. 실험 결과가 만족스럽자 담당 팀장이 묻습니다.</p><blockquote>“5대에서는 잘 되는 걸 확인했어요. 다른 AGV에도 이 모델을 적용할 수 있나요?”</blockquote><p>같은 종류의 장비라도 사용 기간, 부하, 운전 조건과 센서 상태는 다를 수 있습니다. <b>기존 모델을 다시 학습하지 않고</b> 새로운 장비에서 먼저 평가하는 절차가 필요합니다.</p><div class="story-note">검증할 문제 · 기존 모델의 일반화 성능</div></div><div class="story"><div class="story-index">실무 상황 02</div><h3>새로운 장비 데이터를 확보했으니 다시 학습해 볼까?</h3><p>기존 모델의 적용 범위를 살펴보던 개발팀이 추가 장비의 데이터를 확보했습니다. 한 엔지니어가 제안합니다.</p><blockquote>“처음에는 5대만 썼잖아요. 이제 16대의 데이터가 있으니 같은 센서와 알고리즘으로 다시 학습해 보죠.”</blockquote><p>새 모델이 무조건 더 좋다고 가정할 수는 없습니다. <b>기존 모델과 신규 모델을 동일한 검증 데이터에서 비교</b>해야 합니다.</p><div class="story-note">검증할 문제 · 추가 데이터로 재학습한 효과</div></div><div class="story"><div class="story-index">실무 상황 03</div><h3>평균 성능은 좋은데 특정 장비에서 문제가 생긴다면?</h3><p>새 모델의 전체 평가 점수는 높았지만, 현장 담당자가 문제를 제기합니다.</p><blockquote>“전체 점수는 좋은데, 16번 장비에서 위험 상태를 놓치는 경우가 있네요. 그대로 적용해도 될까요?”</blockquote><p>전체 점수는 개별 장비의 문제를 가릴 수 있습니다. <b>장비별 성능과 위험 상태 Recall</b>도 확인해야 합니다.</p><div class="story-note">검증할 문제 · 장비별 성능 편차와 위험 상태의 누락</div></div></section><section class="panel"><h2>02. 이번 프로젝트의 상황</h2><div class="scenario"><div class="scenario-label">YOUR ROLE</div><h3>여러분은 제조기업의 설비 AI 개발팀 엔지니어입니다.</h3><p>회사는 AGV(무인운반차)와 OHT(천장주행식 반송장치)의 센서 기록을 사용하여 <b>현재 장비 상태(정상·관심·경고·위험)</b>를 분류하는 모델을 개발합니다.</p></div><h3>지금까지 완료한 작업</h3><p>미션 01에서 센서 데이터를 탐색했고, 미션 02에서 장비 유형별 소량 데이터로 센서를 선택하고 로지스틱 회귀·랜덤포레스트를 비교했습니다. 학생마다 선택한 <b>센서 조합·알고리즘·저장된 모델</b>이 다를 수 있습니다.</p><p>이전에 저장한 모델을 <b>모델 S (Small)</b>라고 부르겠습니다.</p><h3>새로운 데이터 확보</h3><table><thead><tr><th>데이터 구분</th><th>AGV</th><th>OHT</th></tr></thead><tbody><tr><td>Training</td><td>16대 · 38,983행</td><td>16대 · 59,049행</td></tr><tr><td>Validation</td><td>2대 · 5,052행</td><td>2대 · 7,342행</td></tr><tr class="total"><td>전체</td><td>18대 · 44,035행</td><td>18대 · 66,391행</td></tr></tbody></table><div class="brief"><div class="brief-label">팀장의 요청</div><p>“기존 모델이 새로운 장비에서도 잘 작동하는지 확인해 주세요. 추가 데이터를 이용해 재학습한 모델과 비교하고, 장비별 성능도 확인해 주세요. <b>기존 모델을 유지할지, 새 모델을 도입할지</b> 근거를 제시해 주세요.”</p></div><p class="emphasis">이번 미션의 핵심 질문: 모델 S를 유지할까, 더 많은 데이터로 학습한 모델 L을 선택할까?</p></section><section class="panel"><h2>03. 진행 방식과 제출 안내</h2><div class="flow"><div><strong>A</strong><span>전체 데이터 이해·준비</span></div><div><strong>B</strong><span>모델 S 재사용</span></div><div><strong>C</strong><span>모델 L 재학습</span></div><div><strong>D</strong><span>동일 조건 성능 비교</span></div><div><strong>E</strong><span>판단과 결과 정리</span></div></div><ul><li>이번 미션은 <b>실습 및 관찰 기록</b> 단계입니다.</li><li><b>최종 제출은 미션 03과 04를 모두 완료한 뒤, 팀장에게 올리는 모델 검증·선정 보고서 1부</b>로 진행합니다. 미션 03의 개별 질문이나 코드 전체를 별도 제출하지 않습니다.</li><li>미션 03에서 얻은 표와 판단 근거를 보관해 두세요. 미션 04에서 최종 평가 결과를 더해 보고서를 완성합니다.</li><li><b>직접 작성</b> 표시는 빈칸을 채우는 코딩 활동입니다. 객관식 정답과 코드 힌트·완성 예시는 문서 맨 아래에 있습니다.</li><li>AI 도구를 활용해도 좋지만, 코드와 결과를 스스로 설명할 수 있어야 합니다.</li></ul><div class="notice"><b>평가 데이터 사용 규칙</b><p>모델 L 학습: 01~12번 장비 / 이번 미션의 모델 비교: 13~16번 장비 / <b>17~18번 장비는 미션 04의 최종 평가 전까지 사용하지 않습니다.</b></p></div></section><section class="activity-heading"><div>ACTIVITY A</div><h2>전체 데이터 이해 및 준비</h2><p>전체 분포를 다시 그리기보다, 새 데이터의 구조와 실험 조건을 확인합니다.</p></section><section class="panel"><h3>A-1. 전체 데이터 현황</h3><p>CSV는 이전 미션과 같은 17개 컬럼으로 구성되어 있고, 모델 입력 후보인 센서는 11개입니다.</p><table><thead><tr><th>구분</th><th>정상 (0)</th><th>관심 (1)</th><th>경고 (2)</th><th>위험 (3)</th></tr></thead><tbody><tr><td>AGV Training</td><td>53.0%</td><td>20.0%</td><td>20.1%</td><td>6.8%</td></tr><tr><td>AGV Validation</td><td>51.1%</td><td>21.5%</td><td>20.8%</td><td>6.5%</td></tr><tr><td>OHT Training</td><td>47.2%</td><td>22.2%</td><td>22.3%</td><td>8.3%</td></tr><tr><td>OHT Validation</td><td>41.7%</td><td>24.6%</td><td>24.8%</td><td>9.0%</td></tr></tbody></table><p class="muted small">위 표의 Validation은 데이터 제공자가 분리해 놓은 17~18번 장비의 요약 통계입니다. 이번 미션에서 해당 원본 데이터로 예측하거나 모델을 선택하지는 않습니다.</p><section class="question"><div class="q-head"><strong>Q01</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p><b>일반화 성능(Generalization Performance)</b>의 의미로 가장 적절한 것은?</p><ol class="choices"><li>학습 데이터에서 높은 정확도를 얻는 능력</li><li>학습에 사용하지 않은 데이터에서도 적절한 예측 성능을 유지하는 능력</li><li>센서의 개수를 줄여 학습 시간을 단축하는 능력</li><li>학습 데이터의 상태별 비율을 동일하게 만드는 능력</li></ol></div></section><section class="question"><div class="q-head"><strong>Q02</strong><span>생각하기</span></div><div class="q-body"><p>학습 데이터의 <b>행 수가 증가하는 것</b>과 <b>학습에 포함되는 장비가 다양해지는 것</b>은 어떻게 다를까요? 이번 프로젝트에서는 두 변화가 동시에 나타날 수 있다는 점에 주의하세요.</p></div></section><h3>A-2. 데이터 분할 원칙</h3><table><thead><tr><th>용도</th><th>AGV 예시</th><th>OHT 예시</th></tr></thead><tbody><tr><td>모델 L 학습</td><td>agv01~agv12</td><td>oht01~oht12</td></tr><tr><td>미션 03 검증</td><td>agv13~agv16</td><td>oht13~oht16</td></tr><tr><td>미션 04 최종 평가</td><td>agv17~agv18</td><td>oht17~oht18</td></tr></tbody></table><section class="question"><div class="q-head"><strong>Q03</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p>학습·검증·최종 평가 데이터를 분리하는 이유로 가장 적절한 것은?</p><ol class="choices"><li>파일이 세 개면 학습 속도가 반드시 빨라지기 때문이다.</li><li>검증 데이터로 모델을 학습하기 위해서이다.</li><li>모델 선택과 최종 성능 확인에 사용하는 데이터를 구분하기 위해서이다.</li><li>최종 평가 점수가 높아질 때까지 모델을 반복 수정하기 위해서이다.</li></ol></div></section><h3>A-3. 데이터와 기존 모델 불러오기</h3><p>자신이 미션 02에서 선택한 장비 유형 하나로 진행합니다. 아래의 <code>MODEL_PATH</code>는 자신이 실제 저장한 파일 경로로 수정하세요.</p><div class="tip"><b>모델 패키지 확인</b><p>미션 02에서 모델을 저장할 때 사용한 키 이름이 다른 경우, <code>package.keys()</code>를 확인하여 <code>model</code>, <code>features</code>, <code>device</code>, <code>algorithm</code>에 해당하는 값을 맞춰 주세요. 파일의 이름만 보고 알고리즘을 추측하지 마세요.</p></div><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>import pandas as pd
+import joblib
+from pathlib import Path
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score, f1_score, recall_score
+
+# 실습 환경에 맞게 경로 변경
+DATA_DIR = Path(&quot;.&quot;)
+MODEL_PATH = Path(&quot;saved_models/내가_저장한_모델.joblib&quot;)
+
+package = joblib.load(MODEL_PATH)
+print(&quot;저장된 항목:&quot;, list(package.keys()))
+
+# 미션 02에서 사용한 저장 형식에 맞게 키 확인
+model_S = package[&quot;model&quot;]
+features = package[&quot;features&quot;]
+DEVICE = package[&quot;device&quot;].upper()   # AGV 또는 OHT
+ALGORITHM = package[&quot;algorithm&quot;]
+
+print(&quot;장비:&quot;, DEVICE)
+print(&quot;알고리즘:&quot;, ALGORITHM)
+print(&quot;입력 센서:&quot;, features)
+
+large_data = pd.read_csv(DATA_DIR / f&quot;Training_{DEVICE}.csv&quot;)
+print(&quot;전체 데이터:&quot;, large_data.shape)
+print(&quot;장비 수:&quot;, large_data[&quot;device_id&quot;].nunique())</code></pre></div><h3>A-4. 장비 ID로 학습·검증 데이터 분리</h3><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>prefix = DEVICE.lower()
+
+train_ids = [f&quot;{prefix}{i:02d}&quot; for i in range(1, 13)]
+val_ids = [f&quot;{prefix}{i:02d}&quot; for i in range(13, 17)]
+
+train_df = large_data[
+    large_data[&quot;device_id&quot;].isin(train_ids)
+].copy()
+val_df = large_data[
+    large_data[&quot;device_id&quot;].isin(val_ids)
+].copy()
+
+print(&quot;학습 장비:&quot;, sorted(train_df[&quot;device_id&quot;].unique()))
+print(&quot;검증 장비:&quot;, sorted(val_df[&quot;device_id&quot;].unique()))
+print(&quot;학습 데이터 크기:&quot;, train_df.shape)
+print(&quot;검증 데이터 크기:&quot;, val_df.shape)
+
+# 학습·검증 장비가 겹치면 실험을 진행하지 않음
+assert set(train_df[&quot;device_id&quot;]).isdisjoint(set(val_df[&quot;device_id&quot;]))</code></pre></div><p class="muted small">기존 모델 S는 미션 02에서 저장된 그대로 사용합니다. 모델 L만 새로 학습할 예정입니다.</p></section><section class="activity-heading"><div>ACTIVITY B</div><h2>기존 모델 S를 새로운 장비에 적용</h2><p>실무 상황 01 · 모델을 다시 학습하지 않고 먼저 예측합니다.</p></section><section class="panel"><h3>B-1. 저장된 모델의 입력 확인</h3><p>모델 S는 이미 학습이 끝난 상태입니다. 미션 02에서 저장한 <code>features</code>는 예측에 필요한 센서 열과 그 순서를 의미합니다.</p><section class="question"><div class="q-head"><strong>Q04</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p>아래 코드가 수행하는 작업으로 가장 적절한 것은?</p><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>X_val = val_df[features]</code></pre></div><ol class="choices"><li>검증 데이터의 모든 열을 입력으로 선택한다.</li><li>검증 데이터에서 저장된 센서 목록에 해당하는 열을 선택한다.</li><li>검증 데이터의 정답 레이블을 수정한다.</li><li>검증 데이터로 모델의 표준화 기준을 다시 학습한다.</li></ol></div></section><h3>B-2. [직접 작성 01] 입력 데이터와 예측 결과 만들기</h3><p>아래 세 줄의 빈칸을 직접 작성하세요. 정답과 힌트는 문서 맨 아래에 있습니다.</p><div class="code-wrap todo"><div class="code-top"><span>PYTHON · 직접 작성</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code># TODO 1. 모델 S가 사용하는 센서 열을 선택
+X_val = ...
+
+# TODO 2. 검증 데이터의 정답 상태 선택
+y_val = ...
+
+# TODO 3. 모델 S로 예측 (재학습하지 않음)
+y_pred_S = ...
+
+print(&quot;예측 일부:&quot;, y_pred_S[:10])</code></pre></div><section class="question"><div class="q-head"><strong>Q05</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p>아래 코드의 의미로 가장 적절한 것은?</p><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>y_pred_S = model_S.predict(X_val)</code></pre></div><ol class="choices"><li>모델의 가중치를 새로운 데이터로 다시 학습한다.</li><li>새 검증 장비로 표준화 기준을 다시 계산해 저장한다.</li><li>학습을 마친 모델로 새로운 입력의 장비 상태를 예측한다.</li><li>예측 결과를 실제 정답 레이블로 덮어쓴다.</li></ol></div></section><h3>B-3. 모델 평가 함수</h3><p>세 가지 지표를 공통으로 사용합니다. <b>Danger Recall</b>은 실제 위험(3) 상태 중 모델이 위험으로 맞춘 비율입니다.</p><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>def evaluate_model(model, X, y_true):
+    y_pred = model.predict(X)
+    return {
+        &quot;Accuracy&quot;: accuracy_score(y_true, y_pred),
+        &quot;Macro F1&quot;: f1_score(
+            y_true, y_pred,
+            labels=[0, 1, 2, 3],
+            average=&quot;macro&quot;, zero_division=0
+        ),
+        &quot;Danger Recall&quot;: recall_score(
+            y_true, y_pred,
+            labels=[3],
+            average=&quot;macro&quot;, zero_division=0
+        )
+    }
+
+scores_S = evaluate_model(model_S, X_val, y_val)
+print(&quot;모델 S 성능&quot;)
+print(pd.DataFrame([scores_S]).round(4))</code></pre></div><section class="question"><div class="q-head"><strong>Q06</strong><span>관찰 · 실험 기록</span></div><div class="q-body"><p>모델 S의 <b>Accuracy, Macro F1, Danger Recall</b>을 기록하세요. 미션 02에서 확인한 점수와 차이가 난다면, 어떤 평가 조건이 바뀌었는지도 함께 기록하세요.</p><div class="record">모델 S 결과 · 기록 공간</div></div></section></section><section class="activity-heading"><div>ACTIVITY C</div><h2>더 많은 장비 데이터로 모델 L 학습</h2><p>실무 상황 02 · 선택한 센서와 알고리즘은 유지하고 학습 대상을 확장합니다.</p></section><section class="panel"><h3>C-1. 비교 조건 확인</h3><table><thead><tr><th>비교 항목</th><th>모델 S</th><th>모델 L</th></tr></thead><tbody><tr><td>학습 데이터</td><td>미션 02의 소량 데이터</td><td>이번 Training의 01~12번</td></tr><tr><td>센서·알고리즘</td><td>학생이 선택한 구성</td><td>S와 동일하게 사용</td></tr><tr><td>평가 데이터</td><td colspan="2">동일한 13~16번 장비</td></tr></tbody></table><p>중요: 학습에 쓰인 <b>행 수와 장비 구성</b>이 함께 바뀝니다. 이 실험의 점수 차이를 오직 행 수 증가의 효과라고 단정하지 않습니다.</p><h3>C-2. 새로운 모델 생성</h3><p>아래 함수의 설정은 예시입니다. <b>미션 02에서 사용한 실제 하이퍼파라미터와 같은지</b> 확인하고, 다르다면 미션 02의 설정에 맞게 수정하세요.</p><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>def make_model(algorithm):
+    if algorithm == &quot;LogisticRegression&quot;:
+        return Pipeline([
+            (&quot;scaler&quot;, StandardScaler()),
+            (&quot;classifier&quot;, LogisticRegression(
+                max_iter=1500,
+                class_weight=&quot;balanced&quot;,
+                random_state=42
+            ))
+        ])
+    if algorithm == &quot;RandomForest&quot;:
+        return RandomForestClassifier(
+            n_estimators=100,
+            class_weight=&quot;balanced&quot;,
+            random_state=42,
+            n_jobs=-1
+        )
+    raise ValueError(f&quot;알 수 없는 알고리즘: {algorithm}&quot;)
+
+model_L = make_model(ALGORITHM)</code></pre></div><section class="question"><div class="q-head"><strong>Q07</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p><code>model_L = make_model(ALGORITHM)</code>의 의미로 가장 적절한 것은?</p><ol class="choices"><li>모델 S의 학습 결과를 복사해 동일한 가중치로 시작한다.</li><li>모델 S와 같은 알고리즘 및 설정으로 학습 전 모델을 새로 생성한다.</li><li>모델 S를 자동으로 추가 학습한다.</li><li>두 모델의 성능을 비교하여 점수가 높은 모델을 반환한다.</li></ol></div></section><h3>C-3. 데이터 확장과 재학습</h3><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>X_train = train_df[features]
+y_train = train_df[&quot;state&quot;]
+
+print(&quot;학습 크기:&quot;, X_train.shape)
+print(&quot;입력 센서:&quot;, features)
+
+model_L.fit(X_train, y_train)
+scores_L = evaluate_model(model_L, X_val, y_val)
+
+print(&quot;모델 L 성능&quot;)
+print(pd.DataFrame([scores_L]).round(4))</code></pre></div><section class="question"><div class="q-head"><strong>Q08</strong><span>코드 이해 · 서술형</span></div><div class="q-body"><p>모델 L에서 센서를 다시 선택하지 않고 S와 같은 <code>features</code>를 사용한 이유는 무엇일까요? 이번에 센서 목록과 알고리즘까지 함께 바꾸면 성능 차이의 해석이 왜 어려워질까요?</p></div></section><section class="question"><div class="q-head"><strong>Q09</strong><span>이해 체크 · 객관식</span></div><div class="q-body"><p>로지스틱 회귀 <code>Pipeline</code>의 <code>StandardScaler</code> 동작으로 적절한 것은?</p><ol class="choices"><li>학습 데이터와 검증 데이터를 합쳐 표준화 기준을 계산한다.</li><li>검증 데이터에서 기준을 계산한 후 학습에 적용한다.</li><li>검증 장비가 바뀔 때마다 모델 가중치를 자동 수정한다.</li><li>학습 데이터에서 계산한 표준화 기준을 검증 데이터에도 적용한다.</li></ol></div></section></section><section class="activity-heading"><div>ACTIVITY D</div><h2>성능 비교와 장비별 분석</h2><p>실무 상황 02·03 · 같은 검증 데이터에서 두 모델을 비교합니다.</p></section><section class="panel"><h3>D-1. 모델 S와 L의 전체 성능</h3><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>comparison_df = pd.DataFrame([
+    {&quot;Model&quot;: &quot;S (Small)&quot;, **scores_S},
+    {&quot;Model&quot;: &quot;L (Large)&quot;, **scores_L}
+])
+
+display(comparison_df.round(4))</code></pre></div><section class="question"><div class="q-head"><strong>Q10</strong><span>필수 실험 기록</span></div><div class="q-body"><p>두 모델의 <b>Accuracy, Macro F1, Danger Recall</b>을 비교하세요. 어떤 지표가 개선되거나 낮아졌나요? 세 지표가 모두 같은 방향으로 움직였나요?</p><div class="record">비교표 또는 핵심 수치 기록 공간</div></div></section><h3>D-2. [직접 작성 02] 장비별 성능 계산 함수</h3><p>13~16번 장비의 점수 차이가 큰지 확인합니다. 장비별 차이가 크지 않아도 괜찮습니다. 비교 결과가 비슷하다는 사실 역시 관찰 결과입니다.</p><div class="code-wrap todo"><div class="code-top"><span>PYTHON · 직접 작성</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>def evaluate_by_device(model, df, features):
+    results = []
+
+    for device_id in sorted(df[&quot;device_id&quot;].unique()):
+
+        # TODO 1. 현재 장비 행만 선택
+        part = ...
+
+        # TODO 2. 현재 장비의 입력 특성 선택
+        X = ...
+
+        # TODO 3. 현재 장비의 실제 상태 선택
+        y = ...
+
+        # TODO 4. 현재 장비의 성능 계산
+        scores = ...
+
+        results.append({
+            &quot;device_id&quot;: device_id,
+            &quot;Macro F1&quot;: scores[&quot;Macro F1&quot;],
+            &quot;Danger Recall&quot;: scores[&quot;Danger Recall&quot;]
+        })
+
+    return pd.DataFrame(results)</code></pre></div><h3>D-3. 두 모델의 장비별 결과 비교</h3><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>device_scores_S = evaluate_by_device(model_S, val_df, features)
+device_scores_L = evaluate_by_device(model_L, val_df, features)
+
+device_comparison = device_scores_S.merge(
+    device_scores_L,
+    on=&quot;device_id&quot;,
+    suffixes=(&quot;_S&quot;, &quot;_L&quot;)
+)
+
+display(device_comparison.round(4))</code></pre></div><section class="question"><div class="q-head"><strong>Q11</strong><span>코드 이해 · 서술형</span></div><div class="q-body"><p><code>for device_id in sorted(df["device_id"].unique()):</code>는 무엇을 반복하나요? <code>part = df[df["device_id"] == device_id]</code>를 사용하지 않고 전체 데이터를 매번 평가하면 어떤 결과가 나올까요?</p></div></section><section class="question"><div class="q-head"><strong>Q12</strong><span>필수 실험 기록</span></div><div class="q-body"><p>장비별 Macro F1이 가장 높은 장비와 낮은 장비를 확인하세요. 모델 S와 L 중 <b>장비별 성능 편차가 더 작아 보이는 모델</b>은 어느 쪽인가요? 위험 상태 Recall도 함께 확인하세요. 장비별 상태 구성이나 표본 수에 따라 해석이 달라질 수 있습니다.</p><div class="record">장비별 비교 · 관찰 메모</div></div></section><div class="optional"><h4>선택 확장 · 궁금한 학생만</h4><p>한 장비에서 위험 상태를 자주 놓친다면 오분류 유형을 더 분석하거나, 센서 11개 모델을 추가해 차이를 확인해 볼 수 있습니다. 성능표를 HTML 대시보드로 제작해도 좋습니다. <b>추가 그래프와 UI는 필수 제출물이 아닙니다.</b></p></div></section><section class="activity-heading"><div>ACTIVITY E</div><h2>판단과 결과 정리</h2><p>실험 결과는 미션 04에서의 최종 모델 설계와 팀장 보고서에 활용됩니다.</p></section><section class="panel"><section class="question"><div class="q-head"><strong>Q13</strong><span>종합 판단 · 실험 기록</span></div><div class="q-body"><p>다섯 가지를 한 번에 정리해 보세요. <b>① 장비 유형·센서·알고리즘 ② S와 L의 주요 지표 ③ 성능 변화 ④ 장비별 차이 ⑤ 이번 실험의 한계</b>. 기존 모델을 유지할지 새 모델을 도입할지 <b>잠정 권고</b>를 제시해 보세요.</p></div></section><section class="question"><div class="q-head"><strong>Q14</strong><span>미션 04 준비 · 선택과 계획</span></div><div class="q-body"><p>모델에서 개선하고 싶은 점 한 가지를 선택하고, 다음 미션에서 어떤 실험으로 확인할지 적어 보세요. 예: 최소 센서 구성, 위험 상태 Recall 개선, 장비별 안정성.</p></div></section><div class="notice"><b>이번 미션의 의사결정은 잠정적입니다.</b><p>13~16번 장비 결과는 비교·모델 선택을 위한 검증 결과입니다. 미션 04에서 모델을 확정한 뒤 <b>17~18번 장비로 최종 평가</b>해야 합니다. 최종 평가를 보고 다시 모델을 조정한다면 그 데이터는 더 이상 독립적인 최종 평가가 아닙니다.</p></div><h3>실습 완료 확인</h3><div class="checks"><label><input type="checkbox"> 새 데이터와 장비별 분할을 이해했다.</label><label><input type="checkbox"> 기존 모델 S를 불러와 새로운 장비를 예측했다.</label><label><input type="checkbox"> 같은 센서·알고리즘으로 모델 L을 학습했다.</label><label><input type="checkbox"> S와 L을 같은 검증 장비에서 평가했다.</label><label><input type="checkbox"> 장비별 성능 함수의 빈칸을 직접 완성했다.</label><label><input type="checkbox"> 실험 결과와 잠정 권고를 기록했다.</label><label><input type="checkbox"> 미션 04에서 검증할 목표를 정했다.</label></div><h3>최종 보고서를 위해 보관할 자료</h3><table><thead><tr><th>보관할 결과</th><th>활용</th></tr></thead><tbody><tr><td>실험 조건(장비·센서·알고리즘·분할)</td><td>방법 설명</td></tr><tr><td>모델 S와 L의 성능 비교표</td><td>모델 선택 근거</td></tr><tr><td>장비별 성능 비교표</td><td>일반화 검증 근거</td></tr><tr><td>잠정 권고와 한계</td><td>최종 의사결정의 출발점</td></tr></tbody></table><div class="end-cap"><strong>MISSION 03 COMPLETE</strong><p>미션 04에서는 최종 모델을 확정하고, 남겨둔 장비를 대상으로 최종 평가를 수행합니다. <b>최종 제출물은 미션 03·04의 결과를 통합한 ‘팀장 보고서’ 1부입니다.</b></p></div></section><section class="appendix-head"><div class="eyebrow">ANSWERS & SUPPORT</div><h2>부록. 정답 · 코드 힌트 · 완성 예시</h2><p>먼저 스스로 풀어본 후 필요한 항목만 펼쳐 확인하세요. 모든 해설은 문서 맨 아래에 모았습니다.</p></section><section class="panel solutions"><details><summary>부록 A · 객관식 정답과 해설 <span>Q01 · Q03 · Q04 · Q05 · Q07 · Q09</span></summary><div class="detail-inner"><table><thead><tr><th>문항</th><th>정답</th><th>핵심 해설</th></tr></thead><tbody><tr><td>Q01</td><td>②</td><td>학습하지 않은 입력에 대한 성능을 평가하는 것이 일반화 성능입니다.</td></tr><tr><td>Q03</td><td>③</td><td>모델을 선택하는 과정에서 최종 평가 데이터가 간접적으로 활용되지 않도록 구분합니다.</td></tr><tr><td>Q04</td><td>②</td><td>저장된 특성 목록의 센서 열을 같은 순서로 추출합니다.</td></tr><tr><td>Q05</td><td>③</td><td>predict()는 이미 학습한 모델로 예측하며 fit()처럼 다시 학습하지 않습니다.</td></tr><tr><td>Q07</td><td>②</td><td>같은 설정의 새 모델 객체를 만들며, 이전 학습 결과를 복사하지 않습니다.</td></tr><tr><td>Q09</td><td>④</td><td>학습 데이터에서 계산한 표준화 통계를 검증 데이터 변환에도 그대로 활용합니다.</td></tr></tbody></table></div></details><details><summary>부록 B · [직접 작성 01] 힌트 <span>모델 S 예측</span></summary><div class="detail-inner"><p><b>힌트 1.</b> <code>val_df</code>에서 열 목록 <code>features</code>를 선택하면 입력 센서만 남습니다.</p><p><b>힌트 2.</b> 정답 열 이름은 <code>state</code>입니다. 예측은 <code>model_S.predict(...)</code>를 사용합니다.</p></div></details><details><summary>부록 B · [직접 작성 01] 완성 예시 <span>모델 S 예측</span></summary><div class="detail-inner"><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>X_val = val_df[features]
+y_val = val_df[&quot;state&quot;]
+y_pred_S = model_S.predict(X_val)
+
+print(&quot;예측 일부:&quot;, y_pred_S[:10])</code></pre></div><p>입력 <code>X_val</code>에는 센서 열만, <code>y_val</code>에는 실제 정답이 담깁니다. 예측 단계에서는 <code>fit()</code>을 호출하지 않습니다.</p></div></details><details><summary>부록 C · [직접 작성 02] 힌트 <span>장비별 성능 평가</span></summary><div class="detail-inner"><p><b>힌트 1.</b> 현재 <code>device_id</code>와 같은 ID를 가진 행만 선택합니다.</p><p><b>힌트 2.</b> 각 장비에서 <code>X = part[features]</code>, <code>y = part["state"]</code>를 구성합니다.</p><p><b>힌트 3.</b> 앞에서 만든 <code>evaluate_model(model, X, y)</code>을 사용하면 성능 딕셔너리를 받을 수 있습니다.</p></div></details><details><summary>부록 C · [직접 작성 02] 완성 예시 <span>장비별 성능 평가</span></summary><div class="detail-inner"><div class="code-wrap"><div class="code-top"><span>PYTHON · 실습 코드</span><button class="copy" type="button" onclick="copyCode(this)">코드 복사</button></div><pre><code>def evaluate_by_device(model, df, features):
+    results = []
+
+    for device_id in sorted(df[&quot;device_id&quot;].unique()):
+        part = df[df[&quot;device_id&quot;] == device_id]
+        X = part[features]
+        y = part[&quot;state&quot;]
+        scores = evaluate_model(model, X, y)
+
+        results.append({
+            &quot;device_id&quot;: device_id,
+            &quot;Macro F1&quot;: scores[&quot;Macro F1&quot;],
+            &quot;Danger Recall&quot;: scores[&quot;Danger Recall&quot;]
+        })
+
+    return pd.DataFrame(results)</code></pre></div><p>반복할 때마다 검증용 장비 한 대의 데이터만 선택하고, 그 장비에서 모델 성능을 계산해 표에 누적합니다.</p></div></details><details><summary>부록 D · 실습 중 자주 생기는 문제 <span>오류 점검</span></summary><div class="detail-inner"><ul><li><b>FileNotFoundError:</b> DATA_DIR와 MODEL_PATH의 실제 경로를 확인합니다.</li><li><b>KeyError:</b> 모델 패키지의 키 이름과 CSV 열 이름을 확인합니다. <code>list(package.keys())</code>를 출력해 보세요.</li><li><b>모델 입력 특성 오류:</b> 저장한 <code>features</code>가 새 CSV에 존재하고 순서가 유지되는지 확인합니다.</li><li><b>알고리즘 이름 불일치:</b> 모델 저장 시 알고리즘 표기와 <code>make_model()</code>의 분기 이름을 일치시키세요.</li><li><b>성능이 예상과 다름:</b> 모델 S는 다시 학습하지 않았는지, 평가 대상이 13~16번인지 점검합니다.</li><li><b>모델 파일 주의:</b> <code>joblib</code>은 신뢰할 수 있는 파일만 열어야 합니다. 라이브러리 버전 차이로 호환 문제가 생길 수 있습니다.</li></ul></div></details></section><p class="footnote">반도체장비 예지보전 실무 · MISSION 03 · 학생용 실습 워크북</p></main><script>async function copyCode(btn){const txt=btn.closest('.code-wrap').querySelector('code').textContent;try{await navigator.clipboard.writeText(txt);btn.textContent='복사 완료';setTimeout(()=>btn.textContent='코드 복사',1200)}catch(e){const r=document.createRange();r.selectNodeContents(btn.closest('.code-wrap').querySelector('code'));const s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨 · Ctrl+C';}}</script></body></html>

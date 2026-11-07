@@ -22,3 +22,6 @@ llm_setup_environment/
 # pkl
 *.pkl
 
+# LLM_Research_Lab_Student
+
+*.LLM_Research_Lab_Student
