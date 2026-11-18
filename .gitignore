@@ -25,3 +25,18 @@ llm_setup_environment/
 # LLM_Research_Lab_Student
 
 *.LLM_Research_Lab_Student
+
+# Origin
+*.Origin
+
+# origin
+*.origin
+
+# .bmp
+*.bmp
+
+# 특정폴더 제외 cifar-10-batches-py
+cifar-10-batches-py/
+
+# .gz
+*.gz
